@@ -30,17 +30,17 @@ export default function Home() {
       <YoutubeGrid />
       <Stats />
       <YoutubeVideos />
-      <WavyBackgroundDemo />
+      {/* <WavyBackgroundDemo /> */}
       <TimelineComponent />
+      <SecondQuote />
       <AboutMe />
+      <CallToAction />
       <Projects />
       <Books />
       <GearSection />
-      <SecondQuote />
       {/* <FeaturedBlogs /> */}
       <Faq />
       <ContactForm />
-      <CallToAction />
       {/* <TheEnd /> */}
       <Footer />
     </main>
