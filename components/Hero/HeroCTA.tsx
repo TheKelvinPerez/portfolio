@@ -9,7 +9,7 @@ export default function HeroCTA() {
           data-gsap="tech-badge"
         >
           <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-b mb-10 from-white/40 to-[#2F2D2D]/20 px-3 py-1 text-base text-white/80 lg:px-5 lg:py-1 lg:text-lg xl:px-8 xl:py-2 xl:text-xl">
-            React | Typescript | AI
+            Typescript | Python | AI
           </div>
         </div>
         <div

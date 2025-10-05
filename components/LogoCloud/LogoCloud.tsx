@@ -6,32 +6,8 @@ import TypescriptLogo from '@/public/images/svg/TS-Logo.svg';
 import FigmaLogo from '@/public/images/svg/figma-logo.svg';
 import VercelLogo from '@/public/images/svg/Vercel-Logo.svg';
 import OpenAILogo from '@/public/images/svg/openai-logo.svg';
-import PHPLogo from '@/public/images/svg/php-logo.svg';
-import LaravelLogo from '@/public/images/svg/laravel-logo.svg';
-import WordPressLogo from '@/public/images/svg/wordpress-logo.svg';
 
 export const logos = [
-  {
-    src: WordPressLogo,
-    alt: 'WordPress Logo',
-    name: 'WordPress',
-    width: 30,
-    height: 30,
-  },
-  {
-    src: PHPLogo,
-    alt: 'PHP Logo',
-    name: 'PHP',
-    width: 30,
-    height: 30,
-  },
-  {
-    src: LaravelLogo,
-    alt: 'Laravel Logo',
-    name: 'Laravel',
-    width: 30,
-    height: 30,
-  },
   { src: ReactLogo, alt: 'React Logo', name: 'React', width: 30, height: 30 },
   {
     src: TypescriptLogo,
@@ -62,27 +38,6 @@ export const logos = [
     height: 30,
   },
   {
-    src: WordPressLogo,
-    alt: 'WordPress Logo',
-    name: 'WordPress',
-    width: 30,
-    height: 30,
-  },
-  {
-    src: PHPLogo,
-    alt: 'PHP Logo',
-    name: 'PHP',
-    width: 30,
-    height: 30,
-  },
-  {
-    src: LaravelLogo,
-    alt: 'Laravel Logo',
-    name: 'Laravel',
-    width: 30,
-    height: 30,
-  },
-  {
     src: PythonLogo,
     alt: 'Python Logo',
     name: 'Python',
@@ -93,7 +48,29 @@ export const logos = [
   {
     src: OpenAILogo,
     alt: 'OpenAI Logo',
-    name: 'AI/ML',
+    name: 'OpenAI',
+    width: 30,
+    height: 30,
+  },
+  { src: ReactLogo, alt: 'React Logo', name: 'React', width: 30, height: 30 },
+  {
+    src: TypescriptLogo,
+    alt: 'TypeScript Logo',
+    name: 'TypeScript',
+    width: 30,
+    height: 30,
+  },
+  {
+    src: VercelLogo,
+    alt: 'Vercel Logo',
+    name: 'Next.js',
+    width: 30,
+    height: 30,
+  },
+  {
+    src: TailwindCSSLogo,
+    alt: 'Tailwind CSS Logo',
+    name: 'Tailwind CSS',
     width: 30,
     height: 30,
   },

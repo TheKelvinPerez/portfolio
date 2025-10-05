@@ -3,54 +3,68 @@ import SectionHeading from "@/components/SectionHeading";
 
 const defaultData = [
   {
-    answer: "I'm a full-stack software engineer with 8+ years of experience specializing in WordPress, Laravel, PHP, React, Next.js, and AI integration. I also have expertise in UI/UX design and modern development workflows.",
-    icon: "💻",
+    answer: "I'm an AI-powered full-stack engineer with 8+ years of experience. I specialize in TypeScript, Python, React, Next.js, and AI integration. I focus on building intelligent applications using LLMs, RAG systems, and AI agents, combined with modern UI/UX design.",
+    icon: "🤖",
     iconPosition: "left" as const,
     id: 1,
-    question: "What's your technical background and expertise?",
+    question: "What's your AI and technical expertise?",
   },
   {
-    answer: "Yes! I offer consultations for WordPress development, Laravel projects, AI integration, and modern web development. I also provide guidance on developer workflows and tooling like Neovim. Contact me to discuss your project needs.",
+    answer: "Absolutely! I help startups and companies integrate AI into their products, build TypeScript/Python applications, design AI-powered user experiences, and architect scalable AI systems. I also mentor on startup strategy and building in public.",
     icon: "💡",
     iconPosition: "right" as const,
     id: 2,
-    question: "Do you offer consulting services?",
+    question: "Do you offer AI consulting and startup guidance?",
   },
   {
-    answer: "I work with TypeScript, Next.js 14, React, PHP, Laravel, WordPress, Tailwind CSS, and various databases including MySQL and SQLite. I'm also experienced with AI APIs, YouTube/GitHub integrations, and modern tooling like Bun and Drizzle ORM.",
+    answer: "My core stack is TypeScript, Python, React, Next.js 14, and AI APIs (OpenAI, Anthropic, etc.). I work with RAG systems, vector databases, AI agents, modern deployment platforms, and design tools like Figma for AI-powered workflows.",
     id: 3,
-    question: "What technologies do you currently work with?",
+    question: "What's your current AI and development stack?",
   },
   {
-    answer: "I've built scalable web applications, WordPress plugins, Laravel projects, and modern React/Next.js applications. I also create content on YouTube teaching development concepts and live stream coding sessions weekly.",
+    answer: "I've built AI-powered applications, intelligent chatbots, RAG systems, Chrome extensions, NFT projects ($28M+ generated), and modern SaaS products. I live stream building AI startups and share my journey building in public.",
     icon: "🚀",
     iconPosition: "left" as const,
     id: 4,
-    question: "What types of projects have you worked on?",
+    question: "What AI projects and startups have you built?",
   },
   {
-    answer: "I'm always interested in discussing new opportunities! Whether you need a full-stack developer, WordPress specialist, or someone with AI integration experience, feel free to reach out. I'm particularly excited about projects involving modern web technologies.",
+    answer: "Yes! I'm actively looking for opportunities to build AI-powered products, join AI-focused startups, or help companies integrate intelligent features. I'm especially excited about projects involving LLMs, automation, and human-AI collaboration.",
     icon: "🤝",
     iconPosition: "right" as const,
     id: 5,
-    question: "Are you available for new projects or full-time roles?",
+    question: "Are you available for AI and startup projects?",
   },
   {
-    answer: "Yes, I have experience with both startup environments and established companies. I understand the fast-paced nature of startups, rapid prototyping, and the need for scalable solutions that can grow with the business.",
+    answer: "Definitely! I've launched multiple successful startups including a $20K MRR Chrome extension and NFT projects generating $28M+. I understand rapid prototyping, MVP development, AI-first product strategy, and scaling with modern tech stacks.",
     id: 6,
-    question: "Do you have startup experience?",
+    question: "Do you have proven startup and entrepreneurship experience?",
   },
   {
-    answer: "I create educational content on YouTube covering WordPress, AI, Next.js, React, PHP, and developer workflows. I also live stream weekly coding sessions where I work on real projects and share development insights.",
+    answer: "I live stream weekly on YouTube building AI startups from scratch, teach TypeScript/Python development, AI integration techniques, and startup methodology. I believe in building in public and sharing the entire journey.",
     icon: "📺",
     iconPosition: "left" as const,
     id: 7,
-    question: "I see you create content - what do you teach?",
+    question: "What do you teach about AI and startups?",
   },
   {
-    answer: "I focus on writing clean, maintainable code with proper TypeScript implementation, comprehensive testing, and modern development practices. I prioritize performance, accessibility, and user experience in all my projects.",
+    answer: "I follow AI-first development principles with clean TypeScript/Python code, proper type safety, intelligent testing with AI assistance, and modern deployment practices. I focus on building scalable AI systems that enhance user experience.",
     id: 8,
-    question: "What's your approach to code quality and best practices?",
+    question: "What's your approach to AI-powered development?",
+  },
+  {
+    answer: "I've worked extensively with OpenAI GPT models, Anthropic Claude, LangChain, vector databases (Pinecone, Weaviate), and building custom AI agents. I specialize in RAG systems, prompt engineering, and integrating AI into production applications.",
+    icon: "🧠",
+    iconPosition: "right" as const,
+    id: 9,
+    question: "What specific AI technologies do you work with?",
+  },
+  {
+    answer: "I help startups identify AI opportunities, prototype AI-powered features, build MVPs with intelligent capabilities, and scale AI systems. I focus on practical AI implementation that drives real business value and user engagement.",
+    icon: "⚡",
+    iconPosition: "left" as const,
+    id: 10,
+    question: "How do you help startups leverage AI?",
   },
 ];
 
@@ -59,7 +73,7 @@ export default function FAQ() {
     <div className="flex flex-col justify-center items-center gap-4">
       <SectionHeading
         heading="FAQs"
-        subheading="Common questions about my experience, services, and approach to development"
+        subheading="Common questions about my AI expertise, startup experience, and approach to building intelligent applications"
       />
       <FaqAccordion
         data={defaultData}

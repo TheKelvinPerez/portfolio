@@ -17,18 +17,20 @@ export default function Letter() {
             <p>What&apos;s Up Everyone, I&apos;m AquaWolf from Miami, FL</p>
             <p>
               So, my story&apos;s kinda wild. Started my coding journey back in 2016 
-              with PHP - my first love, building simple websites and learning the magic 
-              of server-side programming.
+              learning the fundamentals, but I quickly got swept up in the JavaScript 
+              revolution that was transforming the web.
             </p>
             <p>
-              But then I got caught up in the JavaScript hype train. React, TypeScript, 
-              Next.js, Node.js - the whole modern ecosystem. Dove deep into design too - 
-              mastering Figma, UI/UX principles, and creating pixel-perfect interfaces.
+              React, TypeScript, Next.js, Node.js - I dove headfirst into the modern 
+              ecosystem. But what really captured me was the intersection of design and 
+              technology - mastering Figma, UI/UX principles, and creating interfaces 
+              that weren&apos;t just functional, but genuinely delightful.
             </p>
             <p>
-              I became truly full-stack - designing in Figma, developing with the latest 
-              frameworks, and deploying on Linux machines. DevOps, design systems, 
-              the works. Followed that wave straight into the crypto craze of October 2021.
+              I became truly full-stack in the modern sense - designing intelligent 
+              user experiences in Figma, developing with cutting-edge frameworks, 
+              and deploying scalable applications. This wave carried me straight 
+              into the crypto craze of October 2021.
             </p>
             <p>
               Helped launch some really big NFT projects - DAW, TheLostKingdom & 
@@ -48,34 +50,35 @@ export default function Letter() {
               anymore, but eventually I found my way back to myself.
             </p>
             <p>
-              And here&apos;s the beautiful part - I came full circle back to PHP. 
-              WordPress, Laravel, the whole ecosystem that started it all.
+              And here&apos;s the beautiful part - I came back to find the world had 
+              transformed. AI wasn&apos;t just a buzzword anymore - it was revolutionizing 
+              how we build, design, and think about user experiences.
             </p>
             <p>
-              But now? Now I truly understand how everything connects. Design to 
-              deployment, frontend to backend, the entire stack. After my journey 
-              through JavaScript land and beyond, I can take an idea from Figma 
-              mockup to production server - I&apos;ve finally mastered this craft.
+              Now I truly understand how everything connects. AI-powered design workflows, 
+              intelligent TypeScript applications, Next.js with built-in AI capabilities, 
+              the entire modern stack working in harmony. I can take an idea from AI-assisted 
+              design in Figma to production deployment with intelligent features baked in.
             </p>
             <p>So, now I&apos;m back in the mix, wearing a bunch of hats:</p>
             <ul className="list-disc pl-6">
-              <li>Full-Stack PHP Developer (WordPress & Laravel)</li>
-              <li>UI/UX Designer & Figma Expert</li>
-              <li>DevOps Engineer (Linux & Cloud Deployment)</li>
-              <li>Live Stream Coding (Building in Public)</li>
-              <li>AI Tinkerer & Creative Problem Solver</li>
+              <li>AI-Powered Full-Stack Developer (TypeScript, React, Next.js)</li>
+              <li>UI/UX Designer & AI Design Tools Expert</li>
+              <li>DevOps Engineer (Modern Cloud & AI Infrastructure)</li>
+              <li>Live Stream Coding (Building AI-Powered Projects)</li>
+              <li>AI Integration Specialist & Creative Problem Solver</li>
             </ul>
             <p>
-              My mission is to bridge the gap between design and development, creating 
-              end-to-end solutions from concept to deployment. I believe in building 
-              experiences that are not just technically robust but also beautifully 
-              designed and meaningfully crafted.
+              My mission is to bridge the gap between AI, design, and development, creating 
+              intelligent end-to-end solutions from concept to deployment. I believe in building 
+              experiences that are not just technically robust but also beautifully designed, 
+              AI-enhanced, and meaningfully crafted for the future.
             </p>
             <p>
-              Always open to connecting with fellow builders, designers, and
-              curious minds. Whether it&apos;s discussing design systems, PHP frameworks, 
-              DevOps workflows, or exploring new technological frontiers, I&apos;m
-              here for it.
+              Always open to connecting with fellow builders, designers, and AI enthusiasts. 
+              Whether it&apos;s discussing AI-powered design systems, modern TypeScript architectures, 
+              Next.js applications, or exploring the cutting edge of human-AI collaboration, 
+              I&apos;m here for it.
             </p>
             <p>Let&apos;s build the future together.</p>
             <div className="relative flex flex-col items-center gap-2">
@@ -95,7 +98,7 @@ export default function Letter() {
                   0xAquawolf
                 </div>
                 <div className="text-[12px] lg:text-lg">
-                  Full-Stack Developer & Designer
+                  AI-Powered Full-Stack Developer & Designer
                 </div>
               </div>
             </div>

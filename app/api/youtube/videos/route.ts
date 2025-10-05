@@ -71,8 +71,8 @@ async function getTopVideos(channelId: string): Promise<YouTubeVideo[]> {
     }))
     .filter((video): video is YouTubeVideo => video.id !== undefined && video.id !== null);
 
-  // Sort by view count
-  return videos.sort((a, b) => b.viewCount - a.viewCount);
+  // Sort by publish date (latest to oldest)
+  return videos.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 }
 
 export async function GET() {
