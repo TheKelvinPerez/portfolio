@@ -41,6 +41,7 @@ export default function Home() {
       {/* <FeaturedBlogs /> */}
       <Faq />
       <ContactForm />
+      <CallToAction />
       {/* <TheEnd /> */}
       <Footer />
     </main>

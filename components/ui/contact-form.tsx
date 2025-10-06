@@ -12,13 +12,13 @@ export default function ContactForm() {
         <div className="mt-20">
           <div className="max-w-lg mx-auto space-y-3 sm:text-center">
             <h3 className="text-indigo-600 font-semibold">
-              Let&apos;s Build Something Amazing
+              Let's Build Something Amazing
             </h3>
             <p className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
               Ready to leverage AI?
             </p>
             <p>
-              Looking to build AI-powered applications, integrate intelligent features, or launch your next startup? Let&apos;s discuss how we can bring your vision to life.
+              Looking to build AI-powered applications, integrate intelligent features, or launch your next startup? Let's discuss how we can bring your vision to life.
             </p>
           </div>
           <div className="mt-12 max-w-lg mx-auto">

@@ -358,7 +358,7 @@ const timelineData = [
 
 export default function TimelineComponent() {
   return (
-    <div id="timeline" className="w-full">
+    <div id="timeline" className="w-full mt-40">
       <SectionHeading
         heading="My Developer Journey"
         subheading="8+ Years of Evolution: From PHP foundations to AI-powered development, live streaming, and building in public"

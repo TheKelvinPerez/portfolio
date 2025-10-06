@@ -15,7 +15,7 @@ export default function Example() {
         <h1 className="text-4xl md:text-5xl md:leading-[60px] font-semibold max-w-xl mt-5 bg-gradient-to-r from-white to-[#CAABFF] text-transparent bg-clip-text">See my credentials & expertise</h1>
         <p className="text-white/80 max-w-md mt-4">Download my resume to learn more about my experience, skills, and how I can help bring your next project to life.</p>
         <a
-          href="/resume.pdf"
+          href="https://docs.google.com/document/d/15DKjg8zZwIXyBa8Bva6vI90dvgSh34HxlHaPAnwGOJE/edit?usp=sharing"
           download
           className="px-8 py-3 text-white bg-violet-600 hover:bg-violet-700 transition-all rounded-full uppercase text-sm mt-8 inline-block"
         >
