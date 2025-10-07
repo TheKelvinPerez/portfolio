@@ -2,6 +2,9 @@
 import React from 'react';
 import { Timeline } from '@/components/ui/timeline';
 import SectionHeading from '@/components/SectionHeading';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   AcademicCapIcon,
   ComputerDesktopIcon,
@@ -20,13 +23,13 @@ const timelineData = [
     title: '2016',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-4" data-gsap="timeline-header-0">
           <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
             <AcademicCapIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">The Beginning</h4>
         </div>
-        <p className="text-white text-sm md:text-base leading-relaxed">
+        <p className="text-white text-sm md:text-base leading-relaxed" data-gsap="timeline-text-0">
           Started my coding journey, watched coding videos and learned about web development. This was when I first heard about learning how to code and fell in love with the possibilities.
         </p>
       </div>
@@ -36,27 +39,27 @@ const timelineData = [
     title: '2017',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-4" data-gsap="timeline-header-1">
           <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
             <ComputerDesktopIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">Commitment to Web Development</h4>
         </div>
-        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
+        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4" data-gsap="timeline-text-1">
           Really hunkered down and decided this was the path I wanted to take as a web developer. Started learning PHP and WordPress as my foundation.
         </p>
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20">
+        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20" data-gsap="timeline-achievements-1">
           <h5 className="text-cyan-400 font-semibold mb-2">Key Achievements</h5>
           <div className="space-y-2">
-            <div className="flex items-start space-x-3">
+            <div className="flex items-start space-x-3" data-gsap="timeline-bullet-1-0">
               <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
               <span className="text-sm text-gray-100">PHP fundamentals</span>
             </div>
-            <div className="flex items-start space-x-3">
+            <div className="flex items-start space-x-3" data-gsap="timeline-bullet-1-1">
               <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
               <span className="text-sm text-gray-100">WordPress basics</span>
             </div>
-            <div className="flex items-start space-x-3">
+            <div className="flex items-start space-x-3" data-gsap="timeline-bullet-1-2">
               <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
               <span className="text-sm text-gray-100">First internship at marketing company</span>
             </div>
@@ -357,13 +360,55 @@ const timelineData = [
 
 
 export default function TimelineComponent() {
+  useGSAP(() => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Set initial states for timeline section
+    gsap.set('[data-gsap="timeline-heading"]', { opacity: 0, y: 20 });
+    gsap.set('[data-gsap="timeline-subheading"]', { opacity: 0, y: 25 });
+    gsap.set('[data-gsap="timeline-container"]', { opacity: 0, y: 30 });
+
+    // Create staggered timeline with ScrollTrigger
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '[data-gsap="timeline-heading"]',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none none',
+      }
+    });
+    
+    tl.to('[data-gsap="timeline-heading"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    })
+    .to('[data-gsap="timeline-subheading"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    }, '-=0.3')
+    .to('[data-gsap="timeline-container"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+    }, '-=0.2');
+  });
+
   return (
     <div id="timeline" className="w-full mt-40">
       <SectionHeading
         heading="My Developer Journey"
         subheading="8+ Years of Evolution: From PHP foundations to AI-powered development, live streaming, and building in public"
+        animationId="timeline"
       />
-      <Timeline data={timelineData} />
+      <div data-gsap="timeline-container">
+        <Timeline data={timelineData} />
+      </div>
     </div>
   );
 }

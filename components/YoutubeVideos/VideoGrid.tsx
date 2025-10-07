@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface VideoItem {
   id: string;
@@ -32,6 +35,7 @@ const VideoCard: React.FC<VideoItem> = ({
     target="_blank"
     rel="noopener noreferrer"
     className="group/bento relative w-full overflow-hidden rounded-lg"
+    data-gsap="video-card"
   >
     <div className="absolute inset-0 h-full w-full rounded-lg bg-black opacity-0 transition-all duration-200 group-hover/bento:opacity-30" />
     <div className="relative aspect-video w-full overflow-hidden rounded-lg">
@@ -76,6 +80,31 @@ export default function VideoGrid() {
       .then(setVideos)
       .finally(() => setLoading(false));
   }, []);
+
+  useGSAP(() => {
+    if (loading || videos.length === 0) return;
+
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Set initial states for video cards
+    gsap.set('[data-gsap="video-card"]', { opacity: 0, y: 40 });
+
+    // Create staggered animation for video cards
+    gsap.to('[data-gsap="video-card"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      stagger: 0.3, // 0.3s delay between each video card
+      scrollTrigger: {
+        trigger: '[data-gsap="video-card"]',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none none',
+      }
+    });
+  }, [loading, videos]); // Re-run when loading state or videos change
 
   if (loading) {
     return (
