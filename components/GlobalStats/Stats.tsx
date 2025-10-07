@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import { Octokit } from '@octokit/rest';
-import NumberTicker from '../magicui/number-ticker';
 import { cache } from 'react';
+import StatsClient from './StatsClient';
 
 // Types for our stats
 interface Stat {
@@ -111,28 +111,7 @@ export const Stats = async () => {
     { value: githubStars, label: 'Github Stars' },
   ];
 
-  return (
-    <section className="mx-auto mb-20 max-w-[1440px] px-4 py-12 text-white lg:mb-32">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="mb-8 text-center text-base font-semibold lg:text-2xl">
-          Global Stats {DEBUG ? '(Debug Mode)' : ''}
-        </h2>
-        <div className="flex flex-col items-center justify-center md:flex-row text-white">
-          {statsData.map((stat, index) => (
-            <div
-              key={index}
-              className="mb-8 w-full px-6 text-center md:mb-0 md:w-1/3"
-            >
-              <p className="mb-2 text-4xl font-bold lg:text-5xl">
-                <NumberTicker value={stat.value} />
-              </p>
-              <p className="text-sm text-gray-400 lg:text-lg">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <StatsClient statsData={statsData} isDebug={DEBUG} />;
 };
 
 export default Stats;

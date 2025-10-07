@@ -1,7 +1,12 @@
+'use client';
+
 import React from "react";
 import Image from "next/image";
 import { CommentData } from "./CommentData";
 import SectionHeading from "../SectionHeading";
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const TestimonialCard: React.FC<CommentData> = ({
   username,
@@ -56,14 +61,54 @@ const ScrollingTestimonials: React.FC<{ testimonials: CommentData[] }> = ({
 
   const [group1, group2, group3] = splitTestimonials(testimonials);
 
+  useGSAP(() => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Set initial states for testimonials section
+    gsap.set('[data-gsap="testimonials-heading"]', { opacity: 0, y: 20 });
+    gsap.set('[data-gsap="testimonials-subheading"]', { opacity: 0, y: 25 });
+    gsap.set('[data-gsap="testimonials-grid"]', { opacity: 0, y: 30 });
+
+    // Create staggered timeline with ScrollTrigger
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '[data-gsap="testimonials-heading"]',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none none',
+      }
+    });
+    
+    tl.to('[data-gsap="testimonials-heading"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    })
+    .to('[data-gsap="testimonials-subheading"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    }, '-=0.3')
+    .to('[data-gsap="testimonials-grid"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+    }, '-=0.2');
+  });
+
   return (
     <div className="3xl:max-w-[1440px] mx-auto mt-32 overflow-hidden py-16 lg:max-w-[1100px]">
       <SectionHeading
         heading="Loved by Thousands of People"
         subheading="Here's what some of my viewers have to say about 0xAquaWolf"
+        animationId="testimonials"
       />
       <div className="relative">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3" data-gsap="testimonials-grid">
           {/* Mobile view: single column */}
           <div 
             className="marquee-slow h-[600px] overflow-hidden px-10 md:hidden"
