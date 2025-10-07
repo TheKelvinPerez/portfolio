@@ -5,6 +5,7 @@ export default function Introduction() {
     <SectionHeading
       heading="Introduction"
       subheading="Welcome to my digital space where creativity meets innovation"
+      animationId="intro"
     />
   );
 }
