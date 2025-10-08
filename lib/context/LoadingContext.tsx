@@ -82,10 +82,10 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
       loadingState.loadedAssets.size >= REQUIRED_ASSETS.length &&
       !loadingState.isComplete
     ) {
-      // Add a small delay to ensure smooth UX
+      // Add a longer delay to ensure smooth UX and prevent snappy loading
       const timer = setTimeout(() => {
         setLoadingComplete();
-      }, 500);
+      }, 1200); // Increased from 500ms to 1200ms for better UX
 
       return () => clearTimeout(timer);
     }
