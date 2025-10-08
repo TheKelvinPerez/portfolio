@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "scn:add": "bunx --bun shadcn-ui@latest add",
@@ -34,10 +34,10 @@
     "gsap": "^3.13.0",
     "lucide-react": "^0.438.0",
     "motion": "^12.23.22",
-    "next": "14.2.6",
+    "next": "15.5.4",
     "next-themes": "^0.3.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "recharts": "^2.12.7",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-pretty-code": "^0.14.0",
@@ -55,12 +55,12 @@
     "@tailwindcss/typography": "^0.5.15",
     "@types/canvas-confetti": "^1.6.4",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.1",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
     "@typescript-eslint/parser": "^8.45.0",
     "eslint": "8",
-    "eslint-config-next": "^15.5.4",
+    "eslint-config-next": "15.5.4",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
@@ -72,5 +72,9 @@
   "trustedDependencies": [
     "protobufjs"
   ],
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
+  "overrides": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.1"
+  }
 }
