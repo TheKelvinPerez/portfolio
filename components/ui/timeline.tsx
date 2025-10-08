@@ -47,6 +47,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     gsap.set('[data-gsap*="timeline-text-"]', { opacity: 0, x: 60 });
     gsap.set('[data-gsap*="timeline-achievements-"]', { opacity: 0, x: 40 });
     gsap.set('[data-gsap*="timeline-bullet-"]', { opacity: 0, x: 30 });
+    
+    // Set initial states for ALL bullet points using CSS selectors
+    gsap.set('[data-gsap*="timeline-content-"] .flex.items-start', { opacity: 0, x: 30 });
 
     // Create detailed animations for each timeline item
     data.forEach((_, index) => {
@@ -76,68 +79,73 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         ease: 'back.out(1.7)',
       })
       
-      // Phase 2: Year title (from left) - faster timing
+      // Phase 2: Year title (from left) - BOOM timing
       .to([year, yearMobile], {
         opacity: 1,
         x: 0,
-        duration: 0.6,
+        duration: 0.4,
         ease: 'power2.out',
-      }, '+=0.1')
+      }, '+=0.05') // Almost immediate
       
-      // Phase 3: Content animations (from right) - one after the other
+      // Phase 3: Content animations (from right) - BOOM BOOM effect
       .to(content, {
         opacity: 1,
         x: 0,
-        duration: 0.7,
+        duration: 0.5,
         ease: 'power2.out',
-      }, '+=0.3')
+      }, '+=0.1') // Much faster follow-up
       
-      // Additional detailed animations if elements exist
+      // Animate ALL bullet points regardless of detailed elements
+      const bulletSelectors = [
+        `${content} .flex.items-start:nth-child(1)`,
+        `${content} .flex.items-start:nth-child(2)`, 
+        `${content} .flex.items-start:nth-child(3)`,
+        `${content} .flex.items-start:nth-child(4)`,
+        `${content} .flex.items-start:nth-child(5)`,
+        `${content} .flex.items-start:nth-child(6)`,
+        `${content} .flex.items-start:nth-child(7)`,
+        `${content} .flex.items-start:nth-child(8)`,
+      ];
+      
+      // Stagger bullet points with CSS selectors for all timeline items
+      bulletSelectors.forEach((bulletSelector, bulletIndex) => {
+        const bulletElements = document.querySelectorAll(bulletSelector);
+        if (bulletElements.length > 0) {
+          tl.to(bulletSelector, {
+            opacity: 1,
+            x: 0,
+            duration: 0.3,
+            ease: 'power2.out',
+          }, `+=${bulletIndex * 0.03}`); // Super fast bullet stagger
+        }
+      });
+      
+      // Additional detailed animations if elements exist (for 2016/2017)
       if (document.querySelector(header)) {
         tl.to(header, {
           opacity: 1,
           x: 0,
-          duration: 0.6,
+          duration: 0.4,
           ease: 'power2.out',
-        }, '-=0.5'); // Start during content animation
+        }, '-=0.4'); // Start during content animation
       }
       
       if (document.querySelector(text)) {
         tl.to(text, {
           opacity: 1,
           x: 0,
-          duration: 0.6,
+          duration: 0.4,
           ease: 'power2.out',
-        }, '-=0.3'); // Start slightly after header
+        }, '-=0.2'); // Start slightly after header
       }
       
       if (document.querySelector(achievements)) {
         tl.to(achievements, {
           opacity: 1,
           x: 0,
-          duration: 0.6,
+          duration: 0.4,
           ease: 'power2.out',
         }, '-=0.1'); // Start slightly after text
-        
-        // Individual bullet points (faster stagger)
-        const bullets = [
-          `[data-gsap="timeline-bullet-${index}-0"]`,
-          `[data-gsap="timeline-bullet-${index}-1"]`,
-          `[data-gsap="timeline-bullet-${index}-2"]`,
-          `[data-gsap="timeline-bullet-${index}-3"]`,
-          `[data-gsap="timeline-bullet-${index}-4"]`,
-        ];
-        
-        bullets.forEach((bullet, bulletIndex) => {
-          if (document.querySelector(bullet)) {
-            tl.to(bullet, {
-              opacity: 1,
-              x: 0,
-              duration: 0.4,
-              ease: 'power2.out',
-            }, `+=${bulletIndex * 0.05}`); // Much faster bullet stagger
-          }
-        });
       }
     });
   }, [data]);

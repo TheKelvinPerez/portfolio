@@ -1,27 +1,32 @@
-import { cn } from "@/lib/utils";
-import { useState } from "react";
-export default function Example() {
+export default function DownloadResumeCTA() {
   return (
     <>
-      <div className="max-w-5xl mt-60 py-16 md:w-full mx-2 md:mx-auto flex flex-col items-center justify-center text-center bg-gradient-to-b from-[#5524B7] to-[#380B60] rounded-2xl p-10 text-white font-sans">
-        <div className="flex flex-wrap items-center justify-center p-1 rounded-full bg-purple-600/10 backdrop-blur border border-purple-500/40 text-sm">
+      <div className="mx-2 mt-60 flex max-w-5xl flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#5524B7] to-[#380B60] p-10 py-16 text-center font-sans text-white md:mx-auto md:w-full">
+        <div className="flex flex-wrap items-center justify-center rounded-full border border-purple-500/40 bg-purple-600/10 p-1 text-sm backdrop-blur">
           <div className="flex items-center">
-            <span className="text-lg mr-2">💼</span>
-            <span className="text-lg mr-2">🚀</span>
+            <span className="mr-2 text-lg">💼</span>
+            <span className="mr-2 text-lg">🚀</span>
             <span className="text-lg">📈</span>
           </div>
-          <p className="ml-2 font-medium">Trusted by leading companies and startups</p>
+          <p className="ml-2 font-medium">
+            Trusted by leading companies and startups
+          </p>
         </div>
-        <h1 className="text-4xl md:text-5xl md:leading-[60px] font-semibold max-w-xl mt-5 bg-gradient-to-r from-white to-[#CAABFF] text-transparent bg-clip-text">See my credentials & expertise</h1>
-        <p className="text-white/80 max-w-md mt-4">Download my resume to learn more about my experience, skills, and how I can help bring your next project to life.</p>
+        <h1 className="mt-5 max-w-xl bg-gradient-to-r from-white to-[#CAABFF] bg-clip-text text-4xl font-semibold text-transparent md:text-5xl md:leading-[60px]">
+          See my credentials & expertise
+        </h1>
+        <p className="mt-4 max-w-md text-white/80">
+          Download my resume to learn more about my experience, skills, and how
+          I can help bring your next project to life.
+        </p>
         <a
           href="https://docs.google.com/document/d/15DKjg8zZwIXyBa8Bva6vI90dvgSh34HxlHaPAnwGOJE/edit?usp=sharing"
           download
-          className="px-8 py-3 text-white bg-violet-600 hover:bg-violet-700 transition-all rounded-full uppercase text-sm mt-8 inline-block"
+          className="mt-8 inline-block rounded-full bg-violet-600 px-8 py-3 text-sm uppercase text-white transition-all hover:bg-violet-700"
         >
           Download Resume
         </a>
       </div>
     </>
   );
-};
+}
