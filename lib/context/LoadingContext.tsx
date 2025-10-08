@@ -1,6 +1,12 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
 
 interface LoadingState {
   progress: number;
@@ -25,7 +31,7 @@ const REQUIRED_ASSETS = [
   'god-rays-shader',
   'fonts',
   'hero-components',
-  'critical-images'
+  'critical-images',
 ];
 
 export function LoadingProvider({ children }: LoadingProviderProps) {
@@ -37,12 +43,15 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
   });
 
   const setAssetLoaded = (assetName: string) => {
-    setLoadingState(prev => {
+    setLoadingState((prev) => {
       const newLoadedAssets = new Set(prev.loadedAssets);
       newLoadedAssets.add(assetName);
-      
-      const progress = Math.min(100, (newLoadedAssets.size / REQUIRED_ASSETS.length) * 100);
-      
+
+      const progress = Math.min(
+        100,
+        (newLoadedAssets.size / REQUIRED_ASSETS.length) * 100,
+      );
+
       return {
         ...prev,
         loadedAssets: newLoadedAssets,
@@ -52,14 +61,14 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
   };
 
   const setProgress = (progress: number) => {
-    setLoadingState(prev => ({
+    setLoadingState((prev) => ({
       ...prev,
       progress: Math.min(100, Math.max(0, progress)),
     }));
   };
 
   const setLoadingComplete = () => {
-    setLoadingState(prev => ({
+    setLoadingState((prev) => ({
       ...prev,
       progress: 100,
       isComplete: true,
@@ -69,12 +78,15 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
 
   // Auto-complete when all assets are loaded
   useEffect(() => {
-    if (loadingState.loadedAssets.size >= REQUIRED_ASSETS.length && !loadingState.isComplete) {
+    if (
+      loadingState.loadedAssets.size >= REQUIRED_ASSETS.length &&
+      !loadingState.isComplete
+    ) {
       // Add a small delay to ensure smooth UX
       const timer = setTimeout(() => {
         setLoadingComplete();
       }, 500);
-      
+
       return () => clearTimeout(timer);
     }
   }, [loadingState.loadedAssets.size, loadingState.isComplete]);
@@ -100,3 +112,4 @@ export function useLoading() {
   }
   return context;
 }
+

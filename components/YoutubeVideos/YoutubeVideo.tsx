@@ -2,49 +2,28 @@
 
 import VideoGrid from "./VideoGrid";
 import SectionHeading from "../SectionHeading";
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function YoutubeVideos() {
-  useGSAP(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Set initial states for youtube videos section
-    gsap.set('[data-gsap="videos-heading"]', { opacity: 0, y: 20 });
-    gsap.set('[data-gsap="videos-subheading"]', { opacity: 0, y: 25 });
-    gsap.set('[data-gsap="videos-grid"]', { opacity: 0, y: 30 });
-
-    // Create staggered timeline with ScrollTrigger
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '[data-gsap="videos-heading"]',
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none none',
-      }
-    });
-    
-    tl.to('[data-gsap="videos-heading"]', {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-    })
-    .to('[data-gsap="videos-subheading"]', {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-    }, '-=0.3')
-    .to('[data-gsap="videos-grid"]', {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-    }, '-=0.2');
+  const gridRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(gridRef, { 
+    once: true, 
+    margin: "-20% 0px -20% 0px" 
   });
+
+  // Grid variant
+  const gridVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.8, 
+        ease: [0.25, 0.46, 0.45, 0.94] // power2.out equivalent
+      }
+    },
+  };
 
   return (
     <div id="videos" className="px-8">
@@ -53,9 +32,14 @@ export default function YoutubeVideos() {
         subheading="Live Streaming weekly: WordPress, AI, Next.js, React, PHP, Startups, AI Dev Workflows, Neovim"
         animationId="videos"
       />
-      <div data-gsap="videos-grid">
+      <motion.div 
+        ref={gridRef}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={gridVariants}
+      >
         <VideoGrid />
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -6,12 +6,9 @@ import {
 import './globals.css';
 import { cn } from '@/lib/utils';
 import localFont from 'next/font/local';
-import ResponsiveGodRays from '@/components/ui/ResponsiveGodRays';
 import Menu from '@/components/Hero/Menu/Menu';
 import { ThemeProvider } from 'next-themes';
-import NoiseTexture from '@/components/ui/NoiseTexture';
 import { LoadingProvider } from '@/lib/context/LoadingContext';
-import LoadingScreen from '@/components/LoadingScreen';
 import { LoadingManager } from '@/components/LoadingManager';
 
 export const metadata: Metadata = {
@@ -109,15 +106,6 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {/* <NoiseTexture /> */}
-            <div 
-              className="pointer-events-none absolute left-0 top-0 -z-10 h-[100dvh] w-full overflow-hidden"
-              style={{
-                maskImage: 'linear-gradient(to bottom, black 80%, transparent)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent)',
-              }}
-            >
-              <ResponsiveGodRays />
-            </div>
             <Menu />
             <div className="mx-auto max-w-[1440px] bg-transparent px-4 sm:px-6 lg:px-8">
               {children}
