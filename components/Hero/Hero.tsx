@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import { useEffect, useState } from 'react';
 import HeroCTA from './HeroCTA';
 import LogoCloud from '@/components/LogoCloud/LogoCloud';
-// import ResponsiveGodRays from '@/components/ui/ResponsiveGodRays';
 
 export default function Hero() {
   const [shouldAnimate, setShouldAnimate] = useState(false);
@@ -127,15 +126,6 @@ export default function Hero() {
     <div className="relative mt-32 flex min-h-[100dvh] flex-col px-2 md:mt-4 md:px-10 lg:justify-center">
       <HeroCTA />
       <LogoCloud />
-      {/* <div */}
-      {/*   className="pointer-events-none absolute left-0 top-0 -z-10 h-[100dvh] w-full overflow-hidden" */}
-      {/*   style={{ */}
-      {/*     maskImage: 'linear-gradient(to bottom, black 80%, transparent)', */}
-      {/*     WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent)', */}
-      {/*   }} */}
-      {/* > */}
-      {/*   <ResponsiveGodRays /> */}
-      {/* </div> */}
     </div>
   );
 }

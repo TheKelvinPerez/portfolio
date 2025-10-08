@@ -3,13 +3,12 @@ import FeaturedVideo from '@/components/FeaturedVideo/FeaturedVideo';
 import YoutubeGrid from '@/components/YoutubeGrid/YoutubeGrid';
 import Stats from '@/components/GlobalStats/Stats';
 import YoutubeVideos from '@/components/YoutubeVideos/YoutubeVideo';
-import { WavyBackgroundDemo } from '@/components/ui/WavyBackgroundDemo';
 import TimelineComponent from '@/components/Timeline/Timeline';
 import AboutMe from '@/components/about-me/AboutMe';
 import SecondQuote from '@/components/SecondQuote/SecondQuote';
 import { Footer } from '@/components/footer';
+import ResponsiveGodRays from '@/components/ui/ResponsiveGodRays';
 import Faq from '@/components/Home/FAQ';
-import FeaturedBlogs from '@/components/Blog/FeaturedBlogs';
 import { unstable_noStore as noStore } from 'next/cache';
 import Projects from '@/components/Projects/Projects';
 import Books from '@/components/Books/Books';
@@ -25,6 +24,7 @@ export default function Home() {
 
   return (
     <main className="bg-transparent">
+      <ResponsiveGodRays />
       <Hero />
       <FeaturedVideo />
       <YoutubeGrid />
