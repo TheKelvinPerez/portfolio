@@ -19,14 +19,14 @@ export function useIntersectionObserver(
 
   const [entry, setEntry] = useState<IntersectionObserverEntry>();
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const elementRef = useRef<Element>();
+  const elementRef = useRef<Element | null>(null);
 
   const frozen = entry?.isIntersecting && freezeOnceVisible;
 
   const updateEntry = ([entry]: IntersectionObserverEntry[]) => {
     const wasIntersecting = isIntersecting;
     const nowIntersecting = entry.isIntersecting;
-    
+
     if (wasIntersecting !== nowIntersecting) {
       console.log(`🔍 [IntersectionObserver] Visibility changed: ${nowIntersecting ? 'VISIBLE' : 'HIDDEN'}`, {
         intersectionRatio: entry.intersectionRatio,
@@ -35,7 +35,7 @@ export function useIntersectionObserver(
         target: entry.target
       });
     }
-    
+
     setEntry(entry);
     setIsIntersecting(nowIntersecting);
   };
@@ -52,6 +52,7 @@ export function useIntersectionObserver(
     observer.observe(node);
 
     return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [elementRef, threshold, root, rootMargin, frozen]);
 
   return { ref: elementRef, entry, isIntersecting };
