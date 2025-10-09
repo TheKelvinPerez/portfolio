@@ -51,10 +51,10 @@ export const projectsData: Project[] = [
   {
     title: 'Personal Portfolio - Open Source Project',
     description:
-      'Modern portfolio and blog website built with Next.js 14, featuring Velite CMS, Drizzle ORM with Turso database, and shadcn/ui components. Open-sourced with 76+ stars and 17 forks, complete development process live-streamed on YouTube.',
+      'Modern portfolio website built with Next.js 14, featuring Drizzle ORM with Turso database, and shadcn/ui components. Open-sourced with 76+ stars and 17 forks, complete development process live-streamed on YouTube.',
     date: 'September 2025',
     imageUrl: '/projects/portfolio.png',
-    tags: ['Next.js', 'TypeScript', 'Velite CMS', 'Drizzle ORM', 'Turso', 'Open Source', 'Portfolio'],
+    tags: ['Next.js', 'TypeScript', 'Drizzle ORM', 'Turso', 'Open Source', 'Portfolio'],
     slug: 'personal-portfolio-nextjs',
     links: [
       { title: 'Live Site', url: 'https://0xaquawolf.com' },
@@ -64,10 +64,10 @@ export const projectsData: Project[] = [
     fullDescription:
       '## Problem\n\n' +
       'Developers need a professional portfolio that showcases their technical skills while serving as a functional development playground. Most portfolio templates are either too simple or overly complex, lacking the balance between impressive visuals and practical functionality.\n\n' +
-      'The challenge was creating a portfolio that demonstrates advanced technical capabilities while remaining maintainable and providing real value through blog content and project showcases.\n\n' +
+      'The challenge was creating a portfolio that demonstrates advanced technical capabilities while remaining maintainable and providing real value through project showcases.\n\n' +
       '## Action\n\n' +
-      'Built a comprehensive portfolio website using Next.js 14 with modern development patterns including Velite for content management, Drizzle ORM with Turso database for data persistence, and shadcn/ui for consistent design. The entire development process was documented through live streaming.\n\n' +
-      'Implemented advanced features like dynamic content processing, real-time project showcases, blog functionality with MDX support, and responsive design optimized for all devices. Focused on performance optimization, SEO, and modern development best practices.\n\n' +
+      'Built a comprehensive portfolio website using Next.js 14 with modern development patterns including Drizzle ORM with Turso database for data persistence, and shadcn/ui for consistent design. The entire development process was documented through live streaming.\n\n' +
+      'Implemented advanced features like real-time project showcases, and responsive design optimized for all devices. Focused on performance optimization, SEO, and modern development best practices.\n\n' +
       '## Results\n\n' +
       'The portfolio project has achieved significant community recognition:\n\n' +
       '- 76+ GitHub stars from the developer community\n' +
@@ -75,7 +75,6 @@ export const projectsData: Project[] = [
       '- Complete development documentation through YouTube live streams\n' +
       '- Modern tech stack showcasing current development capabilities\n' +
       '- High-performance website with optimized loading speeds\n' +
-      '- Functional blog with advanced content management\n' +
       '- Professional project showcases with detailed case studies\n' +
       '- Active community engagement and positive feedback',
   },

@@ -29,13 +29,9 @@ TURSO_AUTH_TOKEN=""
 
 ## Architecture Overview
 
-This is a Next.js 14 portfolio and blog website built with TypeScript, featuring:
+This is a Next.js 14 portfolio website built with TypeScript, featuring:
 
 - **App Router**: Uses Next.js App Router with TypeScript
-- **Content Management**: 
-  - Blog posts managed via Velite (content processing)
-  - MDX support with syntax highlighting (Shiki)
-  - Content files processed during build via Velite webpack plugin
 - **Database**: Drizzle ORM with Turso (SQLite) database
 - **Styling**: Tailwind CSS with shadcn/ui and Aceternity UI components
 - **Animation**: GSAP and Framer Motion for animations
@@ -45,12 +41,10 @@ This is a Next.js 14 portfolio and blog website built with TypeScript, featuring
 
 - `app/` - Next.js App Router pages and API routes
   - `api/youtube/videos/route.ts` - YouTube API endpoint
-  - `posts/` - Blog post pages
   - `projects/` - Project showcase pages
 - `components/` - Reusable React components organized by feature
-  - `Hero/`, `LogoCloud/`, `GlobalStats/`, `Blog/` etc.
+  - `Hero/`, `LogoCloud/`, `GlobalStats/` etc.
   - `magicui/` - UI components library
-  - `mdx/` - MDX-specific components
 - `lib/` - Utility functions and configurations
 - `drizzle/` - Database schema and migrations
 
@@ -66,17 +60,11 @@ This is a Next.js 14 portfolio and blog website built with TypeScript, featuring
 - **Directories**: Use lowercase with dashes (e.g., auth-wizard)
 - **Performance**: Optimize Web Vitals (LCP, CLS, FID); use dynamic loading for non-critical components
 
-## Content Management
-
-- Blog posts are processed by Velite during build
-- MDX files support syntax highlighting with Shiki
-- Content is automatically processed via webpack plugin in next.config.mjs
-
 ## Package Management
 
 - **Runtime**: Uses Bun as the JavaScript runtime and package manager
 - **Package Manager**: Configured to use pnpm@9.15.4 as fallback package manager
-- **Dependencies**: Key libraries include GSAP, Framer Motion, Drizzle ORM, Velite, and Tailwind CSS
+- **Dependencies**: Key libraries include GSAP, Framer Motion, Drizzle ORM, and Tailwind CSS
 
 ## Animation Libraries
 

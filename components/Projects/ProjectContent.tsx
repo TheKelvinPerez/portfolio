@@ -181,7 +181,7 @@ export default function ProjectContent({
           </h2>
           <p className="mb-6 text-gray-400">
             Watch the complete development process of this portfolio website in this YouTube playlist.
-            See how this modern Next.js portfolio was built from scratch with Velite CMS, Drizzle ORM, and more.
+            See how this modern Next.js portfolio was built from scratch with Drizzle ORM and more.
           </p>
           <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-900">
             <iframe
