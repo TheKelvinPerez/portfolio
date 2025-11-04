@@ -30,7 +30,7 @@
 
 <h2 align="center">About This Project</h3>
 
-[![Portfolio Screen Shot][product-screenshot]](https://kelvinperez.com)
+<!-- [![Portfolio Screen Shot][product-screenshot]](https://kelvinperez.com) -->
 
 This is my personal portfolio and blog website. It showcases my projects, skills, and thoughts on various topics in the tech industry. The site is built with modern web technologies to ensure a smooth, responsive, and visually appealing experience for visitors.
 
@@ -182,8 +182,6 @@ Distributed under the GPL License. See `LICENSE` for more information.
 ## Contact
 
 Twitter / x - [@TheKelvinPerez](https://twitter.com/TheKelvinPerez)
-
-[Aquawolf Academy Discord](https://discord.gg/wzPBjEcn87)
 
 <!-- ACKNOWLEDGMENTS -->
 
