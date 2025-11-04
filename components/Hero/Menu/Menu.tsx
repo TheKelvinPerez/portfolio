@@ -77,7 +77,9 @@ export default function Menu() {
                 width={25}
                 height={25}
               />
-              <div className="text-lg font-semibold text-white">Kelvin Perez</div>
+              <div className="text-lg font-semibold text-white">
+                Kelvin Perez
+              </div>
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -95,7 +97,7 @@ export default function Menu() {
               href="https://github.com/0xAquaWolf"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 rounded-full py-3 px-6 text-center text-sm text-white shadow-alt-cta transition-all hover:bg-white hover:text-black hover:shadow-cta xl:px-8 xl:py-3 xl:text-base"
+              className="group flex items-center gap-2 rounded-full px-6 py-3 text-center text-sm text-white shadow-alt-cta transition-all hover:bg-white hover:text-black hover:shadow-cta xl:px-8 xl:py-3 xl:text-base"
             >
               <Image
                 src={GithubLogo}
@@ -111,28 +113,34 @@ export default function Menu() {
       </header>
 
       {/* Sticky centered navigation menu */}
-      <div className={`fixed inset-x-0 max-w-2xl top-3 mx-auto z-50 hidden lg:flex lg:items-center lg:justify-center transition-all duration-500 ease-out ${isVisible
-        ? "translate-y-0 opacity-100 scale-100"
-        : "-translate-y-16 opacity-0 scale-95 pointer-events-none"
+      <div
+        className={`fixed inset-x-0 top-3 z-50 mx-auto hidden max-w-2xl transition-all duration-500 ease-out lg:flex lg:items-center lg:justify-center ${
+          isVisible
+            ? 'translate-y-0 scale-100 opacity-100'
+            : 'pointer-events-none -translate-y-16 scale-95 opacity-0'
         }`}
         style={{
           transitionProperty: 'transform, opacity, scale',
           transitionTimingFunction: isVisible
             ? 'cubic-bezier(0.16, 1, 0.3, 1)'
             : 'cubic-bezier(0.7, 0, 0.84, 0)',
-        }}>
-        <nav className="relative rounded-full border border-white/[0.2] bg-white/10 backdrop-blur-md shadow-lg flex justify-center space-x-8 px-10 py-4"
+        }}
+      >
+        <nav
+          className="relative flex justify-center space-x-8 rounded-full border border-white/[0.2] bg-white/10 px-10 py-4 shadow-lg backdrop-blur-md"
           style={{
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
-          }}>
+          }}
+        >
           {navMenu.map((item) => (
             <a
               key={item.name}
               href={item.href}
               onClick={() => setActiveNavItem(item.name)}
               className={clsx({
-                'text-white/90 hover:text-white font-medium px-4 py-2 rounded-full transition-all duration-200': true,
+                'rounded-full px-4 py-2 font-medium text-white/90 transition-all duration-200 hover:text-white':
+                  true,
                 'bg-white/20 text-white': item.isActive,
                 'hover:bg-white/10': !item.isActive,
               })}
@@ -200,7 +208,7 @@ export default function Menu() {
                 <div className="mt-10 grid gap-10">
                   <div className="align-center flex flex-1 justify-center gap-10">
                     <a
-                      href="https://twitter.com/0xAquaWolf"
+                      href="https://twitter.com/TheKelvinPerez"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -213,7 +221,7 @@ export default function Menu() {
                     </a>
                     <a
                       className="grid items-center"
-                      href="https://www.youtube.com/@0xAquaWolf"
+                      href="https://www.youtube.com/@TheKelvinPerez"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -225,7 +233,7 @@ export default function Menu() {
                       />
                     </a>
                     <a
-                      href="https://github.com/0xAquaWolf"
+                      href="https://github.com/TheKelvinPerez"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -239,32 +247,7 @@ export default function Menu() {
                   </div>
                   <div className="align-center flex justify-center gap-10">
                     <a
-                      href="https://www.instagram.com/_0xAquaWolf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="grid items-center"
-                    >
-                      <Image
-                        src={InstagramLogo}
-                        alt="Instagram Logo"
-                        width={50}
-                        height={50}
-                      />
-                    </a>
-                    <a
-                      href="https://www.tiktok.com/@0xAquaWolf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Image
-                        src={TiktokLogo}
-                        alt="TikTok Logo"
-                        width={50}
-                        height={50}
-                      />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/0xAquaWolf"
+                      href="https://www.linkedin.com/in/TheKelvinPerez"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="grid items-center"

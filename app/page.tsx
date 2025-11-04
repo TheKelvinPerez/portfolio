@@ -26,20 +26,20 @@ export default function Home() {
       <main className="bg-transparent">
         <ResponsiveGodRays />
         <Hero />
-      <FeaturedVideo />
-      <TimelineComponent />
-      <CallToAction />
-      <SecondQuote />
-      <AboutMe />
-      <CallToAction />
-      <Projects />
-      <Books />
-      <GearSection />
-      <Faq />
-      <ContactForm />
-      <CallToAction />
-      <Footer />
-    </main>
+        {/* <FeaturedVideo /> */}
+        <TimelineComponent />
+        <CallToAction />
+        <SecondQuote />
+        <AboutMe />
+        <CallToAction />
+        <Projects />
+        <Books />
+        <GearSection />
+        <Faq />
+        <ContactForm />
+        <CallToAction />
+        <Footer />
+      </main>
     </>
   );
 }

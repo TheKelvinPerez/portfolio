@@ -29,14 +29,14 @@ export const projectsData: Project[] = [
       { title: 'Live Site', url: 'https://sunnyside247ac.com' },
     ],
     fullDescription:
-      '## Problem\n\n' +
+      '# Problem\n\n' +
       'A family-owned HVAC business in South Florida was struggling to compete with larger companies in local search results. They needed comprehensive online coverage across 30+ cities and 15+ service types, but manually creating hundreds of location-specific pages would be:\n\n' +
       '- **Time-Prohibitive**: 420+ pages would take months to create manually\n' +
       '- **Inconsistent**: Manual creation leads to content quality variations\n' +
       '- **Unmaintainable**: Updating business info across hundreds of pages becomes impossible\n' +
       '- **Limited SEO Impact**: Without proper structure and automation, achieving local search dominance is unfeasible\n\n' +
       '**Core Challenge**: Create a scalable, enterprise-level platform that generates hundreds of SEO-optimized pages dynamically while maintaining consistency, delivering measurable ROI through organic search traffic, and remaining easy to manage.\n\n' +
-      '## Action\n\n' +
+      '# Action\n\n' +
       '### WordPress Architecture & Automation\n' +
       'Engineered a sophisticated content management system using **custom post types** and **Advanced Custom Fields Pro**:\n\n' +
       '- **3 Custom Post Types**: 31 Cities, 15 Services, 8 Brands with relationship management\n' +
@@ -63,7 +63,7 @@ export const projectsData: Project[] = [
       '- **Schema Markup**: LocalBusiness and Organization schema with geo-targeting for 30+ cities\n' +
       '- **Performance Optimization**: 1-year cache for static assets, dynamic scaling, efficient queries\n' +
       '- **Rich Snippets**: Enhanced meta tags (Open Graph, Twitter Cards) for better visibility\n\n' +
-      '## Results\n\n' +
+      '# Results\n\n' +
       '### Business Impact & ROI\n' +
       '- **90%+ Time Savings**: Automated content generation reduced creation time from months to days\n' +
       '- **487 SEO-Optimized Pages**: Massive organic search footprint covering entire South Florida market\n' +
@@ -109,7 +109,7 @@ export const projectsData: Project[] = [
       { title: 'GitHub', url: 'https://github.com/KelvinPerez/portfolio' },
     ],
     fullDescription:
-      '## Problem\n\n' +
+      '# Problem\n\n' +
       'As a WordPress & PHP full-stack developer with 8+ years of experience, I faced a challenge: **How do I effectively showcase backend expertise, DevOps capabilities, and business value in a portfolio?**\n\n' +
       'Most portfolio templates are designed for frontend developers and fail to:\n\n' +
       '- **Communicate Backend Depth**: Show advanced WordPress architecture, PHP expertise, and database optimization\n' +
@@ -117,7 +117,7 @@ export const projectsData: Project[] = [
       '- **Tell the Journey**: Connect technical evolution with personal growth story\n' +
       '- **Prove Full-Stack Range**: Show DevOps, SEO, and infrastructure capabilities beyond just code\n\n' +
       '**Core Challenge**: Build a portfolio that positions me as an enterprise-level WordPress & PHP specialist while showcasing the full circle journey back to WordPress with modern tools and perspective.\n\n' +
-      '## Action\n\n' +
+      '# Action\n\n' +
       '### Modern Tech Stack Implementation\n' +
       'Built the portfolio using Next.js 15 to demonstrate modern full-stack capabilities:\n\n' +
       '**Backend & Data Layer**:\n' +
@@ -151,7 +151,7 @@ export const projectsData: Project[] = [
       '- Learn to Code movement origin (2015) to enterprise WordPress solutions (2025)\n' +
       '- Emphasis on WordPress, PHP, Laravel, and AI integration expertise\n' +
       '- Full circle moment building father\'s HVAC site, rediscovering WordPress potential\n\n' +
-      '## Results\n\n' +
+      '# Results\n\n' +
       '### Professional Positioning Achieved\n' +
       '- **Clear WordPress Specialist Identity**: Portfolio immediately communicates WordPress & PHP expertise\n' +
       '- **Business Value Communication**: Quantified project impacts ($73K-230K development value)\n' +
