@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import SectionHeading from '@/components/SectionHeading';
 import BookCard from './BookCard';
 import BookModal from './BookModal';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface Book {
   id: string;
@@ -75,6 +78,59 @@ const placeholderBooks: Book[] = [
 export default function Books() {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
+  useGSAP(() => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Set initial states for books section
+    gsap.set('[data-gsap="books-heading"]', { opacity: 0, y: 20 });
+    gsap.set('[data-gsap="books-subheading"]', { opacity: 0, y: 25 });
+
+    // Set initial states for book cards
+    gsap.set('[data-gsap^="book-card-"]', { opacity: 0, y: 30, scale: 0.95 });
+
+    // Create staggered timeline with ScrollTrigger
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '[data-gsap="books-heading"]',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none none',
+      },
+    });
+
+    // Animate heading and subheading first
+    tl.to('[data-gsap="books-heading"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    })
+    .to(
+      '[data-gsap="books-subheading"]',
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      },
+      '-=0.3',
+    )
+    // Then stagger animate book cards
+    .to(
+      '[data-gsap^="book-card-"]',
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power2.out',
+      },
+      '-=0.2',
+    );
+  }, []);
+
   const handleBookClick = (book: Book) => {
     setSelectedBook(book);
   };
@@ -89,15 +145,20 @@ export default function Books() {
         <SectionHeading
           heading="Favorite Books"
           subheading="Books that have fundamentally shaped my understanding and approach to development, business, and personal growth"
+          animationId="books"
         />
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {placeholderBooks.map((book) => (
-            <BookCard 
-              key={book.id} 
-              book={book} 
-              onClick={() => handleBookClick(book)} 
-            />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" data-gsap="books-grid">
+          {placeholderBooks.map((book, index) => (
+            <div
+              key={book.id}
+              data-gsap={`book-card-${index}`}
+            >
+              <BookCard
+                book={book}
+                onClick={() => handleBookClick(book)}
+              />
+            </div>
           ))}
         </div>
       </div>
