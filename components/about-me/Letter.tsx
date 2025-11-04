@@ -29,9 +29,11 @@ export default function Letter() {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     const startTyping = () => {
+      setHasStarted(true);
       setIsTyping(true);
       setCurrentSectionIndex(0);
       setCurrentCharIndex(0);
@@ -129,23 +131,13 @@ export default function Letter() {
       }
     };
 
-    const typingSpeed = 8; // Faster typing speed
+    const typingSpeed = 10; // Balanced speed for optimal readability
     const timer = setTimeout(typeNextChar, typingSpeed);
 
     return () => clearTimeout(timer);
   }, [currentSectionIndex, currentCharIndex, isTyping]);
 
-  const Cursor = () => (
-    <span
-      className="inline-block w-4 h-7 bg-white ml-1 animate-pulse"
-      style={{
-        verticalAlign: 'text-bottom',
-        backgroundColor: 'white',
-        borderRadius: '2px'
-      }}
-    />
-  );
-
+  
   const GradientFade = ({ children, isActive, baseOpacity = 0.8 }: { children: React.ReactNode; isActive: boolean; baseOpacity?: number }) => {
     if (!isActive) return children;
 
@@ -169,15 +161,26 @@ export default function Letter() {
     );
   };
 
+  const LoadingIndicator = () => (
+    <div className="flex flex-col items-center justify-center py-12 lg:py-20 space-y-3 lg:space-y-4 min-h-[400px] lg:min-h-[500px]">
+      <div className="flex space-x-1.5 lg:space-x-2">
+        <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+        <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+        <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+      </div>
+      <p className="text-white/40 text-xs lg:text-sm animate-pulse text-center px-4">Preparing your letter...</p>
+    </div>
+  );
+
   return (
-    <div className="relative px-5 lg:px-0">
-      <div className="my-8 flex justify-center" data-gsap="about-profile-pic">
+    <div className="relative px-4 sm:px-5 lg:px-0">
+      <div className="my-6 lg:my-8 flex justify-center" data-gsap="about-profile-pic">
         <Image
           src={KelvinPerezPFP}
           alt="Kelvin Perez"
           width={200}
           height={200}
-          className="rounded-full shadow-lg"
+          className="rounded-full shadow-lg w-32 h-32 lg:w-48 lg:h-48 object-cover"
         />
       </div>
       <div className="relative">
@@ -187,123 +190,131 @@ export default function Letter() {
         <div className="absolute left-1 top-1 z-20 h-[98%] w-[98%] -rotate-1 rounded-lg bg-letter-bottom lg:left-3 lg:top-10 lg:h-[95%] lg:w-[98%] lg:rotate-3"></div>
         {/* Letter Top */}
         <div className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl" data-gsap="about-letter">
-          <article className="space-y-4 p-4 text-base text-white/80 lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
-            <div className="space-y-4">
-              {displayedContent.map((section, index) => {
-                const isCurrentSection = isTyping && index === currentSectionIndex;
-
-                if (section.type === 'paragraph') {
-                  return (
-                    <p key={index} className="leading-relaxed">
-                      <GradientFade isActive={isCurrentSection}>
-                        {section.text}
-                      </GradientFade>
-                      {isCurrentSection && <Cursor />}
-                    </p>
-                  );
-                }
-
-                if (section.type === 'list') {
-                  return (
-                    <ul key={index} className="list-disc pl-6 space-y-2">
-                      {section.items.map((item: string, itemIndex: number) => {
-                        const isCurrentItem = isCurrentSection && itemIndex === section.items.length - 1 && item.length > 0;
-                        return (
-                          <li key={itemIndex} className="leading-relaxed">
-                            <GradientFade isActive={isCurrentItem}>
-                              {item}
-                            </GradientFade>
-                            {isCurrentItem && <Cursor />}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  );
-                }
-
-                return null;
-              })}
-            </div>
-
-            {/* Closing section */}
-            {displayedContent.some(section => section.type === 'closing') && (
-              <div className="relative flex flex-col items-center gap-2">
+          <article className="space-y-4 p-4 text-base text-white/80 lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl min-h-[500px] lg:min-h-[600px]">
+            {!hasStarted ? (
+              <LoadingIndicator />
+            ) : (
+              <div className="space-y-4">
                 {displayedContent.map((section, index) => {
-                  if (section.type === 'closing') {
-                    const isCurrentSection = isTyping && index === currentSectionIndex;
+                  const isCurrentSection = isTyping && index === currentSectionIndex;
+
+                  if (section.type === 'paragraph') {
                     return (
-                      <div key={index} className="self-start">
+                      <p key={index} className="leading-relaxed">
                         <GradientFade isActive={isCurrentSection}>
                           {section.text}
                         </GradientFade>
-                        {isCurrentSection && <Cursor />}
-                      </div>
+                        {null}
+                      </p>
                     );
                   }
-                  return null;
-                })}
-              </div>
-            )}
 
-            {/* Signature section */}
-            {displayedContent.some(section => section.type === 'signature') && (
-              <div className="mb-10 font-handwriting text-4xl lg:text-6xl">
-                {displayedContent.map((section, index) => {
-                  if (section.type === 'signature') {
-                    const isCurrentSection = isTyping && index === currentSectionIndex;
+                  if (section.type === 'list') {
                     return (
-                      <div key={index} className="text-white">
-                        <GradientFade isActive={isCurrentSection} baseOpacity={1}>
-                          {section.name}
-                        </GradientFade>
-                        {isCurrentSection && <Cursor />}
-                      </div>
+                      <ul key={index} className="list-disc pl-6 space-y-2">
+                        {section.items.map((item: string, itemIndex: number) => {
+                          const isCurrentItem = isCurrentSection && itemIndex === section.items.length - 1 && item.length > 0;
+                          return (
+                            <li key={itemIndex} className="leading-relaxed">
+                              <GradientFade isActive={isCurrentItem}>
+                                {item}
+                              </GradientFade>
+                              {isCurrentItem && <Cursor baseOpacity={0.8} />}
+                            </li>
+                          );
+                        })}
+                      </ul>
                     );
                   }
+
                   return null;
                 })}
               </div>
             )}
 
-            {/* Footer section */}
-            {displayedContent.some(section => section.type === 'footer') && (
-              <div className="flex items-center gap-2">
-                <div>
-                  <Image
-                    src={KelvinPerezPFP}
-                    alt="Kelvin Perez PFP"
-                    width={64}
-                    height={64}
-                    className="rounded-full"
-                  />
-                </div>
-                <div className="lg:ml-4">
-                  {displayedContent.map((section, index) => {
-                    if (section.type === 'footer') {
-                      const isCurrentSection = isTyping && index === currentSectionIndex;
-                      const isTypingName = isCurrentSection && !section.title;
-                      const isTypingTitle = isCurrentSection && section.title;
-                      return (
-                        <div key={index}>
-                          <div className="text-xl font-semibold text-white lg:text-2xl">
-                            <GradientFade isActive={isTypingName} baseOpacity={1}>
+            {hasStarted && (
+              <>
+                {/* Closing section */}
+                {displayedContent.some(section => section.type === 'closing') && (
+                  <div className="relative flex flex-col items-center gap-2">
+                    {displayedContent.map((section, index) => {
+                      if (section.type === 'closing') {
+                        const isCurrentSection = isTyping && index === currentSectionIndex;
+                        return (
+                          <div key={index} className="self-start">
+                            <GradientFade isActive={isCurrentSection}>
+                              {section.text}
+                            </GradientFade>
+                            {null}
+                          </div>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                )}
+
+                {/* Signature section */}
+                {displayedContent.some(section => section.type === 'signature') && (
+                  <div className="mb-10 font-handwriting text-4xl lg:text-6xl">
+                    {displayedContent.map((section, index) => {
+                      if (section.type === 'signature') {
+                        const isCurrentSection = isTyping && index === currentSectionIndex;
+                        return (
+                          <div key={index} className="text-white">
+                            <GradientFade isActive={isCurrentSection} baseOpacity={1}>
                               {section.name}
                             </GradientFade>
-                            {isTypingName && <Cursor />}
+                            {null}
                           </div>
-                          <div className="text-[12px] lg:text-lg">
-                            <GradientFade isActive={isTypingTitle} baseOpacity={0.8}>
-                              {section.title}
-                            </GradientFade>
-                            {isTypingTitle && <Cursor />}
-                          </div>
-                        </div>
-                      );
-                    }
-                    return null;
-                  })}
-                </div>
-              </div>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                )}
+
+                {/* Footer section */}
+                {displayedContent.some(section => section.type === 'footer') && (
+                  <div className="flex items-center gap-2 lg:gap-2">
+                    <div>
+                      <Image
+                        src={KelvinPerezPFP}
+                        alt="Kelvin Perez PFP"
+                        width={64}
+                        height={64}
+                        className="rounded-full w-12 h-12 lg:w-16 lg:h-16 object-cover"
+                      />
+                    </div>
+                    <div className="lg:ml-4">
+                      {displayedContent.map((section, index) => {
+                        if (section.type === 'footer') {
+                          const isCurrentSection = isTyping && index === currentSectionIndex;
+                          const isTypingName = isCurrentSection && !section.title;
+                          const isTypingTitle = isCurrentSection && section.title;
+                          return (
+                            <div key={index}>
+                              <div className="text-xl font-semibold text-white lg:text-2xl">
+                                <GradientFade isActive={isTypingName} baseOpacity={1}>
+                                  {section.name}
+                                </GradientFade>
+                                {isTypingName && <Cursor baseOpacity={1} />}
+                              </div>
+                              <div className="text-[12px] lg:text-lg">
+                                <GradientFade isActive={isTypingTitle} baseOpacity={0.8}>
+                                  {section.title}
+                                </GradientFade>
+                                {isTypingTitle && <Cursor baseOpacity={0.8} />}
+                              </div>
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </article>
         </div>
