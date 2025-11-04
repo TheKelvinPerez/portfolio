@@ -77,7 +77,7 @@ export default function Menu() {
                 width={25}
                 height={25}
               />
-              <div className="text-lg font-semibold text-white">0xAquaWolf</div>
+              <div className="text-lg font-semibold text-white">Kelvin Perez</div>
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -153,7 +153,7 @@ export default function Menu() {
           <div className="relative z-50">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">0xAquaWolf</span>
+                <span className="sr-only">Kelvin Perez</span>
                 <div className="flex items-center gap-2">
                   <Image
                     src="/images/png/aquawolf-logo.png"
@@ -162,7 +162,7 @@ export default function Menu() {
                     height={25}
                   />
                   <div className="text-lg font-semibold text-white">
-                    0xAquaWolf
+                    Kelvin Perez
                   </div>
                 </div>
               </a>

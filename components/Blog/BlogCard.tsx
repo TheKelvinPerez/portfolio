@@ -49,7 +49,7 @@ export default function BlogCard({ blog }: BlogCardProps) {
                   {blog.readTime} read
                 </span>
               </div>
-              <p className="text-sm text-white">Written by 0xAquaWolf</p>
+              <p className="text-sm text-white">Written by Kelvin Perez</p>
             </div>
           </div>
           <div className="mt-2 overflow-hidden">

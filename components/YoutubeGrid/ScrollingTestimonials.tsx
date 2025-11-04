@@ -104,7 +104,7 @@ const ScrollingTestimonials: React.FC<{ testimonials: CommentData[] }> = ({
     <div className="3xl:max-w-[1440px] mx-auto mt-32 overflow-hidden py-16 lg:max-w-[1100px]">
       <SectionHeading
         heading="Loved by Thousands of People"
-        subheading="Here's what some of my viewers have to say about 0xAquaWolf"
+        subheading="Here's what some of my viewers have to say about Kelvin Perez"
         animationId="testimonials"
       />
       <div className="relative">

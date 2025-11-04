@@ -18,17 +18,29 @@ export function useViewport() {
       if (typeof window !== 'undefined') {
         const width = window.innerWidth;
         const height = window.innerHeight;
-        
-        setDimensions({
-          width: width <= 768 ? 390 : width <= 1024 ? 1024 : 1920,
-          height: width <= 768 ? 844 : height <= 720 ? 720 : 1080,
+
+        // Use actual dimensions instead of hardcoded values
+        const calculatedDimensions = {
+          width: width,
+          height: height,
+        };
+
+        console.log('useViewport - Update:', {
+          actualWidth: width,
+          actualHeight: height,
+          calculatedWidth: calculatedDimensions.width,
+          calculatedHeight: calculatedDimensions.height,
+          difference: width - calculatedDimensions.width,
+          isMobile: width <= 768
         });
+
+        setDimensions(calculatedDimensions);
       }
     };
 
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
-    
+
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 

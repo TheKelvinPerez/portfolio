@@ -1,8 +1,5 @@
 import Hero from '@/components/Hero/Hero';
 import FeaturedVideo from '@/components/FeaturedVideo/FeaturedVideo';
-import YoutubeGrid from '@/components/YoutubeGrid/YoutubeGrid';
-import Stats from '@/components/GlobalStats/Stats';
-import YoutubeVideos from '@/components/YoutubeVideos/YoutubeVideo';
 import TimelineComponent from '@/components/Timeline/Timeline';
 import AboutMe from '@/components/about-me/AboutMe';
 import SecondQuote from '@/components/SecondQuote/SecondQuote';
@@ -27,9 +24,6 @@ export default function Home() {
       <ResponsiveGodRays />
       <Hero />
       <FeaturedVideo />
-      <YoutubeGrid />
-      <Stats />
-      <YoutubeVideos />
       <TimelineComponent />
       <CallToAction />
       <SecondQuote />

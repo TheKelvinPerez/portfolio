@@ -9,14 +9,14 @@ export default function HeroCTA() {
           data-gsap="tech-badge"
         >
           <div className="mb-10 flex h-full w-full items-center justify-center rounded-full bg-gradient-to-b from-white/40 to-[#2F2D2D]/20 px-3 py-1 text-base text-white/80 lg:px-5 lg:py-1 lg:text-lg xl:px-8 xl:py-2 xl:text-xl">
-            UI/UX | Typescript | Python | AI
+            WordPress | Vite | UI/UX | PHP
           </div>
         </div>
         <div
           className="hero-gradient-text -mt-1 text-center text-4xl font-bold leading-tight opacity-0 sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl"
           data-gsap="hero-text"
         >
-          Full-Stack Engineer & UI/UX Designer
+          Full Stack WordPress Developer
         </div>
       </div>
       <div className="grid w-full max-w-md grid-cols-2 items-center justify-center gap-3">

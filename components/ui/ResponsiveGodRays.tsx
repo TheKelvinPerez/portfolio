@@ -11,11 +11,25 @@ export default function ResponsiveGodRays() {
   const { width, height } = useViewport();
   const { isComplete: loadingComplete, setAssetLoaded } = useLoading();
   const [canAnimate, setCanAnimate] = useState(false);
-  
+
   const { ref, isIntersecting } = useIntersectionObserver({
     threshold: 0.1,
     rootMargin: '50px',
   });
+
+  // Log viewport dimensions and component state
+  useEffect(() => {
+    console.log('ResponsiveGodRays - Dimensions:', {
+      width,
+      height,
+      windowWidth: typeof window !== 'undefined' ? window.innerWidth : 'N/A',
+      windowHeight: typeof window !== 'undefined' ? window.innerHeight : 'N/A',
+      devicePixelRatio: typeof window !== 'undefined' ? window.devicePixelRatio : 'N/A',
+      canAnimate,
+      isIntersecting,
+      shouldRenderShader: canAnimate && isIntersecting
+    });
+  }, [width, height, canAnimate, isIntersecting]);
 
   // Mark shader as loaded with realistic timing
   useEffect(() => {

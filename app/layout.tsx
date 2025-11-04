@@ -15,10 +15,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000',
   ),
-  title: '0xAquaWolf Portfolio & Blog',
+  title: 'Kelvin Perez Portfolio & Blog',
 
   description:
-    'AquaWolf is a Senior Full-Stack Software Engineer and indie hacker specializing in PHP, WordPress, and Laravel development. With a proven track record in building impactful, consumer-facing web applications and e-commerce solutions, AquaWolf focuses on modern PHP development practices, custom WordPress solutions, and scalable Laravel applications while delivering quality software and maintaining best development practices.',
+    'Kelvin Perez is a Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. With extensive experience building enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications, Kelvin delivers scalable, high-performance web applications that power e-commerce stores and business-critical websites.',
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: '0xAquaWolf',
+    title: 'Kelvin Perez',
   },
   formatDetection: {
     telephone: false,
@@ -48,17 +48,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     images: '/images/png/portfolio-preview.png',
-    siteName: '0xAquaWolf',
-    title: '0xAquaWolf Portfolio & Blog',
+    siteName: 'Kelvin Perez',
+    title: 'Kelvin Perez Portfolio & Blog',
     description:
-      'AquaWolf is a Senior Full-Stack Software Engineer and indie hacker specializing in PHP, WordPress, and Laravel development. With a proven track record in building impactful, consumer-facing web applications and e-commerce solutions, AquaWolf focuses on modern PHP development practices, custom WordPress solutions, and scalable Laravel applications while delivering quality software and maintaining best development practices.',
+      'Kelvin Perez is a Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. With extensive experience building enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications, Kelvin delivers scalable, high-performance web applications that power e-commerce stores and business-critical websites.',
   },
   twitter: {
     card: 'summary_large_image',
     images: '/images/png/portfolio-preview.png',
-    title: '0xAquaWolf Portfolio & Blog',
+    title: 'Kelvin Perez Portfolio & Blog',
     description:
-      'AquaWolf is a Senior Full-Stack Software Engineer and indie hacker specializing in PHP, WordPress, and Laravel development. With a proven track record in building impactful, consumer-facing web applications and e-commerce solutions, AquaWolf focuses on modern PHP development practices, custom WordPress solutions, and scalable Laravel applications while delivering quality software and maintaining best development practices.',
+      'Kelvin Perez is a Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. With extensive experience building enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications, Kelvin delivers scalable, high-performance web applications that power e-commerce stores and business-critical websites.',
   },
 };
 
@@ -91,7 +91,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-bg-default font-sans antialiased',
+          'min-h-screen overflow-y-hidden bg-bg-default font-sans antialiased',
           fontSans.variable,
           fontHandwriting.variable,
           MonaLisa.variable,

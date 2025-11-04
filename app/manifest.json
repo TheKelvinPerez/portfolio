@@ -1,6 +1,6 @@
 {
-    "name": "0xAquaWolf Portfolio & Blog",
-    "short_name": "0xAquaWolf",
+    "name": "Kelvin Perez Portfolio & Blog",
+    "short_name": "Kelvin Perez",
     "icons": [
       {
         "src": "/android-chrome-192x192.png",
@@ -17,7 +17,7 @@
     "background_color": "#ffffff",
     "display": "standalone",
     "start_url": "/",
-    "description": "AquaWolf is a Senior Full-Stack Software Engineer and indie hacker specializing in Web3, AI, and Machine Learning.",
+    "description": "Kelvin Perez is a Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration.",
     "orientation": "any",
     "lang": "en",
     "categories": ["technology", "portfolio", "blog"]

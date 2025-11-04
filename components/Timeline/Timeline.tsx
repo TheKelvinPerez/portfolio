@@ -15,7 +15,7 @@ import {
   GlobeAltIcon,
   CpuChipIcon,
   FlagIcon,
-  ArrowTopRightOnSquareIcon
+  ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/solid';
 
 const timelineData = [
@@ -23,14 +23,22 @@ const timelineData = [
     title: '2016',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4" data-gsap="timeline-header-0">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div
+          className="mb-4 flex items-center gap-3"
+          data-gsap="timeline-header-0"
+        >
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
             <AcademicCapIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">The Beginning</h4>
         </div>
-        <p className="text-white text-sm md:text-base leading-relaxed" data-gsap="timeline-text-0">
-          Started my coding journey, watched coding videos and learned about web development. This was when I first heard about learning how to code and fell in love with the possibilities.
+        <p
+          className="text-sm leading-relaxed text-white md:text-base"
+          data-gsap="timeline-text-0"
+        >
+          Started my coding journey, watched coding videos and learned about web
+          development. This was when I first heard about learning how to code
+          and fell in love with the possibilities.
         </p>
       </div>
     ),
@@ -39,29 +47,52 @@ const timelineData = [
     title: '2017',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4" data-gsap="timeline-header-1">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div
+          className="mb-4 flex items-center gap-3"
+          data-gsap="timeline-header-1"
+        >
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
             <ComputerDesktopIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">Commitment to Web Development</h4>
+          <h4 className="text-xl font-bold text-white">
+            Commitment to Web Development
+          </h4>
         </div>
-        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4" data-gsap="timeline-text-1">
-          Really hunkered down and decided this was the path I wanted to take as a web developer. Started learning PHP and WordPress as my foundation.
+        <p
+          className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base"
+          data-gsap="timeline-text-1"
+        >
+          Really hunkered down and decided this was the path I wanted to take as
+          a web developer. Started learning PHP and WordPress as my foundation.
         </p>
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20" data-gsap="timeline-achievements-1">
-          <h5 className="text-cyan-400 font-semibold mb-2">Key Achievements</h5>
+        <div
+          className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
+          data-gsap="timeline-achievements-1"
+        >
+          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
           <div className="space-y-2">
-            <div className="flex items-start space-x-3" data-gsap="timeline-bullet-1-0">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-1-0"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
               <span className="text-sm text-gray-100">PHP fundamentals</span>
             </div>
-            <div className="flex items-start space-x-3" data-gsap="timeline-bullet-1-1">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-1-1"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
               <span className="text-sm text-gray-100">WordPress basics</span>
             </div>
-            <div className="flex items-start space-x-3" data-gsap="timeline-bullet-1-2">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">First internship at marketing company</span>
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-1-2"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                First internship at marketing company
+              </span>
             </div>
           </div>
         </div>
@@ -72,33 +103,45 @@ const timelineData = [
     title: '2018',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
             <PaintBrushIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">Mastering the Fundamentals</h4>
+          <h4 className="text-xl font-bold text-white">
+            Mastering the Fundamentals
+          </h4>
         </div>
-        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-          Worked at marketing companies, diving deep into WordPress, CSS, and design. Started discovering the intersection of development and user experience.
+        <p className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base">
+          Worked at marketing companies, diving deep into WordPress, CSS, and
+          design. Started discovering the intersection of development and user
+          experience.
         </p>
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20">
-          <h5 className="text-cyan-400 font-semibold mb-2">Key Achievements</h5>
+        <div className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4">
+          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
           <div className="space-y-2">
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Custom WordPress development</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Custom WordPress development
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Advanced Custom Fields</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Advanced Custom Fields
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Adobe XD & Figma design</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Adobe XD & Figma design
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Color theory & typography</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Color theory & typography
+              </span>
             </div>
           </div>
         </div>
@@ -109,33 +152,43 @@ const timelineData = [
     title: '2019',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
             <BoltIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">JavaScript & Modern Stack Transition</h4>
+          <h4 className="text-xl font-bold text-white">
+            JavaScript & Modern Stack Transition
+          </h4>
         </div>
-        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-          Mastered JavaScript and began exploring React and TypeScript. Started seeing the potential of modern development beyond traditional CMS approaches.
+        <p className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base">
+          Mastered JavaScript and began exploring React and TypeScript. Started
+          seeing the potential of modern development beyond traditional CMS
+          approaches.
         </p>
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20">
-          <h5 className="text-cyan-400 font-semibold mb-2">Key Achievements</h5>
+        <div className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4">
+          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
           <div className="space-y-2">
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">JavaScript proficiency</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                JavaScript proficiency
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
               <span className="text-sm text-gray-100">React fundamentals</span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">UI/UX design principles</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                UI/UX design principles
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">TypeScript exploration</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                TypeScript exploration
+              </span>
             </div>
           </div>
         </div>
@@ -146,33 +199,43 @@ const timelineData = [
     title: '2020',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
             <RocketLaunchIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">Entrepreneurial Leap</h4>
         </div>
-        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-          COVID hit and I had enough experience to work independently. Built a Chrome extension startup with my brother for Amazon dropshipping automation.
+        <p className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base">
+          COVID hit and I had enough experience to work independently. Built a
+          Chrome extension startup with my brother for Amazon dropshipping
+          automation.
         </p>
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20">
-          <h5 className="text-cyan-400 font-semibold mb-2">Key Achievements</h5>
+        <div className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4">
+          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
           <div className="space-y-2">
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Chrome extension development</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Chrome extension development
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100 font-semibold">20K MRR achieved</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm font-semibold text-gray-100">
+                20K MRR achieved
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Amazon dropshipping automation</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Amazon dropshipping automation
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">First major startup success</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                First major startup success
+              </span>
             </div>
           </div>
         </div>
@@ -183,37 +246,51 @@ const timelineData = [
     title: '2021',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
             <CurrencyDollarIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">Crypto & Blockchain Era</h4>
+          <h4 className="text-xl font-bold text-white">
+            Crypto & Blockchain Era
+          </h4>
         </div>
-        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-          Feeling confident in JavaScript and React skills, discovered crypto, NFTs, and blockchain. Dove deep into Solidity and launched successful NFT projects.
+        <p className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base">
+          Feeling confident in JavaScript and React skills, discovered crypto,
+          NFTs, and blockchain. Dove deep into Solidity and launched successful
+          NFT projects.
         </p>
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20">
-          <h5 className="text-cyan-400 font-semibold mb-2">Key Achievements</h5>
+        <div className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4">
+          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
           <div className="space-y-2">
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Solidity programming</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Solidity programming
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">NFT project launches</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                NFT project launches
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100 font-semibold">$28M+ code generation</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm font-semibold text-gray-100">
+                $28M+ code generation
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Massive personal success</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Massive personal success
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Next.js & TypeScript mastery</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Next.js & TypeScript mastery
+              </span>
             </div>
           </div>
         </div>
@@ -224,33 +301,45 @@ const timelineData = [
     title: '2022',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
             <GlobeAltIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">Success & Spiritual Journey</h4>
+          <h4 className="text-xl font-bold text-white">
+            Success & Spiritual Journey
+          </h4>
         </div>
-        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-          Launched another ultra-successful NFT project ($300K). Experienced extreme burnout and began spiritual journey traveling the world for healing and perspective.
+        <p className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base">
+          Launched another ultra-successful NFT project ($300K). Experienced
+          extreme burnout and began spiritual journey traveling the world for
+          healing and perspective.
         </p>
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20">
-          <h5 className="text-cyan-400 font-semibold mb-2">Key Achievements</h5>
+        <div className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4">
+          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
           <div className="space-y-2">
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100 font-semibold">$300K NFT project</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm font-semibold text-gray-100">
+                $500K NFT project
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">World travel (Peru, Thailand, Cambodia, Laos, India)</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                World travel (Peru, Thailand, Cambodia, Laos, India)
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Early AI spiritual coach experiments</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Early AI spiritual coach experiments
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Spiritual growth & healing</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Spiritual growth & healing
+              </span>
             </div>
           </div>
         </div>
@@ -261,37 +350,47 @@ const timelineData = [
     title: '2023',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
             <CpuChipIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">AI Discovery & Deep Dive</h4>
+          <h4 className="text-xl font-bold text-white">
+            AI Discovery & Deep Dive
+          </h4>
         </div>
-        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-          Returned to Miami with fresh perspective. Discovered the AI revolution and immediately recognized its transformative potential. Dove deep into LLMs, RAG systems, and AI agents.
+        <p className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base">
+          Returned to Miami with fresh perspective. Discovered the AI revolution
+          and immediately recognized its transformative potential. Dove deep
+          into LLMs, RAG systems, and AI agents.
         </p>
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20">
-          <h5 className="text-cyan-400 font-semibold mb-2">Key Achievements</h5>
+        <div className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4">
+          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
           <div className="space-y-2">
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
               <span className="text-sm text-gray-100">OpenAI API mastery</span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">LLM integration expertise</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                LLM integration expertise
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">RAG systems development</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                RAG systems development
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
               <span className="text-sm text-gray-100">AI agent automation</span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">TypeScript + AI workflows</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                TypeScript + AI workflows
+              </span>
             </div>
           </div>
         </div>
@@ -302,54 +401,88 @@ const timelineData = [
     title: '2024-2025',
     content: (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
             <FlagIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">AI-Powered Creator & Entrepreneur</h4>
+          <h4 className="text-xl font-bold text-white">
+            Full Circle: Back to WordPress & PHP
+          </h4>
         </div>
-        <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-          Fully embraced AI-first development with TypeScript, React, and Next.js. Started live streaming, building in public, and creating AI-powered tools for the developer community.
+        <p className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base">
+          The full circle moment arrived when my father&apos;s HVAC company
+          needed a website. I explored modern tools like Astro, but WordPress
+          called me back home. Built a site with 480+ dynamically generated
+          pages using Advanced Custom Fields, custom templates, and dynamic
+          rewrite rules. This time, I could see the complete picture - React,
+          TypeScript, Tailwind, and Vite all interconnecting with WordPress in
+          ways I couldn&apos;t comprehend as a junior developer.
         </p>
-        <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-600/20">
-          <h5 className="text-cyan-400 font-semibold mb-2">Key Achievements</h5>
+        <div className="mb-4 rounded-lg border border-yellow-600/30 bg-yellow-900/20 p-4">
+          <p className="text-sm italic leading-relaxed text-yellow-200/90 md:text-base">
+            &quot;It was like coming home. WordPress wasn&apos;t just where I
+            started - it was where all my experience with modern JavaScript, AI,
+            and full-stack development converged into something powerful. Now I
+            see the potential clearly - WordPress with modern tools is
+            transformative.&quot;
+          </p>
+        </div>
+        <div className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4">
+          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
           <div className="space-y-2">
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <a href="https://youtube.com/@0xAquawolf" target="_blank" rel="noopener noreferrer" className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1">
-                Live streaming & content creation
-                <ArrowTopRightOnSquareIcon className="h-3 w-3" />
-              </a>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm font-semibold text-gray-100">
+                480+ page WordPress site with dynamic generation
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <a href="https://github.com/0xAquaWolf/AquaKit" target="_blank" rel="noopener noreferrer" className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors font-semibold flex items-center gap-1">
-                AquaKit AI starter kit (50+ stars)
-                <ArrowTopRightOnSquareIcon className="h-3 w-3" />
-              </a>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Advanced Custom Fields + custom template mastery
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <a href="https://github.com/0xAquaWolf/portfolio" target="_blank" rel="noopener noreferrer" className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors font-semibold flex items-center gap-1">
-                Open source portfolio (76+ stars)
-                <ArrowTopRightOnSquareIcon className="h-3 w-3" />
-              </a>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Dynamic rewrite rules for scalable routing
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Building in public methodology</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Modern WordPress with React & TypeScript
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">AI-powered UI/UX design workflows</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                WordPress + Tailwind CSS + Vite workflow
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Next.js + AI integration mastery</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Laravel & PHP framework expertise
+              </span>
             </div>
             <div className="flex items-start space-x-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-              <span className="text-sm text-gray-100">Entrepreneurship through technology</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Custom plugin & theme development
+              </span>
+            </div>
+            <div className="flex items-start space-x-3">
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                AI integration with WordPress & PHP
+              </span>
+            </div>
+            <div className="flex items-start space-x-3">
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="text-sm text-gray-100">
+                Headless WordPress architectures
+              </span>
             </div>
           </div>
         </div>
@@ -357,7 +490,6 @@ const timelineData = [
     ),
   },
 ];
-
 
 export default function TimelineComponent() {
   useGSAP(() => {
@@ -376,31 +508,39 @@ export default function TimelineComponent() {
         start: 'top 80%',
         end: 'bottom 20%',
         toggleActions: 'play none none none',
-      }
+      },
     });
-    
+
     tl.to('[data-gsap="timeline-heading"]', {
       opacity: 1,
       y: 0,
       duration: 0.6,
       ease: 'power2.out',
     })
-    .to('[data-gsap="timeline-subheading"]', {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-    }, '-=0.3')
-    .to('[data-gsap="timeline-container"]', {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-    }, '-=0.2');
+      .to(
+        '[data-gsap="timeline-subheading"]',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+        },
+        '-=0.3',
+      )
+      .to(
+        '[data-gsap="timeline-container"]',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+        },
+        '-=0.2',
+      );
   });
 
   return (
-    <div id="timeline" className="w-full mt-40">
+    <div id="timeline" className="mt-40 w-full">
       <SectionHeading
         heading="My Developer Journey"
         subheading="8+ Years of Evolution: From PHP foundations to AI-powered development, live streaming, and building in public"
