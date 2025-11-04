@@ -146,6 +146,29 @@ export default function Letter() {
     />
   );
 
+  const GradientFade = ({ children, isActive, baseOpacity = 0.8 }: { children: React.ReactNode; isActive: boolean; baseOpacity?: number }) => {
+    if (!isActive) return children;
+
+    return (
+      <span
+        style={{
+          background: `linear-gradient(to right,
+            rgba(255,255,255,${baseOpacity}) 0%,
+            rgba(255,255,255,${baseOpacity}) 70%,
+            rgba(255,255,255,${baseOpacity * 0.8}) 85%,
+            rgba(255,255,255,${baseOpacity * 0.3}) 95%,
+            rgba(255,255,255,0) 100%)`,
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.05))'
+        }}
+      >
+        {children}
+      </span>
+    );
+  };
+
   return (
     <div className="relative px-5 lg:px-0">
       <div className="my-8 flex justify-center" data-gsap="about-profile-pic">
@@ -172,7 +195,9 @@ export default function Letter() {
                 if (section.type === 'paragraph') {
                   return (
                     <p key={index} className="leading-relaxed">
-                      {section.text}
+                      <GradientFade isActive={isCurrentSection}>
+                        {section.text}
+                      </GradientFade>
                       {isCurrentSection && <Cursor />}
                     </p>
                   );
@@ -181,12 +206,17 @@ export default function Letter() {
                 if (section.type === 'list') {
                   return (
                     <ul key={index} className="list-disc pl-6 space-y-2">
-                      {section.items.map((item: string, itemIndex: number) => (
-                        <li key={itemIndex} className="leading-relaxed">
-                          {item}
-                          {isCurrentSection && itemIndex === section.items.length - 1 && item.length > 0 && <Cursor />}
-                        </li>
-                      ))}
+                      {section.items.map((item: string, itemIndex: number) => {
+                        const isCurrentItem = isCurrentSection && itemIndex === section.items.length - 1 && item.length > 0;
+                        return (
+                          <li key={itemIndex} className="leading-relaxed">
+                            <GradientFade isActive={isCurrentItem}>
+                              {item}
+                            </GradientFade>
+                            {isCurrentItem && <Cursor />}
+                          </li>
+                        );
+                      })}
                     </ul>
                   );
                 }
@@ -203,7 +233,9 @@ export default function Letter() {
                     const isCurrentSection = isTyping && index === currentSectionIndex;
                     return (
                       <div key={index} className="self-start">
-                        {section.text}
+                        <GradientFade isActive={isCurrentSection}>
+                          {section.text}
+                        </GradientFade>
                         {isCurrentSection && <Cursor />}
                       </div>
                     );
@@ -221,7 +253,9 @@ export default function Letter() {
                     const isCurrentSection = isTyping && index === currentSectionIndex;
                     return (
                       <div key={index} className="text-white">
-                        {section.name}
+                        <GradientFade isActive={isCurrentSection} baseOpacity={1}>
+                          {section.name}
+                        </GradientFade>
                         {isCurrentSection && <Cursor />}
                       </div>
                     );
@@ -247,15 +281,21 @@ export default function Letter() {
                   {displayedContent.map((section, index) => {
                     if (section.type === 'footer') {
                       const isCurrentSection = isTyping && index === currentSectionIndex;
+                      const isTypingName = isCurrentSection && !section.title;
+                      const isTypingTitle = isCurrentSection && section.title;
                       return (
                         <div key={index}>
                           <div className="text-xl font-semibold text-white lg:text-2xl">
-                            {section.name}
-                            {isCurrentSection && !section.title && <Cursor />}
+                            <GradientFade isActive={isTypingName} baseOpacity={1}>
+                              {section.name}
+                            </GradientFade>
+                            {isTypingName && <Cursor />}
                           </div>
                           <div className="text-[12px] lg:text-lg">
-                            {section.title}
-                            {isCurrentSection && section.title && <Cursor />}
+                            <GradientFade isActive={isTypingTitle} baseOpacity={0.8}>
+                              {section.title}
+                            </GradientFade>
+                            {isTypingTitle && <Cursor />}
                           </div>
                         </div>
                       );
