@@ -1,11 +1,154 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import KelvinPerezPFP from '@/public/images/jpeg/TKP-PFP.jpeg';
 
+const letterContent = [
+  { type: 'paragraph', text: "What's Up Everyone, I'm Kelvin Perez from Miami, FL" },
+  { type: 'paragraph', text: "My journey started in 2015 when I discovered the Learn to Code movement. I dove headfirst into web development, starting with WordPress and PHP internships, then moving into e-commerce and marketing agency work." },
+  { type: 'paragraph', text: "In 2020, I pivoted to indie hacking and built a Chrome extension for Amazon dropshipping that grew to $20K MRR. Then came the crypto era in 2021 - successful, but it led to complete burnout." },
+  { type: 'paragraph', text: "So I took a radical step: a two-year sabbatical traveling the world, focusing on healing and rediscovery. When I returned, I dove deep into AI - RAG, LLMs, model architectures - seeing the bigger picture of where tech was heading." },
+  { type: 'paragraph', text: "Then came the full circle moment. Building my father's HVAC website brought me back to WordPress, and everything clicked. This time, I could see how it all interconnects - React, TypeScript, Tailwind, modern JavaScript frameworks, headless architecture. I fell in love with WordPress all over again, but with a complete understanding of the modern ecosystem." },
+  { type: 'paragraph', text: "Now I'm back in the mix, specializing in:" },
+  { type: 'list', items: [
+    "WordPress & PHP Full-Stack Development with Modern JavaScript",
+    "Custom Theme & Plugin Development",
+    "AI Integration (RAG, LLMs, Context-Aware Systems)",
+    "E-commerce Solutions (WooCommerce, Shopify)",
+    "Headless WordPress & React Integration"
+  ]},
+  { type: 'paragraph', text: "I bridge traditional WordPress development with cutting-edge technologies, creating scalable solutions that are technically robust and built for real-world business needs. The journey from novice developer to building $20K MRR products, healing from burnout, and mastering AI has given me a unique perspective on both the technical and human side of building technology that matters." },
+  { type: 'paragraph', text: "Let's build the future together." },
+  { type: 'closing', text: "Wholeness & Balanced Vibrations 🙏" },
+  { type: 'signature', name: "Kelvin Perez" },
+  { type: 'footer', name: "Kelvin Perez", title: "WordPress & PHP Full-Stack Developer" }
+];
+
 export default function Letter() {
+  const [displayedContent, setDisplayedContent] = useState<any[]>([]);
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
+
+  useEffect(() => {
+    const startTyping = () => {
+      setIsTyping(true);
+      setCurrentSectionIndex(0);
+      setCurrentCharIndex(0);
+      setDisplayedContent([]);
+    };
+
+    // Listen for custom event to start typing
+    window.addEventListener('startTypewriter', startTyping);
+
+    return () => {
+      window.removeEventListener('startTypewriter', startTyping);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isTyping) return;
+
+    const typeNextChar = () => {
+      if (currentSectionIndex < letterContent.length) {
+        const currentSection = letterContent[currentSectionIndex];
+
+        setDisplayedContent(prev => {
+          const newContent = [...prev];
+
+          // Initialize section if it doesn't exist
+          if (!newContent[currentSectionIndex]) {
+            if (currentSection.type === 'paragraph') {
+              newContent[currentSectionIndex] = { type: 'paragraph', text: '', complete: false };
+            } else if (currentSection.type === 'list') {
+              newContent[currentSectionIndex] = { type: 'list', items: [], complete: false };
+            } else if (currentSection.type === 'closing') {
+              newContent[currentSectionIndex] = { type: 'closing', text: '', complete: false };
+            } else if (currentSection.type === 'signature') {
+              newContent[currentSectionIndex] = { type: 'signature', name: '', complete: false };
+            } else if (currentSection.type === 'footer') {
+              newContent[currentSectionIndex] = { type: 'footer', name: '', title: '', complete: false };
+            }
+          }
+
+          // Type content based on section type
+          if (currentSection.type === 'paragraph' || currentSection.type === 'closing') {
+            if (currentCharIndex < currentSection.text.length) {
+              newContent[currentSectionIndex].text = currentSection.text.substring(0, currentCharIndex + 1);
+              setCurrentCharIndex(currentCharIndex + 1);
+            } else {
+              newContent[currentSectionIndex].complete = true;
+              setCurrentSectionIndex(currentSectionIndex + 1);
+              setCurrentCharIndex(0);
+            }
+          } else if (currentSection.type === 'signature') {
+            if (currentCharIndex < currentSection.name.length) {
+              newContent[currentSectionIndex].name = currentSection.name.substring(0, currentCharIndex + 1);
+              setCurrentCharIndex(currentCharIndex + 1);
+            } else {
+              newContent[currentSectionIndex].complete = true;
+              setCurrentSectionIndex(currentSectionIndex + 1);
+              setCurrentCharIndex(0);
+            }
+          } else if (currentSection.type === 'footer') {
+            if (currentCharIndex < currentSection.name.length) {
+              newContent[currentSectionIndex].name = currentSection.name.substring(0, currentCharIndex + 1);
+              setCurrentCharIndex(currentCharIndex + 1);
+            } else if (currentCharIndex - currentSection.name.length < currentSection.title.length) {
+              const titleProgress = currentCharIndex - currentSection.name.length;
+              newContent[currentSectionIndex].title = currentSection.title.substring(0, titleProgress + 1);
+              setCurrentCharIndex(currentCharIndex + 1);
+            } else {
+              newContent[currentSectionIndex].complete = true;
+              setCurrentSectionIndex(currentSectionIndex + 1);
+              setCurrentCharIndex(0);
+            }
+          } else if (currentSection.type === 'list') {
+            const totalText = currentSection.items.join('\n');
+            if (currentCharIndex < totalText.length) {
+              const typedText = totalText.substring(0, currentCharIndex + 1);
+              const typedItems = typedText.split('\n');
+              newContent[currentSectionIndex].items = typedItems;
+              setCurrentCharIndex(currentCharIndex + 1);
+            } else {
+              newContent[currentSectionIndex].complete = true;
+              setCurrentSectionIndex(currentSectionIndex + 1);
+              setCurrentCharIndex(0);
+            }
+          } else {
+            // Skip completed sections
+            newContent[currentSectionIndex] = { ...currentSection, complete: true };
+            setCurrentSectionIndex(currentSectionIndex + 1);
+            setCurrentCharIndex(0);
+          }
+
+          return newContent;
+        });
+      } else {
+        setIsTyping(false);
+      }
+    };
+
+    const typingSpeed = 8; // Faster typing speed
+    const timer = setTimeout(typeNextChar, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [currentSectionIndex, currentCharIndex, isTyping]);
+
+  const Cursor = () => (
+    <span
+      className="inline-block w-4 h-7 bg-white ml-1 animate-pulse"
+      style={{
+        verticalAlign: 'text-bottom',
+        backgroundColor: 'white',
+        borderRadius: '2px'
+      }}
+    />
+  );
+
   return (
     <div className="relative px-5 lg:px-0">
-      <div className="my-8 flex justify-center">
+      <div className="my-8 flex justify-center" data-gsap="about-profile-pic">
         <Image
           src={KelvinPerezPFP}
           alt="Kelvin Perez"
@@ -20,83 +163,108 @@ export default function Letter() {
         {/* Letter Middle */}
         <div className="absolute left-1 top-1 z-20 h-[98%] w-[98%] -rotate-1 rounded-lg bg-letter-bottom lg:left-3 lg:top-10 lg:h-[95%] lg:w-[98%] lg:rotate-3"></div>
         {/* Letter Top */}
-        <div className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl">
+        <div className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl" data-gsap="about-letter">
           <article className="space-y-4 p-4 text-base text-white/80 lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
-            <p>What&apos;s Up Everyone, I&apos;m Kelvin Perez from Miami, FL</p>
-            <p>
-              My journey started in 2015 when I discovered the Learn to Code
-              movement. I dove headfirst into web development, starting with
-              WordPress and PHP internships, then moving into e-commerce and
-              marketing agency work.
-            </p>
-            <p>
-              In 2020, I pivoted to indie hacking and built a Chrome extension
-              for Amazon dropshipping that grew to $20K MRR. Then came the
-              crypto era in 2021 - successful, but it led to complete burnout.
-            </p>
-            <p>
-              So I took a radical step: a two-year sabbatical traveling the
-              world, focusing on healing and rediscovery. When I returned, I
-              dove deep into AI - RAG, LLMs, model architectures - seeing the
-              bigger picture of where tech was heading.
-            </p>
-            <p>
-              Then came the full circle moment. Building my father&apos;s HVAC
-              website brought me back to WordPress, and everything clicked. This
-              time, I could see how it all interconnects - React, TypeScript,
-              Tailwind, modern JavaScript frameworks, headless architecture. I
-              fell in love with WordPress all over again, but with a complete
-              understanding of the modern ecosystem.
-            </p>
-            <p>Now I&apos;m back in the mix, specializing in:</p>
-            <ul className="list-disc pl-6">
-              <li>
-                WordPress & PHP Full-Stack Development with Modern JavaScript
-              </li>
-              <li>Custom Theme & Plugin Development</li>
-              <li>
-                AI Integration (RAG, LLMs, Context-Aware Systems)
-              </li>
-              <li>E-commerce Solutions (WooCommerce, Shopify)</li>
-              <li>Headless WordPress & React Integration</li>
-            </ul>
-            <p>
-              I bridge traditional WordPress development with cutting-edge
-              technologies, creating scalable solutions that are technically
-              robust and built for real-world business needs. The journey from
-              novice developer to building $20K MRR products, healing from
-              burnout, and mastering AI has given me a unique perspective on
-              both the technical and human side of building technology that
-              matters.
-            </p>
-            <p>Let&apos;s build the future together.</p>
-            <div className="relative flex flex-col items-center gap-2">
-              <div className="self-start">
-                Wholeness & Balanced Vibrations 🙏
-              </div>
+            <div className="space-y-4">
+              {displayedContent.map((section, index) => {
+                const isCurrentSection = isTyping && index === currentSectionIndex;
+
+                if (section.type === 'paragraph') {
+                  return (
+                    <p key={index} className="leading-relaxed">
+                      {section.text}
+                      {isCurrentSection && <Cursor />}
+                    </p>
+                  );
+                }
+
+                if (section.type === 'list') {
+                  return (
+                    <ul key={index} className="list-disc pl-6 space-y-2">
+                      {section.items.map((item: string, itemIndex: number) => (
+                        <li key={itemIndex} className="leading-relaxed">
+                          {item}
+                          {isCurrentSection && itemIndex === section.items.length - 1 && item.length > 0 && <Cursor />}
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                }
+
+                return null;
+              })}
             </div>
-            <div className="mb-10 font-handwriting text-4xl lg:text-6xl">
-              <div className="text-white">Kelvin Perez</div>
-            </div>
-            <div className="flex items-center gap-2">
-              <div>
-                <Image
-                  src={KelvinPerezPFP}
-                  alt="Kelvin Perez PFP"
-                  width={64}
-                  height={64}
-                  className="rounded-full"
-                />
+
+            {/* Closing section */}
+            {displayedContent.some(section => section.type === 'closing') && (
+              <div className="relative flex flex-col items-center gap-2">
+                {displayedContent.map((section, index) => {
+                  if (section.type === 'closing') {
+                    const isCurrentSection = isTyping && index === currentSectionIndex;
+                    return (
+                      <div key={index} className="self-start">
+                        {section.text}
+                        {isCurrentSection && <Cursor />}
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
               </div>
-              <div className="lg:ml-4">
-                <div className="text-xl font-semibold text-white lg:text-2xl">
-                  Kelvin Perez
+            )}
+
+            {/* Signature section */}
+            {displayedContent.some(section => section.type === 'signature') && (
+              <div className="mb-10 font-handwriting text-4xl lg:text-6xl">
+                {displayedContent.map((section, index) => {
+                  if (section.type === 'signature') {
+                    const isCurrentSection = isTyping && index === currentSectionIndex;
+                    return (
+                      <div key={index} className="text-white">
+                        {section.name}
+                        {isCurrentSection && <Cursor />}
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+            )}
+
+            {/* Footer section */}
+            {displayedContent.some(section => section.type === 'footer') && (
+              <div className="flex items-center gap-2">
+                <div>
+                  <Image
+                    src={KelvinPerezPFP}
+                    alt="Kelvin Perez PFP"
+                    width={64}
+                    height={64}
+                    className="rounded-full"
+                  />
                 </div>
-                <div className="text-[12px] lg:text-lg">
-                  WordPress & PHP Full-Stack Developer
+                <div className="lg:ml-4">
+                  {displayedContent.map((section, index) => {
+                    if (section.type === 'footer') {
+                      const isCurrentSection = isTyping && index === currentSectionIndex;
+                      return (
+                        <div key={index}>
+                          <div className="text-xl font-semibold text-white lg:text-2xl">
+                            {section.name}
+                            {isCurrentSection && !section.title && <Cursor />}
+                          </div>
+                          <div className="text-[12px] lg:text-lg">
+                            {section.title}
+                            {isCurrentSection && section.title && <Cursor />}
+                          </div>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
                 </div>
               </div>
-            </div>
+            )}
           </article>
         </div>
       </div>
