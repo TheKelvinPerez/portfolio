@@ -1,5 +1,10 @@
+"use client";
+
+import { useGSAP } from "@gsap/react";
 import { FaqAccordion } from "@/components/ui/faq-chat-accordion";
 import SectionHeading from "@/components/SectionHeading";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const defaultData = [
   {
@@ -75,18 +80,119 @@ const defaultData = [
 ];
 
 export default function FAQ() {
+  useGSAP(() => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Set initial states
+    gsap.set('[data-gsap="faq-heading"]', { opacity: 0, y: 20 });
+    gsap.set('[data-gsap="faq-subheading"]', { opacity: 0, y: 25 });
+    gsap.set('[data-gsap="faq-container"]', { opacity: 0, y: 30 });
+
+    // Create main timeline for section animation
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '[data-gsap="faq-heading"]',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none none',
+      },
+    });
+
+    tl.to('[data-gsap="faq-heading"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    })
+      .to(
+        '[data-gsap="faq-subheading"]',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+        },
+        '-=0.3',
+      )
+      .to(
+        '[data-gsap="faq-container"]',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+        },
+        '-=0.2',
+      );
+
+    // Animate individual FAQ items with stagger
+    const faqItems = document.querySelectorAll('[data-gsap^="faq-item-"]');
+    const faqTriggers = document.querySelectorAll('[data-gsap$="-trigger"]');
+
+    if (faqItems.length > 0 && faqTriggers.length > 0) {
+      // Set initial state for FAQ items
+      gsap.set(faqItems, {
+        opacity: 0,
+        y: 30,
+        scale: 0.95
+      });
+
+      // Set initial state for FAQ triggers
+      gsap.set(faqTriggers, {
+        opacity: 0,
+        y: 20,
+        scale: 0.9
+      });
+
+      // Create timeline for FAQ stagger animation
+      const faqTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '[data-gsap="faq-container"]',
+          start: 'top 75%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none none',
+        },
+      });
+
+      // Animate FAQ items with stagger
+      faqTl.to(faqItems, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out',
+      })
+      .to(faqTriggers, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out',
+      }, '-=0.6');
+    }
+  });
+
   return (
     <div id="faq" className="flex flex-col justify-center items-center gap-4">
       <SectionHeading
         heading="FAQs"
         subheading="Common questions about my AI expertise, startup experience, and approach to building intelligent applications"
+        animationId="faq"
       />
-      <FaqAccordion
-        data={defaultData}
-        className="max-w-[700px]"
-        questionClassName="bg-gray-800/50 hover:bg-gray-700/60 border border-gray-700/30"
-        answerClassName="bg-gray-700/70 text-gray-100 border border-gray-600/40"
-      />
+      <div data-gsap="faq-container">
+        <FaqAccordion
+          data={defaultData.map((item, index) => ({
+            ...item,
+            animationKey: `faq-item-${index}`
+          }))}
+          className="max-w-[700px]"
+          questionClassName="bg-gray-800/50 hover:bg-gray-700/60 border border-gray-700/30"
+          answerClassName="bg-gray-700/70 text-gray-100 border border-gray-600/40"
+        />
+      </div>
     </div>
   );
 }

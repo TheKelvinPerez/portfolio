@@ -12,6 +12,7 @@ interface FAQItem {
   answer: string;
   icon?: string;
   iconPosition?: "left" | "right";
+  animationKey?: string;
 }
 
 interface FaqAccordionProps {
@@ -48,6 +49,7 @@ export function FaqAccordion({
             value={item.id.toString()}
             key={item.id}
             className="mb-2"
+            {...(item.animationKey && { 'data-gsap': item.animationKey })}
           >
             <Accordion.Header>
               <Accordion.Trigger className="flex w-full items-center justify-start gap-x-4">
@@ -59,6 +61,7 @@ export function FaqAccordion({
                       : "bg-slate-600 text-slate-300 hover:bg-primary/10",
                     questionClassName
                   )}
+                  {...(item.animationKey && { 'data-gsap': `${item.animationKey}-trigger` })}
                 >
                   {item.icon && (
                     <span

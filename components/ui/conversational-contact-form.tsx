@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, Check, Send } from "lucide-react";
 
@@ -74,6 +77,136 @@ export default function ConversationalContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)[]>([]);
+
+  // GSAP animations for section entry and step transitions
+  useGSAP(() => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Set initial states for main section elements
+    gsap.set('[data-gsap="contact-subheading"]', { opacity: 0, y: 20 });
+    gsap.set('[data-gsap="contact-heading"]', { opacity: 0, y: 25 });
+    gsap.set('[data-gsap="contact-description"]', { opacity: 0, y: 30 });
+    gsap.set('[data-gsap="contact-container"]', { opacity: 0, y: 40, scale: 0.95 });
+
+    // Set initial states for inner step elements (hidden initially)
+    gsap.set('[data-gsap="progress-indicator"]', { opacity: 0, y: 15, scale: 0.95 });
+    gsap.set('[data-gsap="question-bubble"]', { opacity: 0, y: 20, scale: 0.95 });
+    gsap.set('[data-gsap="user-input"]', { opacity: 0, y: 25, scale: 0.95 });
+    gsap.set('[data-gsap="navigation-buttons"]', { opacity: 0, y: 30, scale: 0.95 });
+
+    // Create timeline for contact section animation
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '[data-gsap="contact-subheading"]',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none none',
+      },
+    });
+
+    tl.to('[data-gsap="contact-subheading"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    })
+      .to(
+        '[data-gsap="contact-heading"]',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+        },
+        '-=0.3',
+      )
+      .to(
+        '[data-gsap="contact-description"]',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+        },
+        '-=0.3',
+      )
+      .to(
+        '[data-gsap="contact-container"]',
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+        },
+        '-=0.2',
+      )
+      // Animate inner step elements with stagger (after container appears)
+      .to('[data-gsap="progress-indicator"]', {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        ease: 'power2.out',
+      }, '+=0.2')
+      .to('[data-gsap="question-bubble"]', {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+      }, '-=0.3')
+      .to('[data-gsap="user-input"]', {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+      }, '-=0.3')
+      .to('[data-gsap="navigation-buttons"]', {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        ease: 'power2.out',
+      }, '-=0.3');
+  });
+
+  // GSAP animations for step transitions
+  useEffect(() => {
+    if (currentStep === 0) return; // Skip first step, handled by main animation
+
+    // Create timeline for step transitions
+    const stepTl = gsap.timeline();
+
+    // Set initial states for new step elements
+    const stepElements = [
+      '[data-gsap="progress-indicator"]',
+      '[data-gsap="question-bubble"]',
+      '[data-gsap="user-input"]',
+      '[data-gsap="navigation-buttons"]'
+    ];
+
+    // Reset all step elements to hidden state
+    gsap.set(stepElements, {
+      opacity: 0,
+      y: 20,
+      scale: 0.95
+    });
+
+    // Wait for typing animation to start, then stagger elements
+    stepTl.to(stepElements, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.5,
+      stagger: 0.15, // Increased stagger for better visual separation
+      ease: 'power2.out',
+      delay: 0.4 // Wait for typing animation to start
+    });
+
+  }, [currentStep]);
 
   // Track component mount
   useEffect(() => {
@@ -225,13 +358,13 @@ export default function ConversationalContactForm() {
         <div className="max-w-screen-xl mx-auto px-4 text-neutral-300 md:px-8">
           <div className="mt-20">
             <div className="max-w-lg mx-auto space-y-3 sm:text-center">
-              <h3 className="text-indigo-600 font-semibold">
+              <h3 data-gsap="contact-subheading" className="text-indigo-600 font-semibold">
                 Let's Work Together
               </h3>
-              <p className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
+              <p data-gsap="contact-heading" className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
                 Interested in hiring me?
               </p>
-              <p>
+              <p data-gsap="contact-description">
                 I'm actively seeking remote opportunities in WordPress, PHP, Laravel, and full-stack development. Whether you need custom solutions, e-commerce development, or enterprise applications, let's discuss how I can help your team.
               </p>
             </div>
@@ -239,6 +372,7 @@ export default function ConversationalContactForm() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
+                data-gsap="contact-container"
                 className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-900/90 via-neutral-900/90 to-blue-900/90 rounded-2xl border border-purple-500/30 text-center"
               >
         <motion.div
@@ -279,20 +413,20 @@ export default function ConversationalContactForm() {
       <div className="max-w-screen-xl mx-auto px-4 text-neutral-300 md:px-8">
         <div className="mt-20">
           <div className="max-w-lg mx-auto space-y-3 sm:text-center">
-            <h3 className="text-indigo-600 font-semibold">
+            <h3 data-gsap="contact-subheading" className="text-indigo-600 font-semibold">
               Let's Work Together
             </h3>
-            <p className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
+            <p data-gsap="contact-heading" className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
               Interested in hiring me?
             </p>
-            <p>
+            <p data-gsap="contact-description">
               I'm actively seeking remote opportunities in WordPress, PHP, Laravel, and full-stack development. Whether you need custom solutions, e-commerce development, or enterprise applications, let's discuss how I can help your team.
             </p>
           </div>
           <div className="mt-12 flex justify-center">
-            <div className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-900/90 via-neutral-900/90 to-blue-900/90 rounded-2xl border border-purple-500/30">
+            <div data-gsap="contact-container" className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-900/90 via-neutral-900/90 to-blue-900/90 rounded-2xl border border-purple-500/30">
       {/* Progress Indicator */}
-      <div className="flex justify-center space-x-3 mb-10 md:mb-12">
+      <div data-gsap="progress-indicator" className="flex justify-center space-x-3 mb-10 md:mb-12">
         {steps.map((_, index) => (
           <div
             key={index}
@@ -312,6 +446,7 @@ export default function ConversationalContactForm() {
         {/* Question Bubble */}
         <AnimatePresence mode="wait">
           <motion.div
+            data-gsap="question-bubble"
             key={`question-${currentStep}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -336,6 +471,7 @@ export default function ConversationalContactForm() {
         {currentStep < 7 && (
           <AnimatePresence mode="wait">
             <motion.div
+              data-gsap="user-input"
               key={`response-${currentStep}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -500,49 +636,50 @@ export default function ConversationalContactForm() {
         {currentStep === 7 && (
           <AnimatePresence>
             <motion.div
+              data-gsap="user-input"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="space-y-3"
             >
-              <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20">
+              <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
                 <p className="text-xs md:text-sm text-purple-400 mb-1">Name</p>
-                <p className="text-white text-base md:text-lg">{formData.name}</p>
+                <p className="text-white text-base md:text-lg break-words">{formData.name}</p>
               </div>
-              <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20">
+              <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
                 <p className="text-xs md:text-sm text-purple-400 mb-1">Email</p>
-                <p className="text-white text-base md:text-lg">{formData.email}</p>
+                <p className="text-white text-base md:text-lg break-words">{formData.email}</p>
               </div>
               {formData.inquiryType && (
-                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20">
+                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
                   <p className="text-xs md:text-sm text-purple-400 mb-1">Inquiry Type</p>
-                  <p className="text-white text-base md:text-lg">
+                  <p className="text-white text-base md:text-lg break-words">
                     {inquiryOptions.find(opt => opt.value === formData.inquiryType)?.label || formData.inquiryType}
                   </p>
                 </div>
               )}
               {formData.company && (
-                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20">
+                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
                   <p className="text-xs md:text-sm text-purple-400 mb-1">Company</p>
-                  <p className="text-white text-base md:text-lg">{formData.company}</p>
+                  <p className="text-white text-base md:text-lg break-words">{formData.company}</p>
                 </div>
               )}
               {formData.phone && (
-                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20">
+                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
                   <p className="text-xs md:text-sm text-purple-400 mb-1">Phone</p>
-                  <p className="text-white text-base md:text-lg">{formData.phone}</p>
+                  <p className="text-white text-base md:text-lg break-words">{formData.phone}</p>
                 </div>
               )}
               {formData.budget && (
-                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20">
+                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
                   <p className="text-xs md:text-sm text-purple-400 mb-1">Budget</p>
-                  <p className="text-white text-base md:text-lg">
+                  <p className="text-white text-base md:text-lg break-words">
                     {budgetOptions.find(opt => opt.value === formData.budget)?.label || formData.budget}
                   </p>
                 </div>
               )}
-              <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20">
+              <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
                 <p className="text-xs md:text-sm text-purple-400 mb-1">Message</p>
-                <p className="text-white text-base md:text-lg whitespace-pre-wrap">{formData.message}</p>
+                <p className="text-white text-base md:text-lg whitespace-pre-wrap break-words">{formData.message}</p>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -551,6 +688,7 @@ export default function ConversationalContactForm() {
         {/* Navigation Buttons */}
         <AnimatePresence mode="wait">
           <motion.div
+            data-gsap="navigation-buttons"
             key={`navigation-${currentStep}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
