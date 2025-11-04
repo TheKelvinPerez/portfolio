@@ -137,7 +137,7 @@ export default function Letter() {
     return () => clearTimeout(timer);
   }, [currentSectionIndex, currentCharIndex, isTyping]);
 
-  
+
   const GradientFade = ({ children, isActive, baseOpacity = 0.8 }: { children: React.ReactNode; isActive: boolean; baseOpacity?: number }) => {
     if (!isActive) return children;
 
@@ -204,7 +204,7 @@ export default function Letter() {
                         <GradientFade isActive={isCurrentSection}>
                           {section.text}
                         </GradientFade>
-                                              </p>
+                      </p>
                     );
                   }
 
@@ -218,7 +218,7 @@ export default function Letter() {
                               <GradientFade isActive={isCurrentItem}>
                                 {item}
                               </GradientFade>
-                                                          </li>
+                            </li>
                           );
                         })}
                       </ul>
@@ -243,7 +243,7 @@ export default function Letter() {
                             <GradientFade isActive={isCurrentSection}>
                               {section.text}
                             </GradientFade>
-                                                      </div>
+                          </div>
                         );
                       }
                       return null;
@@ -262,7 +262,7 @@ export default function Letter() {
                             <GradientFade isActive={isCurrentSection} baseOpacity={1}>
                               {section.name}
                             </GradientFade>
-                                                      </div>
+                          </div>
                         );
                       }
                       return null;
@@ -294,12 +294,12 @@ export default function Letter() {
                                 <GradientFade isActive={isTypingName} baseOpacity={1}>
                                   {section.name}
                                 </GradientFade>
-                                                              </div>
+                              </div>
                               <div className="text-[12px] lg:text-lg">
                                 <GradientFade isActive={isTypingTitle} baseOpacity={0.8}>
                                   {section.title}
                                 </GradientFade>
-                                                              </div>
+                              </div>
                             </div>
                           );
                         }
