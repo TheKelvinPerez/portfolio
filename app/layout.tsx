@@ -9,7 +9,6 @@ import localFont from 'next/font/local';
 import Menu from '@/components/Hero/Menu/Menu';
 import { ThemeProvider } from 'next-themes';
 import { LoadingProvider } from '@/lib/context/LoadingContext';
-import { LoadingManager } from '@/components/LoadingManager';
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -91,14 +90,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen overflow-y-hidden bg-bg-default font-sans antialiased',
+          'min-h-screen bg-bg-default font-sans antialiased',
           fontSans.variable,
           fontHandwriting.variable,
           MonaLisa.variable,
         )}
       >
         <LoadingProvider>
-          <LoadingManager />
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"

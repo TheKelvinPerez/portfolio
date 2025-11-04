@@ -18,12 +18,20 @@ export default function LoadingScreen({ progress, isComplete, onComplete }: Load
 
   // Lock scroll when loading screen is active
   useEffect(() => {
+    // Store original overflow value
+    const originalOverflow = document.body.style.overflow;
+    console.log('🔒 LoadingScreen: Mounting, locking scroll');
+    console.log('🔒 LoadingScreen: Original overflow was:', originalOverflow);
+
     // Disable scroll
     document.body.style.overflow = 'hidden';
-    
+    console.log('🔒 LoadingScreen: Scroll locked (overflow: hidden)');
+
     return () => {
       // Re-enable scroll when component unmounts
-      document.body.style.overflow = 'unset';
+      const restoreValue = originalOverflow || 'auto';
+      document.body.style.overflow = restoreValue;
+      console.log('🔓 LoadingScreen: Unmounting, scroll restored to:', restoreValue);
     };
   }, []);
 
@@ -53,11 +61,14 @@ export default function LoadingScreen({ progress, isComplete, onComplete }: Load
   // Handle completion animation
   useGSAP(() => {
     if (isComplete && containerRef.current) {
+      console.log('🎯 LoadingScreen: isComplete is true, starting exit animation');
+
       const tl = gsap.timeline({
         onComplete: () => {
           // Dispatch custom event when loading screen animation is completely finished
-          console.log('🚀 LoadingScreen: Dispatching loadingScreenComplete event');
+          console.log('🚀 LoadingScreen: Exit animation complete, dispatching loadingScreenComplete event');
           window.dispatchEvent(new CustomEvent('loadingScreenComplete'));
+          console.log('📞 LoadingScreen: Calling onComplete callback');
           onComplete();
         }
       });

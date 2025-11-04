@@ -12,6 +12,7 @@ import Books from '@/components/Books/Books';
 import GearSection from '@/components/Gear/GearSection';
 import ContactForm from '@/components/ui/contact-form';
 import CallToAction from '@/components/ui/call-to-action-1';
+import { LoadingManager } from '@/components/LoadingManager';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 43200; // revalidate every 12 hours
@@ -20,9 +21,11 @@ export default function Home() {
   noStore();
 
   return (
-    <main className="bg-transparent">
-      <ResponsiveGodRays />
-      <Hero />
+    <>
+      <LoadingManager />
+      <main className="bg-transparent">
+        <ResponsiveGodRays />
+        <Hero />
       <FeaturedVideo />
       <TimelineComponent />
       <CallToAction />
@@ -37,5 +40,6 @@ export default function Home() {
       <CallToAction />
       <Footer />
     </main>
+    </>
   );
 }
