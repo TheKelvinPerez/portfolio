@@ -12,13 +12,13 @@ export default function ContactForm() {
         <div className="mt-20">
           <div className="max-w-lg mx-auto space-y-3 sm:text-center">
             <h3 className="text-indigo-600 font-semibold">
-              Let's Build Something Amazing
+              Let's Work Together
             </h3>
             <p className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
-              Ready to leverage AI?
+              Interested in hiring me?
             </p>
             <p>
-              Looking to build AI-powered applications, integrate intelligent features, or launch your next startup? Let's discuss how we can bring your vision to life.
+              I'm actively seeking remote opportunities in WordPress, PHP, Laravel, and full-stack development. Whether you need custom solutions, e-commerce development, or enterprise applications, let's discuss how I can help your team.
             </p>
           </div>
           <div className="mt-12 max-w-lg mx-auto">
@@ -53,13 +53,13 @@ export default function ContactForm() {
                     className="w-full px-3 py-2 text-neutral-400/70 bg-gradient-to-br from-purple-900/90 via-neutral-900/90 to-blue-900/90 outline-none border-2 border-purple-500 rounded-lg focus:border-white/80 focus:text-neutral-100"
                   >
                     <option value="" disabled>Type of Inquiry</option>
-                    <option value="ai-integration" className="text-neutral-100">AI Integration Project</option>
-                    <option value="startup-mvp" className="text-neutral-100">Startup MVP Development</option>
-                    <option value="ai-consulting" className="text-neutral-100">AI Strategy Consulting</option>
-                    <option value="full-time" className="text-neutral-100">Full-time AI Engineering Role</option>
-                    <option value="contract" className="text-neutral-100">Contract AI Development</option>
-                    <option value="mentorship" className="text-neutral-100">Startup Mentorship</option>
-                    <option value="collaboration" className="text-neutral-100">Tech Partnership</option>
+                    <option value="full-time-remote" className="text-neutral-100">Full-time Remote Position</option>
+                    <option value="contract-remote" className="text-neutral-100">Contract Remote Work</option>
+                    <option value="wordpress-dev" className="text-neutral-100">WordPress Development</option>
+                    <option value="laravel-dev" className="text-neutral-100">Laravel Application</option>
+                    <option value="php-dev" className="text-neutral-100">PHP Development</option>
+                    <option value="woocommerce" className="text-neutral-100">WooCommerce Project</option>
+                    <option value="consulting" className="text-neutral-100">Technical Consulting</option>
                     <option value="other" className="text-neutral-100">Other</option>
                   </select>
                 </div>
@@ -102,7 +102,7 @@ export default function ContactForm() {
                 <div className="relative rounded-lg bg-gradient-to-br from-purple-500 via-yellow-500 to-blue-500 p-[2px]">
                   <textarea
                     required
-                    placeholder="Describe your AI project or startup idea: What problem are you solving? Do you need AI integration, LLM implementation, RAG systems, or full-stack development? Include your timeline, tech stack preferences (TypeScript/Python), and any specific AI technologies you're considering. The more details you share, the better I can help bring your vision to life."
+                    placeholder="Tell me about your project or opportunity: What are you looking to build? Are you hiring for a full-time role or contract work? Include details about the tech stack, project scope, timeline, and whether it's a remote position. The more information you provide, the better I can understand how I can help."
                     className="w-full h-40 px-3 py-2 resize-none appearance-none bg-gradient-to-br from-purple-900/90 via-neutral-900/90 to-blue-900/90 text-neutral-100 outline-none border-2 border-purple-500 rounded-lg focus:border-white/80 placeholder-neutral-400/70"
                   ></textarea>
                 </div>

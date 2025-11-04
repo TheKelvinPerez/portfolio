@@ -3,74 +3,80 @@ import SectionHeading from "@/components/SectionHeading";
 
 const defaultData = [
   {
-    answer: "I'm an AI-powered full-stack engineer with 8+ years of experience. I specialize in TypeScript, Python, React, Next.js, and AI integration. I focus on building intelligent applications using LLMs, RAG systems, and AI agents, combined with modern UI/UX design.",
-    icon: "🤖",
-    iconPosition: "left" as const,
-    id: 1,
-    question: "What's your AI and technical expertise?",
-  },
-  {
-    answer: "Absolutely! I help startups and companies integrate AI into their products, build TypeScript/Python applications, design AI-powered user experiences, and architect scalable AI systems. I also mentor on startup strategy and building in public.",
-    icon: "💡",
-    iconPosition: "right" as const,
-    id: 2,
-    question: "Do you offer AI consulting and startup guidance?",
-  },
-  {
-    answer: "My core stack is TypeScript, Python, React, Next.js 14, and AI APIs (OpenAI, Anthropic, etc.). I work with RAG systems, vector databases, AI agents, modern deployment platforms, and design tools like Figma for AI-powered workflows.",
-    id: 3,
-    question: "What's your current AI and development stack?",
-  },
-  {
-    answer: "I've built AI-powered applications, intelligent chatbots, RAG systems, Chrome extensions, NFT projects ($28M+ generated), and modern SaaS products. I live stream building AI startups and share my journey building in public.",
+    answer: "I'm a full-stack developer with 8+ years of experience specializing in WordPress, PHP, Laravel, and modern web development. My core stack includes PHP, Laravel, WordPress, MySQL, JavaScript/TypeScript, React, and Next.js. I work extensively with WooCommerce, custom themes/plugins, REST APIs, and can integrate AI capabilities when needed.",
     icon: "🚀",
     iconPosition: "left" as const,
-    id: 4,
-    question: "What AI projects and startups have you built?",
+    id: 1,
+    question: "What's your technical expertise and stack?",
   },
   {
-    answer: "Yes! I'm actively looking for opportunities to build AI-powered products, join AI-focused startups, or help companies integrate intelligent features. I'm especially excited about projects involving LLMs, automation, and human-AI collaboration.",
+    answer: "I've built custom WordPress themes and plugins, enterprise Laravel applications, WooCommerce e-commerce solutions, membership platforms, headless CMS implementations, and Chrome extensions. Notable achievements include a $20K MRR Chrome extension and NFT projects generating $28M+ in sales.",
+    icon: "🏗️",
+    iconPosition: "right" as const,
+    id: 2,
+    question: "What types of projects have you built?",
+  },
+  {
+    answer: "Yes! I'm actively seeking full-time or contract opportunities in WordPress development, Laravel applications, PHP projects, and full-stack web development. I'm especially interested in roles that involve building scalable solutions and working with modern web technologies.",
     icon: "🤝",
-    iconPosition: "right" as const,
-    id: 5,
-    question: "Are you available for AI and startup projects?",
-  },
-  {
-    answer: "Definitely! I've launched multiple successful startups including a $20K MRR Chrome extension and NFT projects generating $28M+. I understand rapid prototyping, MVP development, AI-first product strategy, and scaling with modern tech stacks.",
-    id: 6,
-    question: "Do you have proven startup and entrepreneurship experience?",
-  },
-  {
-    answer: "I live stream weekly on YouTube building AI startups from scratch, teach TypeScript/Python development, AI integration techniques, and startup methodology. I believe in building in public and sharing the entire journey.",
-    icon: "📺",
     iconPosition: "left" as const,
-    id: 7,
-    question: "What do you teach about AI and startups?",
+    id: 3,
+    question: "Are you available for hire?",
   },
   {
-    answer: "I follow AI-first development principles with clean TypeScript/Python code, proper type safety, intelligent testing with AI assistance, and modern deployment practices. I focus on building scalable AI systems that enhance user experience.",
-    id: 8,
-    question: "What's your approach to AI-powered development?",
-  },
-  {
-    answer: "I've worked extensively with OpenAI GPT models, Anthropic Claude, LangChain, vector databases (Pinecone, Weaviate), and building custom AI agents. I specialize in RAG systems, prompt engineering, and integrating AI into production applications.",
-    icon: "🧠",
+    answer: "I'm currently seeking remote opportunities only. I have extensive experience collaborating with distributed teams and am adaptable to different time zones and work schedules. I prioritize clear communication and meeting deadlines consistently in remote work environments.",
+    icon: "🌍",
     iconPosition: "right" as const,
-    id: 9,
-    question: "What specific AI technologies do you work with?",
+    id: 4,
+    question: "What's your work preference and availability?",
   },
   {
-    answer: "I help startups identify AI opportunities, prototype AI-powered features, build MVPs with intelligent capabilities, and scale AI systems. I focus on practical AI implementation that drives real business value and user engagement.",
+    answer: "I prioritize writing clean, maintainable code following industry best practices and coding standards. I emphasize security, performance optimization, comprehensive documentation, and thorough testing. My code is designed to be easily scalable and maintainable by other developers.",
+    icon: "📚",
+    iconPosition: "left" as const,
+    id: 5,
+    question: "How do you ensure code quality?",
+  },
+  {
+    answer: "I have proven entrepreneurial experience launching successful products including a $20K MRR Chrome extension and NFT projects generating $28M+. I understand product development from ideation to launch, rapid prototyping, MVP creation, and building solutions that solve real business problems.",
+    icon: "💡",
+    iconPosition: "right" as const,
+    id: 6,
+    question: "Do you have startup or product experience?",
+  },
+  {
+    answer: "I excel at problem-solving, self-directed learning, and adapting to new technologies quickly. I'm comfortable working independently or as part of a team, and I bring strong communication skills to technical discussions. I'm proactive about identifying issues and proposing solutions.",
     icon: "⚡",
     iconPosition: "left" as const,
+    id: 7,
+    question: "What soft skills do you bring to a team?",
+  },
+  {
+    answer: "I have extensive experience with Git version control, CI/CD pipelines, Docker, modern deployment platforms (Vercel, Netlify), database management, and API integration. I'm comfortable with Agile methodologies and familiar with project management tools like Jira and Linear.",
+    icon: "⚙️",
+    iconPosition: "right" as const,
+    id: 8,
+    question: "What's your experience with development workflows?",
+  },
+  {
+    answer: "I stay current through continuous learning, exploring new technologies, and applying them to real projects. I'm experienced with modern frameworks, AI integration (OpenAI, Anthropic APIs), and I'm always eager to learn new tools and technologies that improve development efficiency.",
+    icon: "📈",
+    iconPosition: "left" as const,
+    id: 9,
+    question: "How do you stay current with technology?",
+  },
+  {
+    answer: "I'm motivated by building solutions that solve real problems and create value for users. I enjoy the challenge of optimizing performance, architecting scalable systems, and seeing projects through from concept to completion. I take pride in writing quality code and delivering results.",
+    icon: "🎯",
+    iconPosition: "right" as const,
     id: 10,
-    question: "How do you help startups leverage AI?",
+    question: "What motivates you as a developer?",
   },
 ];
 
 export default function FAQ() {
   return (
-    <div className="flex flex-col justify-center items-center gap-4">
+    <div id="faq" className="flex flex-col justify-center items-center gap-4">
       <SectionHeading
         heading="FAQs"
         subheading="Common questions about my AI expertise, startup experience, and approach to building intelligent applications"

@@ -27,10 +27,10 @@ export default function Home() {
         <ResponsiveGodRays />
         <Hero />
         {/* <FeaturedVideo /> */}
-        <TimelineComponent />
-        <CallToAction />
-        <SecondQuote />
         <AboutMe />
+        <CallToAction />
+        <TimelineComponent />
+        <SecondQuote />
         <CallToAction />
         <Projects />
         <Books />

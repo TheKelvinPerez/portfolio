@@ -6,9 +6,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import SVGGradientBg from '../SVGGradientBg';
 import GithubLogo from '../../../public/images/svg/Github-Logo.svg';
-import InstagramLogo from '../../../public/images/svg/Instagram-Logo.svg';
 import LinkedinLogo from '../../../public/images/svg/LinkedIn-Logo.svg';
-import TiktokLogo from '../../../public/images/svg/Tiktok-Logo.svg';
 import TwitterLogo from '../../../public/images/svg/X-Twitter-Logo.svg';
 import YouTubeLogo from '../../../public/images/svg/Youtube-Logo.svg';
 import clsx from 'clsx';
@@ -27,8 +25,8 @@ export default function Menu() {
   const [navMenu, setNavMenu] = useState<NavItem[]>([
     { name: 'Home', href: '/', isActive: true },
     { name: 'About', href: '/#about', isActive: false },
-    { name: 'Videos', href: '/#videos', isActive: false },
     { name: 'Projects', href: '/#projects', isActive: false },
+    { name: 'FAQ', href: '/#faq', isActive: false },
     { name: 'Contact', href: '/#contact-me', isActive: false },
     // { name: 'Blog', href: '/posts', isActive: false },
   ]);
@@ -94,7 +92,7 @@ export default function Menu() {
           </div>
           <div className="hidden gap-4 lg:flex lg:flex-1 lg:justify-end">
             <a
-              href="https://github.com/0xAquaWolf"
+              href="https://github.com/TheKelvinPerez"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 rounded-full px-6 py-3 text-center text-sm text-white shadow-alt-cta transition-all hover:bg-white hover:text-black hover:shadow-cta xl:px-8 xl:py-3 xl:text-base"
@@ -215,19 +213,6 @@ export default function Menu() {
                       <Image
                         src={TwitterLogo}
                         alt="X/Twitter Logo"
-                        width={50}
-                        height={50}
-                      />
-                    </a>
-                    <a
-                      className="grid items-center"
-                      href="https://www.youtube.com/@TheKelvinPerez"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Image
-                        src={YouTubeLogo}
-                        alt="YouTube Logo"
                         width={50}
                         height={50}
                       />

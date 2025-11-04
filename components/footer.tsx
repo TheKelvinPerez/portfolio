@@ -2,9 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import GithubLogo from '@/public/images/svg/Github-Logo.svg';
-import InstagramLogo from '@/public/images/svg/Instagram-Logo.svg';
 import LinkedinLogo from '@/public/images/svg/LinkedIn-Logo.svg';
-import TiktokLogo from '@/public/images/svg/Tiktok-Logo.svg';
 import TwitterLogo from '@/public/images/svg/X-Twitter-Logo.svg';
 import YouTubeLogo from '@/public/images/svg/Youtube-Logo.svg';
 
@@ -14,47 +12,43 @@ export function Footer() {
   return (
     <footer className="bg-bg-default mt-10 px-4 py-8 text-white">
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-8 flex justify-center space-x-6">
+        <nav className="mb-8 flex flex-wrap justify-center gap-4 md:gap-6">
           <Link
-            href="/discord"
+            href="#about"
             className="transition-colors hover:text-gray-300"
           >
-            Discord
+            About
           </Link>
           <Link
-            href="/contact"
+            href="#projects"
             className="transition-colors hover:text-gray-300"
           >
-            Contact Me
+            Projects
           </Link>
-          <Link href="/hire" className="transition-colors hover:text-gray-300">
-            Hire Me
+          <Link
+            href="#books"
+            className="transition-colors hover:text-gray-300"
+          >
+            Books
           </Link>
-          <Link href="/shop" className="transition-colors hover:text-gray-300">
-            Shop
+          <Link href="#gear" className="transition-colors hover:text-gray-300">
+            Gear
+          </Link>
+          <Link href="#faq" className="transition-colors hover:text-gray-300">
+            FAQ
+          </Link>
+          <Link href="#contact-me" className="transition-colors hover:text-gray-300">
+            Contact
           </Link>
         </nav>
 
         <div className="mt-10">
           <div className="flex flex-wrap justify-center gap-6">
             <a
-              href="https://twitter.com/0xAquaWolf"
+              href="https://www.youtube.com/@TheKelvinPerez"
               target="_blank"
               rel="noopener noreferrer"
-              className="grid items-center"
-            >
-              <Image
-                src={TwitterLogo}
-                alt="X/Twitter Logo"
-                width={40}
-                height={40}
-              />
-            </a>
-            <a
-              href="https://www.youtube.com/@0xAquaWolf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="grid items-center"
+              className="grid items-center transition-opacity hover:opacity-80"
             >
               <Image
                 src={YouTubeLogo}
@@ -64,53 +58,40 @@ export function Footer() {
               />
             </a>
             <a
-              href="https://github.com/0xAquaWolf"
+              href="https://twitter.com/TheKelvinPerez"
               target="_blank"
               rel="noopener noreferrer"
-              className="grid items-center"
+              className="grid items-center transition-opacity hover:opacity-80"
+            >
+              <Image
+                src={TwitterLogo}
+                alt="X/Twitter Logo"
+                width={40}
+                height={40}
+              />
+            </a>
+            <a
+              href="https://github.com/TheKelvinPerez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="grid items-center transition-opacity hover:opacity-80"
             >
               <Image
                 src={GithubLogo}
-                alt="Github Logo"
+                alt="GitHub Logo"
                 width={40}
                 height={40}
               />
             </a>
             <a
-              href="https://www.instagram.com/_0xAquaWolf"
+              href="https://www.linkedin.com/in/TheKelvinPerez"
               target="_blank"
               rel="noopener noreferrer"
-              className="grid items-center"
-            >
-              <Image
-                src={InstagramLogo}
-                alt="Instagram Logo"
-                width={40}
-                height={40}
-              />
-            </a>
-            <a
-              href="https://www.tiktok.com/@0xAquaWolf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="grid items-center"
-            >
-              <Image
-                src={TiktokLogo}
-                alt="TikTok Logo"
-                width={40}
-                height={40}
-              />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/0xAquaWolf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="grid items-center"
+              className="grid items-center transition-opacity hover:opacity-80"
             >
               <Image
                 src={LinkedinLogo}
-                alt="Linkedin Logo"
+                alt="LinkedIn Logo"
                 width={40}
                 height={40}
               />

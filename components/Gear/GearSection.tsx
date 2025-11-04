@@ -74,7 +74,7 @@ const gearItems = [
 
 export default function GearSection() {
   return (
-    <section className="relative mx-auto w-full max-w-7xl px-4 py-20 lg:px-8">
+    <section id="gear" className="relative mx-auto w-full max-w-7xl px-4 py-20 lg:px-8">
       <SectionHeading
         heading="My Gear"
         subheading="The tools and equipment I use daily for development, content creation, and productivity"

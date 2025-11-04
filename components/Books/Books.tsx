@@ -84,11 +84,11 @@ export default function Books() {
   };
 
   return (
-    <section className="relative py-20">
+    <section id="books" className="relative py-20">
       <div className="container mx-auto px-4">
-        <SectionHeading 
-          heading="Books I'm Reading" 
-          subheading="A collection of books that have shaped my thinking and continue to inspire my growth as a developer and person"
+        <SectionHeading
+          heading="Favorite Books"
+          subheading="Books that have fundamentally shaped my understanding and approach to development, business, and personal growth"
         />
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
