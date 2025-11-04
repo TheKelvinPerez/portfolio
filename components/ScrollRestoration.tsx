@@ -1,11 +1,25 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useLoading } from '@/lib/context/LoadingContext';
+import { usePathname } from 'next/navigation';
 
 export default function ScrollRestoration() {
+  const { isLoading } = useLoading();
+  const pathname = usePathname();
+
   useEffect(() => {
     // Only run on client side
     if (typeof window === 'undefined') return;
+
+    // Only run scroll restoration on homepage while loading is active
+    const isHomepage = pathname === '/';
+    if (!isHomepage || !isLoading) {
+      console.log('📍 ScrollRestoration: Skipping - not homepage or not loading', { pathname, isLoading });
+      return;
+    }
+
+    console.log('📍 ScrollRestoration: Starting - homepage and loading active');
 
     // Store original scroll restoration setting
     const originalScrollRestoration = history.scrollRestoration;
@@ -15,7 +29,6 @@ export default function ScrollRestoration() {
 
     // Function to force scroll to top
     const forceScrollToTop = () => {
-      console.log('📍 ScrollRestoration: Forcing scroll to top (during loading)');
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
@@ -43,7 +56,7 @@ export default function ScrollRestoration() {
     const restoreTimeout = setTimeout(() => {
       history.scrollRestoration = originalScrollRestoration;
       console.log('📍 ScrollRestoration: Restored normal scroll restoration');
-    }, 1000); // 1 second is enough now
+    }, 1000);
 
     return () => {
       clearInterval(scrollInterval);
@@ -52,7 +65,7 @@ export default function ScrollRestoration() {
       // Restore original scroll restoration setting
       history.scrollRestoration = originalScrollRestoration;
     };
-  }, []);
+  }, [pathname, isLoading]);
 
   return null;
 }
