@@ -4,24 +4,49 @@ import Image from 'next/image';
 import KelvinPerezPFP from '@/public/images/jpeg/TKP-PFP.jpeg';
 
 const letterContent = [
-  { type: 'paragraph', text: "What's Up Everyone, I'm Kelvin Perez from Miami, FL" },
-  { type: 'paragraph', text: "My journey started in 2015 when I discovered the Learn to Code movement. I dove headfirst into web development, starting with WordPress and PHP internships, then moving into e-commerce and marketing agency work." },
-  { type: 'paragraph', text: "In 2020, I pivoted to indie hacking and built a Chrome extension for Amazon dropshipping that grew to $20K MRR. Then came the crypto era in 2021 - successful, but it led to complete burnout." },
-  { type: 'paragraph', text: "So I took a radical step: a two-year sabbatical traveling the world, focusing on healing and rediscovery. When I returned, I dove deep into AI - RAG, LLMs, model architectures - seeing the bigger picture of where tech was heading." },
-  { type: 'paragraph', text: "Then came the full circle moment. Building my father's HVAC website brought me back to WordPress, and everything clicked. This time, I could see how it all interconnects - React, TypeScript, Tailwind, modern JavaScript frameworks, headless architecture. I fell in love with WordPress all over again, but with a complete understanding of the modern ecosystem." },
+  {
+    type: 'paragraph',
+    text: "What's Up Everyone, I'm Kelvin Perez from Miami, FL",
+  },
+  {
+    type: 'paragraph',
+    text: 'My journey started in 2015 when I discovered the Learn to Code movement. I dove headfirst into web development, starting with WordPress and PHP internships, then moving into e-commerce and marketing agency work.',
+  },
+  {
+    type: 'paragraph',
+    text: 'In 2020, I pivoted to indie hacking and built a Chrome extension for Amazon dropshipping that grew to $20K MRR. Then came the crypto era in 2021 - successful, but it led to complete burnout.',
+  },
+  {
+    type: 'paragraph',
+    text: 'So I took a radical step: a two-year sabbatical traveling the world, focusing on healing and rediscovery. When I returned, I dove deep into AI - RAG, LLMs, model architectures - seeing the bigger picture of where tech was heading.',
+  },
+  {
+    type: 'paragraph',
+    text: "Then came the full circle moment. Building my father's HVAC website brought me back to WordPress, and everything clicked. This time, I could see how it all interconnects - React, TypeScript, Tailwind, modern JavaScript frameworks, headless architecture. I fell in love with WordPress all over again, but with a complete understanding of the modern ecosystem.",
+  },
   { type: 'paragraph', text: "Now I'm back in the mix, specializing in:" },
-  { type: 'list', items: [
-    "WordPress & PHP Full-Stack Development with Modern JavaScript",
-    "Custom Theme & Plugin Development",
-    "AI Integration (RAG, LLMs, Context-Aware Systems)",
-    "E-commerce Solutions (WooCommerce, Shopify)",
-    "Headless WordPress & React Integration"
-  ]},
-  { type: 'paragraph', text: "I bridge traditional WordPress development with cutting-edge technologies, creating scalable solutions that are technically robust and built for real-world business needs. The journey from novice developer to building $20K MRR products, healing from burnout, and mastering AI has given me a unique perspective on both the technical and human side of building technology that matters." },
+  {
+    type: 'list',
+    items: [
+      'WordPress & PHP Full-Stack Development with Modern JavaScript',
+      'Custom Theme & Plugin Development',
+      'AI Integration (RAG, LLMs, Context-Aware Systems)',
+      'E-commerce Solutions (WooCommerce, Shopify)',
+      'Headless WordPress & React Integration',
+    ],
+  },
+  {
+    type: 'paragraph',
+    text: 'I bridge traditional WordPress development with cutting-edge technologies, creating scalable solutions that are technically robust and built for real-world business needs. The journey from novice developer to building $20K MRR products, healing from burnout, and mastering AI has given me a unique perspective on both the technical and human side of building technology that matters.',
+  },
   { type: 'paragraph', text: "Let's build the future together." },
-  { type: 'closing', text: "Wholeness & Balanced Vibrations 🙏" },
-  { type: 'signature', name: "Kelvin Perez" },
-  { type: 'footer', name: "Kelvin Perez", title: "WordPress & PHP Full-Stack Developer" }
+  { type: 'closing', text: 'Wholeness & Balanced Vibrations 🙏' },
+  { type: 'signature', name: 'Kelvin Perez' },
+  {
+    type: 'footer',
+    name: 'Kelvin Perez',
+    title: 'WordPress & PHP Full-Stack Developer',
+  },
 ];
 
 export default function Letter() {
@@ -55,28 +80,53 @@ export default function Letter() {
       if (currentSectionIndex < letterContent.length) {
         const currentSection = letterContent[currentSectionIndex];
 
-        setDisplayedContent(prev => {
+        setDisplayedContent((prev) => {
           const newContent = [...prev];
 
           // Initialize section if it doesn't exist
           if (!newContent[currentSectionIndex]) {
             if (currentSection.type === 'paragraph') {
-              newContent[currentSectionIndex] = { type: 'paragraph', text: '', complete: false };
+              newContent[currentSectionIndex] = {
+                type: 'paragraph',
+                text: '',
+                complete: false,
+              };
             } else if (currentSection.type === 'list') {
-              newContent[currentSectionIndex] = { type: 'list', items: [], complete: false };
+              newContent[currentSectionIndex] = {
+                type: 'list',
+                items: [],
+                complete: false,
+              };
             } else if (currentSection.type === 'closing') {
-              newContent[currentSectionIndex] = { type: 'closing', text: '', complete: false };
+              newContent[currentSectionIndex] = {
+                type: 'closing',
+                text: '',
+                complete: false,
+              };
             } else if (currentSection.type === 'signature') {
-              newContent[currentSectionIndex] = { type: 'signature', name: '', complete: false };
+              newContent[currentSectionIndex] = {
+                type: 'signature',
+                name: '',
+                complete: false,
+              };
             } else if (currentSection.type === 'footer') {
-              newContent[currentSectionIndex] = { type: 'footer', name: '', title: '', complete: false };
+              newContent[currentSectionIndex] = {
+                type: 'footer',
+                name: '',
+                title: '',
+                complete: false,
+              };
             }
           }
 
           // Type content based on section type
-          if (currentSection.type === 'paragraph' || currentSection.type === 'closing') {
+          if (
+            currentSection.type === 'paragraph' ||
+            currentSection.type === 'closing'
+          ) {
             if (currentCharIndex < currentSection.text.length) {
-              newContent[currentSectionIndex].text = currentSection.text.substring(0, currentCharIndex + 1);
+              newContent[currentSectionIndex].text =
+                currentSection.text.substring(0, currentCharIndex + 1);
               setCurrentCharIndex(currentCharIndex + 1);
             } else {
               newContent[currentSectionIndex].complete = true;
@@ -85,7 +135,8 @@ export default function Letter() {
             }
           } else if (currentSection.type === 'signature') {
             if (currentCharIndex < currentSection.name.length) {
-              newContent[currentSectionIndex].name = currentSection.name.substring(0, currentCharIndex + 1);
+              newContent[currentSectionIndex].name =
+                currentSection.name.substring(0, currentCharIndex + 1);
               setCurrentCharIndex(currentCharIndex + 1);
             } else {
               newContent[currentSectionIndex].complete = true;
@@ -94,11 +145,17 @@ export default function Letter() {
             }
           } else if (currentSection.type === 'footer') {
             if (currentCharIndex < currentSection.name.length) {
-              newContent[currentSectionIndex].name = currentSection.name.substring(0, currentCharIndex + 1);
+              newContent[currentSectionIndex].name =
+                currentSection.name.substring(0, currentCharIndex + 1);
               setCurrentCharIndex(currentCharIndex + 1);
-            } else if (currentCharIndex - currentSection.name.length < currentSection.title.length) {
-              const titleProgress = currentCharIndex - currentSection.name.length;
-              newContent[currentSectionIndex].title = currentSection.title.substring(0, titleProgress + 1);
+            } else if (
+              currentCharIndex - currentSection.name.length <
+              currentSection.title.length
+            ) {
+              const titleProgress =
+                currentCharIndex - currentSection.name.length;
+              newContent[currentSectionIndex].title =
+                currentSection.title.substring(0, titleProgress + 1);
               setCurrentCharIndex(currentCharIndex + 1);
             } else {
               newContent[currentSectionIndex].complete = true;
@@ -119,7 +176,10 @@ export default function Letter() {
             }
           } else {
             // Skip completed sections
-            newContent[currentSectionIndex] = { ...currentSection, complete: true };
+            newContent[currentSectionIndex] = {
+              ...currentSection,
+              complete: true,
+            };
             setCurrentSectionIndex(currentSectionIndex + 1);
             setCurrentCharIndex(0);
           }
@@ -137,8 +197,15 @@ export default function Letter() {
     return () => clearTimeout(timer);
   }, [currentSectionIndex, currentCharIndex, isTyping]);
 
-
-  const GradientFade = ({ children, isActive, baseOpacity = 0.8 }: { children: React.ReactNode; isActive: boolean; baseOpacity?: number }) => {
+  const GradientFade = ({
+    children,
+    isActive,
+    baseOpacity = 0.8,
+  }: {
+    children: React.ReactNode;
+    isActive: boolean;
+    baseOpacity?: number;
+  }) => {
     if (!isActive) return children;
 
     return (
@@ -153,7 +220,7 @@ export default function Letter() {
           WebkitBackgroundClip: 'text',
           backgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.05))'
+          filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.05))',
         }}
       >
         {children}
@@ -162,25 +229,39 @@ export default function Letter() {
   };
 
   const LoadingIndicator = () => (
-    <div className="flex flex-col items-center justify-center py-12 lg:py-20 space-y-3 lg:space-y-4 min-h-[400px] lg:min-h-[500px]">
+    <div className="flex min-h-[400px] flex-col items-center justify-center space-y-3 py-12 lg:min-h-[500px] lg:space-y-4 lg:py-20">
       <div className="flex space-x-1.5 lg:space-x-2">
-        <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-        <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-        <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+        <div
+          className="h-1.5 w-1.5 animate-bounce rounded-full bg-white/60 lg:h-2 lg:w-2"
+          style={{ animationDelay: '0ms' }}
+        ></div>
+        <div
+          className="h-1.5 w-1.5 animate-bounce rounded-full bg-white/60 lg:h-2 lg:w-2"
+          style={{ animationDelay: '150ms' }}
+        ></div>
+        <div
+          className="h-1.5 w-1.5 animate-bounce rounded-full bg-white/60 lg:h-2 lg:w-2"
+          style={{ animationDelay: '300ms' }}
+        ></div>
       </div>
-      <p className="text-white/40 text-xs lg:text-sm animate-pulse text-center px-4">Preparing your letter...</p>
+      <p className="animate-pulse px-4 text-center text-xs text-white/40 lg:text-sm">
+        Preparing your letter...
+      </p>
     </div>
   );
 
   return (
     <div className="relative px-4 sm:px-5 lg:px-0">
-      <div className="my-6 lg:my-8 flex justify-center" data-gsap="about-profile-pic">
+      <div
+        className="my-6 flex justify-center lg:my-8"
+        data-gsap="about-profile-pic"
+      >
         <Image
           src={KelvinPerezPFP}
           alt="Kelvin Perez"
           width={200}
           height={200}
-          className="rounded-full shadow-lg w-32 h-32 lg:w-48 lg:h-48 object-cover"
+          className="h-32 w-32 rounded-full object-cover shadow-lg lg:h-48 lg:w-48"
         />
       </div>
       <div className="relative">
@@ -189,14 +270,18 @@ export default function Letter() {
         {/* Letter Middle */}
         <div className="absolute left-1 top-1 z-20 h-[98%] w-[98%] -rotate-1 rounded-lg bg-letter-bottom lg:left-3 lg:top-10 lg:h-[95%] lg:w-[98%] lg:rotate-3"></div>
         {/* Letter Top */}
-        <div className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl" data-gsap="about-letter">
-          <article className="space-y-4 p-4 text-base text-white/80 lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl min-h-[500px] lg:min-h-[600px]">
+        <div
+          className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl"
+          data-gsap="about-letter"
+        >
+          <article className="min-h-[500px] space-y-4 p-4 text-base text-white/80 lg:min-h-[600px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
             {!hasStarted ? (
               <LoadingIndicator />
             ) : (
               <div className="space-y-4">
                 {displayedContent.map((section, index) => {
-                  const isCurrentSection = isTyping && index === currentSectionIndex;
+                  const isCurrentSection =
+                    isTyping && index === currentSectionIndex;
 
                   if (section.type === 'paragraph') {
                     return (
@@ -210,17 +295,22 @@ export default function Letter() {
 
                   if (section.type === 'list') {
                     return (
-                      <ul key={index} className="list-disc pl-6 space-y-2">
-                        {section.items.map((item: string, itemIndex: number) => {
-                          const isCurrentItem = isCurrentSection && itemIndex === section.items.length - 1 && item.length > 0;
-                          return (
-                            <li key={itemIndex} className="leading-relaxed">
-                              <GradientFade isActive={isCurrentItem}>
-                                {item}
-                              </GradientFade>
-                            </li>
-                          );
-                        })}
+                      <ul key={index} className="list-disc space-y-2 pl-6">
+                        {section.items.map(
+                          (item: string, itemIndex: number) => {
+                            const isCurrentItem =
+                              isCurrentSection &&
+                              itemIndex === section.items.length - 1 &&
+                              item.length > 0;
+                            return (
+                              <li key={itemIndex} className="leading-relaxed">
+                                <GradientFade isActive={isCurrentItem}>
+                                  {item}
+                                </GradientFade>
+                              </li>
+                            );
+                          },
+                        )}
                       </ul>
                     );
                   }
@@ -233,11 +323,14 @@ export default function Letter() {
             {hasStarted && (
               <>
                 {/* Closing section */}
-                {displayedContent.some(section => section.type === 'closing') && (
+                {displayedContent.some(
+                  (section) => section.type === 'closing',
+                ) && (
                   <div className="relative flex flex-col items-center gap-2">
                     {displayedContent.map((section, index) => {
                       if (section.type === 'closing') {
-                        const isCurrentSection = isTyping && index === currentSectionIndex;
+                        const isCurrentSection =
+                          isTyping && index === currentSectionIndex;
                         return (
                           <div key={index} className="self-start">
                             <GradientFade isActive={isCurrentSection}>
@@ -252,14 +345,20 @@ export default function Letter() {
                 )}
 
                 {/* Signature section */}
-                {displayedContent.some(section => section.type === 'signature') && (
+                {displayedContent.some(
+                  (section) => section.type === 'signature',
+                ) && (
                   <div className="mb-10 font-handwriting text-4xl lg:text-6xl">
                     {displayedContent.map((section, index) => {
                       if (section.type === 'signature') {
-                        const isCurrentSection = isTyping && index === currentSectionIndex;
+                        const isCurrentSection =
+                          isTyping && index === currentSectionIndex;
                         return (
                           <div key={index} className="text-white">
-                            <GradientFade isActive={isCurrentSection} baseOpacity={1}>
+                            <GradientFade
+                              isActive={isCurrentSection}
+                              baseOpacity={1}
+                            >
                               {section.name}
                             </GradientFade>
                           </div>
@@ -271,7 +370,9 @@ export default function Letter() {
                 )}
 
                 {/* Footer section */}
-                {displayedContent.some(section => section.type === 'footer') && (
+                {displayedContent.some(
+                  (section) => section.type === 'footer',
+                ) && (
                   <div className="flex items-center gap-2 lg:gap-2">
                     <div>
                       <Image
@@ -279,24 +380,33 @@ export default function Letter() {
                         alt="Kelvin Perez PFP"
                         width={64}
                         height={64}
-                        className="rounded-full w-12 h-12 lg:w-16 lg:h-16 object-cover"
+                        className="h-12 w-12 rounded-full object-cover lg:h-16 lg:w-16"
                       />
                     </div>
                     <div className="lg:ml-4">
                       {displayedContent.map((section, index) => {
                         if (section.type === 'footer') {
-                          const isCurrentSection = isTyping && index === currentSectionIndex;
-                          const isTypingName = isCurrentSection && !section.title;
-                          const isTypingTitle = isCurrentSection && section.title;
+                          const isCurrentSection =
+                            isTyping && index === currentSectionIndex;
+                          const isTypingName =
+                            isCurrentSection && !section.title;
+                          const isTypingTitle =
+                            isCurrentSection && section.title;
                           return (
                             <div key={index}>
                               <div className="text-xl font-semibold text-white lg:text-2xl">
-                                <GradientFade isActive={isTypingName} baseOpacity={1}>
+                                <GradientFade
+                                  isActive={isTypingName}
+                                  baseOpacity={1}
+                                >
                                   {section.name}
                                 </GradientFade>
                               </div>
                               <div className="text-[12px] lg:text-lg">
-                                <GradientFade isActive={isTypingTitle} baseOpacity={0.8}>
+                                <GradientFade
+                                  isActive={isTypingTitle}
+                                  baseOpacity={0.8}
+                                >
                                   {section.title}
                                 </GradientFade>
                               </div>
