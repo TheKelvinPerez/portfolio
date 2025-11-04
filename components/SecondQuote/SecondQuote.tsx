@@ -17,7 +17,11 @@ export default function SecondQuote() {
   const splitTextRef = useRef<SplitText | null>(null);
 
   useEffect(() => {
-    if (!containerRef.current || !quoteRef.current) return;
+    console.log("SecondQuote: Component mounting and setting up animations");
+    if (!containerRef.current || !quoteRef.current) {
+      console.log("SecondQuote: Missing refs - containerRef:", !!containerRef.current, "quoteRef:", !!quoteRef.current);
+      return;
+    }
 
     // Clean up any existing split text
     if (splitTextRef.current) {
@@ -29,6 +33,7 @@ export default function SecondQuote() {
       type: "words",
       wordsClass: "word"
     });
+    console.log("SecondQuote: SplitText created, found", splitTextRef.current.words.length, "words");
 
     // Set initial states
     gsap.set(backgroundRef.current, { opacity: 0 });
@@ -91,8 +96,8 @@ export default function SecondQuote() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative mt-20 lg:mt-40">
-      <div className="flex flex-col items-center justify-center">
+    <div ref={containerRef} className="relative mt-20 lg:mt-40 min-h-[400px] lg:min-h-[500px]">
+      <div className="flex flex-col items-center justify-center min-h-[400px] lg:min-h-[500px]">
         <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center text-white">
           <div
             ref={quoteRef}
@@ -111,12 +116,28 @@ export default function SecondQuote() {
             - Leonardo Da Vinci
           </div>
         </div>
-        <div ref={backgroundRef} className="relative z-[1]">
-          <div className="absolute">
-            <Image src={QuoteBGBlur} alt="Quote BG Blur" />
+        <div ref={backgroundRef} className="absolute inset-0 z-[1] flex items-center justify-center">
+          {/* Background Blur - positioned behind circles */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <Image
+              src={QuoteBGBlur}
+              alt="Quote BG Blur"
+              width={1200}
+              height={600}
+              className="object-contain opacity-40"
+              style={{ maxWidth: '100vw', maxHeight: '100vh' }}
+            />
           </div>
-          <div className="z-5 relative">
-            <Image src={QuoteCircles} alt="Quote Circles" />
+          {/* Circles - centered */}
+          <div className="relative z-10 flex items-center justify-center pointer-events-none">
+            <Image
+              src={QuoteCircles}
+              alt="Quote Circles"
+              width={800}
+              height={400}
+              className="object-contain"
+              style={{ maxWidth: '80vw', maxHeight: '80vh' }}
+            />
           </div>
         </div>
       </div>
