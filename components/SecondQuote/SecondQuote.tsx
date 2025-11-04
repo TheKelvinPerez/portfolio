@@ -40,16 +40,17 @@ export default function SecondQuote() {
     gsap.set(authorRef.current, { opacity: 0, y: 20 });
 
     // Apply gradient styling to each word and set initial animation state
-    splitTextRef.current.words.forEach((word, index) => {
-      word.style.background = 'linear-gradient(to bottom, white, #CC53C7)';
-      word.style.webkitBackgroundClip = 'text';
-      word.style.backgroundClip = 'text';
-      word.style.webkitTextFillColor = 'transparent';
-      word.style.color = 'transparent';
-      word.style.display = 'inline-block';
-      word.style.marginRight = '0.5rem';
-      word.style.fontKerning = 'none';
-      word.style.textRendering = 'optimizeSpeed';
+    splitTextRef.current.words.forEach((word) => {
+      const htmlWord = word as HTMLElement;
+      htmlWord.style.background = 'linear-gradient(to bottom, white, #CC53C7)';
+      htmlWord.style.webkitBackgroundClip = 'text';
+      htmlWord.style.backgroundClip = 'text';
+      htmlWord.style.webkitTextFillColor = 'transparent';
+      htmlWord.style.color = 'transparent';
+      htmlWord.style.display = 'inline-block';
+      htmlWord.style.marginRight = '0.5rem';
+      htmlWord.style.fontKerning = 'none';
+      htmlWord.style.textRendering = 'optimizeSpeed';
 
       gsap.set(word, { opacity: 0, y: 30 });
     });

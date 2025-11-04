@@ -90,7 +90,6 @@ export function useAssetPreloader() {
         }
 
       } catch (error) {
-        console.error('Asset preloading failed:', error);
         // Continue anyway to avoid infinite loading
         clearInterval(progressInterval);
         setProgress(100);

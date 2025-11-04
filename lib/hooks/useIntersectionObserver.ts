@@ -24,20 +24,8 @@ export function useIntersectionObserver(
   const frozen = entry?.isIntersecting && freezeOnceVisible;
 
   const updateEntry = ([entry]: IntersectionObserverEntry[]) => {
-    const wasIntersecting = isIntersecting;
-    const nowIntersecting = entry.isIntersecting;
-
-    if (wasIntersecting !== nowIntersecting) {
-      console.log(`🔍 [IntersectionObserver] Visibility changed: ${nowIntersecting ? 'VISIBLE' : 'HIDDEN'}`, {
-        intersectionRatio: entry.intersectionRatio,
-        boundingClientRect: entry.boundingClientRect,
-        rootBounds: entry.rootBounds,
-        target: entry.target
-      });
-    }
-
     setEntry(entry);
-    setIsIntersecting(nowIntersecting);
+    setIsIntersecting(entry.isIntersecting);
   };
 
   useEffect(() => {

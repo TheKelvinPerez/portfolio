@@ -66,7 +66,6 @@ async function fetchVideos(): Promise<VideoItem[]> {
     if (!response.ok) throw new Error('Failed to fetch videos');
     return await response.json();
   } catch (error) {
-    console.error('Error fetching videos:', error);
     return [];
   }
 }

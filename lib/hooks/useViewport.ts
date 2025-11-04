@@ -25,15 +25,6 @@ export function useViewport() {
           height: height,
         };
 
-        console.log('useViewport - Update:', {
-          actualWidth: width,
-          actualHeight: height,
-          calculatedWidth: calculatedDimensions.width,
-          calculatedHeight: calculatedDimensions.height,
-          difference: width - calculatedDimensions.width,
-          isMobile: width <= 768
-        });
-
         setDimensions(calculatedDimensions);
       }
     };

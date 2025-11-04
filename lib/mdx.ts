@@ -43,9 +43,7 @@ function saveCache(cache: Record<string, string>) {
 }
 
 function log(message: string) {
-  if (process.env.NODE_ENV !== 'production') {
-    console.log(message);
-  }
+  // Logging disabled
 }
 
 export function getPostSlugs() {
@@ -103,7 +101,6 @@ export function getPosts(limit: number = -1): PostData[] {
 }
 
 export function getPostBySlug(slug: string): PostData | undefined {
-  //   console.log({ slug });
   const allPosts = getPosts();
   return allPosts.find((post) => post.slug === slug);
 }

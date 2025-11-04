@@ -46,11 +46,9 @@ const getCachedChannelInfo = cache(
           },
         ];
       } else {
-        console.log('Channel not found');
         return [];
       }
     } catch (error) {
-      console.error('Error fetching channel info:', error);
       return [];
     }
   },
@@ -78,7 +76,6 @@ const getCachedGitHubStars = cache(
       );
       return totalStars;
     } catch (error) {
-      console.error('Error fetching GitHub stars:', error);
       return 0;
     }
   },
@@ -97,7 +94,6 @@ export const Stats = async () => {
       getCachedGitHubStars(YOUR_GITHUB_USERNAME),
     ]);
   } catch (error) {
-    console.error('Error fetching stats:', error);
     // Provide fallback data in case of errors
     youtubeStats = [
       { value: 0, label: 'Youtube Views' },

@@ -15,16 +15,8 @@ export default function ScrollRestoration() {
     // Only run scroll restoration on homepage while loading is active
     const isHomepage = pathname === '/';
     if (!isHomepage || !isLoading) {
-      console.log('📍 ScrollRestoration: Skipping - not homepage or not loading', { pathname, isLoading });
       return;
     }
-
-    console.log('📍 ScrollRestoration: Starting - homepage and loading active');
-    console.log('📍 ScrollRestoration: Initial scroll position:', {
-      scrollY: window.scrollY,
-      scrollTop: document.documentElement.scrollTop,
-      bodyScrollTop: document.body.scrollTop
-    });
 
     // Store original scroll restoration setting
     const originalScrollRestoration = history.scrollRestoration;
@@ -50,7 +42,6 @@ export default function ScrollRestoration() {
 
     // Listen for loading screen completion to STOP forcing scroll
     const handleLoadingComplete = () => {
-      console.log('📍 ScrollRestoration: Loading screen completed, stopping forced scroll');
       // Stop the interval when loading is complete
       clearInterval(scrollInterval);
     };
@@ -60,7 +51,6 @@ export default function ScrollRestoration() {
     // Restore normal scroll restoration after loading is complete
     const restoreTimeout = setTimeout(() => {
       history.scrollRestoration = originalScrollRestoration;
-      console.log('📍 ScrollRestoration: Restored normal scroll restoration');
     }, 1000);
 
     return () => {

@@ -11,12 +11,7 @@ export default function Hero() {
 
   // Listen for loading screen completion event
   useEffect(() => {
-    console.log('🎯 Hero: Setting up event listener for loadingScreenComplete');
-
     const handleLoadingComplete = () => {
-      console.log(
-        '🎉 Hero: Received loadingScreenComplete event! Starting animations...',
-      );
       setShouldAnimate(true);
     };
 
@@ -25,7 +20,6 @@ export default function Hero() {
 
     // Cleanup event listener on unmount
     return () => {
-      console.log('🧹 Hero: Cleaning up event listener');
       window.removeEventListener(
         'loadingScreenComplete',
         handleLoadingComplete,
@@ -35,11 +29,8 @@ export default function Hero() {
 
   useGSAP(() => {
     if (!shouldAnimate) {
-      console.log('⏳ Hero: shouldAnimate is false, waiting...');
       return;
     }
-
-    console.log('🎬 Hero: shouldAnimate is true! Starting GSAP animations...');
 
     // Create a timeline for the staggered animation
     const tl = gsap.timeline();

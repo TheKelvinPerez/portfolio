@@ -75,14 +75,9 @@ export default function ConversationalContactForm() {
   const [isComplete, setIsComplete] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)[]>([]);
 
-  // Log component mount and scroll position
+  // Track component mount
   useEffect(() => {
-    console.log('🎯 ContactForm: Component mounted at scroll position:', {
-      scrollY: window.scrollY,
-      scrollTop: document.documentElement.scrollTop,
-      bodyScrollTop: document.body.scrollTop,
-      currentStep
-    });
+    // Component mounted
   }, []);
 
   // Typing animation effect
@@ -107,16 +102,6 @@ export default function ConversationalContactForm() {
         clearInterval(typingInterval);
         // Focus input after typing completes - ONLY if contact form is visible
         if (currentStep < 7 && inputRefs.current[currentStep]) {
-          console.log('⚠️ ContactForm: About to focus input - this may cause unwanted scroll!');
-          console.log('📍 ContactForm: Scroll position before focus:', {
-            scrollY: window.scrollY,
-            scrollTop: document.documentElement.scrollTop,
-            bodyScrollTop: document.body.scrollTop,
-            currentStep,
-            inputElement: inputRefs.current[currentStep],
-            elementPosition: inputRefs.current[currentStep]?.getBoundingClientRect()
-          });
-
           setTimeout(() => {
             const element = inputRefs.current[currentStep];
             if (element) {
@@ -126,26 +111,8 @@ export default function ConversationalContactForm() {
                 const rect = contactElement.getBoundingClientRect();
                 const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-                console.log('👁️ ContactForm: Is contact form visible?', isVisible);
-                console.log('📐 ContactForm: Contact form bounds:', {
-                  top: rect.top,
-                  bottom: rect.bottom,
-                  windowHeight: window.innerHeight,
-                  isVisible
-                });
-
                 if (isVisible) {
-                  console.log('✅ ContactForm: Contact form is visible, safely focusing input...');
                   element.focus();
-                  console.log('📍 ContactForm: Scroll position AFTER focus:', {
-                    scrollY: window.scrollY,
-                    scrollTop: document.documentElement.scrollTop,
-                    bodyScrollTop: document.body.scrollTop,
-                    elementPosition: element.getBoundingClientRect()
-                  });
-                } else {
-                  console.log('🚫 ContactForm: Contact form is NOT visible, skipping focus to prevent unwanted scroll');
-                  console.log('💡 ContactForm: Scroll position preserved at', window.scrollY);
                 }
               }
             }
@@ -229,26 +196,6 @@ export default function ConversationalContactForm() {
   const handleSubmit = async () => {
     if (validateCurrentStep()) {
       setIsSubmitting(true);
-
-      // Log all submitted data
-      console.log("🎉 CONTACT FORM SUBMISSION DATA:");
-      console.log("=================================");
-      console.log("📝 Personal Information:");
-      console.log(`   Name: ${formData.name}`);
-      console.log(`   Email: ${formData.email}`);
-      console.log(`   Company: ${formData.company || "Not provided"}`);
-      console.log(`   Phone: ${formData.phone || "Not provided"}`);
-      console.log("");
-      console.log("💼 Project Details:");
-      console.log(`   Inquiry Type: ${inquiryOptions.find(opt => opt.value === formData.inquiryType)?.label || formData.inquiryType}`);
-      console.log(`   Budget: ${budgetOptions.find(opt => opt.value === formData.budget)?.label || formData.budget || "Not specified"}`);
-      console.log("");
-      console.log("📄 Message:");
-      console.log(`   ${formData.message}`);
-      console.log("=================================");
-      console.log("🔍 Full Form Data Object:");
-      console.log(formData);
-      console.log("=================================");
 
       // Simulate submission
       await new Promise((resolve) => setTimeout(resolve, 2000));

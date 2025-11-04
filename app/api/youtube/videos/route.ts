@@ -93,7 +93,6 @@ export async function GET() {
 
     return NextResponse.json(videos);
   } catch (error) {
-    console.error('Error fetching YouTube videos:', error);
     return NextResponse.json(
       { error: 'Failed to fetch videos' },
       { status: 500 }

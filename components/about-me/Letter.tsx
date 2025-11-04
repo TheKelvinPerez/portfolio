@@ -54,11 +54,9 @@ export default function Letter() {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     const startTyping = () => {
-      setHasStarted(true);
       setIsTyping(true);
       setCurrentSectionIndex(0);
       setCurrentCharIndex(0);
@@ -124,9 +122,9 @@ export default function Letter() {
             currentSection.type === 'paragraph' ||
             currentSection.type === 'closing'
           ) {
-            if (currentCharIndex < currentSection.text.length) {
+            if (currentSection.text && currentCharIndex < currentSection.text.length) {
               newContent[currentSectionIndex].text =
-                currentSection.text.substring(0, currentCharIndex + 1);
+                currentSection.text!.substring(0, currentCharIndex + 1);
               setCurrentCharIndex(currentCharIndex + 1);
             } else {
               newContent[currentSectionIndex].complete = true;
@@ -134,9 +132,9 @@ export default function Letter() {
               setCurrentCharIndex(0);
             }
           } else if (currentSection.type === 'signature') {
-            if (currentCharIndex < currentSection.name.length) {
+            if (currentSection.name && currentCharIndex < currentSection.name.length) {
               newContent[currentSectionIndex].name =
-                currentSection.name.substring(0, currentCharIndex + 1);
+                currentSection.name!.substring(0, currentCharIndex + 1);
               setCurrentCharIndex(currentCharIndex + 1);
             } else {
               newContent[currentSectionIndex].complete = true;
@@ -144,18 +142,19 @@ export default function Letter() {
               setCurrentCharIndex(0);
             }
           } else if (currentSection.type === 'footer') {
-            if (currentCharIndex < currentSection.name.length) {
+            if (currentSection.name && currentCharIndex < currentSection.name.length) {
               newContent[currentSectionIndex].name =
-                currentSection.name.substring(0, currentCharIndex + 1);
+                currentSection.name!.substring(0, currentCharIndex + 1);
               setCurrentCharIndex(currentCharIndex + 1);
             } else if (
+              currentSection.name && currentSection.title &&
               currentCharIndex - currentSection.name.length <
               currentSection.title.length
             ) {
               const titleProgress =
-                currentCharIndex - currentSection.name.length;
+                currentCharIndex - currentSection.name!.length;
               newContent[currentSectionIndex].title =
-                currentSection.title.substring(0, titleProgress + 1);
+                currentSection.title!.substring(0, titleProgress + 1);
               setCurrentCharIndex(currentCharIndex + 1);
             } else {
               newContent[currentSectionIndex].complete = true;
@@ -163,7 +162,7 @@ export default function Letter() {
               setCurrentCharIndex(0);
             }
           } else if (currentSection.type === 'list') {
-            const totalText = currentSection.items.join('\n');
+            const totalText = currentSection.items?.join('\n') || '';
             if (currentCharIndex < totalText.length) {
               const typedText = totalText.substring(0, currentCharIndex + 1);
               const typedItems = typedText.split('\n');
@@ -191,12 +190,13 @@ export default function Letter() {
       }
     };
 
-    const typingSpeed = 10; // Balanced speed for optimal readability
+    const typingSpeed = 5; // Faster speed for quicker fade-in
     const timer = setTimeout(typeNextChar, typingSpeed);
 
     return () => clearTimeout(timer);
   }, [currentSectionIndex, currentCharIndex, isTyping]);
 
+  
   const GradientFade = ({
     children,
     isActive,
@@ -228,28 +228,7 @@ export default function Letter() {
     );
   };
 
-  const LoadingIndicator = () => (
-    <div className="flex min-h-[400px] flex-col items-center justify-center space-y-3 py-12 lg:min-h-[500px] lg:space-y-4 lg:py-20">
-      <div className="flex space-x-1.5 lg:space-x-2">
-        <div
-          className="h-1.5 w-1.5 animate-bounce rounded-full bg-white/60 lg:h-2 lg:w-2"
-          style={{ animationDelay: '0ms' }}
-        ></div>
-        <div
-          className="h-1.5 w-1.5 animate-bounce rounded-full bg-white/60 lg:h-2 lg:w-2"
-          style={{ animationDelay: '150ms' }}
-        ></div>
-        <div
-          className="h-1.5 w-1.5 animate-bounce rounded-full bg-white/60 lg:h-2 lg:w-2"
-          style={{ animationDelay: '300ms' }}
-        ></div>
-      </div>
-      <p className="animate-pulse px-4 text-center text-xs text-white/40 lg:text-sm">
-        Preparing your letter...
-      </p>
-    </div>
-  );
-
+  
   return (
     <div className="relative px-4 sm:px-5 lg:px-0">
       <div
@@ -272,55 +251,50 @@ export default function Letter() {
         {/* Letter Top */}
         <div
           className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl"
-          data-gsap="about-letter"
         >
-          <article className="min-h-[500px] space-y-4 p-4 text-base text-white/80 lg:min-h-[600px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
-            {!hasStarted ? (
-              <LoadingIndicator />
-            ) : (
-              <div className="space-y-4">
-                {displayedContent.map((section, index) => {
-                  const isCurrentSection =
-                    isTyping && index === currentSectionIndex;
+          <article className="h-[1900px] space-y-4 p-4 text-base text-white/80 lg:h-[1750px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl overflow-y-auto">
+            <div className="space-y-4">
+              {displayedContent.map((section, index) => {
+                const isCurrentSection =
+                  isTyping && index === currentSectionIndex;
 
-                  if (section.type === 'paragraph') {
-                    return (
-                      <p key={index} className="leading-relaxed">
-                        <GradientFade isActive={isCurrentSection}>
-                          {section.text}
-                        </GradientFade>
-                      </p>
-                    );
-                  }
+                if (section.type === 'paragraph') {
+                  return (
+                    <p key={index} className="leading-relaxed">
+                      <GradientFade isActive={isCurrentSection}>
+                        {section.text}
+                      </GradientFade>
+                    </p>
+                  );
+                }
 
-                  if (section.type === 'list') {
-                    return (
-                      <ul key={index} className="list-disc space-y-2 pl-6">
-                        {section.items.map(
-                          (item: string, itemIndex: number) => {
-                            const isCurrentItem =
-                              isCurrentSection &&
-                              itemIndex === section.items.length - 1 &&
-                              item.length > 0;
-                            return (
-                              <li key={itemIndex} className="leading-relaxed">
-                                <GradientFade isActive={isCurrentItem}>
-                                  {item}
-                                </GradientFade>
-                              </li>
-                            );
-                          },
-                        )}
-                      </ul>
-                    );
-                  }
+                if (section.type === 'list') {
+                  return (
+                    <ul key={index} className="list-disc space-y-2 pl-6">
+                      {section.items.map(
+                        (item: string, itemIndex: number) => {
+                          const isCurrentItem =
+                            isCurrentSection &&
+                            itemIndex === section.items.length - 1 &&
+                            item.length > 0;
+                          return (
+                            <li key={itemIndex} className="leading-relaxed">
+                              <GradientFade isActive={isCurrentItem}>
+                                {item}
+                              </GradientFade>
+                            </li>
+                          );
+                        },
+                      )}
+                    </ul>
+                  );
+                }
 
-                  return null;
-                })}
-              </div>
-            )}
+                return null;
+              })}
+            </div>
 
-            {hasStarted && (
+            {displayedContent.length > 0 && (
               <>
                 {/* Closing section */}
                 {displayedContent.some(
