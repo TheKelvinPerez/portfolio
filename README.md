@@ -5,10 +5,9 @@
 <!-- PROJECT SHIELDS -->
 <div align="center">
 <!-- PROJECT SHIELDS -->
-<img src="https://img.shields.io/github/forks/0xAquaWolf/portfolio.svg?style=for-the-badge" alt="Forks">
-<img src="https://img.shields.io/github/stars/0xAquaWolf/portfolio.svg?style=for-the-badge" alt="Stars">
-<img src="https://img.shields.io/github/issues/0xAquaWolf/portfolio.svg?style=for-the-badge" alt="Issues">
-<img src="https://img.shields.io/github/license/0xAquaWolf/portfolio.svg?style=for-the-badge" alt="License">
+<img src="https://img.shields.io/github/forks/TheKelvinPerez/portfolio.svg?style=for-the-badge" alt="Forks">
+<img src="https://img.shields.io/github/issues/TheKelvinPerez/portfolio.svg?style=for-the-badge" alt="Issues">
+<img src="https://img.shields.io/github/license/TheKelvinPerez/portfolio.svg?style=for-the-badge" alt="License">
 
 </div>
 
@@ -19,11 +18,11 @@
   <p align="center">
   For many years i dreamed of a smooth and modern website to showcase everything that i have learned after 8 years, this is my love letter to Web Developement as a Full-Stack Engineer with a passion for UI/UX design.
     <br />
-    <a href="https://0xAquaWolf.com">View Demo</a>
+    <a href="https://kelvinperez.com">View Demo</a>
     ·
-    <a href="https://github.com/0xAquaWolf/portfolio/issues">Report Bug</a>
+    <a href="https://github.com/TheKelvinPerez/portfolio/issues">Report Bug</a>
     ·
-    <a href="https://github.com/0xAquaWolf/portfolio/issues">Request Feature</a>
+    <a href="https://github.com/TheKelvinPerez/portfolio/issues">Request Feature</a>
   </p>
 </div>
 
@@ -31,7 +30,7 @@
 
 <h2 align="center">About This Project</h3>
 
-[![Portfolio Screen Shot][product-screenshot]](https://0xaquawolf.com)
+[![Portfolio Screen Shot][product-screenshot]](https://kelvinperez.com)
 
 This is my personal portfolio and blog website. It showcases my projects, skills, and thoughts on various topics in the tech industry. The site is built with modern web technologies to ensure a smooth, responsive, and visually appealing experience for visitors.
 
@@ -81,7 +80,7 @@ GITHUB_ACCESS_TOKEN=""
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/0xAquaWolf/portfolio.git
+   git clone https://github.com/TheKelvinPerez/portfolio.git
    ```
 2. Install packages
    ```sh
@@ -153,7 +152,7 @@ whatever you like
 - [x] Footer with social links
   - [ ] Mobile responsiveness
 
-See the [open issues](https://github.com/0xAquaWolf/your-portfolio-repo/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/TheKelvinPerez/portfolio/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -182,7 +181,7 @@ Distributed under the GPL License. See `LICENSE` for more information.
 
 ## Contact
 
-Twitter / x - [@0xAquaWolf](https://twitter.com/0xAquaWolf)
+Twitter / x - [@TheKelvinPerez](https://twitter.com/TheKelvinPerez)
 
 [Aquawolf Academy Discord](https://discord.gg/wzPBjEcn87)
 
@@ -204,14 +203,12 @@ Twitter / x - [@0xAquaWolf](https://twitter.com/0xAquaWolf)
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[forks-shield]: https://img.shields.io/github/forks/0xAquaWolf/your-portfolio-repo.svg?style=for-the-badge
-[forks-url]: https://github.com/0xAquaWolf/your-portfolio-repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/0xAquaWolf/your-portfolio-repo.svg?style=for-the-badge
-[stars-url]: https://github.com/0xAquaWolf/your-portfolio-repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/0xAquaWolf/your-portfolio-repo.svg?style=for-the-badge
-[issues-url]: https://github.com/0xAquaWolf/your-portfolio-repo/issues
-[license-shield]: https://img.shields.io/github/license/0xAquaWolf/your-portfolio-repo.svg?style=for-the-badge
-[license-url]: https://github.com/0xAquaWolf/your-portfolio-repo/blob/master/LICENSE.txt
+[forks-shield]: https://img.shields.io/github/forks/TheKelvinPerez/portfolio.svg?style=for-the-badge
+[forks-url]: https://github.com/TheKelvinPerez/portfolio/network/members
+[issues-shield]: https://img.shields.io/github/issues/TheKelvinPerez/portfolio.svg?style=for-the-badge
+[issues-url]: https://github.com/TheKelvinPerez/portfolio/issues
+[license-shield]: https://img.shields.io/github/license/TheKelvinPerez/portfolio.svg?style=for-the-badge
+[license-url]: https://github.com/TheKelvinPerez/portfolio/blob/master/LICENSE.txt
 [product-screenshot]: /public/images/png/portfolio-preview.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
@@ -230,15 +227,6 @@ Twitter / x - [@0xAquaWolf](https://twitter.com/0xAquaWolf)
 [Node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 [Node-url]: https://nodejs.org/
 
-## Star History
-
-<a href="https://star-history.com/#0xAquaWolf/portfolio&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=0xAquaWolf/portfolio&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=0xAquaWolf/portfolio&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=0xAquaWolf/portfolio&type=Date" />
- </picture>
-</a>
 
 ## Farewell
 
