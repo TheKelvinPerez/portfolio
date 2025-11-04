@@ -9,7 +9,7 @@ export default function HeroCTA() {
           data-gsap="tech-badge"
         >
           <div className="mb-10 flex h-full w-full items-center justify-center rounded-full bg-gradient-to-b from-white/40 to-[#2F2D2D]/20 px-3 py-1 text-base text-white/80 lg:px-5 lg:py-1 lg:text-lg xl:px-8 xl:py-2 xl:text-xl">
-            WordPress | Vite | UI/UX | PHP
+            WordPress | PHP | React | UI/UX
           </div>
         </div>
         <div

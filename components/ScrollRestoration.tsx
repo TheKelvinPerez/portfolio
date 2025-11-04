@@ -20,6 +20,11 @@ export default function ScrollRestoration() {
     }
 
     console.log('📍 ScrollRestoration: Starting - homepage and loading active');
+    console.log('📍 ScrollRestoration: Initial scroll position:', {
+      scrollY: window.scrollY,
+      scrollTop: document.documentElement.scrollTop,
+      bodyScrollTop: document.body.scrollTop
+    });
 
     // Store original scroll restoration setting
     const originalScrollRestoration = history.scrollRestoration;

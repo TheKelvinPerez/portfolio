@@ -204,8 +204,7 @@ export default function Letter() {
                         <GradientFade isActive={isCurrentSection}>
                           {section.text}
                         </GradientFade>
-                        {null}
-                      </p>
+                                              </p>
                     );
                   }
 
@@ -219,8 +218,7 @@ export default function Letter() {
                               <GradientFade isActive={isCurrentItem}>
                                 {item}
                               </GradientFade>
-                              {isCurrentItem && <Cursor baseOpacity={0.8} />}
-                            </li>
+                                                          </li>
                           );
                         })}
                       </ul>
@@ -245,8 +243,7 @@ export default function Letter() {
                             <GradientFade isActive={isCurrentSection}>
                               {section.text}
                             </GradientFade>
-                            {null}
-                          </div>
+                                                      </div>
                         );
                       }
                       return null;
@@ -265,8 +262,7 @@ export default function Letter() {
                             <GradientFade isActive={isCurrentSection} baseOpacity={1}>
                               {section.name}
                             </GradientFade>
-                            {null}
-                          </div>
+                                                      </div>
                         );
                       }
                       return null;
@@ -298,14 +294,12 @@ export default function Letter() {
                                 <GradientFade isActive={isTypingName} baseOpacity={1}>
                                   {section.name}
                                 </GradientFade>
-                                {isTypingName && <Cursor baseOpacity={1} />}
-                              </div>
+                                                              </div>
                               <div className="text-[12px] lg:text-lg">
                                 <GradientFade isActive={isTypingTitle} baseOpacity={0.8}>
                                   {section.title}
                                 </GradientFade>
-                                {isTypingTitle && <Cursor baseOpacity={0.8} />}
-                              </div>
+                                                              </div>
                             </div>
                           );
                         }

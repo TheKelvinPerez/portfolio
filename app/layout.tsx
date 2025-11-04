@@ -105,7 +105,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {/* <NoiseTexture /> */}
-            <ScrollRestoration />
+            {/* <ScrollRestoration /> - Temporarily disabled to test contact form scroll fix */}
             <Menu />
             <div className="mx-auto max-w-[1440px] bg-transparent px-4 sm:px-6 lg:px-8">
               {children}

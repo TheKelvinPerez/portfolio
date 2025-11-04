@@ -75,6 +75,16 @@ export default function ConversationalContactForm() {
   const [isComplete, setIsComplete] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)[]>([]);
 
+  // Log component mount and scroll position
+  useEffect(() => {
+    console.log('🎯 ContactForm: Component mounted at scroll position:', {
+      scrollY: window.scrollY,
+      scrollTop: document.documentElement.scrollTop,
+      bodyScrollTop: document.body.scrollTop,
+      currentStep
+    });
+  }, []);
+
   // Typing animation effect
   useEffect(() => {
     let question = steps[currentStep].question;
@@ -95,10 +105,50 @@ export default function ConversationalContactForm() {
       } else {
         setIsTyping(false);
         clearInterval(typingInterval);
-        // Focus input after typing completes
+        // Focus input after typing completes - ONLY if contact form is visible
         if (currentStep < 7 && inputRefs.current[currentStep]) {
+          console.log('⚠️ ContactForm: About to focus input - this may cause unwanted scroll!');
+          console.log('📍 ContactForm: Scroll position before focus:', {
+            scrollY: window.scrollY,
+            scrollTop: document.documentElement.scrollTop,
+            bodyScrollTop: document.body.scrollTop,
+            currentStep,
+            inputElement: inputRefs.current[currentStep],
+            elementPosition: inputRefs.current[currentStep]?.getBoundingClientRect()
+          });
+
           setTimeout(() => {
-            inputRefs.current[currentStep]?.focus();
+            const element = inputRefs.current[currentStep];
+            if (element) {
+              // Check if contact form is visible in viewport before focusing
+              const contactElement = document.getElementById('contact-me');
+              if (contactElement) {
+                const rect = contactElement.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+                console.log('👁️ ContactForm: Is contact form visible?', isVisible);
+                console.log('📐 ContactForm: Contact form bounds:', {
+                  top: rect.top,
+                  bottom: rect.bottom,
+                  windowHeight: window.innerHeight,
+                  isVisible
+                });
+
+                if (isVisible) {
+                  console.log('✅ ContactForm: Contact form is visible, safely focusing input...');
+                  element.focus();
+                  console.log('📍 ContactForm: Scroll position AFTER focus:', {
+                    scrollY: window.scrollY,
+                    scrollTop: document.documentElement.scrollTop,
+                    bodyScrollTop: document.body.scrollTop,
+                    elementPosition: element.getBoundingClientRect()
+                  });
+                } else {
+                  console.log('🚫 ContactForm: Contact form is NOT visible, skipping focus to prevent unwanted scroll');
+                  console.log('💡 ContactForm: Scroll position preserved at', window.scrollY);
+                }
+              }
+            }
           }, 100);
         }
       }
