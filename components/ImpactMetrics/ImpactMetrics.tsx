@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import NumberTicker from '@/components/magicui/number-ticker';
+import SectionHeading from '@/components/SectionHeading';
 
 interface Metric {
   value: string | number;
@@ -57,67 +58,40 @@ export default function ImpactMetrics() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Set initial states
-    gsap.set('[data-gsap="metrics-heading"]', { opacity: 0, y: 20 });
-    gsap.set('[data-gsap="metrics-subheading"]', { opacity: 0, y: 25 });
+    // Set initial states for cards only (SectionHeading handles heading animations)
     gsap.set('[data-gsap^="metric-card-"]', { opacity: 0, y: 30, scale: 0.95 });
 
     // Create timeline
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '[data-gsap="metrics-heading"]',
+        trigger: '[data-gsap="impact-metrics-heading"]',
         start: 'top 80%',
         end: 'bottom 20%',
         toggleActions: 'play none none none',
       },
     });
 
-    tl.to('[data-gsap="metrics-heading"]', {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-    })
-      .to(
-        '[data-gsap="metrics-subheading"]',
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-        },
-        '-=0.3',
-      )
-      .to(
-        '[data-gsap^="metric-card-"]',
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: 'back.out(1.2)',
-        },
-        '-=0.2',
-      );
+    tl.to(
+      '[data-gsap^="metric-card-"]',
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'back.out(1.2)',
+      },
+      '-=0.2',
+    );
   });
 
   return (
     <div className="mx-auto mt-40 w-full max-w-7xl px-4">
-      <div className="mb-12 text-center">
-        <h2
-          data-gsap="metrics-heading"
-          className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl"
-        >
-          By The Numbers
-        </h2>
-        <p
-          data-gsap="metrics-subheading"
-          className="mx-auto max-w-3xl text-lg text-gray-300 md:text-xl"
-        >
-          Measurable impact delivering enterprise-level WordPress solutions
-        </p>
-      </div>
+      <SectionHeading
+        heading="By The Numbers"
+        subheading="Measurable impact delivering enterprise-level WordPress solutions"
+        animationId="impact-metrics"
+      />
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {metrics.map((metric, index) => (
