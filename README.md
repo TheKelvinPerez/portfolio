@@ -211,6 +211,39 @@ Feel free to:
 - Study the code and implementation patterns
 - Report issues or suggest improvements
 
+<!-- ROADMAP -->
+
+## Roadmap
+
+### Future Enhancements
+
+- [ ] **Headless WordPress Blog**
+  - Integrate WordPress as a headless CMS
+  - Connect via WordPress REST API or GraphQL (WPGraphQL)
+  - Server-side rendering of blog posts with Next.js
+  - Dynamic routing for blog content
+  - Category and tag filtering
+  - Author profiles and bio sections
+  - Comment system integration
+  - SEO optimization for blog posts
+
+- [ ] **Performance Optimizations**
+  - Image optimization with next/image
+  - Font optimization strategies
+  - Further bundle size reduction
+  - Implement service worker for offline support
+
+- [ ] **Enhanced Features**
+  - Newsletter subscription integration
+  - Case study deep dives with interactive elements
+  - Video testimonials section
+  - Client logo showcase
+  - Advanced contact form with scheduling integration
+
+See the [open issues](https://github.com/TheKelvinPerez/portfolio/issues) for a full list of proposed features and known issues.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- LICENSE -->
 
 ## License
