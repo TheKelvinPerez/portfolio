@@ -1,24 +1,21 @@
-<h1 align="center">Portfolio & Blog</h3>
+<h1 align="center">Kelvin Perez - WordPress Developer Portfolio</h1>
 
 <a name="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
 <div align="center">
-<!-- PROJECT SHIELDS -->
 <img src="https://img.shields.io/github/forks/TheKelvinPerez/portfolio.svg?style=for-the-badge" alt="Forks">
 <img src="https://img.shields.io/github/issues/TheKelvinPerez/portfolio.svg?style=for-the-badge" alt="Issues">
 <img src="https://img.shields.io/github/license/TheKelvinPerez/portfolio.svg?style=for-the-badge" alt="License">
-
 </div>
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-
   <p align="center">
-  For many years i dreamed of a smooth and modern website to showcase everything that i have learned after 8 years, this is my love letter to Web Developement as a Full-Stack Engineer with a passion for UI/UX design.
+    A modern, high-performance portfolio website showcasing my expertise as a Senior Full-Stack WordPress & PHP Developer. Built with Next.js 15, React 19, and cutting-edge web technologies.
     <br />
-    <a href="https://kelvinperez.com">View Demo</a>
+    <a href="https://kelvinperez.com">View Live Site</a>
     ·
     <a href="https://github.com/TheKelvinPerez/portfolio/issues">Report Bug</a>
     ·
@@ -28,148 +25,191 @@
 
 <!-- ABOUT THE PROJECT -->
 
-<h2 align="center">About This Project</h3>
+<h2 align="center">About This Project</h2>
 
-<!-- [![Portfolio Screen Shot][product-screenshot]](https://kelvinperez.com) -->
+This is my professional portfolio website, designed to showcase my WordPress development expertise, projects, and professional experience. The site demonstrates modern web development practices with a focus on performance, accessibility, and user experience.
 
-This is my personal portfolio and blog website. It showcases my projects, skills, and thoughts on various topics in the tech industry. The site is built with modern web technologies to ensure a smooth, responsive, and visually appealing experience for visitors.
+### Key Features
 
-Key Features:
+- **Modern Tech Stack**: Built with Next.js 15 App Router and React 19
+- **Responsive Design**: Mobile-first approach with seamless experience across all devices
+- **Rich Animations**: GSAP and Framer Motion for smooth, professional animations
+- **Performance Optimized**: Fast loading times, optimized assets, and Core Web Vitals focused
+- **Dark Mode**: Theme switching with next-themes
+- **SEO Optimized**: Structured data, meta tags, sitemap, and robots.txt
+- **Analytics**: PostHog integration for user behavior tracking
+- **PWA Ready**: Progressive Web App capabilities with manifest configuration
 
-- Responsive design that looks great on both desktop and mobile devices
-- Portfolio section to showcase my projects with detailed descriptions
-- Blog section for sharing my thoughts and experiences in the tech world
-- Dark mode support for comfortable viewing in any lighting condition
-- Fast loading times and optimized performance
+### Portfolio Sections
+
+- **Hero**: Introduction with call-to-action and animated effects
+- **About Me**: Professional background and expertise
+- **Timeline**: Career progression and work experience
+- **Projects**: Detailed case studies of WordPress development work
+- **Books**: Recommended reading for developers
+- **Gear**: Equipment and tools I use
+- **FAQ**: Common questions about services and approach
+- **Contact Form**: Conversational contact interface
 
 <br>
 <h3 align="center">Built With</h3>
 <div align="center">
-<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
-<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
+<img src="https://img.shields.io/badge/Next.js_15-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
+<img src="https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
 <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
 <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+<img src="https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white" alt="GSAP">
+<img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion">
 <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn/ui">
-<img src="https://img.shields.io/badge/Aceternity_UI-FF4785?style=for-the-badge&logo=storybook&logoColor=white" alt="Aceternity UI">
 <img src="https://img.shields.io/badge/Bun-%23000000.svg?style=for-the-badge&logo=bun&logoColor=white" alt="Bun">
+<img src="https://img.shields.io/badge/PostHog-FF6F00?style=for-the-badge&logo=posthog&logoColor=white" alt="PostHog">
 </div>
 <br>
+
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-To get a local copy up and running, follow these simple steps.
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-- Bun
+- **Bun** (JavaScript runtime and package manager)
   ```sh
   curl -fsSL https://bun.sh/install | bash
   ```
 
-#### Environment Variables
+### Environment Variables
 
-To run this project, you will need to add the following environment variables to your `.env` file:
+Create a `.env` file in the root directory with the following variables:
 
 ```bash
-YOUTUBE_API_KEY=""
-GITHUB_ACCESS_TOKEN=""
+# PostHog Analytics
+NEXT_PUBLIC_POSTHOG_KEY=""
+NEXT_PUBLIC_POSTHOG_HOST="https://us.i.posthog.com"
 ```
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repository
    ```sh
    git clone https://github.com/TheKelvinPerez/portfolio.git
+   cd portfolio
    ```
-2. Install packages
+
+2. Install dependencies
    ```sh
    bun install
    ```
+
 3. Start the development server
    ```sh
    bun run dev
    ```
 
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### Available Scripts
+
+```sh
+bun run dev          # Start development server with Turbopack
+bun run build        # Build for production
+bun run start        # Start production server
+bun run scn:add      # Add shadcn/ui components
+bun run ace:add      # Add Aceternity UI components
+bun run clean        # Clean install (removes node_modules, .next)
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
+<!-- ARCHITECTURE -->
+
+## Architecture & Tech Stack
+
+### Framework & Core
+- **Next.js 15**: App Router with Server Components
+- **React 19**: Latest React with concurrent features
+- **TypeScript**: Full type safety throughout the application
+- **Bun**: Fast JavaScript runtime and package manager
+
+### Styling & UI
+- **Tailwind CSS**: Utility-first CSS framework
+- **shadcn/ui**: High-quality React components built on Radix UI
+- **Magic UI**: Additional UI component library
+- **next-themes**: Theme management with dark mode support
+
+### Animation & Effects
+- **GSAP** (@gsap/react): Professional-grade animation library
+- **Framer Motion**: Declarative React animations
+- **Canvas Confetti**: Celebration animations
+- **@paper-design/shaders-react**: WebGL shader effects
+
+### Analytics & Performance
+- **PostHog**: User analytics and event tracking
+- **Core Web Vitals**: Optimized for LCP, CLS, FID
+- **Dynamic Rendering**: 12-hour revalidation strategy
+
+### Icons & Assets
+- **Lucide React**: Icon library
+- **Heroicons**: Additional icon set
+- **Google Fonts**: Inter, La Belle Aurore
+- **Custom Fonts**: MonoLisa monospace font
+
+### Code Quality
+- **ESLint**: Next.js core web vitals configuration
+- **Prettier**: Code formatting with Tailwind plugin
+- **TypeScript Strict Mode**: Enhanced type checking
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- PROJECT STRUCTURE -->
+
+## Project Structure
+
+```
+portfolio/
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Root layout with providers
+│   ├── page.tsx           # Homepage
+│   ├── providers.tsx      # PostHog analytics provider
+│   ├── projects/          # Project showcase pages
+│   ├── robots.ts          # SEO robots configuration
+│   └── sitemap.ts         # Dynamic sitemap generation
+├── components/            # React components
+│   ├── Hero/             # Hero section
+│   ├── Timeline/         # Experience timeline
+│   ├── Projects/         # Project showcase
+│   ├── Books/            # Book recommendations
+│   ├── Gear/             # Equipment section
+│   ├── about-me/         # About section
+│   ├── ui/               # Reusable UI components
+│   ├── magicui/          # Magic UI components
+│   └── footer.tsx        # Site footer
+├── lib/                   # Utilities and configurations
+│   ├── context/          # React context providers
+│   └── utils.ts          # Utility functions
+├── public/               # Static assets
+└── types/                # TypeScript type definitions
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- USAGE -->
 
 ## Usage
 
-Gain inspiration for your own portfolio
+This portfolio serves as:
 
-fork it
+- **Professional Showcase**: Demonstrating WordPress development expertise
+- **Case Study Platform**: Detailed project walkthroughs
+- **Contact Point**: For potential clients and collaborators
+- **Learning Resource**: Modern Next.js and React patterns
 
-clone it
-
-whatever you like
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-- Hero Section
-  - [x] Nav Menu
-  - [x] Call to actions
-  - [x] Mobile Responsiveness
-  - [ ] Menu Widescreen responsiveness min-w-[1440px]
-- [x] Logo Cloud
-  - [x] Widescreen responsiveness min-w-[1440px]
-  - [x] Widescreen make bigger
-  - [x] Tablet row layout (md:flex-row)
-- [x] Stats Section with dynamic info
-  - [x] Design in figma
-  - [x] Code with tailwindcss
-  - [x] Dynamic data from API
-  - [x] Animate number with framer-motion
-- [x] Youtube video section with live view count
-  - [x] Design in figma
-  - [x] Code with tailwindcss
-  - [x] Dynamic data from API
-  - [x] Animate number with framer-motion
-  - [ ] Cache response from YouTube API
-  - [ ] Create list of top videos and link to playlist
-- [x] 1st Quote Section
-- [x] About me Section
-- [x] Projects and Startups Section
-- [x] 2nd Quote Section
-- Blog
-  - [x] Use Markdown files
-  - [x] Use MDX Files
-  - [x] Syntax Highlighting with Shiki
-  - [ ] Add comment system for blog posts
-  - [ ] Add microinteraction with heart
-  - [ ] Add read time based on words per minute
-  - [ ] Add view count
-- Add Backend with Supabase
-  - [ ] Create API endpoints for blog posts
-  - [ ] Create API endpoints for newsletter
-  - [ ] Create API endpoints for projects
-  - [ ] Create API endpoints for stats
-- [x] Join the Newsletter section
-  - [ ] API call to backend to add to list with Mautic
-- [x] Footer with social links
-  - [ ] Mobile responsiveness
-
-See the [open issues](https://github.com/TheKelvinPerez/portfolio/issues) for a full list of proposed features (and known issues).
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Feel free to:
+- Fork for inspiration
+- Use as a template (attribution appreciated)
+- Study the code and implementation patterns
+- Report issues or suggest improvements
 
 <!-- LICENSE -->
 
@@ -181,51 +221,40 @@ Distributed under the GPL License. See `LICENSE` for more information.
 
 ## Contact
 
-Twitter / x - [@TheKelvinPerez](https://twitter.com/TheKelvinPerez)
+- **Twitter/X**: [@KelvinPerezDev](https://twitter.com/KelvinPerezDev)
+- **GitHub**: [@TheKelvinPerez](https://github.com/TheKelvinPerez)
+- **Website**: [kelvinperez.com](https://kelvinperez.com)
 
 <!-- ACKNOWLEDGMENTS -->
 
 ## Acknowledgments
 
+### Documentation & Resources
 - [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://react.dev)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Shadcn UI](https://ui.shadcn.com/)
-- [Aceternity UI](https://ui.aceternity.com/)
-- [React Icons](https://react-icons.github.io/react-icons/)
-- [Bun Documentation](https://bun.sh/docs)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [GSAP Documentation](https://gsap.com/docs/)
+- [Framer Motion Documentation](https://www.framer.com/motion/)
+
+### UI Libraries & Tools
+- [shadcn/ui](https://ui.shadcn.com/) - Beautiful component library
+- [Aceternity UI](https://ui.aceternity.com/) - Modern UI components
+- [Lucide Icons](https://lucide.dev/) - Icon library
+- [PostHog](https://posthog.com/) - Product analytics
+- [Bun](https://bun.sh/) - JavaScript runtime
+
+### Inspiration & Community
+- The Next.js and React communities
+- WordPress developer community
+- Open source contributors worldwide
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[forks-shield]: https://img.shields.io/github/forks/TheKelvinPerez/portfolio.svg?style=for-the-badge
-[forks-url]: https://github.com/TheKelvinPerez/portfolio/network/members
-[issues-shield]: https://img.shields.io/github/issues/TheKelvinPerez/portfolio.svg?style=for-the-badge
-[issues-url]: https://github.com/TheKelvinPerez/portfolio/issues
-[license-shield]: https://img.shields.io/github/license/TheKelvinPerez/portfolio.svg?style=for-the-badge
-[license-url]: https://github.com/TheKelvinPerez/portfolio/blob/master/LICENSE.txt
-[product-screenshot]: /public/images/png/portfolio-preview.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[TypeScript]: https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
-[TypeScript-url]: https://www.typescriptlang.org/
-[Tailwind CSS]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
-[Tailwind-url]: https://tailwindcss.com/
-[Shadcn UI]: https://img.shields.io/badge/Shadcn_UI-000000?style=for-the-badge&logo=shadcnui&logoColor=white
-[Shadcn-url]: https://ui.shadcn.com/
-[Aceternity UI]: https://img.shields.io/badge/Aceternity_UI-FF4785?style=for-the-badge&logo=storybook&logoColor=white
-[Aceternity-url]: https://ui.aceternity.com/
-[Bun]: https://img.shields.io/badge/Bun-000000?style=for-the-badge&logo=bun&logoColor=white
-[Bun-url]: https://bun.sh/
-[Node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
-[Node-url]: https://nodejs.org/
-
+---
 
 ## Farewell
 
-Wholeness and balanced Vibrations 🙌
+Wholeness and balanced vibrations 🙌
+
+Built with ❤️ by [Kelvin Perez](https://kelvinperez.com)
