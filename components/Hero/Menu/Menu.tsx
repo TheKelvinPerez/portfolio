@@ -70,10 +70,10 @@ export default function Menu() {
           <div className="flex lg:flex-1">
             <Link className="flex items-center gap-2" href="/">
               <Image
-                src="/images/png/aquawolf-logo.png"
+                src="/images/svg/kp-logo-v2.svg"
                 alt="Logo"
-                width={25}
-                height={25}
+                width={35}
+                height={35}
               />
               <div className="text-lg font-semibold text-white">
                 Kelvin Perez

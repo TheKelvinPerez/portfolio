@@ -1,6 +1,6 @@
 'use client';
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 export default function DownloadResumeCTA() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,31 +9,30 @@ export default function DownloadResumeCTA() {
     margin: "-20% 0px -20% 0px"
   });
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedResume, setSelectedResume] = useState('ats');
-
-  const resumeOptions = [
-    {
-      id: 'ats',
-      name: 'ATS Friendly',
-      description: 'Optimized for applicant tracking systems',
-      url: 'https://docs.google.com/document/d/15DKjg8zZwIXyBa8Bva6vI90dvgSh34HxlHaPAnwGOJE/edit?usp=sharing'
-    },
-    {
-      id: 'modern',
-      name: 'Modern Design',
-      description: 'Visually appealing modern design',
-      url: 'https://docs.google.com/document/d/15DKjg8zZwIXyBa8Bva6vI90dvgSh34HxlHaPAnwGOJE/edit?usp=sharing' // placeholder
-    }
-  ];
+  // Single resume URL
+  const resumeUrl = 'https://docs.google.com/document/d/15DKjg8zZwIXyBa8Bva6vI90dvgSh34HxlHaPAnwGOJE/edit?usp=sharing';
 
   const handleDownload = () => {
-    const selected = resumeOptions.find(option => option.id === selectedResume);
-    if (selected) {
-      window.open(selected.url, '_blank');
-    }
-    setIsDropdownOpen(false);
+    window.open(resumeUrl, '_blank');
   };
+
+  // COMMENTED OUT - Multiple resume options for future design
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const [selectedResume, setSelectedResume] = useState('ats');
+  // const resumeOptions = [
+  //   {
+  //     id: 'ats',
+  //     name: 'ATS Friendly',
+  //     description: 'Optimized for applicant tracking systems',
+  //     url: 'https://docs.google.com/document/d/15DKjg8zZwIXyBa8Bva6vI90dvgSh34HxlHaPAnwGOJE/edit?usp=sharing'
+  //   },
+  //   {
+  //     id: 'modern',
+  //     name: 'Modern Design',
+  //     description: 'Visually appealing modern design',
+  //     url: 'https://docs.google.com/document/d/15DKjg8zZwIXyBa8Bva6vI90dvgSh34HxlHaPAnwGOJE/edit?usp=sharing'
+  //   }
+  // ];
 
   // Container variants for staggering children
   const containerVariants = {
@@ -136,8 +135,16 @@ export default function DownloadResumeCTA() {
           Download my resume to learn more about my experience, skills, and how
           I can help bring your next project to life.
         </motion.p>
-        <motion.div className="mt-8 relative" variants={buttonVariants}>
+        <motion.div className="mt-8" variants={buttonVariants}>
           <button
+            onClick={handleDownload}
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-8 py-3 text-sm uppercase text-white transition-all hover:from-violet-700 hover:to-purple-700 shadow-lg min-w-[200px]"
+          >
+            <span>Download Resume</span>
+          </button>
+
+          {/* COMMENTED OUT - Dropdown for multiple resume options for future design */}
+          {/* <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="inline-flex items-center justify-between rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-8 py-3 text-sm uppercase text-white transition-all hover:from-violet-700 hover:to-purple-700 shadow-lg min-w-[200px]"
           >
@@ -170,7 +177,7 @@ export default function DownloadResumeCTA() {
                 ))}
               </div>
             </div>
-          )}
+          )} */}
         </motion.div>
       </motion.div>
     </>

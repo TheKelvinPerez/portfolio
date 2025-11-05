@@ -3,6 +3,7 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 interface LoadingScreenProps {
   progress: number;
@@ -82,8 +83,15 @@ export default function LoadingScreen({ progress, isComplete, onComplete }: Load
       className="fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-purple-600 via-blue-600 to-yellow-500"
       style={{ touchAction: 'none', overflow: 'hidden' }}
     >
-      {/* Percentage Counter */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* Logo and Percentage Counter */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <Image
+          src="/images/svg/kp-logo-v2.svg"
+          alt="KP Logo"
+          width={150}
+          height={150}
+          className="mb-8"
+        />
         <span
           ref={percentageRef}
           className="text-6xl font-bold text-white md:text-8xl lg:text-9xl"
