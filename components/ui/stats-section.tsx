@@ -23,7 +23,7 @@ function Stats() {
           <div className="flex flex-col justify-between gap-0 rounded-md border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20">
             <Gauge className="mb-10 h-4 w-4 text-purple-400" />
             <h2 className="flex flex-row items-end gap-4 text-left text-4xl font-regular tracking-tighter text-white max-w-xl">
-              1ms
+              1s
               <span className="text-sm tracking-normal text-purple-400">
                 response
               </span>

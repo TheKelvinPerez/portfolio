@@ -6,11 +6,11 @@ import KelvinPerezPFP from '@/public/images/jpeg/TKP-PFP.jpeg';
 const letterContent = [
   {
     type: 'paragraph',
-    text: "What's Up Everyone, I'm Kelvin Perez from Miami, FL",
+    text: "Hey, I'm Kelvin Perez from Miami, FL",
   },
   {
     type: 'paragraph',
-    text: 'I\'m a Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. My journey started in 2015 at Broward College, diving into WordPress and PHP at Digital Age Marketing Group, then founding ViViFi agency in 2019 where I delivered 12+ websites with 100% client satisfaction.',
+    text: "I'm a Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. My journey started in 2015 at Broward College, diving into WordPress and PHP at Digital Age Marketing Group, then founding ViViFi agency in 2019 where I delivered 12+ websites with 100% client satisfaction.",
   },
   {
     type: 'paragraph',
@@ -18,7 +18,7 @@ const letterContent = [
   },
   {
     type: 'paragraph',
-    text: 'The full circle moment came building my father\'s HVAC site for Light Code Labs. I architected a WordPress CMS automating 487 pages with ACF Pro, cutting content creation by 90%, generating $50K-$100K annual SEO value, and achieving 1ms response times with 100/100 PageSpeed scores.',
+    text: "The full circle moment came building my father's HVAC site SunnySide247ac.com. I architected a WordPress CMS automating 487 pages with ACF Pro, cutting content creation by 90%, generating $50K-$100K annual SEO value, and achieving 1ms response times with 100/100 PageSpeed scores.",
   },
   { type: 'paragraph', text: "Now I'm specializing in:" },
   {
@@ -44,7 +44,7 @@ const letterContent = [
     name: 'Kelvin Perez',
     title: 'Senior WordPress Developer & Full-Stack Engineer',
   },
-];;
+];
 
 export default function Letter() {
   const [displayedContent, setDisplayedContent] = useState<any[]>([]);
@@ -119,7 +119,10 @@ export default function Letter() {
             currentSection.type === 'paragraph' ||
             currentSection.type === 'closing'
           ) {
-            if (currentSection.text && currentCharIndex < currentSection.text.length) {
+            if (
+              currentSection.text &&
+              currentCharIndex < currentSection.text.length
+            ) {
               newContent[currentSectionIndex].text =
                 currentSection.text!.substring(0, currentCharIndex + 1);
               setCurrentCharIndex(currentCharIndex + 1);
@@ -129,7 +132,10 @@ export default function Letter() {
               setCurrentCharIndex(0);
             }
           } else if (currentSection.type === 'signature') {
-            if (currentSection.name && currentCharIndex < currentSection.name.length) {
+            if (
+              currentSection.name &&
+              currentCharIndex < currentSection.name.length
+            ) {
               newContent[currentSectionIndex].name =
                 currentSection.name!.substring(0, currentCharIndex + 1);
               setCurrentCharIndex(currentCharIndex + 1);
@@ -139,14 +145,18 @@ export default function Letter() {
               setCurrentCharIndex(0);
             }
           } else if (currentSection.type === 'footer') {
-            if (currentSection.name && currentCharIndex < currentSection.name.length) {
+            if (
+              currentSection.name &&
+              currentCharIndex < currentSection.name.length
+            ) {
               newContent[currentSectionIndex].name =
                 currentSection.name!.substring(0, currentCharIndex + 1);
               setCurrentCharIndex(currentCharIndex + 1);
             } else if (
-              currentSection.name && currentSection.title &&
+              currentSection.name &&
+              currentSection.title &&
               currentCharIndex - currentSection.name.length <
-              currentSection.title.length
+                currentSection.title.length
             ) {
               const titleProgress =
                 currentCharIndex - currentSection.name!.length;
@@ -193,7 +203,6 @@ export default function Letter() {
     return () => clearTimeout(timer);
   }, [currentSectionIndex, currentCharIndex, isTyping]);
 
-  
   const GradientFade = ({
     children,
     isActive,
@@ -225,7 +234,6 @@ export default function Letter() {
     );
   };
 
-  
   return (
     <div className="relative px-4 sm:px-5 lg:px-0">
       <div
@@ -246,10 +254,8 @@ export default function Letter() {
         {/* Letter Middle */}
         <div className="absolute left-1 top-1 z-20 h-[98%] w-[98%] -rotate-1 rounded-lg bg-letter-bottom lg:left-3 lg:top-10 lg:h-[95%] lg:w-[98%] lg:rotate-3"></div>
         {/* Letter Top */}
-        <div
-          className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl"
-        >
-          <article className="h-[2000px] space-y-4 p-4 text-base text-white/80 lg:h-[1900px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
+        <div className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl">
+          <article className="h-[1900px] space-y-4 p-4 text-base text-white/80 lg:h-[1700px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
             <div className="space-y-4">
               {displayedContent.map((section, index) => {
                 const isCurrentSection =
@@ -268,21 +274,19 @@ export default function Letter() {
                 if (section.type === 'list') {
                   return (
                     <ul key={index} className="list-disc space-y-2 pl-6">
-                      {section.items.map(
-                        (item: string, itemIndex: number) => {
-                          const isCurrentItem =
-                            isCurrentSection &&
-                            itemIndex === section.items.length - 1 &&
-                            item.length > 0;
-                          return (
-                            <li key={itemIndex} className="leading-relaxed">
-                              <GradientFade isActive={isCurrentItem}>
-                                {item}
-                              </GradientFade>
-                            </li>
-                          );
-                        },
-                      )}
+                      {section.items.map((item: string, itemIndex: number) => {
+                        const isCurrentItem =
+                          isCurrentSection &&
+                          itemIndex === section.items.length - 1 &&
+                          item.length > 0;
+                        return (
+                          <li key={itemIndex} className="leading-relaxed">
+                            <GradientFade isActive={isCurrentItem}>
+                              {item}
+                            </GradientFade>
+                          </li>
+                        );
+                      })}
                     </ul>
                   );
                 }
