@@ -24,6 +24,7 @@ export function Footer() {
       // Set initial states
       gsap.set('[data-gsap="footer-logo"]', { opacity: 0, y: 20 });
       gsap.set('[data-gsap="footer-nav"]', { opacity: 0, y: 30 });
+      gsap.set('[data-gsap="footer-contact"]', { opacity: 0, y: 35 });
       gsap.set('[data-gsap="footer-social"]', { opacity: 0, y: 40, scale: 0.9 });
       gsap.set('[data-gsap="footer-copyright"]', { opacity: 0, y: 50 });
 
@@ -56,6 +57,12 @@ export function Footer() {
         ease: 'power2.out',
       })
         .to('[data-gsap="footer-nav"]', {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+        }, '-=0.3')
+        .to('[data-gsap="footer-contact"]', {
           opacity: 1,
           y: 0,
           duration: 0.6,
@@ -153,6 +160,19 @@ export function Footer() {
             Contact
           </Link>
         </nav>
+
+        <div data-gsap="footer-contact" className="mb-6 flex flex-col items-center gap-2 text-center text-sm text-gray-300">
+          <p>
+            <a href="tel:+13053399449" className="transition-colors hover:text-white">
+              305-339-9449
+            </a>
+            {' • '}
+            <a href="mailto:thekelvinperez@gmail.com" className="transition-colors hover:text-white">
+              thekelvinperez@gmail.com
+            </a>
+          </p>
+          <p>Miami-Fort Lauderdale Area, Florida</p>
+        </div>
 
         <div data-gsap="footer-social" className="mt-10">
           <div className="flex flex-wrap justify-center gap-6">

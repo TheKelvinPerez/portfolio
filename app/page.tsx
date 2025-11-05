@@ -20,13 +20,13 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 43200; // revalidate every 12 hours
 
 export const metadata: Metadata = {
-  title: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
+  title: 'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer',
   description:
-    'Kelvin Perez is a Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. Expert in enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications.',
+    'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern front-end (React, TypeScript, Tailwind CSS). Proven track record automating complex WordPress systems.',
   openGraph: {
-    title: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
+    title: 'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer',
     description:
-      'Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. Expert in enterprise-level WordPress solutions.',
+      'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration.',
     type: 'website',
     url: '/',
     images: [
@@ -34,15 +34,15 @@ export const metadata: Metadata = {
         url: '/images/png/portfolio-preview.png',
         width: 1200,
         height: 630,
-        alt: 'Kelvin Perez - Full-Stack WordPress Developer',
+        alt: 'Kelvin Perez - Senior WordPress Developer & Full-Stack Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
+    title: 'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer',
     description:
-      'Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration.',
+      'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration.',
     images: ['/images/png/portfolio-preview.png'],
   },
 };
@@ -53,9 +53,9 @@ const structuredData = {
   name: 'Kelvin Perez',
   url: 'https://kelvinperez.com',
   image: 'https://kelvinperez.com/images/png/portfolio-preview.png',
-  jobTitle: 'Senior Full-Stack WordPress Developer',
+  jobTitle: 'Senior WordPress Developer & Full-Stack Engineer',
   description:
-    'Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration.',
+    'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration.',
   sameAs: [
     'https://github.com/TheKelvinPerez',
     'https://twitter.com/KelvinPerezDev',
@@ -76,13 +76,23 @@ const structuredData = {
     'E-commerce Solutions',
   ],
   alumniOf: {
-    '@type': 'Organization',
-    name: 'Your University',
+    '@type': 'CollegeOrUniversity',
+    name: 'Broward College',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Fort Lauderdale',
+      addressRegion: 'FL',
+      addressCountry: 'US',
+    },
   },
   address: {
     '@type': 'PostalAddress',
+    addressLocality: 'Miami-Fort Lauderdale Area',
+    addressRegion: 'FL',
     addressCountry: 'US',
   },
+  email: 'thekelvinperez@gmail.com',
+  telephone: '+1-305-339-9449',
 };
 
 const professionalServiceData = {

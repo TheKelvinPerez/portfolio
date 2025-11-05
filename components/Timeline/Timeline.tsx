@@ -550,7 +550,7 @@ const timelineData = [
         >
           The full circle moment arrived when my father&apos;s HVAC company
           needed a website. I explored modern tools like Astro, but WordPress
-          called me back home. Built a site with 480+ dynamically generated
+          called me back home. Built a site with 487 dynamically generated
           pages using Advanced Custom Fields, custom templates, and dynamic
           rewrite rules. This time, I could see the complete picture - React,
           TypeScript, Tailwind, and Vite all interconnecting with WordPress in
@@ -580,7 +580,7 @@ const timelineData = [
             >
               <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
               <span className="text-sm font-semibold text-gray-100">
-                480+ page WordPress site with dynamic generation
+                487 page WordPress site with dynamic generation
               </span>
             </div>
             <div

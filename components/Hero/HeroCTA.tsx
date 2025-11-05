@@ -16,7 +16,7 @@ export default function HeroCTA() {
           className="hero-gradient-text -mt-1 text-center text-4xl font-bold leading-tight opacity-0 sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl"
           data-gsap="hero-text"
         >
-          Full Stack WordPress Developer
+          Senior WordPress Developer & Full-Stack Engineer
         </div>
       </div>
       <div className="grid w-full max-w-md grid-cols-2 items-center justify-center gap-3">

@@ -16,7 +16,7 @@ export const projectsData: Project[] = [
   {
     title: 'SunnySide 24/7 AC - Enterprise WordPress Platform',
     description:
-      'Sophisticated, locally-focused HVAC website built on WordPress with advanced SEO optimization, scalable architecture generating 480+ pages dynamically. Features custom post types, Advanced Custom Fields, modern build tooling (Vite + Tailwind v4), and enterprise-grade DevOps deployment with Caddy, Docker monitoring, and automated SSL.',
+      'Sophisticated, locally-focused HVAC website built on WordPress with advanced SEO optimization, scalable architecture generating 487 pages dynamically. Features custom post types, Advanced Custom Fields, modern build tooling (Vite + Tailwind v4), and enterprise-grade DevOps deployment with Caddy, Docker monitoring, and automated SSL.',
     date: 'August 2025',
     imageUrl: '/projects/sunnyside-hvac.jpg',
     tags: ['WordPress', 'PHP 8.3', 'Vite', 'Tailwind v4', 'ACF Pro', 'DevOps', 'Caddy', 'Docker', 'SEO'],
@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
     fullDescription:
       '# Problem\n\n' +
       'A family-owned HVAC business in South Florida was struggling to compete with larger companies in local search results. They needed comprehensive online coverage across 30+ cities and 15+ service types, but manually creating hundreds of location-specific pages would be:\n\n' +
-      '- **Time-Prohibitive**: 420+ pages would take months to create manually\n' +
+      '- **Time-Prohibitive**: 487 pages would take months to create manually\n' +
       '- **Inconsistent**: Manual creation leads to content quality variations\n' +
       '- **Unmaintainable**: Updating business info across hundreds of pages becomes impossible\n' +
       '- **Limited SEO Impact**: Without proper structure and automation, achieving local search dominance is unfeasible\n\n' +
@@ -37,7 +37,7 @@ export const projectsData: Project[] = [
       'Engineered a sophisticated content management system using **custom post types** and **Advanced Custom Fields Pro**:\n\n' +
       '- **3 Custom Post Types**: 31 Cities, 15 Services, 8 Brands with relationship management\n' +
       '- **Dynamic URL Generation**: Custom rewrite rules creating SEO-friendly URLs like `/miami/ac-repair/`\n' +
-      '- **Automated Content**: 487 total pages (420+ service-city combinations) generated from structured data\n' +
+      '- **Automated Content**: 487 total pages (465 service-city combinations + 31 city pages + 15 service pages) generated from structured data\n' +
       '- **Component-Based Design**: 25+ reusable template components using React-style patterns\n' +
       '- **Smart Taxonomy**: Hierarchical service categories with meta-field relationships\n\n' +
       '### Modern Development Stack\n' +
@@ -67,7 +67,7 @@ export const projectsData: Project[] = [
       '- **Scalable Growth**: Easy addition of new cities/services without technical debt\n' +
       '- **Centralized Management**: Single-point updates across all 487 pages instantly\n\n' +
       '### Technical Excellence Delivered\n' +
-      '- **420+ Dynamic Landing Pages**: Service-city combinations auto-generated with SEO optimization\n' +
+      '- **487 Dynamic Landing Pages**: Service-city combinations auto-generated with SEO optimization\n' +
       '- **Enterprise Architecture**: Production-ready with monitoring, security, and performance optimization\n' +
       '- **Modern Development Workflow**: HMR, environment detection, automated builds and deployments\n' +
       '- **Local Search Dominance**: Comprehensive coverage with rich snippets and structured data\n' +
