@@ -4,6 +4,14 @@ import { useEffect } from "react"
 import posthog from 'posthog-js'
 import { PostHogProvider as PHProvider } from 'posthog-js/react'
 
+// Extend Window interface to include PostHog
+declare global {
+  interface Window {
+    posthog: typeof posthog;
+    testPostHog: () => void;
+  }
+}
+
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Initialize PostHog with Partytown support

@@ -10,7 +10,7 @@ export default function DownloadResumeCTA() {
   });
 
   // Single resume URL
-  const resumeUrl = 'https://docs.google.com/document/d/15DKjg8zZwIXyBa8Bva6vI90dvgSh34HxlHaPAnwGOJE/edit?usp=sharing';
+  const resumeUrl = 'https://docs.google.com/document/d/1bJNTpwSZcjrzHnnHX4YQW6BretFT_DmjNIuAcSbHKYk/edit?usp=sharing';
 
   const handleDownload = () => {
     window.open(resumeUrl, '_blank');

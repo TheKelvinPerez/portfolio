@@ -16,10 +16,48 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000',
   ),
-  title: 'Kelvin Perez Portfolio & Blog',
-
+  title: {
+    default: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
+    template: '%s | Kelvin Perez',
+  },
   description:
     'Kelvin Perez is a Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. With extensive experience building enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications, Kelvin delivers scalable, high-performance web applications that power e-commerce stores and business-critical websites.',
+  keywords: [
+    'Kelvin Perez',
+    'Full-Stack WordPress Developer',
+    'Senior WordPress Developer',
+    'PHP Developer',
+    'Custom WordPress Development',
+    'WooCommerce Development',
+    'WordPress Expert',
+    'React WordPress Integration',
+    'Headless WordPress',
+    'WordPress Plugin Development',
+    'WordPress Theme Development',
+    'Enterprise WordPress Solutions',
+    'E-commerce Development',
+    'WordPress Performance Optimization',
+    'Custom WordPress Themes',
+    'WordPress REST API',
+    'Modern WordPress Development',
+  ],
+  authors: [{ name: 'Kelvin Perez', url: 'https://kelvinperez.com' }],
+  creator: 'Kelvin Perez',
+  publisher: 'Kelvin Perez',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -48,19 +86,33 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    images: '/images/png/portfolio-preview.png',
+    locale: 'en_US',
+    url: '/',
     siteName: 'Kelvin Perez',
-    title: 'Kelvin Perez Portfolio & Blog',
+    title: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
     description:
-      'Kelvin Perez is a Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. With extensive experience building enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications, Kelvin delivers scalable, high-performance web applications that power e-commerce stores and business-critical websites.',
+      'Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. Expert in enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications.',
+    images: [
+      {
+        url: '/images/png/portfolio-preview.png',
+        width: 1200,
+        height: 630,
+        alt: 'Kelvin Perez - Full-Stack WordPress Developer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    images: '/images/png/portfolio-preview.png',
-    title: 'Kelvin Perez Portfolio & Blog',
+    title: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
     description:
-      'Kelvin Perez is a Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. With extensive experience building enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications, Kelvin delivers scalable, high-performance web applications that power e-commerce stores and business-critical websites.',
+      'Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. Expert in enterprise-level WordPress solutions.',
+    images: ['/images/png/portfolio-preview.png'],
+    creator: '@KelvinPerezDev',
   },
+  verification: {
+    google: 'your-google-verification-code',
+  },
+  category: 'technology',
 };
 
 export const viewport: Viewport = {

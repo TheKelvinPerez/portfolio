@@ -21,32 +21,41 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Environment Variables Required
 
 ```bash
-YOUTUBE_API_KEY=""
-GITHUB_ACCESS_TOKEN=""
-TURSO_DATABASE_URL=""
-TURSO_AUTH_TOKEN=""
+NEXT_PUBLIC_POSTHOG_KEY=""
+NEXT_PUBLIC_POSTHOG_HOST=""
 ```
 
 ## Architecture Overview
 
-This is a Next.js 14 portfolio website built with TypeScript, featuring:
+This is a modern portfolio website showcasing WordPress development expertise, built with Next.js 15, TypeScript, and React 19. The site features:
 
-- **App Router**: Uses Next.js App Router with TypeScript
-- **Database**: Drizzle ORM with Turso (SQLite) database
-- **Styling**: Tailwind CSS with shadcn/ui and Aceternity UI components
-- **Animation**: GSAP and Framer Motion for animations
-- **APIs**: YouTube API integration for video stats, GitHub API for project data
+- **Framework**: Next.js 15 App Router with Server Components
+- **Styling**: Tailwind CSS with shadcn/ui component library
+- **Animations**: GSAP (primary) and Framer Motion for rich interactive animations
+- **Analytics**: PostHog for user behavior tracking and analytics
+- **Content**: Static project showcase, timeline, books, gear, and contact form
 
 ## Key Directory Structure
 
-- `app/` - Next.js App Router pages and API routes
-  - `api/youtube/videos/route.ts` - YouTube API endpoint
-  - `projects/` - Project showcase pages
+- `app/` - Next.js App Router pages and layouts
+  - `projects/` - Project showcase pages with dynamic routing
+  - `providers.tsx` - PostHog analytics provider setup
+  - `layout.tsx` - Root layout with theme provider and global styles
+  - `page.tsx` - Homepage with all main sections
 - `components/` - Reusable React components organized by feature
-  - `Hero/`, `LogoCloud/`, `GlobalStats/` etc.
-  - `magicui/` - UI components library
+  - `Hero/` - Hero section with main introduction
+  - `Timeline/` - Professional experience timeline
+  - `Projects/` - Project showcase with static data
+  - `Books/` - Book recommendations section
+  - `Gear/` - Equipment and tools showcase
+  - `Home/` - FAQ and other homepage sections
+  - `about-me/` - About section components
+  - `ui/` - Reusable UI components (forms, call-to-action, effects)
+  - `magicui/` - Magic UI components library
+  - `footer.tsx` - Site footer
 - `lib/` - Utility functions and configurations
-- `drizzle/` - Database schema and migrations
+  - `context/` - React context providers (LoadingContext)
+  - `utils.ts` - Utility functions
 
 ## Code Style Guidelines (from .cursorrules)
 
@@ -64,7 +73,7 @@ This is a Next.js 14 portfolio website built with TypeScript, featuring:
 
 - **Runtime**: Uses Bun as the JavaScript runtime and package manager
 - **Package Manager**: Configured to use pnpm@9.15.4 as fallback package manager
-- **Dependencies**: Key libraries include GSAP, Framer Motion, Drizzle ORM, and Tailwind CSS
+- **Dependencies**: Key libraries include GSAP, Framer Motion, PostHog, and Tailwind CSS
 
 ## Animation Libraries
 
