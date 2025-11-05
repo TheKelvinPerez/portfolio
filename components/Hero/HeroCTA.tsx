@@ -13,10 +13,10 @@ export default function HeroCTA() {
           </div>
         </div>
         <div
-          className="hero-gradient-text -mt-1 text-center text-4xl font-bold leading-tight opacity-0 sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl"
+          className="hero-gradient-text -mt-1 text-center text-4xl font-bold leading-tight opacity-0 sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl"
           data-gsap="hero-text"
         >
-          Senior WordPress Developer & Full-Stack Engineer
+          Senior Full-Stack WordPress Developer
         </div>
       </div>
       <div className="grid w-full max-w-md grid-cols-2 items-center justify-center gap-3">

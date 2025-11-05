@@ -13,6 +13,8 @@ import GearSection from '@/components/Gear/GearSection';
 import ContactForm from '@/components/ui/conversational-contact-form';
 import CallToAction from '@/components/ui/call-to-action-1';
 import { LoadingManager } from '@/components/LoadingManager';
+import ImpactMetrics from '@/components/ImpactMetrics/ImpactMetrics';
+import Skills from '@/components/Skills/Skills';
 import Script from 'next/script';
 import { Metadata } from 'next';
 
@@ -157,8 +159,10 @@ export default function Home() {
         <ResponsiveGodRays />
         <Hero />
         {/* <FeaturedVideo /> */}
+        <ImpactMetrics />
         <AboutMe />
         <CallToAction />
+        <Skills />
         <TimelineComponent />
         <SecondQuote />
         <CallToAction />

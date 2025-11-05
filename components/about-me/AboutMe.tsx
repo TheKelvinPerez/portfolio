@@ -63,7 +63,7 @@ export default function AboutMe() {
     <div id="about" className="mx-auto max-w-[1000px] px-4 mt-40">
       <SectionHeading
         heading="Who is Kelvin Perez?"
-        subheading="8+ Years of Experience: WordPress & PHP Full-Stack Developer with expertise in React"
+        subheading="Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses"
         animationId="about"
       />
       <Letter />

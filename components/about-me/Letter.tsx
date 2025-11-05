@@ -10,42 +10,47 @@ const letterContent = [
   },
   {
     type: 'paragraph',
-    text: 'My journey started in 2015 when I discovered the Learn to Code movement. I dove headfirst into web development, starting with WordPress and PHP internships, then moving into e-commerce and marketing agency work.',
+    text: 'I\'m a Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. My journey started in 2015 when I discovered the Learn to Code movement at Broward College. I dove headfirst into web development, starting with WordPress and PHP internships at Digital Age Marketing Group, where I built foundational expertise in custom theme development, design systems, and UI/UX principles.',
   },
   {
     type: 'paragraph',
-    text: 'In 2020, I pivoted to indie hacking and built a Chrome extension for Amazon dropshipping that grew to $20K MRR. Then came the crypto era in 2021 - feeling confident in my JavaScript and React skills, I discovered crypto, NFTs, and blockchain. I dove deep into Solidity and launched successful NFT projects, with my generated code ultimately driving $28M+ in sales.',
+    text: 'In 2019, I founded ViViFi, a boutique digital agency where I delivered 12+ high-converting WordPress websites for SMBs and creatives, maintaining 100% client satisfaction and 40% repeat business. During this time, I mastered Advanced Custom Fields, custom post types, and created reusable agency starter themes that accelerated project delivery.',
   },
   {
     type: 'paragraph',
-    text: 'So I took a radical step: a two-year sabbatical traveling the world, focusing on healing and rediscovery. When I returned, I dove deep into AI - RAG, LLMs, model architectures - seeing the bigger picture of where tech was heading.',
+    text: 'In 2020, I pivoted to indie hacking and built a Chrome extension for Amazon dropshipping that grew to $20K MRR. Then came the crypto era in 2021 - I dove deep into Solidity and launched successful NFT projects, with my generated code ultimately driving $28M+ in sales. After experiencing extreme burnout, I took a transformative two-year sabbatical traveling the world, focusing on healing and rediscovery.',
   },
   {
     type: 'paragraph',
-    text: "Then came the full circle moment. Building my father's HVAC website brought me back to WordPress, and everything clicked. This time, I could see how it all interconnects - React, TypeScript, Tailwind, modern JavaScript frameworks, headless architecture. I fell in love with WordPress all over again, but with a complete understanding of the modern ecosystem.",
+    text: 'When I returned, I dove deep into AI - RAG systems, LLMs, and model architectures - seeing the bigger picture of where technology was heading. Then came the full circle moment: building my father\'s HVAC website for Light Code Labs brought me back to WordPress, and everything clicked.',
+  },
+  {
+    type: 'paragraph',
+    text: 'I architected a custom WordPress CMS automating 487+ service pages with custom post types, ACF Pro, and schema markup - cutting content creation time by 90%. The platform generates an estimated $50K-$100K annually in organic traffic value. I engineered a custom DevOps pipeline with Redis object caching, Cloudflare + BunnyCDN integration, achieving 1ms server response times and 100/100 PageSpeed scores.',
   },
   { type: 'paragraph', text: "Now I'm back in the mix, specializing in:" },
   {
     type: 'list',
     items: [
-      'WordPress & PHP Full-Stack Development with Modern JavaScript',
-      'Custom Theme & Plugin Development',
+      'WordPress & PHP Full-Stack Development (PHP 8.3+, ACF Pro, Custom Themes & Plugins)',
+      'Modern Front-End Integration (React, Next.js, TypeScript, Tailwind CSS)',
+      'E-commerce Solutions (WooCommerce, Payment Gateways, CRM Integration)',
+      'Performance & Infrastructure (Docker/DDEV, Redis, CDN, Core Web Vitals Optimization)',
+      'SEO & Analytics (Technical SEO, Schema Markup, Local SEO, Google Search Console)',
       'AI Integration (RAG, LLMs, Context-Aware Systems)',
-      'E-commerce Solutions (WooCommerce, Shopify)',
-      'Headless WordPress & React Integration',
     ],
   },
   {
     type: 'paragraph',
-    text: 'I bridge traditional WordPress development with cutting-edge technologies, creating scalable solutions that are technically robust and built for real-world business needs. The journey from novice developer to building $20K MRR products, generating $28M+ in code-driven sales, healing from burnout, and mastering AI has given me a unique perspective on both the technical and human side of building technology that matters.',
+    text: 'I thrive in collaborative agency environments managing multiple projects while partnering with designers and marketers. My journey from marketing agencies to building $20K MRR products, generating $28M+ in code-driven sales, healing from burnout, and mastering AI has given me a unique perspective on creating technically robust solutions built for real-world business needs.',
   },
-  { type: 'paragraph', text: "Let's build the future together." },
+  { type: 'paragraph', text: "Let's build something amazing together." },
   { type: 'closing', text: 'Wholeness & Balanced Vibrations 🙏' },
   { type: 'signature', name: 'Kelvin Perez' },
   {
     type: 'footer',
     name: 'Kelvin Perez',
-    title: 'WordPress & PHP Full-Stack Developer',
+    title: 'Senior WordPress Developer & Full-Stack Engineer',
   },
 ];;
 
