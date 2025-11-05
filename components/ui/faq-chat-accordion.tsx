@@ -78,7 +78,7 @@ export function FaqAccordion({
                       {item.icon}
                     </span>
                   )}
-                  <span className="font-medium">{item.question}</span>
+                  <span className="font-medium text-sm md:text-base lg:text-lg">{item.question}</span>
                 </div>
 
                 <span
@@ -109,7 +109,7 @@ export function FaqAccordion({
                 <div className="ml-7 mt-1 md:ml-16">
                   <div
                     className={cn(
-                      "relative max-w-xs rounded-2xl bg-primary px-4 py-2 text-primary-foreground",
+                      "relative max-w-xs md:max-w-sm lg:max-w-md rounded-2xl bg-primary px-4 py-2 text-primary-foreground text-sm md:text-base lg:text-base",
                       answerClassName
                     )}
                   >

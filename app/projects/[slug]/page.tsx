@@ -1,4 +1,4 @@
-import { projectsData } from '@/components/Projects/Projects';
+import { projectsData } from '@/components/Projects/projectsData';
 import ProjectContent from '@/components/Projects/ProjectContent';
 import { Footer } from '@/components/footer';
 

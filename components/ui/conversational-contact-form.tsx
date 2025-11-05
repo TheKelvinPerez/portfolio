@@ -89,12 +89,6 @@ export default function ConversationalContactForm() {
     gsap.set('[data-gsap="contact-description"]', { opacity: 0, y: 30 });
     gsap.set('[data-gsap="contact-container"]', { opacity: 0, y: 40, scale: 0.95 });
 
-    // Set initial states for inner step elements (hidden initially)
-    gsap.set('[data-gsap="progress-indicator"]', { opacity: 0, y: 15, scale: 0.95 });
-    gsap.set('[data-gsap="question-bubble"]', { opacity: 0, y: 20, scale: 0.95 });
-    gsap.set('[data-gsap="user-input"]', { opacity: 0, y: 25, scale: 0.95 });
-    gsap.set('[data-gsap="navigation-buttons"]', { opacity: 0, y: 30, scale: 0.95 });
-
     // Create timeline for contact section animation
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -141,42 +135,11 @@ export default function ConversationalContactForm() {
           ease: 'power3.out',
         },
         '-=0.2',
-      )
-      // Animate inner step elements with stagger (after container appears)
-      .to('[data-gsap="progress-indicator"]', {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.5,
-        ease: 'power2.out',
-      }, '+=0.2')
-      .to('[data-gsap="question-bubble"]', {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: 'power2.out',
-      }, '-=0.3')
-      .to('[data-gsap="user-input"]', {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: 'power2.out',
-      }, '-=0.3')
-      .to('[data-gsap="navigation-buttons"]', {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.5,
-        ease: 'power2.out',
-      }, '-=0.3');
+      );
   });
 
   // GSAP animations for step transitions
   useEffect(() => {
-    if (currentStep === 0) return; // Skip first step, handled by main animation
-
     // Create timeline for step transitions
     const stepTl = gsap.timeline();
 

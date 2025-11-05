@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { ExternalLink, ArrowLeft } from 'lucide-react';
 import Markdown from 'react-markdown';
 import RelatedProjects from './RelatedProjects';
-import { Project, projectsData } from './Projects';
+import { Project, projectsData } from './projectsData';
 
 interface ProjectContentProps extends Project {}
 
