@@ -14,7 +14,7 @@ const letterContent = [
   },
   {
     type: 'paragraph',
-    text: 'In 2020, I pivoted to indie hacking and built a Chrome extension for Amazon dropshipping that grew to $20K MRR. Then came the crypto era in 2021 - successful, but it led to complete burnout.',
+    text: 'In 2020, I pivoted to indie hacking and built a Chrome extension for Amazon dropshipping that grew to $20K MRR. Then came the crypto era in 2021 - feeling confident in my JavaScript and React skills, I discovered crypto, NFTs, and blockchain. I dove deep into Solidity and launched successful NFT projects, with my generated code ultimately driving $28M+ in sales.',
   },
   {
     type: 'paragraph',
@@ -37,7 +37,7 @@ const letterContent = [
   },
   {
     type: 'paragraph',
-    text: 'I bridge traditional WordPress development with cutting-edge technologies, creating scalable solutions that are technically robust and built for real-world business needs. The journey from novice developer to building $20K MRR products, healing from burnout, and mastering AI has given me a unique perspective on both the technical and human side of building technology that matters.',
+    text: 'I bridge traditional WordPress development with cutting-edge technologies, creating scalable solutions that are technically robust and built for real-world business needs. The journey from novice developer to building $20K MRR products, generating $28M+ in code-driven sales, healing from burnout, and mastering AI has given me a unique perspective on both the technical and human side of building technology that matters.',
   },
   { type: 'paragraph', text: "Let's build the future together." },
   { type: 'closing', text: 'Wholeness & Balanced Vibrations 🙏' },
@@ -47,7 +47,7 @@ const letterContent = [
     name: 'Kelvin Perez',
     title: 'WordPress & PHP Full-Stack Developer',
   },
-];
+];;
 
 export default function Letter() {
   const [displayedContent, setDisplayedContent] = useState<any[]>([]);
@@ -252,7 +252,7 @@ export default function Letter() {
         <div
           className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl"
         >
-          <article className="h-[1900px] space-y-4 p-4 text-base text-white/80 lg:h-[1750px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl overflow-y-auto">
+          <article className="h-[2000px] space-y-4 p-4 text-base text-white/80 lg:h-[1900px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
             <div className="space-y-4">
               {displayedContent.map((section, index) => {
                 const isCurrentSection =
