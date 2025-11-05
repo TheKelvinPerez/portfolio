@@ -70,7 +70,7 @@ function Stats() {
         <div className="grid grid-cols-1 gap-4 text-left sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           <div
             data-gsap="stat-card-0"
-            className="flex flex-col justify-between gap-0 rounded-md border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+            className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           >
             <Zap className="mb-10 h-4 w-4 text-purple-400" />
             <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white">
@@ -86,7 +86,7 @@ function Stats() {
 
           <div
             data-gsap="stat-card-1"
-            className="flex flex-col justify-between gap-0 rounded-md border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+            className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           >
             <Gauge className="mb-10 h-4 w-4 text-purple-400" />
             <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white">
@@ -102,7 +102,7 @@ function Stats() {
 
           <div
             data-gsap="stat-card-2"
-            className="flex flex-col justify-between gap-0 rounded-md border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+            className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           >
             <MoveUpRight className="mb-10 h-4 w-4 text-purple-400" />
             <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white">
@@ -118,7 +118,7 @@ function Stats() {
 
           <div
             data-gsap="stat-card-3"
-            className="flex flex-col justify-between gap-0 rounded-md border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+            className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           >
             <Clock className="mb-10 h-4 w-4 text-purple-400" />
             <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white">
@@ -134,7 +134,7 @@ function Stats() {
 
           <div
             data-gsap="stat-card-4"
-            className="flex flex-col justify-between gap-0 rounded-md border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+            className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           >
             <DollarSign className="mb-10 h-4 w-4 text-purple-400" />
             <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white">
@@ -150,7 +150,7 @@ function Stats() {
 
           <div
             data-gsap="stat-card-5"
-            className="flex flex-col justify-between gap-0 rounded-md border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+            className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           >
             <TrendingUp className="mb-10 h-4 w-4 text-purple-400" />
             <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white">
