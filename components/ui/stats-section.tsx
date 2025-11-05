@@ -10,7 +10,9 @@ function Stats() {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
-    // Set initial states for stat cards
+    // Set initial states
+    gsap.set('[data-gsap="impact-metrics-heading"]', { opacity: 0, y: 20 });
+    gsap.set('[data-gsap="impact-metrics-subheading"]', { opacity: 0, y: 25 });
     gsap.set('[data-gsap^="stat-card-"]', { opacity: 0, y: 30, scale: 0.95 });
 
     // Create staggered timeline with ScrollTrigger
@@ -23,19 +25,36 @@ function Stats() {
       },
     });
 
-    // Stagger animate stat cards
-    tl.to(
-      '[data-gsap^="stat-card-"]',
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power2.out',
-      },
-      '-=0.2',
-    );
+    // Animate heading and subheading first
+    tl.to('[data-gsap="impact-metrics-heading"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    })
+      .to(
+        '[data-gsap="impact-metrics-subheading"]',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+        },
+        '-=0.3',
+      )
+      // Then stagger animate stat cards
+      .to(
+        '[data-gsap^="stat-card-"]',
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power2.out',
+        },
+        '-=0.2',
+      );
   }, []);
 
   return (
