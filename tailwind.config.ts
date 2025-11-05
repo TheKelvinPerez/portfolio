@@ -140,7 +140,7 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'marquee-scroll': 'marquee-scroll 40s linear infinite',
+        'marquee-scroll': 'marquee-scroll 60s linear infinite',
         marquee: 'marquee 25s linear infinite',
         marquee2: 'marquee2 25s linear infinite',
         'marquee-infinite': 'marquee 25s linear infinite',

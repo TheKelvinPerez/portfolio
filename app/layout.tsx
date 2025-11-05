@@ -10,6 +10,7 @@ import Menu from '@/components/Hero/Menu/Menu';
 import { ThemeProvider } from 'next-themes';
 import { LoadingProvider } from '@/lib/context/LoadingContext';
 import ScrollRestoration from '@/components/ScrollRestoration';
+import { PostHogProvider } from './providers';
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -97,21 +98,23 @@ export default function RootLayout({
           MonaLisa.variable,
         )}
       >
-        <LoadingProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* <NoiseTexture /> */}
-            {/* <ScrollRestoration /> - Temporarily disabled to test contact form scroll fix */}
-            <Menu />
-            <div className="mx-auto max-w-[1440px] bg-transparent px-4 sm:px-6 lg:px-8">
-              {children}
-            </div>
-          </ThemeProvider>
-        </LoadingProvider>
+        <PostHogProvider>
+          <LoadingProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {/* <NoiseTexture /> */}
+              {/* <ScrollRestoration /> - Temporarily disabled to test contact form scroll fix */}
+              <Menu />
+              <div className="mx-auto max-w-[1440px] bg-transparent px-4 sm:px-6 lg:px-8">
+                {children}
+              </div>
+            </ThemeProvider>
+          </LoadingProvider>
+        </PostHogProvider>
       </body>
     </html>
   );

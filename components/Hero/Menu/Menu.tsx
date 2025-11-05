@@ -162,7 +162,7 @@ export default function Menu() {
                 <span className="sr-only">Kelvin Perez</span>
                 <div className="flex items-center gap-2">
                   <Image
-                    src="/images/png/aquawolf-logo.png"
+                    src="/images/svg/kp-logo-v2.svg"
                     alt="Logo"
                     width={25}
                     height={25}

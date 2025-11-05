@@ -3,11 +3,13 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useEffect, useState } from 'react';
+import { usePostHog } from 'posthog-js/react';
 import HeroCTA from './HeroCTA';
 import LogoCloud from '@/components/LogoCloud/LogoCloud';
 
 export default function Hero() {
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const posthog = usePostHog();
 
   // Listen for loading screen completion event
   useEffect(() => {
@@ -18,6 +20,18 @@ export default function Hero() {
     // Add event listener for loading screen completion
     window.addEventListener('loadingScreenComplete', handleLoadingComplete);
 
+    // Send a simple test event when component mounts
+    if (posthog) {
+      console.log('PostHog: Sending hero_component_mounted event');
+      posthog.capture('hero_component_mounted', {
+        component: 'Hero',
+        action: 'mount',
+        timestamp: new Date().toISOString()
+      });
+    } else {
+      console.log('PostHog: Not initialized yet');
+    }
+
     // Cleanup event listener on unmount
     return () => {
       window.removeEventListener(
@@ -25,12 +39,19 @@ export default function Hero() {
         handleLoadingComplete,
       );
     };
-  }, []);
+  }, [posthog]);
 
   useGSAP(() => {
     if (!shouldAnimate) {
       return;
     }
+
+    // Send PostHog test event when hero animation starts
+    posthog.capture('hero_animation_started', {
+      component: 'Hero',
+      action: 'animation_start',
+      timestamp: new Date().toISOString()
+    });
 
     // Create a timeline for the staggered animation
     const tl = gsap.timeline();

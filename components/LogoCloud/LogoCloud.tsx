@@ -6,35 +6,17 @@ import TailwindCSSLogo from '@/public/images/svg/Tailwind-Logo.svg';
 import ReactLogo from '@/public/images/svg/react-logo.svg';
 import TypescriptLogo from '@/public/images/svg/TS-Logo.svg';
 import VercelLogo from '@/public/images/svg/Vercel-Logo.svg';
+import PythonLogo from '@/public/images/svg/Python-Logo.svg';
+import NeovimLogo from '@/public/images/svg/neovim-logo.svg';
+import UbuntuLogo from '@/public/images/svg/ubuntu-logo.svg';
+import ArchLinuxLogo from '@/public/images/svg/Arch-Logo.svg';
 
 export const logos = [
-  { src: WordPressLogo, alt: 'WordPress Logo', name: 'WordPress', width: 30, height: 30 },
-  {
-    src: PHPLogo,
-    alt: 'PHP Logo',
-    name: 'PHP',
-    width: 40,
-    height: 30,
-  },
-  {
-    src: LaravelLogo,
-    alt: 'Laravel Logo',
-    name: 'Laravel',
-    width: 30,
-    height: 30,
-  },
   { src: ReactLogo, alt: 'React Logo', name: 'React', width: 30, height: 30 },
   {
     src: TypescriptLogo,
     alt: 'TypeScript Logo',
     name: 'TypeScript',
-    width: 30,
-    height: 30,
-  },
-  {
-    src: VercelLogo,
-    alt: 'Next.js Logo',
-    name: 'Next.js',
     width: 30,
     height: 30,
   },
@@ -45,6 +27,34 @@ export const logos = [
     width: 30,
     height: 30,
   },
+  {
+    src: PythonLogo,
+    alt: 'Python Logo',
+    name: 'Python',
+    width: 30,
+    height: 30,
+  },
+  {
+    src: NeovimLogo,
+    alt: 'Neovim Logo',
+    name: 'Neovim',
+    width: 28,
+    height: 32,
+  },
+  {
+    src: UbuntuLogo,
+    alt: 'Ubuntu Logo',
+    name: 'Ubuntu',
+    width: 35,
+    height: 35,
+  },
+  {
+    src: ArchLinuxLogo,
+    alt: 'Arch Linux Logo',
+    name: 'Arch Linux',
+    width: 32,
+    height: 32,
+  },
   { src: WordPressLogo, alt: 'WordPress Logo', name: 'WordPress', width: 30, height: 30 },
   {
     src: PHPLogo,
@@ -60,7 +70,59 @@ export const logos = [
     width: 30,
     height: 30,
   },
+  {
+    src: VercelLogo,
+    alt: 'Next.js Logo',
+    name: 'Next.js',
+    width: 30,
+    height: 30,
+  },
+  // Repeat important logos for better marquee continuity
   { src: ReactLogo, alt: 'React Logo', name: 'React', width: 30, height: 30 },
+  {
+    src: TypescriptLogo,
+    alt: 'TypeScript Logo',
+    name: 'TypeScript',
+    width: 30,
+    height: 30,
+  },
+  {
+    src: PythonLogo,
+    alt: 'Python Logo',
+    name: 'Python',
+    width: 30,
+    height: 30,
+  },
+  {
+    src: NeovimLogo,
+    alt: 'Neovim Logo',
+    name: 'Neovim',
+    width: 28,
+    height: 32,
+  },
+  // Additional WordPress and PHP logos with spacing between them
+  { src: WordPressLogo, alt: 'WordPress Logo', name: 'WordPress', width: 30, height: 30 },
+  { src: ReactLogo, alt: 'React Logo', name: 'React', width: 30, height: 30 },
+  { src: TypescriptLogo, alt: 'TypeScript Logo', name: 'TypeScript', width: 30, height: 30 },
+  {
+    src: PHPLogo,
+    alt: 'PHP Logo',
+    name: 'PHP',
+    width: 40,
+    height: 30,
+  },
+  { src: PythonLogo, alt: 'Python Logo', name: 'Python', width: 30, height: 30 },
+  { src: TailwindCSSLogo, alt: 'Tailwind CSS Logo', name: 'Tailwind CSS', width: 30, height: 30 },
+  { src: WordPressLogo, alt: 'WordPress Logo', name: 'WordPress', width: 30, height: 30 },
+  { src: UbuntuLogo, alt: 'Ubuntu Logo', name: 'Ubuntu', width: 35, height: 35 },
+  { src: ArchLinuxLogo, alt: 'Arch Linux Logo', name: 'Arch Linux', width: 32, height: 32 },
+  {
+    src: PHPLogo,
+    alt: 'PHP Logo',
+    name: 'PHP',
+    width: 40,
+    height: 30,
+  },
 ];
 
 interface LogoProps {
