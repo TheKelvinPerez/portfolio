@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import { Timeline } from '@/components/ui/timeline';
 import SectionHeading from '@/components/SectionHeading';
@@ -95,18 +96,18 @@ const timelineData = [
           </h4>
         </div>
         <p
-          className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base"
+          className="mb-4 text-sm leading-relaxed text-white md:text-base"
           data-gsap="timeline-text-1"
         >
           Really hunkered down and decided this was the path I wanted to take as
           a web developer. Started learning PHP and WordPress as my foundation.
         </p>
         <div
-          className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
+          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-1"
         >
-          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
-          <div className="space-y-2">
+          <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
+          <div className="space-y-3">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-1-0"
@@ -151,7 +152,7 @@ const timelineData = [
           </h4>
         </div>
         <p
-          className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base"
+          className="mb-4 text-sm leading-relaxed text-white md:text-base"
           data-gsap="timeline-text-2"
         >
           Worked at marketing companies, diving deep into WordPress, CSS, and
@@ -159,11 +160,11 @@ const timelineData = [
           experience.
         </p>
         <div
-          className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
+          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-2"
         >
-          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
-          <div className="space-y-2">
+          <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
+          <div className="space-y-3">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-2-0"
@@ -291,7 +292,7 @@ const timelineData = [
           <h4 className="text-xl font-bold text-white">Entrepreneurial Leap</h4>
         </div>
         <p
-          className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base"
+          className="mb-4 text-sm leading-relaxed text-white md:text-base"
           data-gsap="timeline-text-4"
         >
           COVID hit and I had enough experience to work independently. Built a
@@ -299,11 +300,11 @@ const timelineData = [
           automation.
         </p>
         <div
-          className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
+          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-4"
         >
-          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
-          <div className="space-y-2">
+          <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
+          <div className="space-y-3">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-4-0"
@@ -433,7 +434,7 @@ const timelineData = [
           </h4>
         </div>
         <p
-          className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base"
+          className="mb-4 text-sm leading-relaxed text-white md:text-base"
           data-gsap="timeline-text-6"
         >
           Launched another ultra-successful NFT project ($300K). Experienced
@@ -441,11 +442,11 @@ const timelineData = [
           healing and perspective.
         </p>
         <div
-          className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
+          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-6"
         >
-          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
-          <div className="space-y-2">
+          <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
+          <div className="space-y-3">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-6-0"
@@ -503,7 +504,7 @@ const timelineData = [
           </h4>
         </div>
         <p
-          className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base"
+          className="mb-4 text-sm leading-relaxed text-white md:text-base"
           data-gsap="timeline-text-7"
         >
           Returned to Miami with fresh perspective. Discovered the AI revolution
@@ -511,11 +512,11 @@ const timelineData = [
           into LLMs, RAG systems, and AI agents.
         </p>
         <div
-          className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
+          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-7"
         >
-          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
-          <div className="space-y-2">
+          <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
+          <div className="space-y-3">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-7-0"
@@ -578,19 +579,19 @@ const timelineData = [
           </h4>
         </div>
         <p
-          className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base"
+          className="mb-4 text-sm leading-relaxed text-white md:text-base"
           data-gsap="timeline-text-8"
         >
           The full circle moment arrived when my father&apos;s HVAC company
           needed a website. I explored modern tools like Astro, but WordPress
-          called me back home. Built a site with 487 dynamically generated
+          called me back home. Built a site with 487+ dynamically generated
           pages using Advanced Custom Fields, custom templates, and dynamic
           rewrite rules. This time, I could see the complete picture - React,
           TypeScript, Tailwind, and Vite all interconnecting with WordPress in
           ways I couldn&apos;t comprehend as a junior developer.
         </p>
         <div
-          className="mb-4 rounded-lg border border-yellow-600/30 bg-yellow-900/20 p-4"
+          className="mb-4 rounded-2xl border border-yellow-600/30 bg-yellow-900/20 p-4"
           data-gsap="timeline-quote-8"
         >
           <p className="text-sm italic leading-relaxed text-yellow-200/90 md:text-base">
@@ -602,18 +603,18 @@ const timelineData = [
           </p>
         </div>
         <div
-          className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
+          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-8"
         >
-          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
-          <div className="space-y-2">
+          <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
+          <div className="space-y-3">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-0"
             >
               <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm font-semibold text-gray-100">
-                487 page WordPress site with dynamic generation
+                487+ page WordPress site with dynamic generation
               </span>
             </div>
             <div
@@ -700,7 +701,7 @@ export default function TimelineComponent() {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
-    // Set initial states for timeline section
+    // Set initial states
     gsap.set('[data-gsap="timeline-heading"]', { opacity: 0, y: 20 });
     gsap.set('[data-gsap="timeline-subheading"]', { opacity: 0, y: 25 });
     gsap.set('[data-gsap="timeline-container"]', { opacity: 0, y: 30 });
@@ -749,11 +750,11 @@ export default function TimelineComponent() {
       const quoteSelector = `[data-gsap="timeline-quote-${index}"]`;
       const achievementsSelector = `[data-gsap="timeline-achievements-${index}"]`;
 
-      // Set initial states
-      gsap.set(headerSelector, { opacity: 0, x: 30 });
-      gsap.set(textSelector, { opacity: 0, x: 30 });
+      // Set initial states - consistent with other sections
+      gsap.set(headerSelector, { opacity: 0, y: 30 });
+      gsap.set(textSelector, { opacity: 0, y: 30 });
       if (document.querySelector(quoteSelector)) {
-        gsap.set(quoteSelector, { opacity: 0, x: 30 });
+        gsap.set(quoteSelector, { opacity: 0, y: 30 });
       }
       gsap.set(achievementsSelector, { opacity: 0, y: 30, scale: 0.95 });
 
@@ -762,18 +763,12 @@ export default function TimelineComponent() {
         `[data-gsap^="timeline-bullet-${index}-"]`,
       );
       if (bullets.length > 0) {
-        gsap.set(bullets, { opacity: 0, x: 20 });
+        gsap.set(bullets, { opacity: 0, y: 20 });
       }
     });
 
-    // Animate all timeline achievement cards with stagger like Stats section
-    gsap.to('[data-gsap^="timeline-achievements-"]', {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.5,
-      stagger: 0.08,
-      ease: 'power2.out',
+    // Create single cohesive timeline for all timeline elements
+    const mainTimelineTl = gsap.timeline({
       scrollTrigger: {
         trigger: '[data-gsap="timeline-container"]',
         start: 'top 80%',
@@ -782,74 +777,49 @@ export default function TimelineComponent() {
       },
     });
 
-    // Animate timeline headers and text
-    timelineData.forEach((_, index) => {
-      const headerSelector = `[data-gsap="timeline-header-${index}"]`;
-      const textSelector = `[data-gsap="timeline-text-${index}"]`;
-      const quoteSelector = `[data-gsap="timeline-quote-${index}"]`;
-
-      // Create timeline for each content section
-      const contentTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: headerSelector,
-          start: 'top 85%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none none',
-        },
-      });
-
-      // Animate header first
-      contentTl.to(headerSelector, {
+    // Animate all timeline elements in sequence with consistent stagger
+    mainTimelineTl
+      // First animate all headers
+      .to('[data-gsap^="timeline-header-"]', {
         opacity: 1,
-        x: 0,
+        y: 0,
         duration: 0.5,
+        stagger: 0.08,
         ease: 'power2.out',
-      });
-
-      // Animate text content
-      contentTl.to(
-        textSelector,
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.5,
-          ease: 'power2.out',
-        },
-        '-=0.3',
-      );
-
-      // Animate quote section if it exists
-      if (document.querySelector(quoteSelector)) {
-        contentTl.to(
-          quoteSelector,
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-          },
-          '-=0.2',
-        );
-      }
-
-      // Animate individual bullet points with stagger
-      const bullets = document.querySelectorAll(
-        `[data-gsap^="timeline-bullet-${index}-"]`,
-      );
-      if (bullets.length > 0) {
-        contentTl.to(
-          bullets,
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.4,
-            stagger: 0.08,
-            ease: 'power2.out',
-          },
-          '-=0.3',
-        );
-      }
-    });
+      })
+      // Then animate all text content
+      .to('[data-gsap^="timeline-text-"]', {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power2.out',
+      }, '-=0.2')
+      // Then animate all quote sections if they exist
+      .to('[data-gsap^="timeline-quote-"]', {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power2.out',
+      }, '-=0.2')
+      // Then animate all achievement cards
+      .to('[data-gsap^="timeline-achievements-"]', {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power2.out',
+      }, '-=0.2')
+      // Finally animate all bullet points
+      .to('[data-gsap^="timeline-bullet-"]', {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        stagger: 0.06,
+        ease: 'power2.out',
+      }, '-=0.2');
   });
 
   return (
