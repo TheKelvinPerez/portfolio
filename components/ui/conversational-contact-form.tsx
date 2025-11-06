@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, Check, Send } from "lucide-react";
+import useWeb3Forms from "@web3forms/react";
 
 interface FormData {
   name: string;
@@ -76,7 +77,29 @@ export default function ConversationalContactForm() {
   const [displayedQuestion, setDisplayedQuestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [submitError, setSubmitError] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)[]>([]);
+
+  const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "";
+
+  const { submit: submitToWeb3Forms } = useWeb3Forms({
+    access_key: accessKey,
+    settings: {
+      from_name: "Portfolio Contact Form",
+      subject: "New Contact Message from Your Portfolio",
+    },
+    onSuccess: (msg) => {
+      setSubmitMessage(msg);
+      setSubmitError(false);
+      setIsComplete(true);
+    },
+    onError: (msg) => {
+      setSubmitMessage(msg || "Something went wrong. Please try again.");
+      setSubmitError(true);
+      setIsSubmitting(false);
+    },
+  });
 
   // GSAP animations for section entry only (not for step transitions)
   useGSAP(() => {
@@ -260,10 +283,23 @@ export default function ConversationalContactForm() {
     if (validateCurrentStep()) {
       setIsSubmitting(true);
 
-      // Simulate submission
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      setIsSubmitting(false);
-      setIsComplete(true);
+      // Submit to Web3Forms
+      try {
+        await submitToWeb3Forms({
+          name: formData.name,
+          email: formData.email,
+          inquiryType: formData.inquiryType,
+          company: formData.company,
+          phone: formData.phone,
+          budget: formData.budget,
+          message: formData.message,
+        });
+      } catch (error) {
+        console.error("Form submission error:", error);
+        setSubmitMessage("Failed to send message. Please try again.");
+        setSubmitError(true);
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -309,21 +345,26 @@ export default function ConversationalContactForm() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+          className={`w-16 h-16 ${submitError ? "bg-red-500" : "bg-green-500"} rounded-full flex items-center justify-center mx-auto mb-4`}
         >
           <Check className="w-8 h-8 text-white" />
         </motion.div>
         <h3 className="text-2xl font-bold text-white mb-2">
-          Thank you, {formData.name}!
+          {submitError ? "Oops!" : `Thank you, ${formData.name}!`}
         </h3>
         <p className="text-neutral-300 mb-6">
-          I've received your message and will get back to you soon at {formData.email}.
+          {submitError
+            ? submitMessage || "Something went wrong. Please try again later."
+            : submitMessage || `I've received your message and will get back to you soon at ${formData.email}.`
+          }
         </p>
         <Button
           onClick={() => {
             setCurrentStep(0);
             setFormData({ name: "", email: "", inquiryType: "", company: "", phone: "", budget: "", message: "" });
             setIsComplete(false);
+            setSubmitMessage("");
+            setSubmitError(false);
           }}
           variant="outline"
           className="border-purple-500 text-purple-300 hover:bg-purple-500/20"
