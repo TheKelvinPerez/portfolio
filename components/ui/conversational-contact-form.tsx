@@ -89,16 +89,12 @@ export default function ConversationalContactForm() {
       from_name: "Portfolio Contact Form",
       subject: "New Contact Message from Your Portfolio",
     },
-    onSuccess: (msg, data) => {
-      console.log("✅ Web3Forms Success:", msg);
-      console.log("📧 Response data:", data);
+    onSuccess: (msg) => {
       setSubmitMessage(msg);
       setSubmitError(false);
       setIsComplete(true);
     },
-    onError: (msg, data) => {
-      console.error("❌ Web3Forms Error:", msg);
-      console.error("📧 Error data:", data);
+    onError: (msg) => {
       setSubmitMessage(msg || "Something went wrong. Please try again.");
       setSubmitError(true);
       setIsSubmitting(false);
@@ -285,16 +281,10 @@ export default function ConversationalContactForm() {
 
   const handleSubmit = async () => {
     if (validateCurrentStep()) {
-      console.log("🚀 Starting form submission...");
-      console.log("📝 Form data:", formData);
-      console.log("🔑 Access key:", accessKey ? "Present" : "Missing");
-
       setIsSubmitting(true);
 
-      // Submit to Web3Forms
       try {
-        console.log("📤 Sending to Web3Forms API...");
-        const result = await submitToWeb3Forms({
+        await submitToWeb3Forms({
           name: formData.name,
           email: formData.email,
           inquiryType: formData.inquiryType,
@@ -302,17 +292,13 @@ export default function ConversationalContactForm() {
           phone: formData.phone || undefined,
           budget: formData.budget || undefined,
           message: formData.message,
-          botcheck: false, // Honeypot field - should always be false for real users
+          botcheck: false,
         });
-        console.log("✨ Submission result:", result);
       } catch (error) {
-        console.error("💥 Form submission error:", error);
         setSubmitMessage("Failed to send message. Please try again.");
         setSubmitError(true);
         setIsSubmitting(false);
       }
-    } else {
-      console.warn("⚠️ Validation failed for current step");
     }
   };
 
