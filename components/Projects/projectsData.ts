@@ -19,10 +19,25 @@ export const projectsData: Project[] = [
       'Sophisticated, locally-focused HVAC website built on WordPress with advanced SEO optimization, scalable architecture generating 487 pages dynamically. Features custom post types, Advanced Custom Fields, modern build tooling (Vite + Tailwind v4), and enterprise-grade DevOps deployment with Caddy, Docker monitoring, and automated SSL.',
     date: 'August 2025',
     imageUrl: '/projects/sunnyside-hvac.jpg',
-    tags: ['WordPress', 'PHP 8.3', 'Vite', 'Tailwind v4', 'ACF Pro', 'DevOps', 'Caddy', 'Docker', 'SEO'],
+    tags: [
+      'WordPress',
+      'PHP 8.3',
+      'Vite',
+      'Tailwind v4',
+      'ACF Pro',
+      'DevOps',
+      'Caddy',
+      'Docker',
+      'SEO',
+    ],
     slug: 'sunnyside-247-ac-website',
     links: [
       { title: 'Live Site', url: 'https://sunnyside247ac.com' },
+      {
+        title: '100 Google PageSpeed Score',
+        url: 'https://pagespeed.web.dev/analysis/https-sunnyside247ac-com/bimc9jrugi?form_factor=desktop',
+      },
+      { title: 'GitHub', url: 'https://github.com/TheKelvinPerez/sunnysideac-wp' },
     ],
     fullDescription:
       '# Problem\n\n' +
@@ -48,7 +63,7 @@ export const projectsData: Project[] = [
       '- **DDEV Docker**: Containerized development environment ensuring consistency\n\n' +
       '### Enterprise DevOps Infrastructure\n' +
       'Deployed production-ready infrastructure with enterprise-grade security:\n\n' +
-      '- **Caddy v2 Web Server**: Automatic HTTPS with Let\'s Encrypt, HTTP/3 support, multi-site configuration\n' +
+      "- **Caddy v2 Web Server**: Automatic HTTPS with Let's Encrypt, HTTP/3 support, multi-site configuration\n" +
       '- **PHP 8.3-FPM**: Dynamic process management, security hardening, resource optimization\n' +
       '- **MySQL 8**: Multi-tenant setup with dedicated users and performance tuning\n' +
       '- **Docker Monitoring**: Uptime Kuma for automated health checks and alerting\n' +
@@ -98,11 +113,19 @@ export const projectsData: Project[] = [
       'Modern portfolio website built with Next.js 15, featuring Drizzle ORM with Turso database, shadcn/ui components, and GSAP animations. Showcases WordPress & PHP expertise with comprehensive project case studies and technical skill demonstrations.',
     date: 'September 2025',
     imageUrl: '/projects/portfolio.png',
-    tags: ['Next.js 15', 'TypeScript', 'Drizzle ORM', 'Turso', 'shadcn/ui', 'GSAP', 'Portfolio'],
+    tags: [
+      'Next.js 15',
+      'TypeScript',
+      'Drizzle ORM',
+      'Turso',
+      'shadcn/ui',
+      'GSAP',
+      'Portfolio',
+    ],
     slug: 'personal-portfolio-nextjs',
     links: [
       { title: 'Live Site', url: 'https://kelvinperez.com' },
-      { title: 'GitHub', url: 'https://github.com/KelvinPerez/portfolio' },
+      { title: 'GitHub', url: 'https://github.com/TheKelvinPerez/portfolio' },
     ],
     fullDescription:
       '# Problem\n\n' +
@@ -146,7 +169,7 @@ export const projectsData: Project[] = [
       '- Personal story connecting technical growth with life journey\n' +
       '- Learn to Code movement origin (2015) to enterprise WordPress solutions (2025)\n' +
       '- Emphasis on WordPress, PHP, Laravel, and AI integration expertise\n' +
-      '- Full circle moment building father\'s HVAC site, rediscovering WordPress potential\n\n' +
+      "- Full circle moment building Father's HVAC site, rediscovering WordPress potential\n\n" +
       '# Results\n\n' +
       '### Professional Positioning Achieved\n' +
       '- **Clear WordPress Specialist Identity**: Portfolio immediately communicates WordPress & PHP expertise\n' +
@@ -169,6 +192,7 @@ export const projectsData: Project[] = [
       '- **Maintainable Code**: Type-safe, well-architected codebase proves professional standards\n' +
       '- **Business Understanding**: Market value analysis shows ability to connect tech to ROI\n\n' +
       '---\n\n' +
-      '**Key Takeaway**: This portfolio successfully positions me as an enterprise-level WordPress & PHP full-stack developer by combining modern technical implementation with strategic content that quantifies business value. It tells a unique full circle story while proving technical depth across the entire stack - from custom WordPress themes and PHP optimization to DevOps infrastructure and SEO strategy. The result is a portfolio that doesn\'t just showcase projects, but demonstrates the ability to deliver measurable business results through technical excellence.',
+      "**Key Takeaway**: This portfolio successfully positions me as an enterprise-level WordPress & PHP full-stack developer by combining modern technical implementation with strategic content that quantifies business value. It tells a unique full circle story while proving technical depth across the entire stack - from custom WordPress themes and PHP optimization to DevOps infrastructure and SEO strategy. The result is a portfolio that doesn't just showcase projects, but demonstrates the ability to deliver measurable business results through technical excellence.",
   },
 ];
+

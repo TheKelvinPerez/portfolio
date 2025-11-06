@@ -100,7 +100,10 @@ function Stats() {
             </p>
           </div>
 
-          <div
+          <a
+            href="https://pagespeed.web.dev/analysis/https-sunnyside247ac-com/bimc9jrugi?form_factor=desktop"
+            target="_blank"
+            rel="noopener noreferrer"
             data-gsap="stat-card-2"
             className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           >
@@ -114,7 +117,7 @@ function Stats() {
             <p className="max-w-xl text-left text-base leading-relaxed tracking-tight text-gray-300">
               PageSpeed score
             </p>
-          </div>
+          </a>
 
           <div
             data-gsap="stat-card-3"

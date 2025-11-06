@@ -195,6 +195,33 @@ export default function ProjectContent({
         </div>
       )}
 
+      {/* PageSpeed Screenshot for SunnySide */}
+      {slug === 'sunnyside-247-ac-website' && (
+        <div className="mt-8">
+          <h2 className="mb-6 text-2xl font-bold text-gray-100">
+            🚀 Performance Results
+          </h2>
+          <p className="mb-6 text-gray-400">
+            Achieving perfect 100/100 Google PageSpeed scores through advanced optimization techniques,
+            efficient caching strategies, and modern development practices.
+          </p>
+          <a
+            href="https://pagespeed.web.dev/analysis/https-sunnyside247ac-com/bimc9jrugi?form_factor=desktop"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block overflow-hidden rounded-xl transition-transform duration-300 hover:scale-[1.02]"
+          >
+            <Image
+              src="/projects/sunnyside-pagespeed.png"
+              alt="SunnySide 24/7 AC PageSpeed Score - 100/100"
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-xl"
+            />
+          </a>
+        </div>
+      )}
+
       {/* Related Projects */}
       <RelatedProjects
         currentProject={{

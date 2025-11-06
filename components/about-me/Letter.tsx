@@ -133,6 +133,19 @@ export default function Letter() {
             }
           } else if (currentSection.type === 'signature') {
             if (
+              currentSection.text &&
+              currentCharIndex < currentSection.text.length
+            ) {
+              newContent[currentSectionIndex].text =
+                currentSection.text!.substring(0, currentCharIndex + 1);
+              setCurrentCharIndex(currentCharIndex + 1);
+            } else {
+              newContent[currentSectionIndex].complete = true;
+              setCurrentSectionIndex(currentSectionIndex + 1);
+              setCurrentCharIndex(0);
+            }
+          } else if (currentSection.type === 'signature') {
+            if (
               currentSection.name &&
               currentCharIndex < currentSection.name.length
             ) {
@@ -234,6 +247,42 @@ export default function Letter() {
     );
   };
 
+  // Helper to render text with links
+  const renderTextWithLinks = (text: string) => {
+    const patterns = /(SunnySide247ac\.com|100\/100 PageSpeed scores)/g;
+    const parts = text.split(patterns);
+
+    return parts.map((part, index) => {
+      if (part === 'SunnySide247ac.com') {
+        return (
+          <a
+            key={index}
+            href="https://sunnyside247ac.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 underline hover:text-blue-300 transition-colors"
+          >
+            {part}
+          </a>
+        );
+      }
+      if (part === '100/100 PageSpeed scores') {
+        return (
+          <a
+            key={index}
+            href="https://pagespeed.web.dev/analysis/https-sunnyside247ac-com/bimc9jrugi?form_factor=desktop"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 underline hover:text-blue-300 transition-colors"
+          >
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <div className="relative px-4 sm:px-5 lg:px-0">
       <div
@@ -265,7 +314,7 @@ export default function Letter() {
                   return (
                     <p key={index} className="leading-relaxed">
                       <GradientFade isActive={isCurrentSection}>
-                        {section.text}
+                        {renderTextWithLinks(section.text)}
                       </GradientFade>
                     </p>
                   );

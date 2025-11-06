@@ -65,7 +65,7 @@ export default function Projects() {
     <div id="projects" className="mx-auto mt-56 max-w-7xl px-4 py-16">
       <SectionHeading
         heading="Featured Projects"
-        subheading="Showcasing completed work and upcoming Laravel & WordPress projects focused on scalable, high-performance solutions"
+        subheading="Enterprise WordPress platforms and full-stack solutions demonstrating scalable architecture, performance optimization, and measurable business impact"
         animationId="projects"
       />
       <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3" data-gsap="projects-grid">

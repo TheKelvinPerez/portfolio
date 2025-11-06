@@ -584,7 +584,16 @@ const timelineData = [
         >
           The full circle moment arrived when my father&apos;s HVAC company
           needed a website. I explored modern tools like Astro, but WordPress
-          called me back home. Built a site with 487+ dynamically generated
+          called me back home. Built{' '}
+          <a
+            href="https://sunnyside247ac.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 underline hover:text-blue-300 transition-colors"
+          >
+            a site
+          </a>{' '}
+          with 487+ dynamically generated
           pages using Advanced Custom Fields, custom templates, and dynamic
           rewrite rules. This time, I could see the complete picture - React,
           TypeScript, Tailwind, and Vite all interconnecting with WordPress in
