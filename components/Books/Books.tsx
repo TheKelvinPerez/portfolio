@@ -21,55 +21,82 @@ interface Book {
 const placeholderBooks: Book[] = [
   {
     id: '1',
-    title: 'The Pragmatic Programmer',
-    author: 'David Thomas & Andrew Hunt',
-    image: '/images/books/pragmatic-programmer.jpg',
-    description: 'Your journey to mastery. This classic programming book examines the core process of software development and provides practical advice on how to become a better programmer and build better software.',
-    rating: 4.8,
+    title: 'Clean Code',
+    author: 'Robert C. Martin',
+    image: '/images/books/clean-code.jpg',
+    description: 'A handbook of agile software craftsmanship. Uncle Bob teaches the principles of writing clean, readable, and maintainable code. Essential reading for any serious developer who wants to improve their craft and deliver production-ready WordPress solutions.',
+    rating: 4.7,
     genre: 'Programming'
   },
   {
     id: '2',
-    title: 'The Lean Startup',
-    author: 'Eric Ries',
-    image: '/images/books/lean-startup-real.jpg',
-    description: 'How today\'s entrepreneurs use continuous innovation to create radically successful businesses. Ries shows how to build a sustainable business with maximum acceleration through validated learning and rapid experimentation.',
-    rating: 4.6,
-    genre: 'Entrepreneurship'
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    image: '/images/books/atomic-habits.jpg',
+    description: 'An easy and proven way to build good habits and break bad ones. Clear reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results. A foundation for consistent high performance.',
+    rating: 4.8,
+    genre: 'Self-Development'
   },
   {
     id: '3',
     title: 'Zero to One',
     author: 'Peter Thiel',
     image: '/images/books/zero-to-one.jpg',
-    description: 'Notes on startups, or how to build the future. Thiel shows how to build companies that create new things, from the co-founder of PayPal and first investor in Facebook. A contrarian guide to startup success.',
+    description: 'Notes on startups, or how to build the future. Thiel shows how to build companies that create new things, from the co-founder of PayPal and first investor in Facebook. A contrarian guide to startup success that shaped my approach to building ViViFi and NFT ventures.',
     rating: 4.4,
     genre: 'Entrepreneurship'
   },
   {
     id: '4',
-    title: 'Atomic Habits',
-    author: 'James Clear',
-    image: '/images/books/atomic-habits.jpg',
-    description: 'An easy and proven way to build good habits and break bad ones. Clear reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.',
+    title: 'Designing Data-Intensive Applications',
+    author: 'Martin Kleppmann',
+    image: '/images/books/designing-data-intensive.jpg',
+    description: 'The big ideas behind reliable, scalable, and maintainable systems. Essential for understanding modern architectures, distributed systems, and data processing - invaluable for building RAG systems and working with LLMs at scale.',
     rating: 4.8,
-    genre: 'Self-Development'
+    genre: 'Architecture'
   },
   {
     id: '5',
-    title: 'Clean Code',
-    author: 'Robert C. Martin',
-    image: '/images/books/clean-code.jpg',
-    description: 'A handbook of agile software craftsmanship. Uncle Bob teaches the principles of writing clean, readable, and maintainable code. Essential reading for any serious developer who wants to improve their craft.',
-    rating: 4.7,
+    title: 'Modern PHP',
+    author: 'Josh Lockhart',
+    image: '/images/books/modern-php.jpg',
+    description: 'New features and good practices for PHP development. Lockhart covers namespaces, traits, closures, and modern best practices that transformed how I build custom WordPress themes and plugins with PHP 8.3+.',
+    rating: 4.5,
     genre: 'Programming'
   },
   {
     id: '6',
-    title: 'You Don\'t Know JS Yet',
-    author: 'Kyle Simpson',
-    image: '/images/books/lean-startup.jpg',
-    description: 'A deep dive into the core mechanisms of the JavaScript language. Simpson demystifies JavaScript\'s most confusing concepts and helps you become a more confident and capable JavaScript developer.',
+    title: '$100M Offers',
+    author: 'Alex Hormozi',
+    image: '/images/books/100m-offers.jpg',
+    description: 'How to make offers so good people feel stupid saying no. Hormozi breaks down value creation and positioning that helped me understand what made my Chrome extension hit $20K MRR and NFT projects generate $28M+ in sales.',
+    rating: 4.9,
+    genre: 'Business'
+  },
+  {
+    id: '7',
+    title: 'The Power of Now',
+    author: 'Eckhart Tolle',
+    image: '/images/books/power-of-now.jpg',
+    description: 'A guide to spiritual enlightenment and present-moment awareness. Tolle\'s teachings on mindfulness and consciousness helped me navigate burnout, travel the world mindfully, and maintain balance while building high-performance systems.',
+    rating: 4.6,
+    genre: 'Spirituality'
+  },
+  {
+    id: '8',
+    title: 'The E-Myth Revisited',
+    author: 'Michael Gerber',
+    image: '/images/books/e-myth.jpg',
+    description: 'Why most small businesses don\'t work and what to do about it. Gerber\'s insights on systems thinking and working on your business rather than in it transformed how I founded and scaled ViViFi agency to 100% client satisfaction.',
+    rating: 4.5,
+    genre: 'Business'
+  },
+  {
+    id: '9',
+    title: 'Refactoring',
+    author: 'Martin Fowler',
+    image: '/images/books/refactoring.jpg',
+    description: 'Improving the design of existing code. Fowler\'s systematic approach to code improvement is essential for maintaining WordPress codebases, optimizing performance, and achieving those 100/100 PageSpeed scores.',
     rating: 4.6,
     genre: 'Programming'
   }

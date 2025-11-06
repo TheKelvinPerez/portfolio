@@ -78,12 +78,12 @@ export default function ConversationalContactForm() {
   const [isComplete, setIsComplete] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)[]>([]);
 
-  // GSAP animations for section entry and step transitions
+  // GSAP animations for section entry only (not for step transitions)
   useGSAP(() => {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
-    // Set initial states for main section elements
+    // Set initial states for main section elements only
     gsap.set('[data-gsap="contact-subheading"]', { opacity: 0, y: 20 });
     gsap.set('[data-gsap="contact-heading"]', { opacity: 0, y: 25 });
     gsap.set('[data-gsap="contact-description"]', { opacity: 0, y: 30 });
@@ -137,39 +137,6 @@ export default function ConversationalContactForm() {
         '-=0.2',
       );
   });
-
-  // GSAP animations for step transitions
-  useEffect(() => {
-    // Create timeline for step transitions
-    const stepTl = gsap.timeline();
-
-    // Set initial states for new step elements
-    const stepElements = [
-      '[data-gsap="progress-indicator"]',
-      '[data-gsap="question-bubble"]',
-      '[data-gsap="user-input"]',
-      '[data-gsap="navigation-buttons"]'
-    ];
-
-    // Reset all step elements to hidden state
-    gsap.set(stepElements, {
-      opacity: 0,
-      y: 20,
-      scale: 0.95
-    });
-
-    // Wait for typing animation to start, then stagger elements
-    stepTl.to(stepElements, {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.5,
-      stagger: 0.15, // Increased stagger for better visual separation
-      ease: 'power2.out',
-      delay: 0.4 // Wait for typing animation to start
-    });
-
-  }, [currentStep]);
 
   // Track component mount
   useEffect(() => {
@@ -389,7 +356,7 @@ export default function ConversationalContactForm() {
           <div className="mt-12 flex justify-center">
             <div data-gsap="contact-container" className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-900/90 via-neutral-900/90 to-blue-900/90 rounded-2xl border border-purple-500/30">
       {/* Progress Indicator */}
-      <div data-gsap="progress-indicator" className="flex justify-center space-x-3 mb-10 md:mb-12">
+      <div className="flex justify-center space-x-3 mb-10 md:mb-12">
         {steps.map((_, index) => (
           <div
             key={index}
@@ -409,11 +376,11 @@ export default function ConversationalContactForm() {
         {/* Question Bubble */}
         <AnimatePresence mode="wait">
           <motion.div
-            data-gsap="question-bubble"
             key={`question-${currentStep}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="flex items-start space-x-3"
           >
             <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex-shrink-0 flex items-center justify-center">
@@ -434,11 +401,11 @@ export default function ConversationalContactForm() {
         {currentStep < 7 && (
           <AnimatePresence mode="wait">
             <motion.div
-              data-gsap="user-input"
               key={`response-${currentStep}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
               className="flex items-start space-x-3 md:space-x-4 justify-end"
             >
               <div className="flex-1 max-w-[85%] md:max-w-[90%]">
@@ -599,9 +566,9 @@ export default function ConversationalContactForm() {
         {currentStep === 7 && (
           <AnimatePresence>
             <motion.div
-              data-gsap="user-input"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
               className="space-y-3"
             >
               <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
@@ -651,11 +618,11 @@ export default function ConversationalContactForm() {
         {/* Navigation Buttons */}
         <AnimatePresence mode="wait">
           <motion.div
-            data-gsap="navigation-buttons"
             key={`navigation-${currentStep}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
             className="flex justify-between items-center pt-6 md:pt-8"
           >
             <Button
