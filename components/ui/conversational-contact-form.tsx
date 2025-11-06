@@ -89,12 +89,16 @@ export default function ConversationalContactForm() {
       from_name: "Portfolio Contact Form",
       subject: "New Contact Message from Your Portfolio",
     },
-    onSuccess: (msg) => {
+    onSuccess: (msg, data) => {
+      console.log("✅ Web3Forms Success:", msg);
+      console.log("📧 Response data:", data);
       setSubmitMessage(msg);
       setSubmitError(false);
       setIsComplete(true);
     },
-    onError: (msg) => {
+    onError: (msg, data) => {
+      console.error("❌ Web3Forms Error:", msg);
+      console.error("📧 Error data:", data);
       setSubmitMessage(msg || "Something went wrong. Please try again.");
       setSubmitError(true);
       setIsSubmitting(false);
@@ -281,10 +285,15 @@ export default function ConversationalContactForm() {
 
   const handleSubmit = async () => {
     if (validateCurrentStep()) {
+      console.log("🚀 Starting form submission...");
+      console.log("📝 Form data:", formData);
+      console.log("🔑 Access key:", accessKey ? "Present" : "Missing");
+
       setIsSubmitting(true);
 
       // Submit to Web3Forms
       try {
+        console.log("📤 Sending to Web3Forms API...");
         await submitToWeb3Forms({
           name: formData.name,
           email: formData.email,
@@ -294,12 +303,15 @@ export default function ConversationalContactForm() {
           budget: formData.budget,
           message: formData.message,
         });
+        console.log("✨ Submission completed successfully");
       } catch (error) {
-        console.error("Form submission error:", error);
+        console.error("💥 Form submission error:", error);
         setSubmitMessage("Failed to send message. Please try again.");
         setSubmitError(true);
         setIsSubmitting(false);
       }
+    } else {
+      console.warn("⚠️ Validation failed for current step");
     }
   };
 
