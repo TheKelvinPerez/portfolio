@@ -21,12 +21,12 @@ export function Footer() {
 
     // Small delay to ensure DOM is ready
     setTimeout(() => {
-      // Set initial states
-      gsap.set('[data-gsap="footer-logo"]', { opacity: 0, y: 20 });
-      gsap.set('[data-gsap="footer-nav"]', { opacity: 0, y: 30 });
-      gsap.set('[data-gsap="footer-contact"]', { opacity: 0, y: 35 });
-      gsap.set('[data-gsap="footer-social"]', { opacity: 0, y: 40, scale: 0.9 });
-      gsap.set('[data-gsap="footer-copyright"]', { opacity: 0, y: 50 });
+      // Set initial states - matching the Stats/Skills pattern
+      gsap.set('[data-gsap="footer-logo"]', { opacity: 0, y: 30, scale: 0.95 });
+      gsap.set('[data-gsap="footer-nav"]', { opacity: 0, y: 30, scale: 0.95 });
+      gsap.set('[data-gsap="footer-contact"]', { opacity: 0, y: 30, scale: 0.95 });
+      gsap.set('[data-gsap="footer-social"]', { opacity: 0, y: 30, scale: 0.95 });
+      gsap.set('[data-gsap="footer-copyright"]', { opacity: 0, y: 30, scale: 0.95 });
 
       // Set initial states for nav links
       const navLinks = document.querySelectorAll('[data-gsap^="footer-link-"]');
@@ -40,7 +40,7 @@ export function Footer() {
         gsap.set(socialIcons, { opacity: 0, scale: 0.8 });
       }
 
-      // Create timeline for footer animation
+      // Create timeline for footer animation with consistent timing pattern
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: 'footer',
@@ -50,66 +50,36 @@ export function Footer() {
         },
       });
 
-      tl.to('[data-gsap="footer-logo"]', {
+      // Animate all footer elements with consistent 0.08s stagger like Stats/Skills
+      tl.to('[data-gsap="footer-logo"], [data-gsap="footer-nav"], [data-gsap="footer-contact"], [data-gsap="footer-social"], [data-gsap="footer-copyright"]', {
         opacity: 1,
         y: 0,
-        duration: 0.6,
+        scale: 1,
+        duration: 0.5,
+        stagger: 0.08,
         ease: 'power2.out',
-      })
-        .to('[data-gsap="footer-nav"]', {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-        }, '-=0.3')
-        .to('[data-gsap="footer-contact"]', {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-        }, '-=0.3')
-        .to(
-          '[data-gsap="footer-social"]',
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: 'power3.out',
-          },
-          '-=0.3',
-        )
-        .to(
-          '[data-gsap="footer-copyright"]',
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-          },
-          '-=0.2',
-        );
+      });
 
-      // Animate individual nav links with stagger
+      // Animate individual nav links with stagger after main elements
       if (navLinks.length > 0) {
         tl.to(navLinks, {
           opacity: 1,
           y: 0,
-          duration: 0.5,
-          stagger: 0.1,
+          duration: 0.4,
+          stagger: 0.08,
           ease: 'power2.out',
-        }, '-=0.5');
+        }, '-=0.3');
       }
 
-      // Animate social icons with stagger
+      // Animate social icons with stagger after nav links
       if (socialIcons.length > 0) {
         tl.to(socialIcons, {
           opacity: 1,
           scale: 1,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: 'back.out(1.7)',
-        }, '-=0.6');
+          duration: 0.4,
+          stagger: 0.08,
+          ease: 'back.out(1.4)',
+        }, '-=0.2');
       }
     }, 100);
   });
