@@ -294,16 +294,17 @@ export default function ConversationalContactForm() {
       // Submit to Web3Forms
       try {
         console.log("📤 Sending to Web3Forms API...");
-        await submitToWeb3Forms({
+        const result = await submitToWeb3Forms({
           name: formData.name,
           email: formData.email,
           inquiryType: formData.inquiryType,
-          company: formData.company,
-          phone: formData.phone,
-          budget: formData.budget,
+          company: formData.company || undefined,
+          phone: formData.phone || undefined,
+          budget: formData.budget || undefined,
           message: formData.message,
+          botcheck: false, // Honeypot field - should always be false for real users
         });
-        console.log("✨ Submission completed successfully");
+        console.log("✨ Submission result:", result);
       } catch (error) {
         console.error("💥 Form submission error:", error);
         setSubmitMessage("Failed to send message. Please try again.");
