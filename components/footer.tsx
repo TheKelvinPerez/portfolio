@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Heart } from 'lucide-react';
 import GithubLogo from '@/public/images/svg/Github-Logo.svg';
 import LinkedinLogo from '@/public/images/svg/LinkedIn-Logo.svg';
 import TwitterLogo from '@/public/images/svg/X-Twitter-Logo.svg';
@@ -21,17 +22,21 @@ export function Footer() {
 
     // Small delay to ensure DOM is ready
     setTimeout(() => {
-      // Set initial states - matching the Stats/Skills pattern
-      gsap.set('[data-gsap="footer-logo"]', { opacity: 0, y: 30, scale: 0.95 });
-      gsap.set('[data-gsap="footer-nav"]', { opacity: 0, y: 30, scale: 0.95 });
-      gsap.set('[data-gsap="footer-contact"]', { opacity: 0, y: 30, scale: 0.95 });
-      gsap.set('[data-gsap="footer-social"]', { opacity: 0, y: 30, scale: 0.95 });
-      gsap.set('[data-gsap="footer-copyright"]', { opacity: 0, y: 30, scale: 0.95 });
+      // Set initial states
+      gsap.set('[data-gsap="footer-logo"]', { opacity: 0, y: 20 });
+      gsap.set('[data-gsap="footer-made-with-love"]', { opacity: 0, y: 20 });
+      gsap.set('[data-gsap="footer-copyright"]', { opacity: 0, y: 20 });
 
       // Set initial states for nav links
       const navLinks = document.querySelectorAll('[data-gsap^="footer-link-"]');
       if (navLinks.length > 0) {
         gsap.set(navLinks, { opacity: 0, y: 20 });
+      }
+
+      // Set initial states for contact items
+      const contactItems = document.querySelectorAll('[data-gsap^="footer-contact-"]');
+      if (contactItems.length > 0) {
+        gsap.set(contactItems, { opacity: 0, y: 20 });
       }
 
       // Set initial states for social icons
@@ -40,47 +45,61 @@ export function Footer() {
         gsap.set(socialIcons, { opacity: 0, scale: 0.8 });
       }
 
-      // Create timeline for footer animation with consistent timing pattern
+      // Create timeline for footer animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: 'footer',
-          start: 'top 150%',
+          start: 'top 80%',
           end: 'bottom 10%',
           toggleActions: 'play none none none',
         },
       });
 
-      // Animate all footer elements with consistent 0.08s stagger like Stats/Skills
-      tl.to('[data-gsap="footer-logo"], [data-gsap="footer-nav"], [data-gsap="footer-contact"], [data-gsap="footer-social"], [data-gsap="footer-copyright"]', {
+      // 1. Logo comes in first
+      tl.to('[data-gsap="footer-logo"]', {
         opacity: 1,
         y: 0,
-        scale: 1,
-        duration: 0.5,
-        stagger: 0.08,
+        duration: 0.6,
         ease: 'power2.out',
-      });
-
-      // Animate individual nav links with stagger after main elements
-      if (navLinks.length > 0) {
-        tl.to(navLinks, {
+      })
+        // 2. Menu items stagger in
+        .to(navLinks, {
           opacity: 1,
           y: 0,
-          duration: 0.4,
-          stagger: 0.08,
+          duration: 0.5,
+          stagger: 0.1,
           ease: 'power2.out',
-        }, '-=0.3');
-      }
-
-      // Animate social icons with stagger after nav links
-      if (socialIcons.length > 0) {
-        tl.to(socialIcons, {
+        }, '-=0.2')
+        // 3. Contact items stagger in
+        .to(contactItems, {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: 'power2.out',
+        }, '-=0.2')
+        // 4. Social icons stagger in
+        .to(socialIcons, {
           opacity: 1,
           scale: 1,
-          duration: 0.4,
-          stagger: 0.08,
-          ease: 'back.out(1.4)',
-        }, '-=0.2');
-      }
+          duration: 0.6,
+          stagger: 0.15,
+          ease: 'back.out(1.7)',
+        }, '-=0.2')
+        // 5. Made with Love comes in
+        .to('[data-gsap="footer-made-with-love"]', {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power2.out',
+        }, '-=0.2')
+        // 6. Copyright comes in last
+        .to('[data-gsap="footer-copyright"]', {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power2.out',
+        }, '-=0.3');
     }, 100);
   });
 
@@ -98,7 +117,7 @@ export function Footer() {
             <span className="text-xl font-semibold">Kelvin Perez</span>
           </Link>
         </div>
-        <nav data-gsap="footer-nav" className="mb-8 flex flex-wrap justify-center gap-4 md:gap-6">
+        <nav className="mb-8 flex flex-wrap justify-center gap-4 md:gap-6">
           <Link
             data-gsap="footer-link-1"
             href="#about"
@@ -131,20 +150,21 @@ export function Footer() {
           </Link>
         </nav>
 
-        <div data-gsap="footer-contact" className="mb-6 flex flex-col items-center gap-2 text-center text-sm text-gray-300">
-          <p>
+        <div className="mb-6 flex flex-col items-center gap-2 text-center text-sm text-gray-300">
+          <p data-gsap="footer-contact-1">
             <a href="tel:+13053399449" className="transition-colors hover:text-white">
               305-339-9449
             </a>
-            {' • '}
+          </p>
+          <p data-gsap="footer-contact-2">
             <a href="mailto:thekelvinperez@gmail.com" className="transition-colors hover:text-white">
               thekelvinperez@gmail.com
             </a>
           </p>
-          <p>Miami-Fort Lauderdale Area, Florida</p>
+          <p data-gsap="footer-contact-3">Miami-Fort Lauderdale Area, Florida</p>
         </div>
 
-        <div data-gsap="footer-social" className="mt-10">
+        <div className="mt-10">
           <div className="flex flex-wrap justify-center gap-6">
             <a
               data-gsap="footer-social-1"
@@ -205,7 +225,11 @@ export function Footer() {
           </div>
         </div>
 
-        <p data-gsap="footer-copyright" className="mt-8 text-center text-sm">
+        <p data-gsap="footer-made-with-love" className="mt-8 flex items-center justify-center gap-1 text-center text-sm text-gray-300">
+          Made with <Heart className="h-4 w-4 fill-red-500 text-red-500" /> by Kelvin Perez
+        </p>
+
+        <p data-gsap="footer-copyright" className="mt-4 text-center text-sm">
           © {currentYear} Kelvin Perez, All rights reserved
         </p>
       </div>
