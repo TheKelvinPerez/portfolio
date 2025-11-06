@@ -16,6 +16,8 @@ import {
   CpuChipIcon,
   FlagIcon,
   ArrowTopRightOnSquareIcon,
+  BriefcaseIcon,
+  BuildingOfficeIcon,
 } from '@heroicons/react/24/solid';
 
 const timelineData = [
@@ -27,19 +29,53 @@ const timelineData = [
           className="mb-4 flex items-center gap-3"
           data-gsap="timeline-header-0"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
-            <AcademicCapIcon className="h-4 w-4 text-white" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700">
+            <BuildingOfficeIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">The Beginning</h4>
+          <h4 className="text-xl font-bold text-white">Digital Age Marketing Group</h4>
         </div>
         <p
-          className="text-sm leading-relaxed text-white md:text-base"
+          className="mb-4 text-sm leading-relaxed text-white md:text-base"
           data-gsap="timeline-text-0"
         >
-          Started my coding journey, watched coding videos and learned about web
-          development. This was when I first heard about learning how to code
-          and fell in love with the possibilities.
+          Started my professional web development journey at Digital Age Marketing Group while continuing to learn coding fundamentals. This role provided the foundation for my WordPress expertise.
         </p>
+        <div
+          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          data-gsap="timeline-achievements-0"
+        >
+          <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
+          <div className="space-y-3">
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-0-0"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">Developed 20+ custom WordPress themes and plugins</span>
+            </div>
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-0-1"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">Collaborated with design and marketing teams</span>
+            </div>
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-0-2"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">Gained foundational UI/UX, color theory, typography skills</span>
+            </div>
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-0-3"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">Stack: WordPress, PHP 7+, Sass, jQuery, Adobe XD, Git</span>
+            </div>
+          </div>
+        </div>
       </div>
     ),
   },
@@ -51,7 +87,7 @@ const timelineData = [
           className="mb-4 flex items-center gap-3"
           data-gsap="timeline-header-1"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700">
             <ComputerDesktopIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">
@@ -69,27 +105,27 @@ const timelineData = [
           className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
           data-gsap="timeline-achievements-1"
         >
-          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
+          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
           <div className="space-y-2">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-1-0"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">PHP fundamentals</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-1-1"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">WordPress basics</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-1-2"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 First internship at marketing company
               </span>
@@ -107,7 +143,7 @@ const timelineData = [
           className="mb-4 flex items-center gap-3"
           data-gsap="timeline-header-2"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700">
             <PaintBrushIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">
@@ -126,13 +162,13 @@ const timelineData = [
           className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
           data-gsap="timeline-achievements-2"
         >
-          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
+          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
           <div className="space-y-2">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-2-0"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Custom WordPress development
               </span>
@@ -141,7 +177,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-2-1"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Advanced Custom Fields
               </span>
@@ -150,7 +186,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-2-2"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Adobe XD & Figma design
               </span>
@@ -159,7 +195,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-2-3"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Color theory & typography
               </span>
@@ -177,60 +213,64 @@ const timelineData = [
           className="mb-4 flex items-center gap-3"
           data-gsap="timeline-header-3"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
-            <BoltIcon className="h-4 w-4 text-white" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700">
+            <RocketLaunchIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">
-            JavaScript & Modern Stack Transition
-          </h4>
+          <h4 className="text-xl font-bold text-white">ViViFi Agency Founded</h4>
         </div>
         <p
-          className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base"
+          className="mb-4 text-sm leading-relaxed text-white md:text-base"
           data-gsap="timeline-text-3"
         >
-          Mastered JavaScript and began exploring React and TypeScript. Started
-          seeing the potential of modern development beyond traditional CMS
-          approaches.
+          Founded my boutique digital agency while continuing to master modern JavaScript and React. Delivered custom WordPress solutions for SMBs and creatives, building 12+ high-converting websites.
         </p>
         <div
-          className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
+          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-3"
         >
-          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
-          <div className="space-y-2">
+          <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
+          <div className="space-y-3">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-3-0"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
-              <span className="text-sm text-gray-100">
-                JavaScript proficiency
-              </span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">12+ high-converting WordPress websites</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-3-1"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
-              <span className="text-sm text-gray-100">React fundamentals</span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">100% client satisfaction, 40% repeat business</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-3-2"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
-              <span className="text-sm text-gray-100">
-                UI/UX design principles
-              </span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">Created reusable agency starter themes</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-3-3"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
-              <span className="text-sm text-gray-100">
-                TypeScript exploration
-              </span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">JavaScript proficiency & React fundamentals</span>
+            </div>
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-3-4"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">UI/UX design principles & TypeScript exploration</span>
+            </div>
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-3-5"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">Stack: WordPress, PHP, Sass, JavaScript (ES6+), Figma, Adobe XD, Gulp</span>
             </div>
           </div>
         </div>
@@ -245,7 +285,7 @@ const timelineData = [
           className="mb-4 flex items-center gap-3"
           data-gsap="timeline-header-4"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700">
             <RocketLaunchIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">Entrepreneurial Leap</h4>
@@ -262,13 +302,13 @@ const timelineData = [
           className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
           data-gsap="timeline-achievements-4"
         >
-          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
+          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
           <div className="space-y-2">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-4-0"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Chrome extension development
               </span>
@@ -277,7 +317,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-4-1"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm font-semibold text-gray-100">
                 20K MRR achieved
               </span>
@@ -286,7 +326,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-4-2"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Amazon dropshipping automation
               </span>
@@ -295,7 +335,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-4-3"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 First major startup success
               </span>
@@ -313,71 +353,64 @@ const timelineData = [
           className="mb-4 flex items-center gap-3"
           data-gsap="timeline-header-5"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
-            <CurrencyDollarIcon className="h-4 w-4 text-white" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700">
+            <BriefcaseIcon className="h-4 w-4 text-white" />
           </div>
-          <h4 className="text-xl font-bold text-white">
-            Crypto & Blockchain Era
-          </h4>
+          <h4 className="text-xl font-bold text-white">Light Code Labs Founded</h4>
         </div>
         <p
-          className="mb-4 text-sm leading-relaxed text-gray-300 md:text-base"
+          className="mb-4 text-sm leading-relaxed text-white md:text-base"
           data-gsap="timeline-text-5"
         >
-          Feeling confident in JavaScript and React skills, discovered crypto,
-          NFTs, and blockchain. Dove deep into Solidity and launched successful
-          NFT projects.
+          Launched Light Code Labs as a full-stack WordPress engineering consultancy. Also explored blockchain and NFT projects, achieving massive success while building foundational WordPress expertise.
         </p>
         <div
-          className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
+          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-5"
         >
-          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
-          <div className="space-y-2">
+          <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
+          <div className="space-y-3">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-5-0"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
-              <span className="text-sm text-gray-100">
-                Solidity programming
-              </span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">Architected custom WordPress CMS for multi-location HVAC brand</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-5-1"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
-              <span className="text-sm text-gray-100">
-                NFT project launches
-              </span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">Automated 487+ service pages with CPTs, ACF Pro, schema markup</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-5-2"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
-              <span className="text-sm font-semibold text-gray-100">
-                $28M+ code generation
-              </span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">90% reduction in content creation time</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-5-3"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
-              <span className="text-sm text-gray-100">
-                Massive personal success
-              </span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">$50K-$100K annual organic traffic value</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-5-4"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
-              <span className="text-sm text-gray-100">
-                Next.js & TypeScript mastery
-              </span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">$28M+ NFT code generation success</span>
+            </div>
+            <div
+              className="flex items-start space-x-3"
+              data-gsap="timeline-bullet-5-5"
+            >
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
+              <span className="text-sm text-gray-100">Stack: WordPress, PHP 8.3, ACF Pro, Tailwind CSS, Vite, Docker (DDEV), Caddy, MySQL, Next.js, TypeScript</span>
             </div>
           </div>
         </div>
@@ -392,7 +425,7 @@ const timelineData = [
           className="mb-4 flex items-center gap-3"
           data-gsap="timeline-header-6"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700">
             <GlobeAltIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">
@@ -411,13 +444,13 @@ const timelineData = [
           className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
           data-gsap="timeline-achievements-6"
         >
-          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
+          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
           <div className="space-y-2">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-6-0"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm font-semibold text-gray-100">
                 $500K NFT project
               </span>
@@ -426,7 +459,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-6-1"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 World travel (Peru, Thailand, Cambodia, Laos, India)
               </span>
@@ -435,7 +468,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-6-2"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Early AI spiritual coach experiments
               </span>
@@ -444,7 +477,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-6-3"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Spiritual growth & healing
               </span>
@@ -462,7 +495,7 @@ const timelineData = [
           className="mb-4 flex items-center gap-3"
           data-gsap="timeline-header-7"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700">
             <CpuChipIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">
@@ -481,20 +514,20 @@ const timelineData = [
           className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
           data-gsap="timeline-achievements-7"
         >
-          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
+          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
           <div className="space-y-2">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-7-0"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">OpenAI API mastery</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-7-1"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 LLM integration expertise
               </span>
@@ -503,7 +536,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-7-2"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 RAG systems development
               </span>
@@ -512,14 +545,14 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-7-3"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">AI agent automation</span>
             </div>
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-7-4"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 TypeScript + AI workflows
               </span>
@@ -537,7 +570,7 @@ const timelineData = [
           className="mb-4 flex items-center gap-3"
           data-gsap="timeline-header-8"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700">
             <FlagIcon className="h-4 w-4 text-white" />
           </div>
           <h4 className="text-xl font-bold text-white">
@@ -572,13 +605,13 @@ const timelineData = [
           className="rounded-lg border border-gray-600/20 bg-gray-800/30 p-4"
           data-gsap="timeline-achievements-8"
         >
-          <h5 className="mb-2 font-semibold text-cyan-400">Key Achievements</h5>
+          <h5 className="mb-2 font-semibold text-purple-400">Key Achievements</h5>
           <div className="space-y-2">
             <div
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-0"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm font-semibold text-gray-100">
                 487 page WordPress site with dynamic generation
               </span>
@@ -587,7 +620,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-1"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Advanced Custom Fields + custom template mastery
               </span>
@@ -596,7 +629,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-2"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Dynamic rewrite rules for scalable routing
               </span>
@@ -605,7 +638,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-3"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Modern WordPress with React & TypeScript
               </span>
@@ -614,7 +647,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-4"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 WordPress + Tailwind CSS + Vite workflow
               </span>
@@ -623,7 +656,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-5"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Laravel & PHP framework expertise
               </span>
@@ -632,7 +665,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-6"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Custom plugin & theme development
               </span>
@@ -641,7 +674,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-7"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 AI integration with WordPress & PHP
               </span>
@@ -650,7 +683,7 @@ const timelineData = [
               className="flex items-start space-x-3"
               data-gsap="timeline-bullet-8-8"
             >
-              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-cyan-400"></span>
+              <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-purple-400"></span>
               <span className="text-sm text-gray-100">
                 Headless WordPress architectures
               </span>
@@ -685,7 +718,7 @@ export default function TimelineComponent() {
     tl.to('[data-gsap="timeline-heading"]', {
       opacity: 1,
       y: 0,
-      duration: 0.6,
+      duration: 0.4,
       ease: 'power2.out',
     })
       .to(
@@ -693,23 +726,23 @@ export default function TimelineComponent() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.4,
           ease: 'power2.out',
         },
-        '-=0.3',
+        '-=0.2',
       )
       .to(
         '[data-gsap="timeline-container"]',
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.5,
           ease: 'power2.out',
         },
-        '-=0.2',
+        '-=0.1',
       );
 
-    // Animate timeline content elements with stagger
+    // Set initial states for all timeline elements
     timelineData.forEach((_, index) => {
       const headerSelector = `[data-gsap="timeline-header-${index}"]`;
       const textSelector = `[data-gsap="timeline-text-${index}"]`;
@@ -722,7 +755,38 @@ export default function TimelineComponent() {
       if (document.querySelector(quoteSelector)) {
         gsap.set(quoteSelector, { opacity: 0, x: 30 });
       }
-      gsap.set(achievementsSelector, { opacity: 0, x: 30 });
+      gsap.set(achievementsSelector, { opacity: 0, y: 30, scale: 0.95 });
+
+      // Animate individual bullet points with stagger
+      const bullets = document.querySelectorAll(
+        `[data-gsap^="timeline-bullet-${index}-"]`,
+      );
+      if (bullets.length > 0) {
+        gsap.set(bullets, { opacity: 0, x: 20 });
+      }
+    });
+
+    // Animate all timeline achievement cards with stagger like Stats section
+    gsap.to('[data-gsap^="timeline-achievements-"]', {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.5,
+      stagger: 0.08,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '[data-gsap="timeline-container"]',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none none',
+      },
+    });
+
+    // Animate timeline headers and text
+    timelineData.forEach((_, index) => {
+      const headerSelector = `[data-gsap="timeline-header-${index}"]`;
+      const textSelector = `[data-gsap="timeline-text-${index}"]`;
+      const quoteSelector = `[data-gsap="timeline-quote-${index}"]`;
 
       // Create timeline for each content section
       const contentTl = gsap.timeline({
@@ -768,37 +832,22 @@ export default function TimelineComponent() {
         );
       }
 
-      // Animate achievements section if it exists
-      if (document.querySelector(achievementsSelector)) {
+      // Animate individual bullet points with stagger
+      const bullets = document.querySelectorAll(
+        `[data-gsap^="timeline-bullet-${index}-"]`,
+      );
+      if (bullets.length > 0) {
         contentTl.to(
-          achievementsSelector,
+          bullets,
           {
             opacity: 1,
             x: 0,
-            duration: 0.5,
+            duration: 0.4,
+            stagger: 0.08,
             ease: 'power2.out',
           },
-          '-=0.2',
+          '-=0.3',
         );
-
-        // Animate individual bullet points with stagger
-        const bullets = document.querySelectorAll(
-          `[data-gsap^="timeline-bullet-${index}-"]`,
-        );
-        if (bullets.length > 0) {
-          gsap.set(bullets, { opacity: 0, x: 20 });
-          contentTl.to(
-            bullets,
-            {
-              opacity: 1,
-              x: 0,
-              duration: 0.4,
-              stagger: 0.1,
-              ease: 'power2.out',
-            },
-            '-=0.3',
-          );
-        }
       }
     });
   });
@@ -806,8 +855,8 @@ export default function TimelineComponent() {
   return (
     <div id="timeline" className="mt-40 w-full">
       <SectionHeading
-        heading="My Developer Journey"
-        subheading="8+ Years of Evolution: From PHP foundations to AI-powered development, live streaming, and building in public"
+        heading="Professional Experience & Journey"
+        subheading="8+ Years of Evolution: From Digital Age Marketing Group through ViViFi Agency to Light Code Labs, with technical growth and entrepreneurial success"
         animationId="timeline"
       />
       <div data-gsap="timeline-container">
