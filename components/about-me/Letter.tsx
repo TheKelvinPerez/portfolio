@@ -10,7 +10,7 @@ const letterContent = [
   },
   {
     type: 'paragraph',
-    text: "I'm a Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. My journey started in 2015 at Broward College, diving into WordPress and PHP at Digital Age Marketing Group, then founding ViViFi agency in 2019 where I delivered 12+ websites with 100% client satisfaction.",
+    text: "I'm a Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. My journey started in 2015 at Broward College, then diving into WordPress and PHP at Digital Age Marketing Group, then founding ViViFi agency in 2019 where I delivered 12+ websites with 100% client satisfaction.",
   },
   {
     type: 'paragraph',
@@ -18,7 +18,7 @@ const letterContent = [
   },
   {
     type: 'paragraph',
-    text: "The full circle moment came building my father's HVAC site SunnySide247ac.com. I architected a WordPress CMS automating 487 pages with ACF Pro, cutting content creation by 90%, generating $50K-$100K annual SEO value, and achieving 1ms response times with 100/100 PageSpeed scores.",
+    text: "The full circle moment came building my father's HVAC site SunnySide247ac.com. I architected a WordPress custom theme automating 487 pages with ACF Pro, cutting content creation by 90%, generating $50K-$100K annual SEO value, and achieving 1ms response times with 100/100 PageSpeed scores.",
   },
   { type: 'paragraph', text: "Now I'm specializing in:" },
   {
@@ -34,7 +34,7 @@ const letterContent = [
   },
   {
     type: 'paragraph',
-    text: 'I thrive in collaborative agency environments, managing multiple projects while partnering with designers and marketers. My diverse journey has given me a unique perspective on creating technically robust solutions for real-world business needs.',
+    text: 'I thrive in collaborative agency environments, managing projects while partnering with designers, marketers and stake holders. My diverse journey has given me a unique perspective on creating technically robust solutions for real-world business needs.',
   },
   { type: 'paragraph', text: "Let's build something amazing together." },
   { type: 'closing', text: 'Wholeness & Balanced Vibrations 🙏' },
