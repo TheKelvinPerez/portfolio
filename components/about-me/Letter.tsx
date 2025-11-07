@@ -233,13 +233,13 @@ export default function Letter() {
           background: `linear-gradient(to right,
             rgba(255,255,255,${baseOpacity}) 0%,
             rgba(255,255,255,${baseOpacity}) 70%,
-            rgba(255,255,255,${baseOpacity * 0.8}) 85%,
-            rgba(255,255,255,${baseOpacity * 0.3}) 95%,
+            rgba(255,255,255,${baseOpacity * 0.9}) 85%,
+            rgba(255,255,255,${baseOpacity * 0.6}) 95%,
             rgba(255,255,255,0) 100%)`,
           WebkitBackgroundClip: 'text',
           backgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.05))',
+          filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.2))',
         }}
       >
         {children}
@@ -260,7 +260,7 @@ export default function Letter() {
             href="https://sunnyside247ac.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 underline hover:text-blue-300 transition-colors"
+            className="text-yellow-300 underline transition-colors hover:text-yellow-200"
           >
             {part}
           </a>
@@ -273,7 +273,7 @@ export default function Letter() {
             href="https://pagespeed.web.dev/analysis/https-sunnyside247ac-com/bimc9jrugi?form_factor=desktop"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 underline hover:text-blue-300 transition-colors"
+            className="text-yellow-300 underline transition-colors hover:text-yellow-200"
           >
             {part}
           </a>
@@ -304,7 +304,7 @@ export default function Letter() {
         <div className="absolute left-1 top-1 z-20 h-[98%] w-[98%] -rotate-1 rounded-lg bg-letter-bottom lg:left-3 lg:top-10 lg:h-[95%] lg:w-[98%] lg:rotate-3"></div>
         {/* Letter Top */}
         <div className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl">
-          <article className="h-[1900px] space-y-4 p-4 text-base text-white/80 lg:h-[1700px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
+          <article className="h-[1800px] space-y-4 p-4 text-base text-white/90 lg:h-[1600px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
             <div className="space-y-4">
               {displayedContent.map((section, index) => {
                 const isCurrentSection =

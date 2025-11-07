@@ -58,8 +58,8 @@ const config = {
       //   },
       // }),
       backgroundImage: {
-        'letter-top': 'linear-gradient(360deg, #130832 0%, #722186 100%)',
-        'letter-middle': 'linear-gradient(1.77deg, #1A1056 1.57%, #8F1BAC 98.43%)',
+        'letter-top': 'linear-gradient(360deg, #4C1D95 0%, #7E22CE 100%)',
+        'letter-middle': 'linear-gradient(1.77deg, #5B21B6 1.57%, #9333EA 98.43%)',
         'fade-left': 'linear-gradient(to right, rgb(0, 0, 0), transparent)',
         'fade-right': 'linear-gradient(to left, rgb(0, 0, 0), transparent)',
         'hero-diagonal': 'linear-gradient(135deg, #130832 0%, #722186 20%, #4A5BFF 45%, #6B46C1 65%, #9333EA 80%, #D97706 95%, #07070C 100%)',
@@ -67,7 +67,7 @@ const config = {
       boxShadow: {
         'alt-cta': 'inset 0px 0px 10px #FFFFFF',
         cta: 'inset 0px 0px 14px #000000',
-        'letter-top': '0px 0px 20px #0F0C22',
+        'letter-top': '0px 0px 20px #4C1D95',
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
@@ -75,7 +75,7 @@ const config = {
         monalisa: ['var(--font-monalisa)'],
       },
       colors: {
-        'letter-bottom': '#68147D',
+        'letter-bottom': '#6B21A8',
         'bg-default': '#07070C',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

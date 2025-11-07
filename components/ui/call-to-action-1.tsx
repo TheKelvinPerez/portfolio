@@ -105,7 +105,7 @@ export default function DownloadResumeCTA() {
     <>
       <motion.div
         ref={containerRef}
-        className="mx-2 my-60 flex max-w-5xl flex-col items-center justify-center rounded-2xl border border-purple-500/30 bg-gradient-to-b from-purple-700/80 to-purple-900/90 p-10 py-16 text-center font-sans text-white shadow-2xl shadow-purple-500/20 backdrop-blur-md md:mx-auto md:w-full"
+        className="mx-2 my-60 flex max-w-5xl flex-col items-center justify-center rounded-2xl border-2 border-purple-500/40 bg-gradient-to-b from-purple-700/80 to-purple-900/90 p-10 py-16 text-center font-sans text-white shadow-2xl shadow-purple-500/20 backdrop-blur-md md:mx-auto md:w-full"
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
         variants={containerVariants}
