@@ -110,21 +110,8 @@ export default function DownloadResumeCTA() {
         animate={isInView ? 'visible' : 'hidden'}
         variants={containerVariants}
       >
-        <motion.div
-          className="flex flex-wrap items-center justify-center rounded-full border border-purple-400/60 bg-purple-700/30 p-1 text-sm backdrop-blur-md"
-          variants={badgeVariants}
-        >
-          <div className="flex items-center">
-            <span className="mr-2 text-lg">💼</span>
-            <span className="mr-2 text-lg">🚀</span>
-            <span className="text-lg">📈</span>
-          </div>
-          <p className="ml-2 font-medium">
-            Trusted by leading companies and startups
-          </p>
-        </motion.div>
         <motion.h1
-          className="mt-5 max-w-xl bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-semibold text-transparent drop-shadow-sm md:text-5xl md:leading-[60px]"
+          className="max-w-xl bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-semibold text-transparent drop-shadow-sm md:text-5xl md:leading-[60px]"
           variants={titleVariants}
         >
           See my credentials & expertise

@@ -303,7 +303,7 @@ export default function Letter() {
         <div className="absolute left-1 top-1 z-20 h-[98%] w-[98%] -rotate-1 rounded-lg bg-letter-bottom lg:left-3 lg:top-10 lg:h-[95%] lg:w-[98%] lg:rotate-3"></div>
         {/* Letter Top */}
         <div className="relative z-30 -rotate-1 rounded-lg bg-letter-top shadow-letter-top lg:rotate-2 lg:rounded-xl">
-          <article className="h-[1800px] space-y-4 p-4 text-base text-white/90 lg:h-[1600px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
+          <article className="h-[1900px] space-y-4 p-4 text-base text-white/90 lg:h-[1600px] lg:space-y-5 lg:p-5 lg:px-24 lg:py-14 lg:text-2xl">
             <div className="space-y-4">
               {displayedContent.map((section, index) => {
                 const isCurrentSection =

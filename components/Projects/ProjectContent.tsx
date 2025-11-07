@@ -24,18 +24,19 @@ export default function ProjectContent({
 
   // Determine the primary link - prioritize live site, then github
   const getPrimaryLink = () => {
-    const liveLink = links.find(link => 
-      link.title.toLowerCase().includes('live') || 
-      link.title.toLowerCase().includes('site') ||
-      link.title.toLowerCase().includes('demo')
+    const liveLink = links.find(
+      (link) =>
+        link.title.toLowerCase().includes('live') ||
+        link.title.toLowerCase().includes('site') ||
+        link.title.toLowerCase().includes('demo'),
     );
-    
+
     if (liveLink) return liveLink;
-    
-    const githubLink = links.find(link => 
-      link.title.toLowerCase().includes('github')
+
+    const githubLink = links.find((link) =>
+      link.title.toLowerCase().includes('github'),
     );
-    
+
     return githubLink || links[0]; // fallback to first link if no live or github
   };
 
@@ -47,7 +48,7 @@ export default function ProjectContent({
       <div className="relative z-[9999] flex items-center">
         <Link
           href="/#projects"
-          className="group flex items-center gap-2 rounded-full py-3 px-6 text-center text-sm text-white shadow-alt-cta transition-all hover:bg-white hover:text-black hover:shadow-cta xl:px-8 xl:py-3 xl:text-base"
+          className="group flex items-center gap-2 rounded-full px-6 py-3 text-center text-sm text-white shadow-alt-cta transition-all hover:bg-white hover:text-black hover:shadow-cta xl:px-8 xl:py-3 xl:text-base"
         >
           <ArrowLeft className="h-4 w-4 transition-all group-hover:brightness-0" />
           Back to Projects
@@ -59,7 +60,7 @@ export default function ProjectContent({
         href={primaryLink?.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative aspect-video w-full overflow-hidden rounded-[60px] bg-gray-900 cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+        className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-[20px] bg-gray-900 transition-transform duration-300 hover:scale-[1.02] lg:rounded-[60px]"
       >
         {/* Loading Placeholder */}
         <div
@@ -84,7 +85,7 @@ export default function ProjectContent({
 
         {/* Overlay with link indicator */}
         <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/20">
-          <div className="absolute top-4 right-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
+          <div className="absolute right-4 top-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
             <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-sm font-medium text-gray-900 backdrop-blur-sm">
               <ExternalLink className="h-4 w-4" />
               {primaryLink?.title}
@@ -97,11 +98,11 @@ export default function ProjectContent({
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         {/* Left Column - Project Description */}
         <div className="lg:col-span-2">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col items-start gap-4">
             <h1 className="text-4xl font-bold text-gray-100">{title}</h1>
-            <span className="text-gray-400">{date}</span>
+            <span className="text-gray-300">{date}</span>
           </div>
-          <article className="prose prose-purple prose-invert mt-6 max-w-none">
+          <article className="prose prose-purple prose-invert mt-6 max-w-none [&_ul>li::marker]:text-gray-300 [&_ol>li::marker]:text-gray-300">
             <Markdown>{fullDescription}</Markdown>
           </article>
         </div>
@@ -158,8 +159,9 @@ export default function ProjectContent({
             🎥 Development Live Streams
           </h2>
           <p className="mb-6 text-gray-400">
-            Watch the complete development process of AquaKit in this YouTube playlist. 
-            See how the AI starter kit was built from scratch with real-time problem solving and explanations.
+            Watch the complete development process of AquaKit in this YouTube
+            playlist. See how the AI starter kit was built from scratch with
+            real-time problem solving and explanations.
           </p>
           <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-900">
             <iframe
@@ -180,8 +182,9 @@ export default function ProjectContent({
             🎥 Development Live Streams
           </h2>
           <p className="mb-6 text-gray-400">
-            Watch the complete development process of this portfolio website in this YouTube playlist.
-            See how this modern Next.js portfolio was built from scratch with Drizzle ORM and more.
+            Watch the complete development process of this portfolio website in
+            this YouTube playlist. See how this modern Next.js portfolio was
+            built from scratch with Drizzle ORM and more.
           </p>
           <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-900">
             <iframe
@@ -202,8 +205,9 @@ export default function ProjectContent({
             🚀 Performance Results
           </h2>
           <p className="mb-6 text-gray-400">
-            Achieving perfect 100/100 Google PageSpeed scores through advanced optimization techniques,
-            efficient caching strategies, and modern development practices.
+            Achieving perfect 100/100 Google PageSpeed scores through advanced
+            optimization techniques, efficient caching strategies, and modern
+            development practices.
           </p>
           <a
             href="https://pagespeed.web.dev/analysis/https-sunnyside247ac-com/bimc9jrugi?form_factor=desktop"
@@ -216,7 +220,7 @@ export default function ProjectContent({
               alt="SunnySide 24/7 AC PageSpeed Score - 100/100"
               width={1920}
               height={1080}
-              className="w-full h-auto rounded-xl"
+              className="h-auto w-full rounded-xl"
             />
           </a>
         </div>

@@ -14,7 +14,7 @@ const BentoGrid = ({
   return (
     <div
       className={cn(
-        'grid w-full auto-rows-[22rem] grid-cols-3 gap-4',
+        'grid w-full auto-rows-[22rem] grid-cols-1 gap-4 lg:grid-cols-3',
         className,
       )}
     >
@@ -45,7 +45,7 @@ const BentoCard = ({
   <div
     key={name}
     className={cn(
-      'group relative col-span-3 flex h-full flex-col justify-between overflow-hidden rounded-xl',
+      'group relative col-span-1 flex h-full flex-col justify-between overflow-hidden rounded-xl',
       // high contrast against purple background
       'border border-gray-600/60 bg-gray-900/80 backdrop-blur-md shadow-2xl [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset,0_0_60px_-10px_#00000040]',
       'transform-gpu',
