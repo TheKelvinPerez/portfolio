@@ -3,10 +3,11 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, ArrowLeft } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import Markdown from 'react-markdown';
 import RelatedProjects from './RelatedProjects';
 import { Project, projectsData } from './projectsData';
+import StyledButton from '@/components/ui/styled-button';
 
 interface ProjectContentProps extends Project {}
 
@@ -46,13 +47,14 @@ export default function ProjectContent({
     <div className="flex flex-col gap-8">
       {/* Back Button */}
       <div className="relative z-[99] flex items-center">
-        <Link
+        <StyledButton
           href="/#projects"
-          className="group flex items-center gap-2 rounded-full px-6 py-3 text-center text-sm text-white shadow-alt-cta transition-all hover:bg-white hover:text-black hover:shadow-cta xl:px-8 xl:py-3 xl:text-base"
+          variant="back"
+          size="md"
+          className="group flex items-center gap-2"
         >
-          <ArrowLeft className="h-4 w-4 transition-all group-hover:brightness-0" />
           Back to Projects
-        </Link>
+        </StyledButton>
       </div>
 
       {/* Hero Image */}

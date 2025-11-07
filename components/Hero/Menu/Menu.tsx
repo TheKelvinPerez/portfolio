@@ -10,6 +10,7 @@ import TwitterLogo from '../../../public/images/svg/X-Twitter-Logo.svg';
 import YouTubeLogo from '../../../public/images/svg/Youtube-Logo.svg';
 import clsx from 'clsx';
 import Link from 'next/link';
+import StyledButton from '@/components/ui/styled-button';
 
 interface NavItem {
   name: string;
@@ -90,21 +91,19 @@ export default function Menu() {
             </button>
           </div>
           <div className="hidden gap-4 lg:flex lg:flex-1 lg:justify-end">
-            <a
+            <StyledButton
               href="https://github.com/TheKelvinPerez"
+              variant="github"
+              size="md"
               target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2 rounded-full px-6 py-3 text-center text-sm text-white shadow-alt-cta transition-all hover:bg-white hover:text-black hover:shadow-cta xl:px-8 xl:py-3 xl:text-base"
+              icon={GithubLogo}
+              iconAlt="GitHub Logo"
+              iconWidth={20}
+              iconHeight={20}
+              className="xl:px-8 xl:py-3 xl:text-base gap-2"
             >
-              <Image
-                src={GithubLogo}
-                alt="GitHub Logo"
-                width={20}
-                height={20}
-                className="transition-all group-hover:brightness-0"
-              />
               GitHub
-            </a>
+            </StyledButton>
           </div>
         </nav>
       </header>

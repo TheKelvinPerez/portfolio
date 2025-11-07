@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export interface StyledButtonProps {
   children: React.ReactNode;
   href?: string;
-  variant?: 'primary' | 'secondary' | 'back' | 'external';
+  variant?: 'primary' | 'secondary' | 'back' | 'external' | 'github';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   target?: '_blank' | '_self';
@@ -14,6 +15,10 @@ export interface StyledButtonProps {
   onClick?: () => void;
   'data-gsap'?: string;
   disabled?: false;
+  icon?: string;
+  iconAlt?: string;
+  iconWidth?: number;
+  iconHeight?: number;
 }
 
 export default function StyledButton({
@@ -27,23 +32,30 @@ export default function StyledButton({
   onClick,
   'data-gsap': dataGsap,
   disabled = false,
+  icon,
+  iconAlt,
+  iconWidth = 20,
+  iconHeight = 20,
 }: StyledButtonProps) {
   // Base classes for all buttons
-  const baseClasses = 'grid place-items-center rounded-full text-center transition-all duration-200';
+  const baseClasses = variant === 'github'
+    ? 'flex items-center rounded-full text-center transition-all duration-200'
+    : 'grid place-items-center rounded-full text-center transition-all duration-200';
 
   // Size-specific classes
   const sizeClasses = {
     sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-sm lg:px-8 lg:py-3 lg:text-base',
+    md: variant === 'github' ? 'px-6 py-3 text-sm lg:px-8 lg:py-3 lg:text-base min-w-[120px]' : 'px-6 py-3 text-sm lg:px-8 lg:py-3 lg:text-base',
     lg: 'px-8 py-3 text-base lg:px-10 lg:py-4 lg:text-lg'
   };
 
-  // Variant-specific classes
+  // Consistent styling for all variants with unified hover effects
   const variantClasses = {
     primary: 'text-white shadow-alt-cta hover:bg-gradient-to-b hover:from-white/40 hover:to-[#2F2D2D]/20 hover:shadow-alt-cta',
-    secondary: 'bg-gradient-to-b from-white/40 to-[#2F2D2D]/20 text-white shadow-alt-cta hover:bg-none hover:shadow-alt-cta',
-    back: 'text-white shadow-alt-cta hover:bg-white hover:text-black hover:shadow-cta',
-    external: 'text-white shadow-alt-cta hover:bg-gradient-to-b hover:from-white/40 hover:to-[#2F2D2D]/20 hover:shadow-alt-cta'
+    secondary: 'text-white shadow-alt-cta hover:bg-gradient-to-b hover:from-white/40 hover:to-[#2F2D2D]/20 hover:shadow-alt-cta',
+    back: 'text-white shadow-alt-cta hover:bg-gradient-to-b hover:from-white/40 hover:to-[#2F2D2D]/20 hover:shadow-alt-cta',
+    external: 'text-white shadow-alt-cta hover:bg-gradient-to-b hover:from-white/40 hover:to-[#2F2D2D]/20 hover:shadow-alt-cta',
+    github: 'text-white shadow-alt-cta hover:bg-gradient-to-b hover:from-white/40 hover:to-[#2F2D2D]/20 hover:shadow-alt-cta'
   };
 
   const buttonClasses = cn(
@@ -58,7 +70,7 @@ export default function StyledButton({
       case 'back':
         return (
           <>
-            <ArrowLeft className="h-4 w-4 transition-all group-hover:brightness-0 mr-2" />
+            <ArrowLeft className="h-4 w-4 transition-all group-hover:text-white mr-2" />
             {children}
           </>
         );
@@ -66,7 +78,22 @@ export default function StyledButton({
         return (
           <>
             {children}
-            <ExternalLink className="h-4 w-4 ml-2" />
+            <ExternalLink className="h-4 w-4 ml-2 transition-all group-hover:text-white" />
+          </>
+        );
+      case 'github':
+        return (
+          <>
+            {icon && (
+              <Image
+                src={icon}
+                alt={iconAlt || 'Icon'}
+                width={iconWidth}
+                height={iconHeight}
+                className="transition-all group-hover:brightness-0 mr-2"
+              />
+            )}
+            {children}
           </>
         );
       default:

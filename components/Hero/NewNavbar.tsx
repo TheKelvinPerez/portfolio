@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { HoveredLink, Menu, MenuItem } from '../ui/navbar-menu';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import StyledButton from '@/components/ui/styled-button';
 
 export function NewNavbar() {
   return (
@@ -76,9 +77,15 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="Projects">
           <div className="flex min-w-[120px] flex-col space-y-3 text-sm">
             <HoveredLink href="/#projects">View Projects</HoveredLink>
-            <HoveredLink href="https://github.com/TheKelvinPerez">
+            <StyledButton
+              href="https://github.com/TheKelvinPerez"
+              variant="external"
+              size="sm"
+              target="_blank"
+              className="w-full justify-start rounded-lg px-2 py-1 text-left hover:bg-gradient-to-b hover:from-white/40 hover:to-[#2F2D2D]/20 hover:text-white hover:shadow-alt-cta"
+            >
               GitHub
-            </HoveredLink>
+            </StyledButton>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Blog">

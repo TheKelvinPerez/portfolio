@@ -21,20 +21,25 @@ export default function HeroCTA() {
         </div>
       </div>
       <div className="grid w-full max-w-md grid-cols-2 items-center justify-center gap-3">
-        <a
+        <StyledButton
           href="#projects"
-          className="grid place-items-center rounded-full py-3 text-center text-base text-white opacity-0 shadow-alt-cta transition-all hover:bg-gradient-to-b hover:from-white/40 hover:to-[#2F2D2D]/20 hover:shadow-alt-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
+          size="lg"
+          variant="primary"
           data-gsap="cta-view-projects"
+          className="opacity-0"
         >
           View Projects
-        </a>
-        <a
+        </StyledButton>
+        <StyledButton
           href="https://cal.com/0xaquawolf/discovery"
-          className="grid place-items-center rounded-full bg-gradient-to-b from-white/40 to-[#2F2D2D]/20 py-3 text-center text-base text-white opacity-0 shadow-alt-cta transition-all hover:bg-none hover:shadow-alt-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
+          size="lg"
+          variant="primary"
+          target="_blank"
           data-gsap="cta-book-call"
+          className="opacity-0 bg-gradient-to-b from-white/40 to-[#2F2D2D]/20"
         >
           Contact Me
-        </a>
+        </StyledButton>
       </div>
       <div className="absolute inset-0 z-[-1] flex items-center justify-center">
         <HeroCircles />
