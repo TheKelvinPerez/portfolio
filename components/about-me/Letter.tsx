@@ -219,7 +219,7 @@ export default function Letter() {
   const GradientFade = ({
     children,
     isActive,
-    baseOpacity = 0.8,
+    baseOpacity = 0.9,
   }: {
     children: React.ReactNode;
     isActive: boolean;
@@ -233,13 +233,12 @@ export default function Letter() {
           background: `linear-gradient(to right,
             rgba(255,255,255,${baseOpacity}) 0%,
             rgba(255,255,255,${baseOpacity}) 70%,
-            rgba(255,255,255,${baseOpacity * 0.9}) 85%,
-            rgba(255,255,255,${baseOpacity * 0.6}) 95%,
-            rgba(255,255,255,0) 100%)`,
+            rgba(255,255,255,${baseOpacity * 0.95}) 85%,
+            rgba(255,255,255,${baseOpacity * 0.9}) 95%,
+            rgba(255,255,255,${baseOpacity}) 100%)`,
           WebkitBackgroundClip: 'text',
           backgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.2))',
         }}
       >
         {children}

@@ -42,7 +42,7 @@ const timelineData = [
           Started my professional web development journey at Digital Age Marketing Group while continuing to learn coding fundamentals. This role provided the foundation for my WordPress expertise.
         </p>
         <div
-          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-0"
         >
           <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
@@ -103,7 +103,7 @@ const timelineData = [
           a web developer. Started learning PHP and WordPress as my foundation.
         </p>
         <div
-          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-1"
         >
           <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
@@ -160,7 +160,7 @@ const timelineData = [
           experience.
         </p>
         <div
-          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-2"
         >
           <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
@@ -226,7 +226,7 @@ const timelineData = [
           Founded my boutique digital agency while continuing to master modern JavaScript and React. Delivered custom WordPress solutions for SMBs and creatives, building 12+ high-converting websites.
         </p>
         <div
-          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-3"
         >
           <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
@@ -300,7 +300,7 @@ const timelineData = [
           automation.
         </p>
         <div
-          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-4"
         >
           <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
@@ -366,7 +366,7 @@ const timelineData = [
           Launched Light Code Labs as a full-stack WordPress engineering consultancy. Also explored blockchain and NFT projects, achieving massive success while building foundational WordPress expertise.
         </p>
         <div
-          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-5"
         >
           <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
@@ -442,7 +442,7 @@ const timelineData = [
           healing and perspective.
         </p>
         <div
-          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-6"
         >
           <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
@@ -512,7 +512,7 @@ const timelineData = [
           into LLMs, RAG systems, and AI agents.
         </p>
         <div
-          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-7"
         >
           <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>
@@ -612,7 +612,7 @@ const timelineData = [
           </p>
         </div>
         <div
-          className="rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+          className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
           data-gsap="timeline-achievements-8"
         >
           <h5 className="mb-4 font-semibold text-purple-400">Key Achievements</h5>

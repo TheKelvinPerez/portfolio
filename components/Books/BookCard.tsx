@@ -19,7 +19,7 @@ interface BookCardProps {
 export default function BookCard({ book, onClick }: BookCardProps) {
   return (
     <div
-      className="group cursor-pointer rounded-lg bg-gray-900/80 backdrop-blur-md border border-gray-600/60 overflow-hidden transition-all duration-300 hover:scale-105 hover:bg-gray-800/90 hover:border-gray-400/80 shadow-lg hover:shadow-xl hover:shadow-gray-400/20"
+      className="group cursor-pointer rounded-2xl bg-gradient-to-br from-purple-800/40 to-purple-900/60 backdrop-blur-sm border border-purple-500/70 overflow-hidden transition-all duration-300 hover:scale-105 hover:border-purple-400/80 shadow-lg hover:shadow-lg hover:shadow-purple-500/20"
       onClick={onClick}
     >
       <div className="aspect-[3/4] relative overflow-hidden">
@@ -41,7 +41,7 @@ export default function BookCard({ book, onClick }: BookCardProps) {
           by {book.author}
         </p>
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-200 bg-gray-700/60 px-2 py-1 rounded-full">
+          <span className="text-xs text-gray-200 bg-purple-600/80 px-2 py-1 rounded-full font-medium">
             {book.genre}
           </span>
           <div className="flex items-center gap-1">

@@ -29,7 +29,7 @@ export default function ProjectCard({
       href={`/projects/${slug}`}
       className="group block h-full"
     >
-      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-600/60 bg-gray-900/80 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-gray-400/80 hover:shadow-2xl hover:shadow-gray-400/30">
+      <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20">
         {/* Fixed Image Container - Always 240px tall */}
         <div className="relative w-full shrink-0 overflow-hidden bg-gray-800/70" style={{ height: '240px' }}>
           <div className="absolute inset-0">
@@ -49,7 +49,7 @@ export default function ProjectCard({
 
           {/* Coming Soon Badge */}
           {date === 'Coming Soon' && (
-            <div className="absolute right-4 top-4 z-10 rounded-full bg-gradient-to-r from-gray-300 to-gray-400 px-3 py-1 text-sm font-semibold text-gray-900 shadow-xl backdrop-blur-sm">
+            <div className="absolute right-4 top-4 z-10 rounded-full bg-gradient-to-r from-purple-400 to-purple-500 px-3 py-1 text-sm font-semibold text-gray-200 shadow-xl backdrop-blur-sm">
               Coming Soon
             </div>
           )}
@@ -72,13 +72,13 @@ export default function ProjectCard({
             {tags.slice(0, 5).map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-gray-700/60 px-3 py-1 text-xs text-gray-200"
+                className="rounded-full bg-purple-600/80 px-3 py-1 text-xs text-gray-200 font-medium"
               >
                 {tag}
               </span>
             ))}
             {tags.length > 5 && (
-              <span className="rounded-full bg-gray-600/40 px-3 py-1 text-xs text-gray-300">
+              <span className="rounded-full bg-purple-500/70 px-3 py-1 text-xs text-gray-200 font-medium">
                 +{tags.length - 5} more
               </span>
             )}

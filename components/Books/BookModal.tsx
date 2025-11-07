@@ -47,10 +47,10 @@ export default function BookModal({ book, onClose }: BookModalProps) {
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
       onClick={handleBackdropClick}
     >
-      <div className="relative w-full max-w-2xl max-h-[90vh] bg-gray-900/95 backdrop-blur-md rounded-xl border border-white/20 overflow-hidden">
+      <div className="relative w-full max-w-2xl max-h-[90vh] bg-gradient-to-br from-purple-800/40 to-purple-900/60 backdrop-blur-sm rounded-2xl border border-purple-500/70 overflow-hidden shadow-2xl shadow-purple-500/20">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-purple-700/80 text-gray-200 hover:bg-purple-600/80 hover:text-white transition-colors border border-purple-400/50"
         >
           <X size={20} />
         </button>
@@ -76,12 +76,12 @@ export default function BookModal({ book, onClose }: BookModalProps) {
               </p>
               
               <div className="flex items-center gap-4 mb-6">
-                <span className="text-sm text-gray-400 bg-white/10 px-3 py-1 rounded-full">
+                <span className="text-sm text-gray-200 bg-purple-600/80 px-3 py-1 rounded-full font-medium">
                   {book.genre}
                 </span>
                 <div className="flex items-center gap-1">
                   <span className="text-yellow-400">★</span>
-                  <span className="text-sm text-gray-300">{book.rating}</span>
+                  <span className="text-sm text-gray-100">{book.rating}</span>
                 </div>
               </div>
             </div>
