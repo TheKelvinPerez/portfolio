@@ -39,7 +39,7 @@ const BentoCard = ({
   Icon: any;
   description: string;
   href: string;
-  cta: string;
+  cta?: string;
   image?: string;
 }) => (
   <div
@@ -64,23 +64,25 @@ const BentoCard = ({
       <p className="max-w-lg text-gray-100">{description}</p>
     </div>
 
-    <div
-      className={cn(
-        'pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100',
-      )}
-    >
-      <Button
-        variant="ghost"
-        asChild
-        size="sm"
-        className="pointer-events-auto text-purple-200 hover:bg-gray-800/70 backdrop-blur-sm border border-purple-500/30 hover:border-purple-400/50"
+    {cta && (
+      <div
+        className={cn(
+          'pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100',
+        )}
       >
-        <a href={href}>
-          {cta}
-          <ArrowRightIcon className="ml-2 h-4 w-4" />
-        </a>
-      </Button>
-    </div>
+        <Button
+          variant="ghost"
+          asChild
+          size="sm"
+          className="pointer-events-auto text-purple-200 hover:bg-gray-800/70 backdrop-blur-sm border border-purple-500/30 hover:border-purple-400/50"
+        >
+          <a href={href}>
+            {cta}
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
+          </a>
+        </Button>
+      </div>
+    )}
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-gray-900/50" />
   </div>
 );

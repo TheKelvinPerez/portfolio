@@ -22,14 +22,14 @@ export default function HeroCTA() {
       <div className="grid w-full max-w-md grid-cols-2 items-center justify-center gap-3">
         <a
           href="#projects"
-          className="grid place-items-center rounded-full py-3 text-center text-base text-white opacity-0 shadow-alt-cta transition-all hover:bg-gradient-to-br hover:from-purple-600 hover:via-blue-600 hover:to-yellow-500 hover:shadow-alt-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
+          className="grid place-items-center rounded-full py-3 text-center text-base text-white opacity-0 shadow-alt-cta transition-all hover:bg-gradient-to-b hover:from-white/40 hover:to-[#2F2D2D]/20 hover:shadow-alt-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
           data-gsap="cta-view-projects"
         >
           View Projects
         </a>
         <a
           href="https://cal.com/0xaquawolf/discovery"
-          className="grid place-items-center rounded-full bg-gradient-to-br from-purple-600 via-blue-600 to-yellow-500 py-3 text-center text-base text-white opacity-0 shadow-alt-cta transition-all hover:bg-transparent hover:shadow-alt-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
+          className="grid place-items-center rounded-full bg-gradient-to-b from-white/40 to-[#2F2D2D]/20 py-3 text-center text-base text-white opacity-0 shadow-alt-cta transition-all hover:bg-none hover:shadow-alt-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
           data-gsap="cta-book-call"
         >
           Contact Me

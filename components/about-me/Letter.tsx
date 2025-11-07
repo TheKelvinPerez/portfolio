@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import KelvinPerezPFP from '@/public/images/jpeg/TKP-PFP.jpeg';
+import StyledLink from '@/components/ui/styled-link';
 
 const letterContent = [
   {
@@ -254,28 +255,19 @@ export default function Letter() {
     return parts.map((part, index) => {
       if (part === 'SunnySide247ac.com') {
         return (
-          <a
-            key={index}
-            href="https://sunnyside247ac.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-yellow-300 underline transition-colors hover:text-yellow-200"
-          >
+          <StyledLink key={index} href="https://sunnyside247ac.com">
             {part}
-          </a>
+          </StyledLink>
         );
       }
       if (part === '100/100 PageSpeed scores') {
         return (
-          <a
+          <StyledLink
             key={index}
             href="https://pagespeed.web.dev/analysis/https-sunnyside247ac-com/bimc9jrugi?form_factor=desktop"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-yellow-300 underline transition-colors hover:text-yellow-200"
           >
             {part}
-          </a>
+          </StyledLink>
         );
       }
       return part;

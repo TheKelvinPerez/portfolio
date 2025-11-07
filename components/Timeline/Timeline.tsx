@@ -3,6 +3,7 @@
 import React from 'react';
 import { Timeline } from '@/components/ui/timeline';
 import SectionHeading from '@/components/SectionHeading';
+import StyledLink from '@/components/ui/styled-link';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -585,14 +586,9 @@ const timelineData = [
           The full circle moment arrived when my father&apos;s HVAC company
           needed a website. I explored modern tools like Astro, but WordPress
           called me back home. Built{' '}
-          <a
-            href="https://sunnyside247ac.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 underline hover:text-blue-300 transition-colors"
-          >
+          <StyledLink href="https://sunnyside247ac.com">
             a site
-          </a>{' '}
+          </StyledLink>{' '}
           with 487+ dynamically generated
           pages using Advanced Custom Fields, custom templates, and dynamic
           rewrite rules. This time, I could see the complete picture - React,
