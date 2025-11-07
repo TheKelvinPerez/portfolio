@@ -29,9 +29,9 @@ export default function ProjectCard({
       href={`/projects/${slug}`}
       className="group block h-full"
     >
-      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900/50 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20">
+      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-600/60 bg-gray-900/80 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-gray-400/80 hover:shadow-2xl hover:shadow-gray-400/30">
         {/* Fixed Image Container - Always 240px tall */}
-        <div className="relative w-full shrink-0 overflow-hidden bg-gray-800" style={{ height: '240px' }}>
+        <div className="relative w-full shrink-0 overflow-hidden bg-gray-800/70" style={{ height: '240px' }}>
           <div className="absolute inset-0">
             <Image
               src={imageError ? '/images/placeholder-project.svg' : imageUrl}
@@ -49,7 +49,7 @@ export default function ProjectCard({
 
           {/* Coming Soon Badge */}
           {date === 'Coming Soon' && (
-            <div className="absolute right-4 top-4 z-10 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 px-3 py-1 text-sm font-semibold text-white shadow-lg">
+            <div className="absolute right-4 top-4 z-10 rounded-full bg-gradient-to-r from-gray-300 to-gray-400 px-3 py-1 text-sm font-semibold text-gray-900 shadow-xl backdrop-blur-sm">
               Coming Soon
             </div>
           )}
@@ -59,10 +59,10 @@ export default function ProjectCard({
         <div className="flex flex-1 flex-col gap-4 p-6">
           {/* Title & Description */}
           <div className="flex-1">
-            <h3 className="mb-2 text-xl font-bold text-gray-100 transition-colors group-hover:text-purple-400">
+            <h3 className="mb-2 text-xl font-bold text-purple-200 transition-colors group-hover:text-purple-100 drop-shadow-sm">
               {title}
             </h3>
-            <p className="text-sm leading-relaxed text-gray-400">
+            <p className="text-sm leading-relaxed text-gray-100">
               {description}
             </p>
           </div>
@@ -72,13 +72,13 @@ export default function ProjectCard({
             {tags.slice(0, 5).map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-gray-800 px-3 py-1 text-xs text-gray-300"
+                className="rounded-full bg-gray-700/60 px-3 py-1 text-xs text-gray-200"
               >
                 {tag}
               </span>
             ))}
             {tags.length > 5 && (
-              <span className="rounded-full bg-purple-600/20 px-3 py-1 text-xs text-purple-300">
+              <span className="rounded-full bg-gray-600/40 px-3 py-1 text-xs text-gray-300">
                 +{tags.length - 5} more
               </span>
             )}

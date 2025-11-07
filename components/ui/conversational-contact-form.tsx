@@ -323,9 +323,6 @@ export default function ConversationalContactForm() {
         <div className="max-w-screen-xl mx-auto px-4 text-neutral-300 md:px-8">
           <div className="mt-20">
             <div className="max-w-lg mx-auto space-y-3 sm:text-center">
-              <h3 data-gsap="contact-subheading" className="text-indigo-600 font-semibold">
-                Let's Work Together
-              </h3>
               <p data-gsap="contact-heading" className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
                 Interested in hiring me?
               </p>
@@ -338,7 +335,7 @@ export default function ConversationalContactForm() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 data-gsap="contact-container"
-                className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-900/90 via-neutral-900/90 to-blue-900/90 rounded-2xl border border-purple-500/30 text-center"
+                className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-700/40 via-purple-600/35 to-blue-500/40 rounded-2xl border-2 border-purple-400/30 text-center"
               >
         <motion.div
           initial={{ scale: 0 }}
@@ -351,7 +348,7 @@ export default function ConversationalContactForm() {
         <h3 className="text-2xl font-bold text-white mb-2">
           {submitError ? "Oops!" : `Thank you, ${formData.name}!`}
         </h3>
-        <p className="text-neutral-300 mb-6">
+        <p className="text-neutral-200 mb-6">
           {submitError
             ? submitMessage || "Something went wrong. Please try again later."
             : submitMessage || `I've received your message and will get back to you soon at ${formData.email}.`
@@ -366,7 +363,7 @@ export default function ConversationalContactForm() {
             setSubmitError(false);
           }}
           variant="outline"
-          className="border-purple-500 text-purple-300 hover:bg-purple-500/20"
+          className="border-purple-400 text-purple-200 hover:bg-purple-400/20"
         >
           Send Another Message
         </Button>
@@ -383,10 +380,7 @@ export default function ConversationalContactForm() {
       <div className="max-w-screen-xl mx-auto px-4 text-neutral-300 md:px-8">
         <div className="mt-20">
           <div className="max-w-lg mx-auto space-y-3 sm:text-center">
-            <h3 data-gsap="contact-subheading" className="text-indigo-600 font-semibold">
-              Let's Work Together
-            </h3>
-            <p data-gsap="contact-heading" className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
+                  <p data-gsap="contact-heading" className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
               Interested in hiring me?
             </p>
             <p data-gsap="contact-description">
@@ -394,7 +388,7 @@ export default function ConversationalContactForm() {
             </p>
           </div>
           <div className="mt-12 flex justify-center">
-            <div data-gsap="contact-container" className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-900/90 via-neutral-900/90 to-blue-900/90 rounded-2xl border border-purple-500/30">
+            <div data-gsap="contact-container" className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-700/40 via-purple-600/35 to-blue-500/40 rounded-2xl border-2 border-purple-400/30">
       {/* Progress Indicator */}
       <div className="flex justify-center space-x-3 mb-10 md:mb-12">
         {steps.map((_, index) => (
@@ -402,10 +396,10 @@ export default function ConversationalContactForm() {
             key={index}
             className={`h-3 w-3 rounded-full transition-all duration-300 ${
               index === currentStep
-                ? "bg-purple-400 w-10 md:w-12"
+                ? "bg-purple-300 w-10 md:w-12"
                 : index < currentStep
                 ? "bg-green-400"
-                : "bg-neutral-600"
+                : "bg-gray-400"
             }`}
           />
         ))}
@@ -427,10 +421,10 @@ export default function ConversationalContactForm() {
               <span className="text-white text-sm md:text-base font-bold">K</span>
             </div>
             <div className="flex-1">
-              <div className="bg-neutral-800/80 rounded-2xl rounded-tl-none p-4 md:p-6 backdrop-blur-sm">
-                <p className="text-neutral-100 text-base md:text-lg whitespace-pre-wrap">
+              <div className="bg-neutral-700/90 rounded-2xl rounded-tl-none p-4 md:p-6 backdrop-blur-sm">
+                <p className="text-neutral-200 text-base md:text-lg whitespace-pre-wrap">
                   {displayedQuestion}
-                  {isTyping && <span className="inline-block w-2 h-4 md:h-5 bg-purple-400 animate-pulse ml-1" />}
+                  {isTyping && <span className="inline-block w-2 h-4 md:h-5 bg-purple-300 animate-pulse ml-1" />}
                 </p>
               </div>
             </div>
@@ -459,7 +453,7 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Your name..."
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-800/80 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-400 border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
                       errors.name
                         ? "border-red-400/50"
                         : "border-purple-500/30 focus:border-purple-400/60"
@@ -477,7 +471,7 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="your@email.com"
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-800/80 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-400 border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
                       errors.email
                         ? "border-red-400/50"
                         : "border-purple-500/30 focus:border-purple-400/60"
@@ -492,7 +486,7 @@ export default function ConversationalContactForm() {
                   }}
                     value={formData.inquiryType}
                     onChange={(e) => handleInputChange("inquiryType", e.target.value)}
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-800/80 rounded-2xl rounded-tr-none text-white text-base md:text-lg border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg border-2 outline-none transition-all ${
                       errors.inquiryType
                         ? "border-red-400/50"
                         : "border-purple-500/30 focus:border-purple-400/60"
@@ -517,7 +511,7 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("company", e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Company/Organization (optional)"
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-800/80 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-400 border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
                       errors.company
                         ? "border-red-400/50"
                         : "border-purple-500/30 focus:border-purple-400/60"
@@ -535,7 +529,7 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("phone", e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Phone Number (optional)"
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-800/80 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-400 border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
                       errors.phone
                         ? "border-red-400/50"
                         : "border-purple-500/30 focus:border-purple-400/60"
@@ -550,7 +544,7 @@ export default function ConversationalContactForm() {
                   }}
                     value={formData.budget}
                     onChange={(e) => handleInputChange("budget", e.target.value)}
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-800/80 rounded-2xl rounded-tr-none text-white text-base md:text-lg border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg border-2 outline-none transition-all ${
                       errors.budget
                         ? "border-red-400/50"
                         : "border-purple-500/30 focus:border-purple-400/60"
@@ -574,7 +568,7 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("message", e.target.value)}
                     placeholder="Tell me about your project or opportunity: What are you looking to build? Are you hiring for a full-time role or contract work? Include details about the tech stack, project scope, timeline, and whether it's a remote position. The more information you provide, the better I can understand how I can help."
                     rows={6}
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-800/80 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-400 border-2 outline-none transition-all resize-none ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all resize-none ${
                       errors.message
                         ? "border-red-400/50"
                         : "border-purple-500/30 focus:border-purple-400/60"
@@ -611,12 +605,12 @@ export default function ConversationalContactForm() {
               transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
               className="space-y-3"
             >
-              <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
-                <p className="text-xs md:text-sm text-purple-400 mb-1">Name</p>
+              <div className="bg-neutral-700/75 rounded-xl p-4 md:p-5 border border-purple-500/30 overflow-hidden">
+                <p className="text-xs md:text-sm text-purple-300 mb-1">Name</p>
                 <p className="text-white text-base md:text-lg break-words">{formData.name}</p>
               </div>
-              <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
-                <p className="text-xs md:text-sm text-purple-400 mb-1">Email</p>
+              <div className="bg-neutral-700/75 rounded-xl p-4 md:p-5 border border-purple-500/30 overflow-hidden">
+                <p className="text-xs md:text-sm text-purple-300 mb-1">Email</p>
                 <p className="text-white text-base md:text-lg break-words">{formData.email}</p>
               </div>
               {formData.inquiryType && (
@@ -647,8 +641,8 @@ export default function ConversationalContactForm() {
                   </p>
                 </div>
               )}
-              <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
-                <p className="text-xs md:text-sm text-purple-400 mb-1">Message</p>
+              <div className="bg-neutral-700/75 rounded-xl p-4 md:p-5 border border-purple-500/30 overflow-hidden">
+                <p className="text-xs md:text-sm text-purple-300 mb-1">Message</p>
                 <p className="text-white text-base md:text-lg whitespace-pre-wrap break-words">{formData.message}</p>
               </div>
             </motion.div>

@@ -6,11 +6,12 @@ export default function DownloadResumeCTA() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, {
     once: true,
-    margin: "-20% 0px -20% 0px"
+    margin: '-20% 0px -20% 0px',
   });
 
   // Single resume URL
-  const resumeUrl = 'https://docs.google.com/document/d/1bJNTpwSZcjrzHnnHX4YQW6BretFT_DmjNIuAcSbHKYk/edit?usp=sharing';
+  const resumeUrl =
+    'https://docs.google.com/document/d/1bJNTpwSZcjrzHnnHX4YQW6BretFT_DmjNIuAcSbHKYk/edit?usp=sharing';
 
   const handleDownload = () => {
     window.open(resumeUrl, '_blank');
@@ -53,50 +54,50 @@ export default function DownloadResumeCTA() {
   // Individual element variants
   const badgeVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
-        duration: 0.6, 
-        ease: [0.25, 0.46, 0.45, 0.94] // power2.out equivalent
-      }
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94], // power2.out equivalent
+      },
     },
   };
 
   const titleVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
-        duration: 0.7, 
-        ease: [0.25, 0.46, 0.45, 0.94] // power2.out equivalent
-      }
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94], // power2.out equivalent
+      },
     },
   };
 
   const descriptionVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
-        duration: 0.6, 
-        ease: [0.25, 0.46, 0.45, 0.94] // power2.out equivalent
-      }
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94], // power2.out equivalent
+      },
     },
   };
 
   const buttonVariants = {
     hidden: { opacity: 0, y: 20, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
-      transition: { 
-        duration: 0.6, 
-        ease: [0.68, -0.55, 0.265, 1.55] // back.out(1.7) equivalent
-      }
+      transition: {
+        duration: 0.6,
+        ease: [0.68, -0.55, 0.265, 1.55], // back.out(1.7) equivalent
+      },
     },
   };
 
@@ -104,13 +105,13 @@ export default function DownloadResumeCTA() {
     <>
       <motion.div
         ref={containerRef}
-        className="mx-2 my-60 flex max-w-5xl flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-[#5524B7] to-[#380B60] p-10 py-16 text-center font-sans text-white md:mx-auto md:w-full"
+        className="mx-2 my-60 flex max-w-5xl flex-col items-center justify-center rounded-2xl border border-purple-500/30 bg-gradient-to-b from-purple-700/80 to-purple-900/90 p-10 py-16 text-center font-sans text-white shadow-2xl shadow-purple-500/20 backdrop-blur-md md:mx-auto md:w-full"
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate={isInView ? 'visible' : 'hidden'}
         variants={containerVariants}
       >
-        <motion.div 
-          className="flex flex-wrap items-center justify-center rounded-full border border-purple-500/40 bg-purple-600/10 p-1 text-sm backdrop-blur"
+        <motion.div
+          className="flex flex-wrap items-center justify-center rounded-full border border-purple-400/60 bg-purple-700/30 p-1 text-sm backdrop-blur-md"
           variants={badgeVariants}
         >
           <div className="flex items-center">
@@ -122,14 +123,14 @@ export default function DownloadResumeCTA() {
             Trusted by leading companies and startups
           </p>
         </motion.div>
-        <motion.h1 
-          className="mt-5 max-w-xl bg-gradient-to-r from-white to-[#CAABFF] bg-clip-text text-4xl font-semibold text-transparent md:text-5xl md:leading-[60px]"
+        <motion.h1
+          className="mt-5 max-w-xl bg-gradient-to-r from-white to-purple-200 bg-clip-text text-4xl font-semibold text-transparent drop-shadow-sm md:text-5xl md:leading-[60px]"
           variants={titleVariants}
         >
           See my credentials & expertise
         </motion.h1>
-        <motion.p 
-          className="mt-4 max-w-md text-white/80"
+        <motion.p
+          className="mt-4 max-w-md text-white/90"
           variants={descriptionVariants}
         >
           Download my resume to learn more about my experience, skills, and how
@@ -138,7 +139,7 @@ export default function DownloadResumeCTA() {
         <motion.div className="mt-8" variants={buttonVariants}>
           <button
             onClick={handleDownload}
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-8 py-3 text-sm uppercase text-white transition-all hover:from-violet-700 hover:to-purple-700 shadow-lg min-w-[200px]"
+            className="inline-flex min-w-[200px] items-center justify-center rounded-full bg-gradient-to-r from-violet-500 to-purple-500 px-8 py-3 text-sm uppercase text-white shadow-xl transition-all hover:from-violet-400 hover:to-purple-400 hover:shadow-2xl hover:shadow-purple-400/30"
           >
             <span>Download Resume</span>
           </button>

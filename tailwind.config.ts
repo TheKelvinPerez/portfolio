@@ -62,6 +62,7 @@ const config = {
         'letter-middle': 'linear-gradient(1.77deg, #1A1056 1.57%, #8F1BAC 98.43%)',
         'fade-left': 'linear-gradient(to right, rgb(0, 0, 0), transparent)',
         'fade-right': 'linear-gradient(to left, rgb(0, 0, 0), transparent)',
+        'hero-diagonal': 'linear-gradient(135deg, #130832 0%, #722186 20%, #4A5BFF 45%, #6B46C1 65%, #9333EA 80%, #D97706 95%, #07070C 100%)',
       },
       boxShadow: {
         'alt-cta': 'inset 0px 0px 10px #FFFFFF',

@@ -46,8 +46,8 @@ const BentoCard = ({
     key={name}
     className={cn(
       'group relative col-span-3 flex h-full flex-col justify-between overflow-hidden rounded-xl',
-      // dark mode by default
-      'border border-zinc-700/50 bg-zinc-900/90 [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]',
+      // high contrast against purple background
+      'border border-gray-600/60 bg-gray-900/80 backdrop-blur-md shadow-2xl [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset,0_0_60px_-10px_#00000040]',
       'transform-gpu',
       className,
     )}
@@ -59,9 +59,9 @@ const BentoCard = ({
       </div>
     )}
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-200 transition-all duration-300 ease-in-out group-hover:scale-75" />
-      <h3 className="text-xl font-semibold text-neutral-100">{name}</h3>
-      <p className="max-w-lg text-neutral-300">{description}</p>
+      <Icon className="h-12 w-12 origin-left transform-gpu text-gray-300 transition-all duration-300 ease-in-out group-hover:scale-75 drop-shadow-sm" />
+      <h3 className="text-xl font-semibold text-purple-200 drop-shadow-md">{name}</h3>
+      <p className="max-w-lg text-gray-100">{description}</p>
     </div>
 
     <div
@@ -73,7 +73,7 @@ const BentoCard = ({
         variant="ghost"
         asChild
         size="sm"
-        className="pointer-events-auto text-neutral-200 hover:bg-zinc-800/50"
+        className="pointer-events-auto text-purple-200 hover:bg-gray-800/70 backdrop-blur-sm border border-purple-500/30 hover:border-purple-400/50"
       >
         <a href={href}>
           {cta}
@@ -81,7 +81,7 @@ const BentoCard = ({
         </a>
       </Button>
     </div>
-    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-zinc-800/20" />
+    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-gray-900/50" />
   </div>
 );
 

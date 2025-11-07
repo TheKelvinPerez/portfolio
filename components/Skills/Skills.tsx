@@ -145,6 +145,9 @@ export default function Skills() {
     gsap.set('[data-gsap="skills-heading"]', { opacity: 0, y: 20 });
     gsap.set('[data-gsap="skills-subheading"]', { opacity: 0, y: 25 });
     gsap.set('[data-gsap^="skill-category-"]', { opacity: 0, y: 30, scale: 0.95 });
+    gsap.set('[data-gsap^="skill-icon-"]', { opacity: 0, x: -20, scale: 0.8 });
+    gsap.set('[data-gsap^="skill-title-"]', { opacity: 0, y: 15 });
+    gsap.set('[data-gsap^="skill-item-"]', { opacity: 0, x: -15, y: 10 });
 
     // Create staggered timeline with ScrollTrigger
     const tl = gsap.timeline({
@@ -185,6 +188,43 @@ export default function Skills() {
           ease: 'power2.out',
         },
         '-=0.1',
+      )
+      // Then stagger animate icons and titles within each card
+      .to(
+        '[data-gsap^="skill-icon-"]',
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 0.4,
+          stagger: 0.06,
+          ease: 'back.out(1.7)',
+        },
+        '-=0.2',
+      )
+      .to(
+        '[data-gsap^="skill-title-"]',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.06,
+          ease: 'power2.out',
+        },
+        '-=0.3',
+      )
+      // Finally stagger animate all bullet points
+      .to(
+        '[data-gsap^="skill-item-"]',
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 0.3,
+          stagger: 0.02,
+          ease: 'power2.out',
+        },
+        '-=0.2',
       );
   });
 
@@ -202,13 +242,13 @@ export default function Skills() {
             <div
               key={index}
               data-gsap={`skill-category-${index}`}
-              className="group relative overflow-hidden rounded-2xl border border-purple-700/50 bg-gradient-to-br from-purple-900/20 to-gray-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20"
+              className="group relative overflow-hidden rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
             >
               <div className="mb-10 flex items-center gap-3">
-                <div className="text-purple-400">
+                <div className="text-purple-300" data-gsap={`skill-icon-${index}`}>
                   {category.icon}
                 </div>
-                <h3 className="text-lg font-bold text-white">
+                <h3 className="text-lg font-bold text-white" data-gsap={`skill-title-${index}`}>
                   {category.category}
                 </h3>
               </div>
@@ -217,9 +257,10 @@ export default function Skills() {
                 {category.skills.map((skill, skillIndex) => (
                   <li
                     key={skillIndex}
-                    className="flex items-start gap-2 text-sm text-gray-300"
+                    className="flex items-start gap-2 text-sm text-gray-200"
+                    data-gsap={`skill-item-${index}-${skillIndex}`}
                   >
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-purple-400" />
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-purple-300" />
                     <span>{skill}</span>
                   </li>
                 ))}

@@ -155,7 +155,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
       />
       <LoadingManager />
-      <main className="bg-transparent">
+      <main className="min-h-screen">
         <ResponsiveGodRays />
         <Hero />
         {/* <FeaturedVideo /> */}

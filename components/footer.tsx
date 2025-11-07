@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -34,13 +34,17 @@ export function Footer() {
       }
 
       // Set initial states for contact items
-      const contactItems = document.querySelectorAll('[data-gsap^="footer-contact-"]');
+      const contactItems = document.querySelectorAll(
+        '[data-gsap^="footer-contact-"]',
+      );
       if (contactItems.length > 0) {
         gsap.set(contactItems, { opacity: 0, y: 20 });
       }
 
       // Set initial states for social icons
-      const socialIcons = document.querySelectorAll('[data-gsap^="footer-social-"]');
+      const socialIcons = document.querySelectorAll(
+        '[data-gsap^="footer-social-"]',
+      );
       if (socialIcons.length > 0) {
         gsap.set(socialIcons, { opacity: 0, scale: 0.8 });
       }
@@ -63,48 +67,68 @@ export function Footer() {
         ease: 'power2.out',
       })
         // 2. Menu items stagger in
-        .to(navLinks, {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: 'power2.out',
-        }, '-=0.2')
+        .to(
+          navLinks,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: 'power2.out',
+          },
+          '-=0.2',
+        )
         // 3. Contact items stagger in
-        .to(contactItems, {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: 'power2.out',
-        }, '-=0.2')
+        .to(
+          contactItems,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: 'power2.out',
+          },
+          '-=0.2',
+        )
         // 4. Social icons stagger in
-        .to(socialIcons, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: 'back.out(1.7)',
-        }, '-=0.2')
+        .to(
+          socialIcons,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: 'back.out(1.7)',
+          },
+          '-=0.2',
+        )
         // 5. Made with Love comes in
-        .to('[data-gsap="footer-made-with-love"]', {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: 'power2.out',
-        }, '-=0.2')
+        .to(
+          '[data-gsap="footer-made-with-love"]',
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: 'power2.out',
+          },
+          '-=0.2',
+        )
         // 6. Copyright comes in last
-        .to('[data-gsap="footer-copyright"]', {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: 'power2.out',
-        }, '-=0.3');
+        .to(
+          '[data-gsap="footer-copyright"]',
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: 'power2.out',
+          },
+          '-=0.3',
+        );
     }, 100);
   });
 
   return (
-    <footer className="bg-bg-default mt-10 px-4 py-8 text-white">
+    <footer className="mt-10 px-4 py-8 text-white">
       <div className="mx-auto max-w-6xl">
         <div data-gsap="footer-logo" className="mb-8 flex justify-center">
           <Link href="/" className="flex items-center gap-2">
@@ -139,29 +163,49 @@ export function Footer() {
           >
             Books
           </Link>
-          <Link data-gsap="footer-link-4" href="#gear" className="transition-colors hover:text-gray-300">
+          <Link
+            data-gsap="footer-link-4"
+            href="#gear"
+            className="transition-colors hover:text-gray-300"
+          >
             Gear
           </Link>
-          <Link data-gsap="footer-link-5" href="#faq" className="transition-colors hover:text-gray-300">
+          <Link
+            data-gsap="footer-link-5"
+            href="#faq"
+            className="transition-colors hover:text-gray-300"
+          >
             FAQ
           </Link>
-          <Link data-gsap="footer-link-6" href="#contact-me" className="transition-colors hover:text-gray-300">
+          <Link
+            data-gsap="footer-link-6"
+            href="#contact-me"
+            className="transition-colors hover:text-gray-300"
+          >
             Contact
           </Link>
         </nav>
 
         <div className="mb-6 flex flex-col items-center gap-2 text-center text-sm text-gray-300">
           <p data-gsap="footer-contact-1">
-            <a href="tel:+13053399449" className="transition-colors hover:text-white">
+            <a
+              href="tel:+13053399449"
+              className="transition-colors hover:text-white"
+            >
               305-339-9449
             </a>
           </p>
           <p data-gsap="footer-contact-2">
-            <a href="mailto:thekelvinperez@gmail.com" className="transition-colors hover:text-white">
+            <a
+              href="mailto:thekelvinperez@gmail.com"
+              className="transition-colors hover:text-white"
+            >
               thekelvinperez@gmail.com
             </a>
           </p>
-          <p data-gsap="footer-contact-3">Miami-Fort Lauderdale Area, Florida</p>
+          <p data-gsap="footer-contact-3">
+            Miami-Fort Lauderdale Area, Florida
+          </p>
         </div>
 
         <div className="mt-10">
@@ -225,8 +269,12 @@ export function Footer() {
           </div>
         </div>
 
-        <p data-gsap="footer-made-with-love" className="mt-8 flex items-center justify-center gap-1 text-center text-sm text-gray-300">
-          Made with <Heart className="h-4 w-4 fill-red-500 text-red-500" /> by Kelvin Perez
+        <p
+          data-gsap="footer-made-with-love"
+          className="mt-8 flex items-center justify-center gap-1 text-center text-sm text-gray-300"
+        >
+          Made with <Heart className="h-4 w-4 fill-red-500 text-red-500" /> by
+          Kelvin Perez
         </p>
 
         <p data-gsap="footer-copyright" className="mt-4 text-center text-sm">
