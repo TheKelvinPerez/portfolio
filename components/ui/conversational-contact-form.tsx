@@ -421,7 +421,7 @@ export default function ConversationalContactForm() {
               <span className="text-white text-sm md:text-base font-bold">K</span>
             </div>
             <div className="flex-1">
-              <div className="bg-neutral-700/90 rounded-2xl rounded-tl-none p-4 md:p-6 backdrop-blur-sm">
+              <div className="border-2 border-blue-400 rounded-2xl rounded-tl-none p-4 md:p-6">
                 <p className="text-neutral-200 text-base md:text-lg whitespace-pre-wrap">
                   {displayedQuestion}
                   {isTyping && <span className="inline-block w-2 h-4 md:h-5 bg-purple-300 animate-pulse ml-1" />}
@@ -453,10 +453,10 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Your name..."
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
                       errors.name
-                        ? "border-red-400/50"
-                        : "border-purple-500/30 focus:border-purple-400/60"
+                        ? "border-red-400"
+                        : "border-purple-400 focus:border-purple-300"
                     }`}
                     disabled={isTyping}
                   />
@@ -471,10 +471,10 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="your@email.com"
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
                       errors.email
-                        ? "border-red-400/50"
-                        : "border-purple-500/30 focus:border-purple-400/60"
+                        ? "border-red-400"
+                        : "border-purple-400 focus:border-purple-300"
                     }`}
                     disabled={isTyping}
                   />
@@ -486,10 +486,10 @@ export default function ConversationalContactForm() {
                   }}
                     value={formData.inquiryType}
                     onChange={(e) => handleInputChange("inquiryType", e.target.value)}
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg border-4 outline-none transition-all ${
                       errors.inquiryType
-                        ? "border-red-400/50"
-                        : "border-purple-500/30 focus:border-purple-400/60"
+                        ? "border-red-400"
+                        : "border-purple-400 focus:border-purple-300"
                     }`}
                     disabled={isTyping}
                   >
@@ -511,10 +511,10 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("company", e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Company/Organization (optional)"
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
                       errors.company
-                        ? "border-red-400/50"
-                        : "border-purple-500/30 focus:border-purple-400/60"
+                        ? "border-red-400"
+                        : "border-purple-400 focus:border-purple-300"
                     }`}
                     disabled={isTyping}
                   />
@@ -529,10 +529,10 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("phone", e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Phone Number (optional)"
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
                       errors.phone
-                        ? "border-red-400/50"
-                        : "border-purple-500/30 focus:border-purple-400/60"
+                        ? "border-red-400"
+                        : "border-purple-400 focus:border-purple-300"
                     }`}
                     disabled={isTyping}
                   />
@@ -544,10 +544,10 @@ export default function ConversationalContactForm() {
                   }}
                     value={formData.budget}
                     onChange={(e) => handleInputChange("budget", e.target.value)}
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg border-2 outline-none transition-all ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg border-4 outline-none transition-all ${
                       errors.budget
-                        ? "border-red-400/50"
-                        : "border-purple-500/30 focus:border-purple-400/60"
+                        ? "border-red-400"
+                        : "border-purple-400 focus:border-purple-300"
                     }`}
                     disabled={isTyping}
                   >
@@ -568,10 +568,10 @@ export default function ConversationalContactForm() {
                     onChange={(e) => handleInputChange("message", e.target.value)}
                     placeholder="Tell me about your project or opportunity: What are you looking to build? Are you hiring for a full-time role or contract work? Include details about the tech stack, project scope, timeline, and whether it's a remote position. The more information you provide, the better I can understand how I can help."
                     rows={6}
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-neutral-700/85 rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all resize-none ${
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-4 outline-none transition-all resize-none ${
                       errors.message
-                        ? "border-red-400/50"
-                        : "border-purple-500/30 focus:border-purple-400/60"
+                        ? "border-red-400"
+                        : "border-purple-400 focus:border-purple-300"
                     }`}
                     disabled={isTyping}
                   />
@@ -605,44 +605,44 @@ export default function ConversationalContactForm() {
               transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
               className="space-y-3"
             >
-              <div className="bg-neutral-700/75 rounded-xl p-4 md:p-5 border border-purple-500/30 overflow-hidden">
-                <p className="text-xs md:text-sm text-purple-300 mb-1">Name</p>
+              <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
+                <p className="text-xs md:text-sm text-blue-300 mb-1">Name</p>
                 <p className="text-white text-base md:text-lg break-words">{formData.name}</p>
               </div>
-              <div className="bg-neutral-700/75 rounded-xl p-4 md:p-5 border border-purple-500/30 overflow-hidden">
-                <p className="text-xs md:text-sm text-purple-300 mb-1">Email</p>
+              <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
+                <p className="text-xs md:text-sm text-blue-300 mb-1">Email</p>
                 <p className="text-white text-base md:text-lg break-words">{formData.email}</p>
               </div>
               {formData.inquiryType && (
-                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
-                  <p className="text-xs md:text-sm text-purple-400 mb-1">Inquiry Type</p>
+                <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
+                  <p className="text-xs md:text-sm text-blue-300 mb-1">Inquiry Type</p>
                   <p className="text-white text-base md:text-lg break-words">
                     {inquiryOptions.find(opt => opt.value === formData.inquiryType)?.label || formData.inquiryType}
                   </p>
                 </div>
               )}
               {formData.company && (
-                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
-                  <p className="text-xs md:text-sm text-purple-400 mb-1">Company</p>
+                <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
+                  <p className="text-xs md:text-sm text-blue-300 mb-1">Company</p>
                   <p className="text-white text-base md:text-lg break-words">{formData.company}</p>
                 </div>
               )}
               {formData.phone && (
-                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
-                  <p className="text-xs md:text-sm text-purple-400 mb-1">Phone</p>
+                <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
+                  <p className="text-xs md:text-sm text-blue-300 mb-1">Phone</p>
                   <p className="text-white text-base md:text-lg break-words">{formData.phone}</p>
                 </div>
               )}
               {formData.budget && (
-                <div className="bg-neutral-800/60 rounded-xl p-4 md:p-5 border border-purple-500/20 overflow-hidden">
-                  <p className="text-xs md:text-sm text-purple-400 mb-1">Budget</p>
+                <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
+                  <p className="text-xs md:text-sm text-blue-300 mb-1">Budget</p>
                   <p className="text-white text-base md:text-lg break-words">
                     {budgetOptions.find(opt => opt.value === formData.budget)?.label || formData.budget}
                   </p>
                 </div>
               )}
-              <div className="bg-neutral-700/75 rounded-xl p-4 md:p-5 border border-purple-500/30 overflow-hidden">
-                <p className="text-xs md:text-sm text-purple-300 mb-1">Message</p>
+              <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
+                <p className="text-xs md:text-sm text-blue-300 mb-1">Message</p>
                 <p className="text-white text-base md:text-lg whitespace-pre-wrap break-words">{formData.message}</p>
               </div>
             </motion.div>
@@ -664,7 +664,7 @@ export default function ConversationalContactForm() {
               disabled={currentStep === 0 || isTyping || isSubmitting}
               variant="ghost"
               size="default"
-              className="text-neutral-400 hover:text-white hover:bg-neutral-800/50 text-sm md:text-base px-4 md:px-6 py-2 md:py-3"
+              className="text-neutral-400 hover:text-white hover:bg-neutral-800/50 text-sm md:text-base px-8 md:px-12 py-4 md:py-6 rounded-2xl"
             >
               <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 mr-2" />
               Back
@@ -694,7 +694,7 @@ export default function ConversationalContactForm() {
                 onClick={handleSubmit}
                 disabled={isSubmitting}
                 size="default"
-                className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white border-0 text-sm md:text-base px-4 md:px-6 py-2 md:py-3"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-0 text-sm md:text-base px-8 md:px-12 py-4 md:py-6 rounded-2xl"
               >
                 {isSubmitting ? (
                   <>

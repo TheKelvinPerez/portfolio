@@ -55,10 +55,10 @@ export function FaqAccordion({
               <Accordion.Trigger className="flex w-full items-center justify-start gap-x-4">
                 <div
                   className={cn(
-                    "relative flex items-center space-x-2 rounded-xl p-2 transition-colors",
+                    "relative flex items-center space-x-2 rounded-2xl px-4 py-3 transition-colors border-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10",
                     openItem === item.id.toString()
-                      ? "bg-primary/20 text-slate-300"
-                      : "bg-slate-600 text-slate-300 hover:bg-primary/10",
+                      ? "border-blue-400 text-slate-300"
+                      : "border-purple-400/50 text-slate-300 hover:border-blue-400/70",
                     questionClassName
                   )}
                   {...(item.animationKey && { 'data-gsap': `${item.animationKey}-trigger` })}
@@ -109,7 +109,7 @@ export function FaqAccordion({
                 <div className="ml-7 mt-1 md:ml-16">
                   <div
                     className={cn(
-                      "relative max-w-xs md:max-w-sm lg:max-w-md rounded-2xl bg-primary px-4 py-2 text-primary-foreground text-sm md:text-base lg:text-base",
+                      "relative max-w-xs md:max-w-sm lg:max-w-md rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-2 border-blue-400/50 px-4 py-2 text-slate-200 text-sm md:text-base lg:text-base",
                       answerClassName
                     )}
                   >

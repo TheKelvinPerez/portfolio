@@ -189,8 +189,6 @@ export default function FAQ() {
             animationKey: `faq-item-${index}`
           }))}
           className="max-w-[700px]"
-          questionClassName="bg-gray-800/50 hover:bg-gray-700/60 border border-gray-700/30"
-          answerClassName="bg-gray-700/70 text-gray-100 border border-gray-600/40"
         />
       </div>
     </div>

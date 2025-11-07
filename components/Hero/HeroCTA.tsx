@@ -1,4 +1,5 @@
 import HeroCircles from './HeroCircles';
+import StyledButton from '@/components/ui/styled-button';
 
 export default function HeroCTA() {
   return (
