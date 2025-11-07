@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
-import SVGGradientBg from '../SVGGradientBg';
 import GithubLogo from '../../../public/images/svg/Github-Logo.svg';
 import LinkedinLogo from '../../../public/images/svg/LinkedIn-Logo.svg';
 import TwitterLogo from '../../../public/images/svg/X-Twitter-Logo.svg';
@@ -62,7 +61,7 @@ export default function Menu() {
 
   return (
     <div className="mx-auto max-w-[1440px]">
-      <header className="absolute inset-x-0 top-0 z-40">
+      <header className="absolute inset-x-0 top-0 z-[40] lg:z-[50]">
         <nav
           aria-label="Global"
           className="flex items-center justify-between p-6 lg:px-8"
@@ -112,7 +111,7 @@ export default function Menu() {
 
       {/* Sticky centered navigation menu */}
       <div
-        className={`fixed inset-x-0 top-3 z-50 mx-auto hidden max-w-2xl transition-all duration-500 ease-out lg:flex lg:items-center lg:justify-center ${
+        className={`fixed inset-x-0 top-3 z-[998] mx-auto hidden max-w-2xl transition-all duration-500 ease-out lg:flex lg:items-center lg:justify-center ${
           isVisible
             ? 'translate-y-0 scale-100 opacity-100'
             : 'pointer-events-none -translate-y-16 scale-95 opacity-0'
@@ -155,7 +154,7 @@ export default function Menu() {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-bg-default px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-[999] w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 bg-gradient-to-br from-purple-600 via-blue-600 to-yellow-500">
           <div className="relative z-50">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
@@ -249,7 +248,6 @@ export default function Menu() {
               </div>
             </div>
           </div>
-          <SVGGradientBg />
         </DialogPanel>
       </Dialog>
     </div>

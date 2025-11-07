@@ -72,13 +72,13 @@ export default function ProjectCard({
             {tags.slice(0, 5).map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-purple-600/80 px-3 py-1 text-xs text-gray-200 font-medium"
+                className="rounded-full border border-purple-400/60 bg-purple-700/60 px-3 py-1 text-xs text-purple-200 font-medium backdrop-blur-sm transition-all duration-300 hover:bg-purple-800/80"
               >
                 {tag}
               </span>
             ))}
             {tags.length > 5 && (
-              <span className="rounded-full bg-purple-500/70 px-3 py-1 text-xs text-gray-200 font-medium">
+              <span className="rounded-full border border-purple-400/60 bg-purple-700/60 px-3 py-1 text-xs text-purple-200 font-medium backdrop-blur-sm transition-all duration-300 hover:bg-purple-800/80">
                 +{tags.length - 5} more
               </span>
             )}

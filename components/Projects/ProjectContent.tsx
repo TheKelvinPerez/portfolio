@@ -45,7 +45,7 @@ export default function ProjectContent({
   return (
     <div className="flex flex-col gap-8">
       {/* Back Button */}
-      <div className="relative z-[9999] flex items-center">
+      <div className="relative z-[99] flex items-center">
         <Link
           href="/#projects"
           className="group flex items-center gap-2 rounded-full px-6 py-3 text-center text-sm text-white shadow-alt-cta transition-all hover:bg-white hover:text-black hover:shadow-cta xl:px-8 xl:py-3 xl:text-base"
@@ -86,7 +86,7 @@ export default function ProjectContent({
         {/* Overlay with link indicator */}
         <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/20">
           <div className="absolute right-4 top-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
-            <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-sm font-medium text-gray-900 backdrop-blur-sm">
+            <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-sm font-medium text-gray-400 backdrop-blur-sm">
               <ExternalLink className="h-4 w-4" />
               {primaryLink?.title}
             </div>
@@ -102,14 +102,14 @@ export default function ProjectContent({
             <h1 className="text-4xl font-bold text-gray-100">{title}</h1>
             <span className="text-gray-300">{date}</span>
           </div>
-          <article className="prose prose-purple prose-invert mt-6 max-w-none [&_ul>li::marker]:text-gray-300 [&_ol>li::marker]:text-gray-300">
+          <article className="prose prose-purple prose-invert mt-6 max-w-none [&_ol>li::marker]:text-gray-300 [&_ul>li::marker]:text-gray-300">
             <Markdown>{fullDescription}</Markdown>
           </article>
         </div>
 
         {/* Right Column - Metadata */}
         <div className="h-fit lg:sticky lg:top-8">
-          <div className="space-y-8 rounded-xl border border-gray-800 bg-gray-900/50 p-6 backdrop-blur-sm">
+          <div className="space-y-8 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-md transition-all duration-300 hover:border-purple-400/80 hover:shadow-xl hover:shadow-purple-400/30">
             {/* Project Links */}
             <div>
               <h2 className="mb-4 text-xl font-semibold text-gray-100">
@@ -122,7 +122,7 @@ export default function ProjectContent({
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-purple-400 transition-colors hover:text-purple-300"
+                    className="flex items-center gap-2 text-purple-300 transition-colors hover:text-purple-400"
                   >
                     <ExternalLink className="h-4 w-4" />
                     {link.title}
@@ -141,7 +141,7 @@ export default function ProjectContent({
                   <Badge
                     key={tag}
                     variant="secondary"
-                    className="border border-purple-700/50 bg-purple-900/30 text-purple-200"
+                    className="border border-purple-700/50 bg-purple-700 text-purple-200"
                   >
                     {tag}
                   </Badge>
@@ -167,29 +167,6 @@ export default function ProjectContent({
             <iframe
               src="https://www.youtube.com/embed/videoseries?list=PLwbt1uBf9iqDQyGKEJVj2iA3FFsNxMiXj"
               title="AquaKit Development Live Streams"
-              className="absolute inset-0 h-full w-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      )}
-
-      {/* YouTube Embed for Portfolio */}
-      {slug === 'personal-portfolio-nextjs' && (
-        <div className="mt-8">
-          <h2 className="mb-6 text-2xl font-bold text-gray-100">
-            🎥 Development Live Streams
-          </h2>
-          <p className="mb-6 text-gray-400">
-            Watch the complete development process of this portfolio website in
-            this YouTube playlist. See how this modern Next.js portfolio was
-            built from scratch with Drizzle ORM and more.
-          </p>
-          <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-900">
-            <iframe
-              src="https://www.youtube.com/embed/videoseries?list=PLwbt1uBf9iqDWt3IRiW-GhrXrASUG6wsX"
-              title="Portfolio Development Live Streams"
               className="absolute inset-0 h-full w-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen

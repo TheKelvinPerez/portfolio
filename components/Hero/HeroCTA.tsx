@@ -22,17 +22,17 @@ export default function HeroCTA() {
       <div className="grid w-full max-w-md grid-cols-2 items-center justify-center gap-3">
         <a
           href="#projects"
-          className="grid place-items-center rounded-full py-3 text-center text-base text-white opacity-0 shadow-alt-cta transition-all hover:bg-white hover:text-black hover:shadow-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
+          className="grid place-items-center rounded-full py-3 text-center text-base text-white opacity-0 shadow-alt-cta transition-all hover:bg-gradient-to-br hover:from-purple-600 hover:via-blue-600 hover:to-yellow-500 hover:shadow-alt-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
           data-gsap="cta-view-projects"
         >
           View Projects
         </a>
         <a
           href="https://cal.com/0xaquawolf/discovery"
-          className="grid place-items-center rounded-full bg-white py-3 text-center text-base text-black opacity-0 shadow-cta transition-all hover:bg-transparent hover:text-white hover:shadow-alt-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
+          className="grid place-items-center rounded-full bg-gradient-to-br from-purple-600 via-blue-600 to-yellow-500 py-3 text-center text-base text-white opacity-0 shadow-alt-cta transition-all hover:bg-transparent hover:shadow-alt-cta lg:px-8 lg:py-3 xl:px-10 xl:py-4 xl:text-lg"
           data-gsap="cta-book-call"
         >
-          Book a Call
+          Contact Me
         </a>
       </div>
       <div className="absolute inset-0 z-[-1] flex items-center justify-center">

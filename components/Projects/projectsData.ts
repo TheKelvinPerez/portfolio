@@ -108,19 +108,20 @@ export const projectsData: Project[] = [
       '**Key Takeaway**: This project demonstrates the ability to deliver enterprise-level WordPress solutions that create measurable business value. By combining modern development practices, automation, and strategic SEO, I delivered a platform worth $73K-230K in development value while generating $50K-100K in annual organic search traffic - transforming a local HVAC business into a regional market leader.',
   },
   {
-    title: 'Personal Portfolio - Next.js 15 Portfolio',
+    title: 'Personal Portfolio - Next.js 15 Modern Platform',
     description:
-      'Modern portfolio website built with Next.js 15, featuring Drizzle ORM with Turso database, shadcn/ui components, and GSAP animations. Showcases WordPress & PHP expertise with comprehensive project case studies and technical skill demonstrations.',
+      'High-performance portfolio built with Next.js 15, React 19, and TypeScript. Features GSAP animations, shadcn/ui components, and modern development practices. Demonstrates full-stack expertise through real project case studies and technical implementation.',
     date: 'September 2025',
     imageUrl: '/projects/portfolio.png',
     tags: [
       'Next.js 15',
+      'React 19',
       'TypeScript',
-      'Drizzle ORM',
-      'Turso',
-      'shadcn/ui',
       'GSAP',
-      'Portfolio',
+      'Framer Motion',
+      'shadcn/ui',
+      'Tailwind CSS',
+      'Bun Runtime',
     ],
     slug: 'personal-portfolio-nextjs',
     links: [
@@ -137,22 +138,39 @@ export const projectsData: Project[] = [
       '- **Prove Full-Stack Range**: Show DevOps, SEO, and infrastructure capabilities beyond just code\n\n' +
       '**Core Challenge**: Build a portfolio that positions me as an enterprise-level WordPress & PHP specialist while showcasing the full circle journey back to WordPress with modern tools and perspective.\n\n' +
       '# Action\n\n' +
-      '### Modern Tech Stack Implementation\n' +
-      'Built the portfolio using Next.js 15 to demonstrate modern full-stack capabilities:\n\n' +
-      '**Backend & Data Layer**:\n' +
-      '- **Drizzle ORM + Turso**: Type-safe database with SQLite for efficient data management\n' +
-      '- **API Integration**: YouTube and GitHub APIs for dynamic content\n' +
-      '- **Type Safety**: End-to-end TypeScript for maintainable codebase\n\n' +
-      '**Frontend Excellence**:\n' +
-      '- **Next.js 15 App Router**: Server Components for optimal performance\n' +
-      '- **shadcn/ui**: Consistent, accessible component library\n' +
-      '- **GSAP + Framer Motion**: Professional animations for engaging UX\n' +
-      '- **Tailwind CSS**: Responsive, mobile-first design system\n\n' +
-      '**Performance Optimization**:\n' +
-      '- Optimized Web Vitals (LCP, CLS, FID)\n' +
-      '- Dynamic component loading and code splitting\n' +
-      '- Next.js Image optimization\n' +
-      '- Efficient data fetching and state management\n\n' +
+      '### Cutting-Edge Tech Stack\n' +
+      'Built with the latest modern web technologies to demonstrate current expertise:\n\n' +
+      '**Core Framework**:\n' +
+      '- **Next.js 15**: Latest App Router with Server Components and Turbopack\n' +
+      '- **React 19**: Newest React features with improved Server Components\n' +
+      '- **TypeScript 5**: End-to-end type safety for maintainable codebase\n' +
+      '- **Bun Runtime**: Ultra-fast JavaScript runtime and package manager\n\n' +
+      '**Animation & UX Excellence**:\n' +
+      '- **GSAP 3.13**: Professional animation library with React integration\n' +
+      '- **Framer Motion 11**: Modern React animation framework\n' +
+      '- **Canvas Confetti**: Celebration animations for interactive elements\n' +
+      '- **Paper Design Shaders**: Advanced visual effects\n\n' +
+      '**Component Architecture**:\n' +
+      '- **shadcn/ui**: Modern, accessible component library built on Radix UI\n' +
+      '- **Tailwind CSS 3.4**: Utility-first CSS framework with custom design system\n' +
+      '- **Lucide React**: Modern icon library\n' +
+      '- **Headless UI**: Unstyled, accessible component primitives\n\n' +
+      '**Performance & Analytics**:\n' +
+      '- **PostHog**: Product analytics for user behavior tracking\n' +
+      '- **Next.js Image**: Optimized image loading with WebP support\n' +
+      '- **Tailwind Animate**: Smooth transitions and animations\n\n' +
+      '### Modern Development Practices\n' +
+      'Implemented industry-standard development workflows:\n\n' +
+      '**Code Quality**:\n' +
+      '- **ESLint 8**: Next.js core web vitals configuration\n' +
+      '- **Prettier**: Consistent code formatting with Tailwind plugin\n' +
+      '- **TypeScript**: Strict mode for maximum type safety\n' +
+      '- **React Hook Form**: Optimized form handling with validation\n\n' +
+      '**Build Optimization**:\n' +
+      '- **Turbopack**: Blazing-fast bundler for development and production\n' +
+      '- **Dynamic Imports**: Code splitting for optimal performance\n' +
+      '- **Server Components**: Reduced client-side JavaScript bundle\n' +
+      '- **Static Generation**: Maximum performance with SSG where appropriate\n\n' +
       '### Strategic Content Architecture\n' +
       'Designed content to showcase WordPress & PHP expertise:\n\n' +
       '**Interactive Developer Timeline**:\n' +
@@ -176,23 +194,28 @@ export const projectsData: Project[] = [
       '- **Business Value Communication**: Quantified project impacts ($73K-230K development value)\n' +
       '- **Full-Stack Credibility**: Demonstrated backend, frontend, DevOps, and SEO capabilities\n' +
       '- **Unique Narrative**: Full circle journey differentiates from typical developer portfolios\n\n' +
-      '### Technical Excellence Demonstrated\n' +
-      '- **Modern Development**: Next.js 15, TypeScript, cutting-edge tools showing current proficiency\n' +
-      '- **WordPress Depth**: Detailed case studies proving enterprise-level WordPress capabilities\n' +
-      '- **DevOps Expertise**: Infrastructure work (Caddy, Docker, PHP-FPM) often missing from portfolios\n' +
-      '- **Performance Focus**: Optimized Web Vitals and efficient resource utilization\n\n' +
-      '### User Experience & Engagement\n' +
-      '- **Professional Design**: High-quality UI reflecting attention to detail and design sensibility\n' +
-      '- **Interactive Elements**: GSAP animations create engaging, memorable experience\n' +
-      '- **Mobile-First**: Responsive design ensuring accessibility across all devices\n' +
-      '- **SEO Optimized**: Technical SEO best practices for maximum visibility\n\n' +
-      '### Portfolio as Proof of Concept\n' +
-      '- **Practices What I Preach**: Modern development stack demonstrates current capabilities\n' +
-      '- **Performance**: Fast loading, optimized assets show technical competence\n' +
-      '- **Maintainable Code**: Type-safe, well-architected codebase proves professional standards\n' +
-      '- **Business Understanding**: Market value analysis shows ability to connect tech to ROI\n\n' +
+      '### Modern Web Development Excellence\n' +
+      '- **Cutting-Edge Stack**: Demonstrates proficiency with latest Next.js 15, React 19, and TypeScript 5\n' +
+      '- **Performance Optimized**: Leverages Server Components, Turbopack, and modern bundling techniques\n' +
+      '- **Type Safety**: Full TypeScript implementation with strict mode for enterprise-grade code\n' +
+      '- **Animation Mastery**: Professional GSAP and Framer Motion implementations\n\n' +
+      '### Enterprise-Ready Architecture\n' +
+      '- **Scalable Structure**: Component-based architecture with reusable, type-safe components\n' +
+      '- **Modern Tooling**: Bun runtime, Turbopack bundler, and latest build optimizations\n' +
+      '- **Accessibility**: Full WCAG compliance with Radix UI and semantic HTML\n' +
+      '- **Analytics Integration**: PostHog for product analytics and user behavior insights\n\n' +
+      '### Developer Experience Excellence\n' +
+      '- **Modern DX**: Hot Module Replacement, strict TypeScript, and comprehensive linting\n' +
+      '- **Component Library**: Consistent design system with shadcn/ui and custom components\n' +
+      '- **Build Performance**: Optimized builds with Turbopack and code splitting\n' +
+      '- **Maintainable Code**: Professional code standards with automated formatting\n\n' +
+      '### Business Value Demonstrated\n' +
+      '- **Technical Leadership**: Shows ability to evaluate and implement cutting-edge technologies\n' +
+      '- **Performance Focus**: Optimized Web Vitals and modern performance techniques\n' +
+      '- **Scalable Solutions**: Architecture designed for growth and maintainability\n' +
+      '- **Full-Stack Perspective**: Backend expertise demonstrated through modern frontend implementation\n\n' +
       '---\n\n' +
-      "**Key Takeaway**: This portfolio successfully positions me as an enterprise-level WordPress & PHP full-stack developer by combining modern technical implementation with strategic content that quantifies business value. It tells a unique full circle story while proving technical depth across the entire stack - from custom WordPress themes and PHP optimization to DevOps infrastructure and SEO strategy. The result is a portfolio that doesn't just showcase projects, but demonstrates the ability to deliver measurable business results through technical excellence.",
+      "**Key Takeaway**: This portfolio demonstrates mastery of modern web development through the latest Next.js 15, React 19, and TypeScript ecosystem. By combining cutting-edge technology with strategic content, it showcases not just technical skills but the ability to deliver enterprise-grade solutions. The implementation itself serves as proof of expertise - from Turbopack optimization to GSAP animations, every technical choice reflects current best practices and performance-first thinking.",
   },
 ];
 

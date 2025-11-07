@@ -65,7 +65,7 @@ const config = {
         'hero-diagonal': 'linear-gradient(135deg, #130832 0%, #722186 20%, #4A5BFF 45%, #6B46C1 65%, #9333EA 80%, #D97706 95%, #07070C 100%)',
       },
       boxShadow: {
-        'alt-cta': 'inset 0px 0px 10px #FFFFFF',
+        'alt-cta': 'inset 0px 0px 10px rgba(255, 255, 255, 0.8)',
         cta: 'inset 0px 0px 14px #000000',
         'letter-top': '0px 0px 20px #4C1D95',
       },
