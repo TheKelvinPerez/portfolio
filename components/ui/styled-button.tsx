@@ -39,8 +39,8 @@ export default function StyledButton({
 }: StyledButtonProps) {
   // Base classes for all buttons
   const baseClasses = variant === 'github'
-    ? 'flex items-center rounded-full text-center transition-all duration-200'
-    : 'grid place-items-center rounded-full text-center transition-all duration-200';
+    ? 'flex items-center rounded-full text-center transition-all duration-200 cursor-pointer'
+    : 'grid place-items-center rounded-full text-center transition-all duration-200 cursor-pointer';
 
   // Size-specific classes
   const sizeClasses = {

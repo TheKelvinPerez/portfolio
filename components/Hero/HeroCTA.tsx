@@ -31,10 +31,9 @@ export default function HeroCTA() {
           View Projects
         </StyledButton>
         <StyledButton
-          href="https://cal.com/0xaquawolf/discovery"
+          href="#contact-me"
           size="lg"
           variant="primary"
-          target="_blank"
           data-gsap="cta-book-call"
           className="opacity-0 bg-gradient-to-b from-white/40 to-[#2F2D2D]/20"
         >
