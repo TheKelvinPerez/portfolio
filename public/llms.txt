@@ -1,0 +1,35 @@
+# Kelvin Perez Portfolio
+
+> A modern portfolio website showcasing WordPress development expertise, built with Next.js 15, React 19, and cutting-edge web technologies. The site demonstrates professional Full-Stack WordPress & PHP development skills through project showcases, experience timeline, and technical implementations.
+
+This portfolio serves as both a professional showcase and a technical demonstration of modern web development practices, featuring performance optimization, responsive design, and rich animations using GSAP and Framer Motion.
+
+## Documentation
+
+- [README.md](https://github.com/TheKelvinPerez/portfolio/blob/main/README.md): Comprehensive project documentation with setup instructions, architecture overview, and development guidelines
+- [CLAUDE.md](https://github.com/TheKelvinPerez/portfolio/blob/main/CLAUDE.md): Development guidelines and project-specific instructions for AI assistants
+
+## Architecture
+
+- [Next.js App Router](https://github.com/TheKelvinPerez/portfolio/tree/main/app): Server-side rendered pages with App Router, dynamic routing for projects, and SEO optimization
+- [Component Library](https://github.com/TheKelvinPerez/portfolio/tree/main/components): Modular React components organized by feature, including Hero, Timeline, Projects, and reusable UI elements
+- [Styling System](https://github.com/TheKelvinPerez/portfolio/blob/main/tailwind.config.ts): Tailwind CSS configuration with custom theme, responsive design patterns, and utility classes
+
+## Key Components
+
+- [Hero Section](https://github.com/TheKelvinPerez/portfolio/tree/main/components/Hero): Animated introduction with GSAP effects and call-to-action
+- [Timeline Component](https://github.com/TheKelvinPerez/portfolio/tree/main/components/Timeline): Professional experience visualization with interactive elements
+- [Projects Showcase](https://github.com/TheKelvinPerez/portfolio/tree/main/components/Projects): WordPress project case studies with detailed descriptions
+- [UI Components](https://github.com/TheKelvinPerez/portfolio/tree/main/components/ui): Reusable component library with forms, effects, and interactive elements
+
+## Technical Implementation
+
+- [Animation System](https://github.com/TheKelvinPerez/portfolio/blob/main/package.json): GSAP and Framer Motion integration for smooth animations and transitions
+- [Performance Configuration](https://github.com/TheKelvinPerez/portfolio/blob/main/next.config.mjs): Core Web Vitals optimization, image optimization, and bundle size reduction
+- [SEO Configuration](https://github.com/TheKelvinPerez/portfolio/tree/main/app): Structured data, meta tags, sitemap generation, and search optimization
+
+## Optional
+
+- [TypeScript Configuration](https://github.com/TheKelvinPerez/portfolio/blob/main/tsconfig.json): Strict type checking and configuration for enhanced development experience
+- [Package Dependencies](https://github.com/TheKelvinPerez/portfolio/blob/main/package.json): Complete list of runtime and development dependencies with version specifications
+- [Development Environment](https://github.com/TheKelvinPerez/portfolio/blob/main/.eslintrc.json): ESLint configuration and code quality standards
