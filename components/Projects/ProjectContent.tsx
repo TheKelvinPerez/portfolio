@@ -48,10 +48,10 @@ export default function ProjectContent({
       {/* Back Button */}
       <div className="relative z-[99] flex items-center">
         <StyledButton
-          href="/#projects"
+          onClick={() => window.history.back()}
           variant="back"
           size="md"
-          className="group flex items-center gap-2"
+          className="group flex items-center gap-2 cursor-pointer"
         >
           Back to Projects
         </StyledButton>

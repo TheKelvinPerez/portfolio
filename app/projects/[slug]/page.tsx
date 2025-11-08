@@ -1,6 +1,5 @@
 import { projectsData } from '@/components/Projects/projectsData';
 import ProjectContent from '@/components/Projects/ProjectContent';
-import { Footer } from '@/components/footer';
 
 export async function generateStaticParams() {
   return projectsData.map((project) => ({
@@ -34,7 +33,6 @@ export default async function ProjectPage(
             </p>
           </div>
         </div>
-        <Footer />
       </main>
     );
   }
@@ -44,7 +42,6 @@ export default async function ProjectPage(
       <div className="container mx-auto flex-1 px-6 py-24 sm:px-8">
         <ProjectContent {...project} />
       </div>
-      <Footer />
     </main>
   );
 }

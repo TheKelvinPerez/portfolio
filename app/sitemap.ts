@@ -2,9 +2,13 @@ import { MetadataRoute } from 'next';
 import { projectsData } from '@/components/Projects/projectsData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://kelvinperez.com';
+  // Detect environment and set appropriate base URL
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const baseUrl = isDevelopment
+    ? `http://localhost:${process.env.PORT || 3000}`
+    : 'https://kelvinperez.com';
 
-  // Static pages
+  // Static pages with basic SEO properties
   const staticPages = [
     {
       url: baseUrl,
@@ -23,6 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     },
   ];
 

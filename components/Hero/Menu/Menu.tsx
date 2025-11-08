@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import GithubLogo from '../../../public/images/svg/Github-Logo.svg';
 import LinkedinLogo from '../../../public/images/svg/LinkedIn-Logo.svg';
 import TwitterLogo from '../../../public/images/svg/X-Twitter-Logo.svg';
@@ -15,29 +16,27 @@ import StyledButton from '@/components/ui/styled-button';
 interface NavItem {
   name: string;
   href: string;
-  isActive: boolean;
 }
 
 export default function Menu() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [navMenu, setNavMenu] = useState<NavItem[]>([
-    { name: 'Home', href: '/', isActive: true },
-    { name: 'About', href: '/about', isActive: false },
-    { name: 'Projects', href: '/#projects', isActive: false },
-    { name: 'FAQ', href: '/#faq', isActive: false },
-    { name: 'Contact', href: '/#contact-me', isActive: false },
-    // { name: 'Blog', href: '/posts', isActive: false },
-  ]);
 
-  const setActiveNavItem = (selectedName: string) => {
-    setNavMenu((prevNavMenu) =>
-      prevNavMenu.map((item) => ({
-        ...item,
-        isActive: item.name === selectedName,
-      })),
-    );
+  const navMenu: NavItem[] = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'FAQ', href: '/#faq' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
+  const isNavItemActive = (item: NavItem): boolean => {
+    if (item.name === 'Home') {
+      return pathname === '/';
+    }
+    return pathname === item.href;
   };
 
   useEffect(() => {
@@ -68,7 +67,7 @@ export default function Menu() {
           className="flex items-center justify-between p-6 lg:px-8"
         >
           <div className="flex lg:flex-1">
-            <Link className="flex items-center gap-2" href="/">
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/images/svg/kp-logo-v2.svg"
                 alt="Logo"
@@ -100,7 +99,7 @@ export default function Menu() {
               iconAlt="GitHub Logo"
               iconWidth={20}
               iconHeight={20}
-              className="xl:px-8 xl:py-3 xl:text-base gap-2"
+              className="gap-2 xl:px-8 xl:py-3 xl:text-base"
             >
               GitHub
             </StyledButton>
@@ -130,19 +129,18 @@ export default function Menu() {
           }}
         >
           {navMenu.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
-              onClick={() => setActiveNavItem(item.name)}
               className={clsx({
                 'rounded-full px-4 py-2 font-medium text-white/90 transition-all duration-200 hover:text-white':
                   true,
-                'bg-white/20 text-white': item.isActive,
-                'hover:bg-white/10': !item.isActive,
+                'bg-white/20 text-white': isNavItemActive(item),
+                'hover:bg-white/10': !isNavItemActive(item),
               })}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
@@ -153,10 +151,10 @@ export default function Menu() {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-[999] w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 bg-gradient-to-br from-purple-600 via-blue-600 to-yellow-500">
+        <DialogPanel className="fixed inset-y-0 right-0 z-[999] w-full overflow-y-auto bg-gradient-to-br from-purple-600 via-blue-600 to-yellow-500 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="relative z-50">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+              <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
                 <span className="sr-only">Kelvin Perez</span>
                 <div className="flex items-center gap-2">
                   <Image
@@ -169,7 +167,7 @@ export default function Menu() {
                     Kelvin Perez
                   </div>
                 </div>
-              </a>
+              </Link>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
@@ -186,14 +184,14 @@ export default function Menu() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6 text-center">
                   {navMenu.map((item) => (
-                    <a
+                    <Link
                       key={item.name + 1}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
                       className="-mx-3 block rounded-lg px-3 py-2 text-3xl font-normal leading-7 text-white transition-all hover:bg-gray-50/20"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 {/* Seperator */}

@@ -7,6 +7,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import localFont from 'next/font/local';
 import Menu from '@/components/Hero/Menu/Menu';
+import { Footer } from '@/components/footer';
 import { ThemeProvider } from 'next-themes';
 import { LoadingProvider } from '@/lib/context/LoadingContext';
 import ScrollRestoration from '@/components/ScrollRestoration';
@@ -84,6 +85,19 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
+  // verification: {
+  //   google: 'your-google-verification-code',
+  //   yandex: 'your-yandex-verification-code',
+  //   bing: 'your-bing-verification-code',
+  // },
+  other: {
+    'msapplication-TileColor': '#da532c',
+    'theme-color': '#000000',
+  },
+  // Performance and SEO optimization
+  referrer: 'origin-when-cross-origin',
+  // Core Web Vitals optimization
+  colorScheme: 'dark light',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -164,6 +178,7 @@ export default function RootLayout({
               <div className="mx-auto max-w-[1440px] bg-transparent px-4 sm:px-6 lg:px-8">
                 {children}
               </div>
+              <Footer />
             </ThemeProvider>
           </LoadingProvider>
         </PostHogProvider>
