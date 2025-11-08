@@ -233,13 +233,16 @@ export default function Letter() {
         style={{
           background: `linear-gradient(to right,
             rgba(255,255,255,${baseOpacity}) 0%,
-            rgba(255,255,255,${baseOpacity}) 70%,
-            rgba(255,255,255,${baseOpacity * 0.95}) 85%,
-            rgba(255,255,255,${baseOpacity * 0.9}) 95%,
-            rgba(255,255,255,${baseOpacity}) 100%)`,
+            rgba(255,255,255,${baseOpacity}) 60%,
+            rgba(255,255,255,${baseOpacity * 0.8}) 75%,
+            rgba(255,255,255,${baseOpacity * 0.6}) 85%,
+            rgba(255,255,255,${baseOpacity * 0.3}) 95%,
+            rgba(255,255,255,0) 100%)`,
           WebkitBackgroundClip: 'text',
           backgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
+          color: 'transparent',
+          display: 'inline',
         }}
       >
         {children}
