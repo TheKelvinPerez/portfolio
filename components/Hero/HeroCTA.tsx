@@ -1,10 +1,11 @@
 import HeroCircles from './HeroCircles';
 import StyledButton from '@/components/ui/styled-button';
+import LogoCloud from '@/components/LogoCloud/LogoCloud';
 
 export default function HeroCTA() {
   return (
-    <div className="relative z-40 my-4 flex w-full flex-col items-center justify-center gap-12 px-4 xl:mx-auto xl:max-w-[1800px]">
-      <div className="flex flex-col items-center justify-center gap-12">
+    <div className="relative z-40 mb-0 mt-2 flex w-full flex-col items-center justify-center gap-4 px-4 md:my-4 md:gap-8 xl:mx-auto xl:max-w-[1800px]">
+      <div className="flex flex-col items-center justify-center gap-8 md:gap-12">
         <div
           className="lg:h-13 mx-auto h-10 w-full max-w-md rounded-full bg-purple-800 opacity-0 xl:h-16"
           data-gsap="tech-badge"
@@ -26,7 +27,7 @@ export default function HeroCTA() {
           size="lg"
           variant="primary"
           data-gsap="cta-view-projects"
-          className="opacity-0"
+          className="text-sm opacity-0"
         >
           View Projects
         </StyledButton>
@@ -35,7 +36,7 @@ export default function HeroCTA() {
           size="lg"
           variant="primary"
           data-gsap="cta-book-call"
-          className="opacity-0 bg-gradient-to-b from-white/40 to-[#2F2D2D]/20"
+          className="bg-gradient-to-b from-white/40 to-[#2F2D2D]/20 opacity-0"
         >
           Contact Me
         </StyledButton>
@@ -43,6 +44,7 @@ export default function HeroCTA() {
       <div className="absolute inset-0 z-[-1] flex items-center justify-center">
         <HeroCircles />
       </div>
+      <LogoCloud />
     </div>
   );
 }

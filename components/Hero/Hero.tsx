@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import { useEffect, useState } from 'react';
 import { usePostHog } from 'posthog-js/react';
 import HeroCTA from './HeroCTA';
-import LogoCloud from '@/components/LogoCloud/LogoCloud';
 
 export default function Hero() {
   const [shouldAnimate, setShouldAnimate] = useState(false);
@@ -26,7 +25,7 @@ export default function Hero() {
       posthog.capture('hero_component_mounted', {
         component: 'Hero',
         action: 'mount',
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       });
     } else {
       console.log('PostHog: Not initialized yet');
@@ -50,7 +49,7 @@ export default function Hero() {
     posthog.capture('hero_animation_started', {
       component: 'Hero',
       action: 'animation_start',
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
 
     // Create a timeline for the staggered animation
@@ -135,9 +134,11 @@ export default function Hero() {
   }, [shouldAnimate]);
 
   return (
-    <div className="relative mt-32 flex min-h-[100dvh] flex-col px-2 md:mt-4 md:px-10 lg:justify-center">
-      <HeroCTA />
-      <LogoCloud />
+    <div className="relative mt-12 flex min-h-[100dvh] flex-col px-2 md:mt-4 md:px-10 lg:justify-center">
+      <div className="flex flex-1 flex-col justify-center py-4 md:py-0">
+        <HeroCTA />
+      </div>
+      {/* <LogoCloud /> */}
     </div>
   );
 }

@@ -154,10 +154,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <body
         className={cn(
-          'min-h-screen bg-bg-default font-sans antialiased',
+          'min-h-screen !overflow-x-hidden bg-bg-default font-sans antialiased',
           fontSans.variable,
           fontHandwriting.variable,
           MonaLisa.variable,
