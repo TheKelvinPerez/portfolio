@@ -21,7 +21,8 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 43200; // revalidate every 12 hours
 
 export const metadata: Metadata = {
-  title: 'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer | Available for Hire',
+  title:
+    'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer | Available for Hire',
   description:
     'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern front-end (React, TypeScript, Tailwind CSS). Proven track record automating complex WordPress systems. Available for remote opportunities.',
   keywords: [
@@ -66,7 +67,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://kelvinperez.com',
-    title: 'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer | Available for Hire',
+    title:
+      'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer | Available for Hire',
     description:
       'Senior WordPress Developer with 8+ years delivering high-performance solutions. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration. Available for remote opportunities.',
     siteName: 'Kelvin Perez - Senior WordPress Developer',
@@ -81,7 +83,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer | Available for Hire',
+    title:
+      'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer | Available for Hire',
     description:
       'Senior WordPress Developer with 8+ years delivering high-performance solutions. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration. Available for remote opportunities.',
     images: ['https://kelvinperez.com/images/png/portfolio-preview.png'],
@@ -97,7 +100,8 @@ const webPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer',
-  description: 'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration.',
+  description:
+    'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration.',
   url: 'https://kelvinperez.com',
   inLanguage: 'en-US',
   isPartOf: {
@@ -150,7 +154,8 @@ const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'Kelvin Perez WordPress Development',
-  description: 'Professional WordPress and PHP development services specializing in custom themes, plugins, WooCommerce, and headless WordPress solutions.',
+  description:
+    'Professional WordPress and PHP development services specializing in custom themes, plugins, WooCommerce, and headless WordPress solutions.',
   url: 'https://kelvinperez.com',
   telephone: '+1-555-0123',
   email: 'contact@kelvinperez.com',
@@ -194,7 +199,8 @@ const personSchema = {
   url: 'https://kelvinperez.com',
   image: 'https://kelvinperez.com/images/png/portfolio-preview.png',
   jobTitle: 'Senior WordPress Developer & Full-Stack Engineer',
-  description: 'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration.',
+  description:
+    'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration.',
   email: 'contact@kelvinperez.com',
   telephone: '+1-555-0123',
   address: {
@@ -253,7 +259,8 @@ const personSchema = {
       '@type': 'Service',
       serviceType: 'Web Development Services',
       name: 'WordPress Development Services',
-      description: 'Enterprise WordPress development, custom PHP applications, and modern full-stack solutions',
+      description:
+        'Enterprise WordPress development, custom PHP applications, and modern full-stack solutions',
     },
     availability: 'https://schema.org/InStock',
     availableAtOrFrom: {
@@ -270,7 +277,8 @@ const professionalServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'Kelvin Perez WordPress Development Services',
-  description: 'Professional WordPress and PHP development services specializing in custom themes, plugins, WooCommerce, and headless WordPress solutions with 8+ years of experience.',
+  description:
+    'Professional WordPress and PHP development services specializing in custom themes, plugins, WooCommerce, and headless WordPress solutions with 8+ years of experience.',
   url: 'https://kelvinperez.com',
   telephone: '+1-555-0123',
   email: 'contact@kelvinperez.com',
@@ -296,7 +304,8 @@ const professionalServiceSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'WordPress Development',
-          description: 'Custom WordPress themes, plugins, and enterprise platform development',
+          description:
+            'Custom WordPress themes, plugins, and enterprise platform development',
         },
       },
       {
@@ -304,7 +313,8 @@ const professionalServiceSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'WooCommerce Development',
-          description: 'E-commerce solutions, custom payment gateways, and WooCommerce optimization',
+          description:
+            'E-commerce solutions, custom payment gateways, and WooCommerce optimization',
         },
       },
       {
@@ -312,7 +322,8 @@ const professionalServiceSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Headless WordPress',
-          description: 'Headless WordPress with Next.js, React, and modern front-end frameworks',
+          description:
+            'Headless WordPress with Next.js, React, and modern front-end frameworks',
         },
       },
       {
@@ -320,7 +331,8 @@ const professionalServiceSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Full-Stack Development',
-          description: 'Modern web applications using React, TypeScript, Next.js, and cutting-edge technologies',
+          description:
+            'Modern web applications using React, TypeScript, Next.js, and cutting-edge technologies',
         },
       },
       {
@@ -328,7 +340,8 @@ const professionalServiceSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'WordPress Consulting',
-          description: 'Technical consulting, code reviews, and WordPress architecture planning',
+          description:
+            'Technical consulting, code reviews, and WordPress architecture planning',
         },
       },
     ],
@@ -345,7 +358,8 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'Kelvin Perez Portfolio',
   alternateName: 'Kelvin Perez WordPress Developer',
-  description: 'Portfolio showcasing WordPress development expertise, full-stack projects, and professional experience in enterprise web development.',
+  description:
+    'Portfolio showcasing WordPress development expertise, full-stack projects, and professional experience in enterprise web development.',
   url: 'https://kelvinperez.com',
   author: {
     '@type': 'Person',
@@ -405,7 +419,8 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Kelvin Perez Web Development',
-  description: 'Professional web development services specializing in WordPress, PHP, and modern full-stack solutions.',
+  description:
+    'Professional web development services specializing in WordPress, PHP, and modern full-stack solutions.',
   url: 'https://kelvinperez.com',
   logo: 'https://kelvinperez.com/images/png/portfolio-preview.png',
   contactPoint: {
@@ -451,7 +466,8 @@ const softwareApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'WordPress Solutions',
-  description: 'Custom WordPress solutions including themes, plugins, and enterprise platforms',
+  description:
+    'Custom WordPress solutions including themes, plugins, and enterprise platforms',
   applicationCategory: 'Web Application',
   operatingSystem: 'Any',
   offers: {
@@ -470,7 +486,8 @@ const creativeWorkSchema = {
   '@context': 'https://schema.org',
   '@type': 'CreativeWork',
   name: 'WordPress Development Portfolio',
-  description: 'Portfolio of enterprise WordPress development projects, custom themes, plugins, and full-stack web applications',
+  description:
+    'Portfolio of enterprise WordPress development projects, custom themes, plugins, and full-stack web applications',
   author: {
     '@type': 'Person',
     name: 'Kelvin Perez',
@@ -492,11 +509,13 @@ const creativeWorkSchema = {
       name: 'Web Development',
     },
   ],
-  keywords: 'WordPress development, full-stack development, PHP programming, React development, TypeScript, Next.js, web development',
+  keywords:
+    'WordPress development, full-stack development, PHP programming, React development, TypeScript, Next.js, web development',
   inLanguage: 'en-US',
   audience: {
     '@type': 'Audience',
-    audienceType: 'Potential clients, employers, and collaborators seeking web development services',
+    audienceType:
+      'Potential clients, employers, and collaborators seeking web development services',
   },
 };
 
@@ -537,7 +556,8 @@ const reviewSchemas = [
       name: 'Sarah Mitchell',
       jobTitle: 'Marketing Director',
     },
-    reviewBody: 'Kelvin delivered an exceptional WordPress solution for our e-commerce platform. His expertise in WooCommerce and custom development transformed our online sales. Highly professional and delivered ahead of schedule.',
+    reviewBody:
+      'Kelvin delivered an exceptional WordPress solution for our e-commerce platform. His expertise in WooCommerce and custom development transformed our online sales. Highly professional and delivered ahead of schedule.',
     datePublished: '2024-03-15',
   },
   {
@@ -558,7 +578,8 @@ const reviewSchemas = [
       name: 'Michael Chen',
       jobTitle: 'CEO',
     },
-    reviewBody: 'Outstanding full-stack development work on our enterprise platform. Kelvin\'s knowledge of React, TypeScript, and WordPress integration is unmatched. He solved complex performance issues that other developers couldn\'t fix.',
+    reviewBody:
+      "Outstanding full-stack development work on our enterprise platform. Kelvin's knowledge of React, TypeScript, and WordPress integration is unmatched. He solved complex performance issues that other developers couldn't fix.",
     datePublished: '2024-02-28',
   },
   {
@@ -579,7 +600,8 @@ const reviewSchemas = [
       name: 'Jennifer Rodriguez',
       jobTitle: 'Project Manager',
     },
-    reviewBody: 'Kelvin is a WordPress wizard! He built us a custom theme with ACF Pro that perfectly matches our design requirements. His attention to detail and communication throughout the project was excellent.',
+    reviewBody:
+      'Kelvin is a WordPress wizard! He built us a custom theme with ACF Pro that perfectly matches our design requirements. His attention to detail and communication throughout the project was excellent.',
     datePublished: '2024-01-20',
   },
   {
@@ -600,7 +622,8 @@ const reviewSchemas = [
       name: 'David Thompson',
       jobTitle: 'Digital Agency Owner',
     },
-    reviewBody: 'We\'ve worked with many WordPress developers, but Kelvin stands out for his technical expertise and problem-solving abilities. His headless WordPress implementation with Next.js is flawless.',
+    reviewBody:
+      "We've worked with many WordPress developers, but Kelvin stands out for his technical expertise and problem-solving abilities. His headless WordPress implementation with Next.js is flawless.",
     datePublished: '2023-12-10',
   },
   {
@@ -621,7 +644,8 @@ const reviewSchemas = [
       name: 'Amanda Foster',
       jobTitle: 'CTO',
     },
-    reviewBody: 'Kelvin helped us migrate our legacy WordPress site to a modern headless setup. His PHP skills and WordPress REST API knowledge made the transition seamless. Our site performance improved dramatically.',
+    reviewBody:
+      'Kelvin helped us migrate our legacy WordPress site to a modern headless setup. His PHP skills and WordPress REST API knowledge made the transition seamless. Our site performance improved dramatically.',
     datePublished: '2023-11-15',
   },
 ];
@@ -695,7 +719,7 @@ const faqSchema = {
       name: 'Are you available for remote WordPress development work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes, I\'m available for full-time remote positions and contract opportunities. I work with clients globally and have extensive experience with remote collaboration and communication.',
+        text: "Yes, I'm available for full-time remote positions and contract opportunities. I work with clients globally and have extensive experience with remote collaboration and communication.",
       },
     },
     {
@@ -725,7 +749,9 @@ export default function Home() {
       <Script
         id="structured-data-local-business"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
       />
 
       {/* Person Schema - Main professional identity */}
@@ -739,7 +765,9 @@ export default function Home() {
       <Script
         id="structured-data-professional-service"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(professionalServiceSchema),
+        }}
       />
 
       {/* Website Schema - Site information and structure */}
@@ -767,7 +795,9 @@ export default function Home() {
       <Script
         id="structured-data-software"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareApplicationSchema),
+        }}
       />
 
       {/* Creative Work Schema - Portfolio */}
@@ -791,7 +821,9 @@ export default function Home() {
       <Script
         id="structured-data-rating"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aggregateRatingSchema),
+        }}
       />
 
       {/* Search Box Schema - Google Sitelinks Search */}
@@ -820,7 +852,7 @@ export default function Home() {
         <Hero />
         {/* <FeaturedVideo /> */}
         <ImpactMetrics />
-        <AboutMe />
+        <AboutMe letterClassName="h-[1600px]" />
         <CallToAction />
         <Skills />
         <TimelineComponent />

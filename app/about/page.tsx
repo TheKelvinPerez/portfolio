@@ -11,13 +11,15 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
   name: 'About Kelvin Perez - Senior WordPress Developer & Full-Stack Engineer',
-  description: 'Learn about Kelvin Perez - Senior WordPress Developer with 8+ years experience building high-performance solutions for agencies and multi-location businesses. Expertise in WordPress development, PHP programming, modern JavaScript frameworks, and comprehensive DevOps practices.',
+  description:
+    'Learn about Kelvin Perez - Senior WordPress Developer with 8+ years experience building high-performance solutions for agencies and multi-location businesses. Expertise in WordPress development, PHP programming, modern JavaScript frameworks, and comprehensive DevOps practices.',
   url: 'https://kelvinperez.com/about',
   mainEntity: {
     '@type': 'Person',
     name: 'Kelvin Perez',
     jobTitle: 'Senior WordPress Developer & Full-Stack Engineer',
-    description: 'WordPress & PHP full-stack developer with 8+ years of experience building enterprise-level platforms, scalable architectures, and high-performance web solutions.',
+    description:
+      'WordPress & PHP full-stack developer with 8+ years of experience building enterprise-level platforms, scalable architectures, and high-performance web solutions.',
     url: 'https://kelvinperez.com',
     birthPlace: {
       '@type': 'Place',
@@ -47,7 +49,8 @@ const jsonLd = {
     offers: {
       '@type': 'Service',
       serviceType: 'Web Development Services',
-      description: 'Enterprise WordPress development, custom PHP solutions, full-stack web development, SEO optimization, and DevOps consulting',
+      description:
+        'Enterprise WordPress development, custom PHP solutions, full-stack web development, SEO optimization, and DevOps consulting',
       provider: {
         '@type': 'Person',
         name: 'Kelvin Perez',
@@ -109,8 +112,10 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: 'About Kelvin Perez - Senior WordPress Developer & Full-Stack Engineer',
-  description: 'Learn about Kelvin Perez - Senior WordPress Developer with 8+ years experience building high-performance solutions for agencies and multi-location businesses. Expertise in WordPress, PHP, Next.js, React, TypeScript, SEO optimization, and DevOps with measurable business impact.',
+  title:
+    'About Kelvin Perez - Senior WordPress Developer & Full-Stack Engineer',
+  description:
+    'Learn about Kelvin Perez - Senior WordPress Developer with 8+ years experience building high-performance solutions for agencies and multi-location businesses. Expertise in WordPress, PHP, Next.js, React, TypeScript, SEO optimization, and DevOps with measurable business impact.',
   keywords: [
     'Kelvin Perez',
     'WordPress developer',
@@ -147,8 +152,10 @@ export const metadata: Metadata = {
     type: 'profile',
     locale: 'en_US',
     url: 'https://kelvinperez.com/about',
-    title: 'About Kelvin Perez - Senior WordPress Developer & Full-Stack Engineer',
-    description: 'Learn about Kelvin Perez - Senior WordPress Developer with 8+ years experience building high-performance solutions. Expertise in WordPress, PHP, Next.js, React, TypeScript, and comprehensive DevOps practices.',
+    title:
+      'About Kelvin Perez - Senior WordPress Developer & Full-Stack Engineer',
+    description:
+      'Learn about Kelvin Perez - Senior WordPress Developer with 8+ years experience building high-performance solutions. Expertise in WordPress, PHP, Next.js, React, TypeScript, and comprehensive DevOps practices.',
     siteName: 'Kelvin Perez - WordPress & Full-Stack Developer',
     images: [
       {
@@ -162,7 +169,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About Kelvin Perez - Senior WordPress Developer',
-    description: 'Senior WordPress Developer with 8+ years experience building high-performance solutions. Expertise in WordPress, PHP, Next.js, React, TypeScript, and DevOps.',
+    description:
+      'Senior WordPress Developer with 8+ years experience building high-performance solutions. Expertise in WordPress, PHP, Next.js, React, TypeScript, and DevOps.',
     images: ['https://kelvinperez.com/images/png/about-og-image.jpg'],
     creator: '@kelvinperez',
   },
@@ -181,7 +189,7 @@ export default function AboutPage() {
       <main className="min-h-screen">
         <div className="py-20 lg:py-40">
           <div className="min-h-screen rounded-3xl bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
-            <div className="mx-auto max-w-7xl px-10 py-16 lg:px-4">
+            <div className="mx-w-9xl mx-auto px-5 py-16 lg:max-w-7xl lg:px-10 lg:px-4">
               {/* Breadcrumbs */}
               <nav
                 className="mb-8 flex items-center justify-center lg:items-start lg:justify-start"
@@ -217,30 +225,30 @@ export default function AboutPage() {
                 </h1>
                 <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-300 md:text-xl">
                   Senior WordPress Developer & Full-Stack Engineer with 8+ years
-                  experience building enterprise-level platforms, scalable architectures,
-                  and high-performance web solutions that deliver measurable business impact.
+                  experience building enterprise-level platforms, scalable
+                  architectures, and high-performance web solutions that deliver
+                  measurable business impact.
                 </p>
               </div>
 
               {/* AboutMe Component with animations */}
-              <div className="max-w-5xl mx-auto">
-                <AboutMe />
-              </div>
 
+              <AboutMe />
               {/* FAQ Section */}
               <div className="mt-20">
                 <FAQ />
               </div>
 
               {/* Contact Form Section */}
-              <div className="mt-20 mb-12">
-                <div className="max-w-4xl mx-auto">
-                  <div className="text-center mb-12">
+              <div className="mb-12 mt-20">
+                <div className="mx-auto max-w-4xl">
+                  <div className="mb-12 text-center">
                     <h2 className="mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
                       Let's Connect
                     </h2>
                     <p className="text-lg text-gray-300">
-                      Have a question or want to discuss a project? I'd love to hear from you.
+                      Have a question or want to discuss a project? I'd love to
+                      hear from you.
                     </p>
                   </div>
                   <ConversationalContactForm />
@@ -253,11 +261,12 @@ export default function AboutPage() {
                   Professional Journey & Expertise
                 </h2>
                 <p className="mb-4 text-gray-300">
-                  My journey as a WordPress & PHP full-stack developer began in 2015 at
-                  Broward College, evolving through agency work at Digital Age Marketing
-                  Group, founding ViViFi agency in 2019, and ultimately specializing in
-                  enterprise WordPress solutions. This path has provided unique perspectives
-                  on both business needs and technical implementation.
+                  My journey as a WordPress & PHP full-stack developer began in
+                  2015 at Broward College, evolving through agency work at
+                  Digital Age Marketing Group, founding ViViFi agency in 2019,
+                  and ultimately specializing in enterprise WordPress solutions.
+                  This path has provided unique perspectives on both business
+                  needs and technical implementation.
                 </p>
 
                 <h3 className="mb-3 text-xl font-semibold text-purple-300">
@@ -271,8 +280,12 @@ export default function AboutPage() {
                     <ul className="space-y-1 text-gray-300">
                       <li>• WordPress Development (Custom Themes & Plugins)</li>
                       <li>• PHP 8.3+ (PSR-4, Composer, Modern Practices)</li>
-                      <li>• Next.js 15 & React 19 (App Router, Server Components)</li>
-                      <li>• TypeScript 5 (Type Safety, Enterprise Architecture)</li>
+                      <li>
+                        • Next.js 15 & React 19 (App Router, Server Components)
+                      </li>
+                      <li>
+                        • TypeScript 5 (Type Safety, Enterprise Architecture)
+                      </li>
                     </ul>
                   </div>
                   <div>
@@ -292,21 +305,25 @@ export default function AboutPage() {
                   Proven Results & Measurable Impact
                 </h3>
                 <p className="text-gray-300">
-                  My work consistently delivers measurable business value, from generating
-                  $50K-100K in annual organic SEO traffic through automated content systems,
-                  to achieving 100/100 Google PageSpeed scores with sub-1ms response times.
-                  Each project demonstrates the ability to transform complex business requirements
-                  into scalable technical solutions that drive growth and efficiency.
+                  My work consistently delivers measurable business value, from
+                  generating $50K-100K in annual organic SEO traffic through
+                  automated content systems, to achieving 100/100 Google
+                  PageSpeed scores with sub-1ms response times. Each project
+                  demonstrates the ability to transform complex business
+                  requirements into scalable technical solutions that drive
+                  growth and efficiency.
                 </p>
 
-                <div className="mt-8 rounded-lg bg-purple-900/20 p-6 border border-purple-500/30">
+                <div className="mt-8 rounded-lg border border-purple-500/30 bg-purple-900/20 p-6">
                   <h4 className="mb-3 text-lg font-semibold text-purple-200">
                     Available for Collaboration
                   </h4>
                   <p className="mb-4 text-gray-300">
-                    Currently seeking opportunities to collaborate with agencies, businesses,
-                    and development teams on complex WordPress projects, enterprise-level solutions,
-                    and innovative web applications. Let's build something exceptional together.
+                    Currently seeking opportunities to collaborate with
+                    agencies, businesses, and development teams on complex
+                    WordPress projects, enterprise-level solutions, and
+                    innovative web applications. Let's build something
+                    exceptional together.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="rounded-full bg-purple-800/40 px-3 py-1 text-sm text-purple-200">
@@ -331,3 +348,4 @@ export default function AboutPage() {
     </>
   );
 }
+

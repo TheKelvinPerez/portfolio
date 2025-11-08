@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function AboutMe() {
+export default function AboutMe({ letterClassName }: { letterClassName?: string }) {
   useGSAP(() => {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
@@ -14,7 +14,11 @@ export default function AboutMe() {
     // Set initial states for about section
     gsap.set('[data-gsap="about-heading"]', { opacity: 0, y: 20 });
     gsap.set('[data-gsap="about-subheading"]', { opacity: 0, y: 25 });
-    gsap.set('[data-gsap="about-profile-pic"]', { opacity: 0, scale: 0.8, y: 20 });
+    gsap.set('[data-gsap="about-profile-pic"]', {
+      opacity: 0,
+      scale: 0.8,
+      y: 20,
+    });
 
     // Create staggered timeline with ScrollTrigger
     const tl = gsap.timeline({
@@ -60,13 +64,13 @@ export default function AboutMe() {
   });
 
   return (
-    <div id="about" className="mx-auto max-w-[1000px] px-4 mt-40">
+    <div id="about" className="mx-auto mt-40 lg:max-w-[1000px] lg:px-4">
       <SectionHeading
         heading="Who is Kelvin Perez?"
         subheading="Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses"
         animationId="about"
       />
-      <Letter />
+      <Letter className={letterClassName} />
     </div>
   );
 }
