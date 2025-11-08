@@ -80,7 +80,7 @@ export default function LoadingScreen({ progress, isComplete, onComplete }: Load
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-purple-600 via-blue-600 to-yellow-500"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-purple-600 via-blue-600 to-yellow-500"
       style={{ touchAction: 'none', overflow: 'hidden' }}
     >
       {/* Logo and Percentage Counter */}

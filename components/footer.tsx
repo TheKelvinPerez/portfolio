@@ -20,54 +20,65 @@ export function Footer() {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
-    // Small delay to ensure DOM is ready
-    setTimeout(() => {
-      // Set initial states
-      gsap.set('[data-gsap="footer-logo"]', { opacity: 0, y: 20 });
-      gsap.set('[data-gsap="footer-made-with-love"]', { opacity: 0, y: 20 });
-      gsap.set('[data-gsap="footer-copyright"]', { opacity: 0, y: 20 });
-
-      // Set initial states for nav links
+    // Function to initialize animations
+    const initAnimations = () => {
+      // Check if all required elements exist
+      const footer = document.querySelector('footer');
+      const logo = document.querySelector('[data-gsap="footer-logo"]');
+      const madeWithLove = document.querySelector('[data-gsap="footer-made-with-love"]');
+      const copyright = document.querySelector('[data-gsap="footer-copyright"]');
       const navLinks = document.querySelectorAll('[data-gsap^="footer-link-"]');
-      if (navLinks.length > 0) {
-        gsap.set(navLinks, { opacity: 0, y: 20 });
+      const contactItems = document.querySelectorAll('[data-gsap^="footer-contact-"]');
+      const socialIcons = document.querySelectorAll('[data-gsap^="footer-social-"]');
+
+      // Only proceed if footer and at least some elements exist
+      if (!footer) {
+        console.warn('Footer element not found');
+        return;
       }
 
-      // Set initial states for contact items
-      const contactItems = document.querySelectorAll(
-        '[data-gsap^="footer-contact-"]',
-      );
-      if (contactItems.length > 0) {
-        gsap.set(contactItems, { opacity: 0, y: 20 });
-      }
+      // Kill any existing ScrollTrigger instances for this element
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.trigger === footer) {
+          trigger.kill();
+        }
+      });
 
-      // Set initial states for social icons
-      const socialIcons = document.querySelectorAll(
-        '[data-gsap^="footer-social-"]',
-      );
-      if (socialIcons.length > 0) {
-        gsap.set(socialIcons, { opacity: 0, scale: 0.8 });
-      }
+      // Set initial states only for elements that exist
+      if (logo) gsap.set(logo, { opacity: 0, y: 20 });
+      if (madeWithLove) gsap.set(madeWithLove, { opacity: 0, y: 20 });
+      if (copyright) gsap.set(copyright, { opacity: 0, y: 20 });
+      if (navLinks.length > 0) gsap.set(navLinks, { opacity: 0, y: 20 });
+      if (contactItems.length > 0) gsap.set(contactItems, { opacity: 0, y: 20 });
+      if (socialIcons.length > 0) gsap.set(socialIcons, { opacity: 0, scale: 0.8 });
 
       // Create timeline for footer animation
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: 'footer',
-          start: 'top 80%',
-          end: 'bottom 10%',
+          trigger: footer,
+          start: 'top 85%',
+          end: 'bottom 20%',
           toggleActions: 'play none none none',
+          // Refresh ScrollTrigger when DOM changes
+          refreshPriority: 1,
+          // Add markers for debugging (remove in production)
+          // markers: true,
         },
       });
 
       // 1. Logo comes in first
-      tl.to('[data-gsap="footer-logo"]', {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power2.out',
-      })
-        // 2. Menu items stagger in
-        .to(
+      if (logo) {
+        tl.to(logo, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+        });
+      }
+
+      // 2. Menu items stagger in
+      if (navLinks.length > 0) {
+        tl.to(
           navLinks,
           {
             opacity: 1,
@@ -77,9 +88,12 @@ export function Footer() {
             ease: 'power2.out',
           },
           '-=0.2',
-        )
-        // 3. Contact items stagger in
-        .to(
+        );
+      }
+
+      // 3. Contact items stagger in
+      if (contactItems.length > 0) {
+        tl.to(
           contactItems,
           {
             opacity: 1,
@@ -89,9 +103,12 @@ export function Footer() {
             ease: 'power2.out',
           },
           '-=0.2',
-        )
-        // 4. Social icons stagger in
-        .to(
+        );
+      }
+
+      // 4. Social icons stagger in
+      if (socialIcons.length > 0) {
+        tl.to(
           socialIcons,
           {
             opacity: 1,
@@ -101,10 +118,13 @@ export function Footer() {
             ease: 'back.out(1.7)',
           },
           '-=0.2',
-        )
-        // 5. Made with Love comes in
-        .to(
-          '[data-gsap="footer-made-with-love"]',
+        );
+      }
+
+      // 5. Made with Love comes in
+      if (madeWithLove) {
+        tl.to(
+          madeWithLove,
           {
             opacity: 1,
             y: 0,
@@ -112,10 +132,13 @@ export function Footer() {
             ease: 'power2.out',
           },
           '-=0.2',
-        )
-        // 6. Copyright comes in last
-        .to(
-          '[data-gsap="footer-copyright"]',
+        );
+      }
+
+      // 6. Copyright comes in last
+      if (copyright) {
+        tl.to(
+          copyright,
           {
             opacity: 1,
             y: 0,
@@ -124,7 +147,50 @@ export function Footer() {
           },
           '-=0.3',
         );
-    }, 100);
+      }
+    };
+
+    // Initialize animations with multiple fallback strategies
+    const initWithDelay = () => {
+      // First, try immediately
+      initAnimations();
+
+      // If elements aren't ready, try again after a short delay
+      setTimeout(() => {
+        initAnimations();
+        // Refresh ScrollTrigger to ensure proper positioning
+        ScrollTrigger.refresh();
+      }, 300);
+
+      // Final fallback for slower pages
+      setTimeout(() => {
+        initAnimations();
+        ScrollTrigger.refresh();
+      }, 1000);
+    };
+
+    // Use requestAnimationFrame for better timing
+    requestAnimationFrame(() => {
+      initWithDelay();
+    });
+
+    // Also refresh on window resize for better reliability
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function
+    return () => {
+      // Kill ScrollTrigger instances
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.trigger?.tagName === 'FOOTER') {
+          trigger.kill();
+        }
+      });
+      window.removeEventListener('resize', handleResize);
+    };
   });
 
   return (

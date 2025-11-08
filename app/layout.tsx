@@ -96,8 +96,6 @@ export const metadata: Metadata = {
   },
   // Performance and SEO optimization
   referrer: 'origin-when-cross-origin',
-  // Core Web Vitals optimization
-  colorScheme: 'dark light',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -131,6 +129,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: '#ffffff',
+  colorScheme: 'dark light',
 };
 
 const fontSans = FontSans({

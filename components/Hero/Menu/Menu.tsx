@@ -28,7 +28,7 @@ export default function Menu() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Projects', href: '/projects' },
-    { name: 'FAQ', href: '/#faq' },
+    // { name: 'FAQ', href: '/#faq' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -154,7 +154,11 @@ export default function Menu() {
         <DialogPanel className="fixed inset-y-0 right-0 z-[999] w-full overflow-y-auto bg-gradient-to-br from-purple-600 via-blue-600 to-yellow-500 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="relative z-50">
             <div className="flex items-center justify-between">
-              <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
+              <Link
+                href="/"
+                className="-m-1.5 p-1.5"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 <span className="sr-only">Kelvin Perez</span>
                 <div className="flex items-center gap-2">
                   <Image

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { Home } from 'lucide-react';
 import AboutMe from '@/components/about-me/AboutMe';
 import BackButton from '@/components/ui/back-button';
+import FAQ from '@/components/Home/FAQ';
+import ConversationalContactForm from '@/components/ui/conversational-contact-form';
 
 // JSON-LD structured data for SEO
 const jsonLd = {
@@ -223,6 +225,26 @@ export default function AboutPage() {
               {/* AboutMe Component with animations */}
               <div className="max-w-5xl mx-auto">
                 <AboutMe />
+              </div>
+
+              {/* FAQ Section */}
+              <div className="mt-20">
+                <FAQ />
+              </div>
+
+              {/* Contact Form Section */}
+              <div className="mt-20 mb-12">
+                <div className="max-w-4xl mx-auto">
+                  <div className="text-center mb-12">
+                    <h2 className="mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+                      Let's Connect
+                    </h2>
+                    <p className="text-lg text-gray-300">
+                      Have a question or want to discuss a project? I'd love to hear from you.
+                    </p>
+                  </div>
+                  <ConversationalContactForm />
+                </div>
               </div>
 
               {/* SEO Content */}
