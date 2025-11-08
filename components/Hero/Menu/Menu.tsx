@@ -24,7 +24,7 @@ export default function Menu() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [navMenu, setNavMenu] = useState<NavItem[]>([
     { name: 'Home', href: '/', isActive: true },
-    { name: 'About', href: '/#about', isActive: false },
+    { name: 'About', href: '/about', isActive: false },
     { name: 'Projects', href: '/#projects', isActive: false },
     { name: 'FAQ', href: '/#faq', isActive: false },
     { name: 'Contact', href: '/#contact-me', isActive: false },
