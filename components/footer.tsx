@@ -37,6 +37,17 @@ export function Footer() {
         return;
       }
 
+      // Debug information
+      console.log('Footer animation setup:', {
+        footerFound: !!footer,
+        logoFound: !!logo,
+        navLinksFound: navLinks.length,
+        contactItemsFound: contactItems.length,
+        socialIconsFound: socialIcons.length,
+        footerHeight: footer.offsetHeight,
+        viewportHeight: window.innerHeight,
+      });
+
       // Kill any existing ScrollTrigger instances for this element
       ScrollTrigger.getAll().forEach(trigger => {
         if (trigger.trigger === footer) {
@@ -63,8 +74,18 @@ export function Footer() {
           refreshPriority: 1,
           // Add markers for debugging (remove in production)
           // markers: true,
+          onRefresh: (self) => {
+            console.log('Footer ScrollTrigger refreshed:', {
+              start: self.start,
+              end: self.end,
+              trigger: self.trigger,
+              scroll: self.scroll(),
+            });
+          },
         },
       });
+
+      console.log('Footer ScrollTrigger timeline created successfully');
 
       // 1. Logo comes in first
       if (logo) {
@@ -150,23 +171,19 @@ export function Footer() {
       }
     };
 
-    // Initialize animations with multiple fallback strategies
+    // Initialize animations with better timing
     const initWithDelay = () => {
-      // First, try immediately
-      initAnimations();
-
-      // If elements aren't ready, try again after a short delay
+      // Initial setup after a short delay to ensure DOM is ready
       setTimeout(() => {
         initAnimations();
         // Refresh ScrollTrigger to ensure proper positioning
         ScrollTrigger.refresh();
-      }, 300);
+      }, 100);
 
-      // Final fallback for slower pages
+      // Second refresh for more complex layouts
       setTimeout(() => {
-        initAnimations();
         ScrollTrigger.refresh();
-      }, 1000);
+      }, 500);
     };
 
     // Use requestAnimationFrame for better timing
