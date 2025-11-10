@@ -15,9 +15,9 @@ interface TimelineEntry {
 // Individual Timeline Item Component
 const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) => {
   const itemRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(itemRef, { 
-    once: true, 
-    margin: "-20% 0px -20% 0px" 
+  const isInView = useInView(itemRef, {
+    once: true,
+    margin: "-20% 0px -20% 0px"
   });
 
   // Container variants for staggering children
@@ -35,11 +35,11 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
   // Individual element variants
   const dotVariants = {
     hidden: { opacity: 0, scale: 0 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
-      transition: { 
-        duration: 0.6, 
+      transition: {
+        duration: 0.6,
         ease: [0.68, -0.55, 0.265, 1.55] // back.out(1.7) equivalent
       }
     },
@@ -47,11 +47,11 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
 
   const yearVariants = {
     hidden: { opacity: 0, x: -100 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
-      transition: { 
-        duration: 0.4, 
+      transition: {
+        duration: 0.4,
         ease: "easeOut"
       }
     },
@@ -59,11 +59,11 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
 
   const contentVariants = {
     hidden: { opacity: 0, x: 100 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
-      transition: { 
-        duration: 0.5, 
+      transition: {
+        duration: 0.5,
         ease: "easeOut"
       }
     },
@@ -78,13 +78,13 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
       variants={containerVariants}
     >
       <div className="sticky top-40 z-40 flex max-w-xs flex-col items-center self-start md:w-full md:flex-row lg:max-w-sm">
-        <motion.div 
+        <motion.div
           className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full border border-gray-700 bg-gradient-to-t from-purple-500 via-blue-500 to-purple-400 dark:from-purple-500 dark:via-blue-500 dark:to-purple-400 md:left-3"
           variants={dotVariants}
         >
           <div className="h-4 w-4 rounded-full border border-gray-400 bg-gray-200 p-2 dark:border-gray-400 dark:bg-gray-200" />
         </motion.div>
-        <motion.h3 
+        <motion.h3
           className="hidden text-xl font-bold text-blue-400 dark:text-blue-400 md:block md:pl-20 md:text-5xl"
           variants={yearVariants}
         >
@@ -93,13 +93,13 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
       </div>
 
       <div className="relative w-full pl-20 pr-4 md:pl-4">
-        <motion.h3 
+        <motion.h3
           className="mb-4 block text-left text-2xl font-bold text-blue-400 dark:text-blue-400 md:hidden"
           variants={yearVariants}
         >
           {item.title}
         </motion.h3>
-        <motion.div 
+        <motion.div
           variants={contentVariants}
         >
           {item.content}
