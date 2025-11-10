@@ -112,7 +112,7 @@ export const projectsData: Project[] = [
     description:
       'High-performance portfolio built with Next.js 15, React 19, and TypeScript. Features GSAP animations, shadcn/ui components, and modern development practices. Demonstrates full-stack expertise through real project case studies and technical implementation.',
     date: 'September 2025',
-    imageUrl: '/projects/portfolio.png',
+    imageUrl: '/images/png/kelvin-perez-website-preview.png',
     tags: [
       'Next.js 15',
       'React 19',

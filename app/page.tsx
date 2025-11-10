@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     siteName: 'Kelvin Perez - Senior WordPress Developer',
     images: [
       {
-        url: 'https://kelvinperez.com/images/png/portfolio-preview.png',
+        url: 'https://kelvinperez.com/images/png/kelvin-perez-website-preview.png',
         width: 1200,
         height: 630,
         alt: 'Kelvin Perez - Senior WordPress Developer & Full-Stack Engineer',
@@ -87,8 +87,8 @@ export const metadata: Metadata = {
       'Kelvin Perez | Senior WordPress Developer & Full-Stack Engineer | Available for Hire',
     description:
       'Senior WordPress Developer with 8+ years delivering high-performance solutions. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration. Available for remote opportunities.',
-    images: ['https://kelvinperez.com/images/png/portfolio-preview.png'],
-    creator: '@kelvinperez',
+    images: ['https://kelvinperez.com/images/png/kelvin-perez-website-preview.png'],
+    creator: '@thekelvinperez',
   },
   alternates: {
     canonical: 'https://kelvinperez.com',
@@ -197,7 +197,7 @@ const personSchema = {
   '@type': 'Person',
   name: 'Kelvin Perez',
   url: 'https://kelvinperez.com',
-  image: 'https://kelvinperez.com/images/png/portfolio-preview.png',
+  image: 'https://kelvinperez.com/images/png/kelvin-perez-website-preview.png',
   jobTitle: 'Senior WordPress Developer & Full-Stack Engineer',
   description:
     'Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses. Expert in custom themes, ACF Pro, WooCommerce, and modern React integration.',
@@ -422,7 +422,7 @@ const organizationSchema = {
   description:
     'Professional web development services specializing in WordPress, PHP, and modern full-stack solutions.',
   url: 'https://kelvinperez.com',
-  logo: 'https://kelvinperez.com/images/png/portfolio-preview.png',
+  logo: 'https://kelvinperez.com/images/png/kelvin-perez-website-preview.png',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+1-555-0123',

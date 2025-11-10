@@ -5,6 +5,9 @@ import AboutMe from '@/components/about-me/AboutMe';
 import BackButton from '@/components/ui/back-button';
 import FAQ from '@/components/Home/FAQ';
 import ConversationalContactForm from '@/components/ui/conversational-contact-form';
+import CallToAction from '@/components/ui/call-to-action-1';
+import Skills from '@/components/Skills/Skills';
+import TimelineComponent from '@/components/Timeline/Timeline';
 
 // JSON-LD structured data for SEO
 const jsonLd = {
@@ -234,6 +237,16 @@ export default function AboutPage() {
               {/* AboutMe Component with animations */}
 
               <AboutMe />
+
+              {/* Call to Action Section */}
+              <CallToAction />
+
+              {/* Skills Section */}
+              <Skills />
+
+              {/* Timeline Section */}
+              <TimelineComponent />
+
               {/* FAQ Section */}
               <div className="mt-20">
                 <FAQ />

@@ -61,19 +61,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon0.svg', sizes: 'any', type: 'image/svg+xml' },
+      { url: '/icon1.png', sizes: '32x32', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: '/safari-pinned-tab.svg',
-        color: '#5bbad5',
-      },
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   manifest: '/manifest.json',
@@ -93,6 +86,7 @@ export const metadata: Metadata = {
   other: {
     'msapplication-TileColor': '#da532c',
     'theme-color': '#000000',
+    'apple-mobile-web-app-title': 'Kelvin Perez',
   },
   // Performance and SEO optimization
   referrer: 'origin-when-cross-origin',
@@ -106,7 +100,7 @@ export const metadata: Metadata = {
       'Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. Expert in enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications.',
     images: [
       {
-        url: '/images/png/portfolio-preview.png',
+        url: '/images/png/kelvin-perez-website-preview.png',
         width: 1200,
         height: 630,
         alt: 'Kelvin Perez - Full-Stack WordPress Developer',
@@ -118,8 +112,8 @@ export const metadata: Metadata = {
     title: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
     description:
       'Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. Expert in enterprise-level WordPress solutions.',
-    images: ['/images/png/portfolio-preview.png'],
-    creator: '@KelvinPerezDev',
+    images: ['/images/png/kelvin-perez-website-preview.png'],
+    creator: '@thekelvinperez',
   },
   verification: {
     google: 'your-google-verification-code',

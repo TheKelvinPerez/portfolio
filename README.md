@@ -12,6 +12,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+  <a href="https://kelvinperez.com">
+    <img src="https://kelvinperez.com/images/png/kelvin-perez-website-preview.png" alt="Kelvin Perez Portfolio Preview" width="800">
+  </a>
   <p align="center">
     A modern, high-performance portfolio website showcasing my expertise as a Senior Full-Stack WordPress & PHP Developer. Built with Next.js 15, React 19, and cutting-edge web technologies.
     <br />
@@ -254,7 +257,7 @@ Distributed under the GPL License. See `LICENSE` for more information.
 
 ## Contact
 
-- **Twitter/X**: [@KelvinPerezDev](https://twitter.com/KelvinPerezDev)
+- **Twitter/X**: [@thekelvinperez](https://twitter.com/thekelvinperez)
 - **GitHub**: [@TheKelvinPerez](https://github.com/TheKelvinPerez)
 - **Website**: [kelvinperez.com](https://kelvinperez.com)
 
