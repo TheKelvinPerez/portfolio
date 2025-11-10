@@ -2,64 +2,63 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
 import SectionHeading from '../SectionHeading';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
 import { projectsData } from './projectsData';
 
+// Container variants for projects section
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Match GSAP stagger of 0.15
+      delayChildren: 0.2,
+    },
+  },
+};
+
+// Mobile optimized container variants
+const mobileContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08, // Faster stagger on mobile
+      delayChildren: 0.1,
+    },
+  },
+};
+
+// Project card variants
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.1, 0.25, 1], // Matches GSAP power2.out
+    },
+  },
+};
+
+// Mobile optimized card variants
+const mobileCardVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+
 export default function Projects() {
-  useGSAP(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Set initial states for projects section
-    gsap.set('[data-gsap="projects-heading"]', { opacity: 0, y: 20 });
-    gsap.set('[data-gsap="projects-subheading"]', { opacity: 0, y: 25 });
-
-    // Set initial states for project cards
-    gsap.set('[data-gsap^="project-card-"]', { opacity: 0, y: 30, scale: 0.95 });
-
-    // Create staggered timeline with ScrollTrigger
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '[data-gsap="projects-heading"]',
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none none',
-      },
-    });
-
-    // Animate heading and subheading first
-    tl.to('[data-gsap="projects-heading"]', {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-    })
-    .to(
-      '[data-gsap="projects-subheading"]',
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power2.out',
-      },
-      '-=0.3',
-    )
-    // Then stagger animate project cards
-    .to(
-      '[data-gsap^="project-card-"]',
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power2.out',
-      },
-      '-=0.2',
-    );
-  }, []);
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
 
   return (
     <div id="projects" className="mx-auto mt-56 max-w-7xl px-4 py-16">
@@ -68,11 +67,17 @@ export default function Projects() {
         subheading="Enterprise WordPress platforms and full-stack solutions demonstrating scalable architecture, performance optimization, and measurable business impact"
         animationId="projects"
       />
-      <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3" data-gsap="projects-grid">
+      <motion.div
+        className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={isMobile ? mobileContainerVariants : containerVariants}
+      >
         {projectsData.map((project, index) => (
-          <div
+          <motion.div
             key={index}
-            data-gsap={`project-card-${index}`}
+            variants={isMobile ? mobileCardVariants : cardVariants}
           >
             <ProjectCard
               title={project.title}
@@ -83,9 +88,9 @@ export default function Projects() {
               slug={project.slug}
               links={project.links}
             />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
