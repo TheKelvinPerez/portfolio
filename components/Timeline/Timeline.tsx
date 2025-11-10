@@ -4,9 +4,7 @@ import React from 'react';
 import { Timeline } from '@/components/ui/timeline';
 import SectionHeading from '@/components/SectionHeading';
 import StyledLink from '@/components/ui/styled-link';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
 import {
   AcademicCapIcon,
   ComputerDesktopIcon,
@@ -701,131 +699,72 @@ const timelineData = [
   },
 ];
 
-export default function TimelineComponent() {
-  useGSAP(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
+// Container variants for timeline sections
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08, // Match GSAP stagger of 0.08
+      delayChildren: 0.2,
+    },
+  },
+};
 
-    // Set initial states
-    gsap.set('[data-gsap="timeline-heading"]', { opacity: 0, y: 20 });
-    gsap.set('[data-gsap="timeline-subheading"]', { opacity: 0, y: 25 });
-    gsap.set('[data-gsap="timeline-container"]', { opacity: 0, y: 30 });
+// Mobile optimized container variants
+const mobileContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.04, // Faster stagger on mobile
+      delayChildren: 0.1,
+    },
+  },
+};
 
-    // Create staggered timeline with ScrollTrigger
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '[data-gsap="timeline-heading"]',
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none none',
-      },
-    });
+// Individual element variants
+const elementVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1], // Matches GSAP power2.out
+    },
+  },
+};
 
-    tl.to('[data-gsap="timeline-heading"]', {
-      opacity: 1,
-      y: 0,
+// Bullet point variants
+const bulletVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
       duration: 0.4,
-      ease: 'power2.out',
-    })
-      .to(
-        '[data-gsap="timeline-subheading"]',
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          ease: 'power2.out',
-        },
-        '-=0.2',
-      )
-      .to(
-        '[data-gsap="timeline-container"]',
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: 'power2.out',
-        },
-        '-=0.1',
-      );
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
 
-    // Set initial states for all timeline elements
-    timelineData.forEach((_, index) => {
-      const headerSelector = `[data-gsap="timeline-header-${index}"]`;
-      const textSelector = `[data-gsap="timeline-text-${index}"]`;
-      const quoteSelector = `[data-gsap="timeline-quote-${index}"]`;
-      const achievementsSelector = `[data-gsap="timeline-achievements-${index}"]`;
+// Achievement card variants
+const achievementVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
 
-      // Set initial states - consistent with other sections
-      gsap.set(headerSelector, { opacity: 0, y: 30 });
-      gsap.set(textSelector, { opacity: 0, y: 30 });
-      if (document.querySelector(quoteSelector)) {
-        gsap.set(quoteSelector, { opacity: 0, y: 30 });
-      }
-      gsap.set(achievementsSelector, { opacity: 0, y: 30, scale: 0.95 });
-
-      // Animate individual bullet points with stagger
-      const bullets = document.querySelectorAll(
-        `[data-gsap^="timeline-bullet-${index}-"]`,
-      );
-      if (bullets.length > 0) {
-        gsap.set(bullets, { opacity: 0, y: 20 });
-      }
-    });
-
-    // Create single cohesive timeline for all timeline elements
-    const mainTimelineTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '[data-gsap="timeline-container"]',
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none none',
-      },
-    });
-
-    // Animate all timeline elements in sequence with consistent stagger
-    mainTimelineTl
-      // First animate all headers
-      .to('[data-gsap^="timeline-header-"]', {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power2.out',
-      })
-      // Then animate all text content
-      .to('[data-gsap^="timeline-text-"]', {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power2.out',
-      }, '-=0.2')
-      // Then animate all quote sections if they exist
-      .to('[data-gsap^="timeline-quote-"]', {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power2.out',
-      }, '-=0.2')
-      // Then animate all achievement cards
-      .to('[data-gsap^="timeline-achievements-"]', {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power2.out',
-      }, '-=0.2')
-      // Finally animate all bullet points
-      .to('[data-gsap^="timeline-bullet-"]', {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        stagger: 0.06,
-        ease: 'power2.out',
-      }, '-=0.2');
-  });
+export default function TimelineComponent() {
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
 
   return (
     <div id="timeline" className="mt-40 w-full">
@@ -834,9 +773,14 @@ export default function TimelineComponent() {
         subheading="8+ Years of Evolution: From Digital Age Marketing Group through ViViFi Agency to Light Code Labs, with technical growth and entrepreneurial success"
         animationId="timeline"
       />
-      <div data-gsap="timeline-container">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={isMobile ? mobileContainerVariants : containerVariants}
+      >
         <Timeline data={timelineData} />
-      </div>
+      </motion.div>
     </div>
   );
 }
