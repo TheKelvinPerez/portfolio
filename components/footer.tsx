@@ -227,42 +227,28 @@ export function Footer() {
         <nav className="mb-8 flex flex-wrap justify-center gap-4 md:gap-6">
           <Link
             data-gsap="footer-link-1"
-            href="#about"
+            href="/"
+            className="transition-colors hover:text-gray-300"
+          >
+            Home
+          </Link>
+          <Link
+            data-gsap="footer-link-2"
+            href="/about"
             className="transition-colors hover:text-gray-300"
           >
             About
           </Link>
           <Link
-            data-gsap="footer-link-2"
-            href="#projects"
+            data-gsap="footer-link-3"
+            href="/projects"
             className="transition-colors hover:text-gray-300"
           >
             Projects
           </Link>
           <Link
-            data-gsap="footer-link-3"
-            href="#books"
-            className="transition-colors hover:text-gray-300"
-          >
-            Books
-          </Link>
-          <Link
             data-gsap="footer-link-4"
-            href="#gear"
-            className="transition-colors hover:text-gray-300"
-          >
-            Gear
-          </Link>
-          <Link
-            data-gsap="footer-link-5"
-            href="#faq"
-            className="transition-colors hover:text-gray-300"
-          >
-            FAQ
-          </Link>
-          <Link
-            data-gsap="footer-link-6"
-            href="#contact-me"
+            href="/contact"
             className="transition-colors hover:text-gray-300"
           >
             Contact

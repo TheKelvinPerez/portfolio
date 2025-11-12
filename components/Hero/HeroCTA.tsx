@@ -23,7 +23,7 @@ export default function HeroCTA() {
       </div>
       <div className="grid w-full max-w-md grid-cols-2 items-center justify-center gap-3">
         <StyledButton
-          href="#projects"
+          href="/projects"
           size="lg"
           variant="primary"
           data-gsap="cta-view-projects"
@@ -32,7 +32,7 @@ export default function HeroCTA() {
           View Projects
         </StyledButton>
         <StyledButton
-          href="#contact-me"
+          href="/contact"
           size="lg"
           variant="primary"
           data-gsap="cta-book-call"
