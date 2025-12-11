@@ -29,7 +29,7 @@
     "lucide-react": "^0.552.0",
     "next": "15.5.7",
     "next-themes": "^0.3.0",
-    "posthog-js": "^1.285.1",
+    "posthog-js": "^1.304.0",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-hook-form": "^7.66.0",
