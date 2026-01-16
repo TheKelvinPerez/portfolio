@@ -26,7 +26,8 @@
       "@/ui/*": ["./components/ui/*"],
       "@/magicui/*": ["./components/magicui/*"],
       "@/mdx/*": ["./components/mdx/*"],
-      "@/lib/*": ["./lib/*"]
+      "@/lib/*": ["./lib/*"],
+      "#site/content": [".velite/index"]
     },
     "target": "ESNEXT"
   },
