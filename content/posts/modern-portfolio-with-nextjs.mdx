@@ -1,0 +1,379 @@
+---
+title: "Building a Modern Portfolio with Next.js 15"
+description: "Discover how to build a stunning, high-performance portfolio website using Next.js 15, TypeScript, and modern web technologies."
+date: "2026-01-15"
+imageUrl: "/images/jpeg/featured-blogs/nextjs-portfolio.jpg"
+published: true
+featured: false
+tags: ["Next.js", "React", "TypeScript", "Web Development"]
+---
+
+# Building a Modern Portfolio with Next.js 15
+
+In today's competitive tech landscape, having a strong online portfolio is essential for showcasing your skills and landing your dream job. This guide will walk you through building a modern, performant portfolio using Next.js 15 – the latest version of the popular React framework.
+
+## Why Next.js 15?
+
+Next.js 15 brings significant improvements over previous versions:
+
+- **React 19 Support**: Latest React features and optimizations
+- **Improved Performance**: Faster builds and better runtime performance
+- **Enhanced Developer Experience**: Better error messages and debugging
+- **App Router Maturity**: Stable and powerful routing system
+- **Server Actions**: Simplified data mutations
+- **Built-in Optimizations**: Image optimization, font optimization, and more
+
+## Prerequisites
+
+Before we begin, ensure you have:
+
+- Node.js 20+ installed
+- Basic knowledge of React and TypeScript
+- Familiarity with modern JavaScript (ES6+)
+- A code editor (VS Code recommended)
+
+## Project Setup
+
+Let's start by creating a new Next.js project:
+
+```bash
+# Create new Next.js project
+npx create-next-app@latest my-portfolio --typescript --tailwind --app
+
+# Navigate into project
+cd my-portfolio
+
+# Start development server
+npm run dev
+```
+
+<Callout type="info">
+The `--app` flag enables the App Router, which is the recommended way to build Next.js applications going forward. It provides improved performance, better streaming support, and a more intuitive file-based routing system.
+</Callout>
+
+## Project Structure
+
+Your Next.js 15 project will have this structure:
+
+```
+my-portfolio/
+├── app/
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Home page
+│   ├── globals.css         # Global styles
+│   └── api/                # API routes
+├── components/
+│   ├── ui/                 # Reusable UI components
+│   ├── Hero/               # Hero section
+│   ├── Projects/           # Projects showcase
+│   └── About/              # About section
+├── lib/                    # Utility functions
+├── public/                 # Static assets
+├── tailwind.config.ts      # Tailwind configuration
+├── tsconfig.json           # TypeScript config
+└── next.config.ts          # Next.js config
+```
+
+## Creating the Hero Section
+
+The hero section is the first thing visitors see. Let's create an impactful one:
+
+```typescript
+// app/components/Hero/Hero.tsx
+export default function Hero() {
+  return (
+    <section className="relative h-screen flex items-center justify-center">
+      <div className="text-center z-10 px-4">
+        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          Hi, I'm Your Name
+        </h1>
+        <p className="text-xl text-gray-600 mb-8">
+          Full Stack Developer | React Enthusiast | Problem Solver
+        </p>
+        <div className="flex gap-4 justify-center">
+          <a href="#projects" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+            View Projects
+          </a>
+          <a href="#contact" className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+            Contact Me
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+## Building the Projects Showcase
+
+Showcase your work with an interactive projects section:
+
+```typescript
+// app/components/Projects/ProjectCard.tsx
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
+}
+
+interface ProjectCardProps {
+  project: Project;
+}
+
+export default function ProjectCard({ project }: ProjectCardProps) {
+  return (
+    <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute bottom-0 p-6 text-white">
+          <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+          <p className="text-gray-300 mb-4">{project.description}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tags.map(tag => (
+              <span key={tag} className="bg-blue-600 px-3 py-1 rounded-full text-sm">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <a
+            href={project.link}
+            className="inline-block bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100 transition"
+          >
+            View Project
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+## Implementing Animations with Framer Motion
+
+Add smooth animations to make your portfolio stand out:
+
+```bash
+npm install framer-motion
+```
+
+```typescript
+// app/components/AnimatedSection.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+
+interface AnimatedSectionProps {
+  children: React.ReactNode;
+  delay?: number;
+}
+
+export default function AnimatedSection({ children, delay = 0 }: AnimatedSectionProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+```
+
+<Callout type="success">
+Framer Motion makes it easy to add smooth, performant animations. The `whileInView` trigger ensures animations only play when the user scrolls to that section, improving performance.
+</Callout>
+
+## Adding Dark Mode Support
+
+Give users the option to switch between light and dark themes:
+
+```typescript
+// app/components/ThemeToggle.tsx
+'use client';
+
+import { useEffect, useState } from 'react';
+
+export default function ThemeToggle() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (isDark) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+    setIsDark(!isDark);
+  };
+
+  return (
+    <button
+      onClick={toggleTheme}
+      className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+      aria-label="Toggle theme"
+    >
+      {isDark ? '☀️' : '🌙'}
+    </button>
+  );
+}
+```
+
+## Optimizing Images
+
+Next.js 15's Image component provides automatic optimization:
+
+```typescript
+import Image from 'next/image';
+
+export default function ProjectImage({ src, alt }: { src: string; alt: string }) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={800}
+      height={600}
+      className="rounded-lg"
+      placeholder="blur"
+      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+    />
+  );
+}
+```
+
+<Callout type="warning">
+Always provide width and height props to prevent layout shift. Use the placeholder prop for a better user experience while images load.
+</Callout>
+
+## Adding Analytics
+
+Track visitor behavior with PostHog:
+
+```bash
+npm install posthog-js
+```
+
+```typescript
+// app/providers.tsx
+'use client';
+
+import PostHogProvider from './PostHogProvider';
+
+export default function Providers({ children }: { children: React.ReactNode }) {
+  return <PostHogProvider>{children}</PostHogProvider>;
+}
+
+// app/PostHogProvider.tsx
+'use client';
+
+import { useEffect } from 'react';
+import posthog from 'posthog-js';
+
+export default function PostHogProvider({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+        capture_pageview: false,
+      });
+    }
+  }, []);
+
+  return <>{children}</>;
+}
+```
+
+## Building for Production
+
+When you're ready to deploy:
+
+```bash
+# Run type checking
+npm run type-check
+
+# Run linter
+npm run lint
+
+# Build production bundle
+npm run build
+
+# Test production build locally
+npm start
+```
+
+## Deployment Options
+
+### Vercel (Recommended)
+
+<Callout type="info">
+Vercel is the creator of Next.js and provides the best deployment experience with features like automatic deployments, preview deployments, and edge functions.
+</Callout>
+
+1. Push your code to GitHub
+2. Import your repository in Vercel
+3. Vercel automatically detects Next.js and configures everything
+4. Your site is live in seconds!
+
+### Other Options
+
+- **Netlify**: Great for static sites with continuous deployment
+- **AWS Amplify**: Full-stack hosting with backend integration
+- **Docker**: Containerize for maximum control
+
+## Performance Tips
+
+1. **Use Server Components**: Default in Next.js 15, reduces JavaScript bundle
+2. **Lazy Load Components**: Load heavy components only when needed
+3. **Optimize Images**: Use Next.js Image component with proper dimensions
+4. **Code Splitting**: Split code into smaller chunks for faster loads
+5. **Use App Router**: Better performance than Pages Router
+6. **Enable Caching**: Configure proper caching strategies
+
+<Separator />
+
+## Key Takeaways
+
+✅ Next.js 15 with App Router provides the best performance
+✅ TypeScript ensures type safety throughout your app
+✅ Tailwind CSS makes styling fast and consistent
+✅ Framer Motion adds smooth, professional animations
+✅ Dark mode improves user experience
+✅ Image optimization is crucial for performance
+
+## What's Next?
+
+Now that you have a solid portfolio foundation, consider adding:
+
+- **Blog Integration**: Add a blog to showcase your knowledge
+- **Contact Form**: Implement forms with Formspree or SendGrid
+- **Analytics**: Use PostHog or Google Analytics for insights
+- **SEO Optimization**: Add metadata and sitemaps
+- **Testing**: Add Jest and React Testing Library
+- **CMS Integration**: Use Sanity or Contentful for easy content management
+
+## Conclusion
+
+Building a portfolio with Next.js 15 gives you a powerful, modern, and performant website that showcases your skills to potential employers or clients. The framework's developer experience and built-in optimizations make it the perfect choice for personal websites.
+
+Remember, your portfolio is a reflection of your skills – keep it updated, make it visually appealing, and ensure it loads quickly. Good luck with your portfolio journey! 🚀
+
+---
+
+**Need help?** Check out the [Next.js Documentation](https://nextjs.org/docs) or join the [Next.js Discord community](https://discord.com/invite/nextjs).

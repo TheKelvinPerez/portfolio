@@ -20,10 +20,21 @@ const posts = defineCollection({
       featured: s.boolean().default(false),
       content: s.mdx(),
     })
-    .transform((data, { meta }) => ({
-      ...data,
-      slugAsParams: meta.path.replace(/^posts\//, '').replace(/\.mdx$/, ''),
-    })),
+    .transform((data, { meta }) => {
+      // Calculate read time based on content
+      const wordsPerMinute = 200;
+      // @ts-ignore - content is available in data
+      const wordCount = data.content ? data.content.trim().split(/\s+/).length : 0;
+      const readTime = Math.ceil(wordCount / wordsPerMinute);
+
+      return {
+        ...data,
+        slug: meta.path.replace(/^posts\//, '').replace(/\.mdx$/, ''),
+        slugAsParams: meta.path.replace(/^posts\//, '').replace(/\.mdx$/, ''),
+        filepath: meta.path,
+        readTime: `${readTime} min read`,
+      };
+    }),
 })
 
 // Export Velite configuration

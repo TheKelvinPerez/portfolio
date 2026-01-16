@@ -9,6 +9,7 @@ import { unstable_noStore as noStore } from 'next/cache';
 import Projects from '@/components/Projects/Projects';
 import Books from '@/components/Books/Books';
 import GearSection from '@/components/Gear/GearSection';
+import { FeaturedBlogs } from '@/components/Blog/FeaturedBlogs';
 import ContactForm from '@/components/ui/conversational-contact-form';
 import CallToAction from '@/components/ui/call-to-action-1';
 import { LoadingManager } from '@/components/LoadingManager';
@@ -859,6 +860,7 @@ export default function Home() {
         <SecondQuote />
         <CallToAction />
         <Projects />
+        <FeaturedBlogs />
         <Books />
         <GearSection />
         <Faq />

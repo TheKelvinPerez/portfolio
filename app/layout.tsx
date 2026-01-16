@@ -4,6 +4,7 @@ import {
   La_Belle_Aurore as FontHandwriting,
 } from 'next/font/google';
 import './globals.css';
+import './mdx.css';
 import { cn } from '@/lib/utils';
 import localFont from 'next/font/local';
 import Menu from '@/components/Hero/Menu/Menu';

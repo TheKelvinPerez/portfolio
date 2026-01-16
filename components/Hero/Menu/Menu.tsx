@@ -28,6 +28,7 @@ export default function Menu() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Blog', href: '/posts' },
     // { name: 'FAQ', href: '/#faq' },
     { name: 'Contact', href: '/contact' },
   ];

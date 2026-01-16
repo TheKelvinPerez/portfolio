@@ -1,0 +1,123 @@
+---
+title: "Your Blog Post Title Here (max 99 characters)"
+description: "A brief 2-3 sentence description of your blog post content (max 999 characters)"
+date: "2026-01-15"
+imageUrl: "/images/jpeg/featured-blogs/your-image.jpg"
+published: true
+featured: false
+tags: ["Tag1", "Tag2", "Tag3"]
+---
+
+# Your Blog Post Title
+
+Write your introduction here. This should be a compelling opening that grabs the reader's attention.
+
+## Section Heading
+
+Add your main content here. You can use standard Markdown formatting:
+
+- **Bold text** for emphasis
+- *Italic text* for quotes
+- `inline code` for technical terms
+
+### Subsection Heading
+
+Continue your content here.
+
+## Code Example
+
+You can include code blocks with syntax highlighting:
+
+```typescript
+function greet(name: string) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet("World"));
+```
+
+## Using MDX Components
+
+### Callout Component
+
+Use callouts for important information:
+
+<Callout type="info">
+This is an info callout. Use it for helpful tips and additional information.
+</Callout>
+
+<Callout type="warning">
+This is a warning callout. Use it to alert readers about potential issues.
+</Callout>
+
+<Callout type="success">
+This is a success callout. Use it to highlight positive outcomes or achievements.
+</Callout>
+
+<Callout type="error">
+This is an error callout. Use it for critical warnings or errors.
+</Callout>
+
+### YouTube Video
+
+Embed YouTube videos by video ID:
+
+<YouTube videoId="dQw4w9WgXcQ" title="Example Video" />
+
+### Carousel
+
+Create image carousels:
+
+<Carousel
+  images={[
+    "/images/jpeg/featured-blogs/image1.jpg",
+    "/images/jpeg/featured-blogs/image2.jpg",
+    "/images/jpeg/featured-blogs/image3.jpg"
+  ]}
+  autoPlay={true}
+/>
+
+### Copy Code
+
+Include code with copy button:
+
+<CopyCode
+  code="console.log('Hello, World!');"
+  language="javascript"
+/>
+
+### Separator
+
+Add visual breaks between sections:
+
+<Separator />
+
+## Links
+
+You can add [links to other pages](https://example.com) using standard Markdown syntax.
+
+## Conclusion
+
+Summarize your key points here and provide any next steps or call-to-action.
+
+---
+
+## Frontmatter Field Reference
+
+- **title** (string, required): Post title, max 99 characters
+- **description** (string, required): Brief summary, max 999 characters
+- **date** (string, required): Publication date in ISO format (YYYY-MM-DD)
+- **imageUrl** (string, required): Path to featured image
+- **published** (boolean, optional): Whether to publish the post (default: true)
+- **featured** (boolean, optional): Whether to show in featured section (default: false)
+- **tags** (array of strings, optional): List of topic tags
+
+## Tips for Writing Blog Posts
+
+1. Keep titles under 99 characters for better SEO
+2. Write descriptions that are 2-3 sentences
+3. Use descriptive tags to categorize content
+4. Set `featured: true` for your best posts
+5. Use `published: false` for drafts
+6. Test all MDX components before publishing
+7. Optimize images before adding (WebP format, < 200KB)
