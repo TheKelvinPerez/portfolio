@@ -10,83 +10,63 @@ import Script from 'next/script';
 const defaultData = [
   {
     answer:
-      "I'm a full-stack developer with 8+ years of experience specializing in WordPress, PHP, Laravel, and modern web development. My core stack includes PHP, Laravel, WordPress, MySQL, JavaScript/TypeScript, React, and Next.js. I work extensively with WooCommerce, custom themes/plugins, REST APIs, and can integrate AI capabilities when needed.",
-    icon: '🚀',
-    iconPosition: 'left' as const,
+      'I am looking for a full stack Laravel developer role where I can contribute across backend workflows, Inertia, React, TypeScript, databases, APIs, queues, and product features.',
     id: 1,
-    question: "What's your technical expertise and stack?",
+    question: 'What role are you looking for?',
   },
   {
     answer:
-      "I've built custom WordPress themes and plugins, enterprise Laravel applications, WooCommerce e-commerce solutions, membership platforms, headless CMS implementations, and Chrome extensions. Notable achievements include a $20K MRR Chrome extension and NFT projects generating $28M+ in sales.",
-    icon: '🏗️',
-    iconPosition: 'right' as const,
+      'Light Code Labs Dashboard is the strongest project here because I built it from scratch. It takes a captured business lead, stores it in Laravel, enriches it, generates sales site demos, supports chatbot capture, handles voice workflows, tracks usage, and runs like a real product.',
     id: 2,
-    question: 'What types of projects have you built?',
+    question: 'Why is Light Code Labs Dashboard first?',
   },
   {
     answer:
-      "Yes! I'm actively seeking full-time or contract opportunities in WordPress development, Laravel applications, PHP projects, and full-stack web development. I'm especially interested in roles that involve building scalable solutions and working with modern web technologies.",
-    icon: '🤝',
-    iconPosition: 'left' as const,
+      'Laravel, PHP, Inertia, React, TypeScript, PostgreSQL, MySQL, Tailwind CSS, Docker, queues, jobs, Stripe, webhooks, and REST APIs. WordPress and Shopify are still part of the background, but Laravel is the role direction.',
     id: 3,
-    question: 'Are you available for hire?',
+    question: 'What stack do you work with?',
   },
   {
     answer:
-      "I'm currently seeking remote opportunities only. I have extensive experience collaborating with distributed teams and am adaptable to different time zones and work schedules. I prioritize clear communication and meeting deadlines consistently in remote work environments.",
-    icon: '🌍',
-    iconPosition: 'right' as const,
+      'Yes. I can work beyond the app code when the product needs it. The dashboard runs with Docker, staging and production environments, queue workers, deploy scripts, Linux servers, Caddy, DNS, SSL, and Hetzner.',
     id: 4,
-    question: "What's your work preference and availability?",
+    question: 'Do you work with infrastructure?',
   },
   {
     answer:
-      'I prioritize writing clean, maintainable code following industry best practices and coding standards. I emphasize security, performance optimization, comprehensive documentation, and thorough testing. My code is designed to be easily scalable and maintainable by other developers.',
-    icon: '📚',
-    iconPosition: 'left' as const,
+      'Yes. WordPress is how I built my PHP foundation. It is where I learned client work, content systems, ACF Pro, local SEO, custom themes, and performance work. I am keeping it as part of the path, not the headline.',
     id: 5,
-    question: 'How do you ensure code quality?',
+    question: 'Why include WordPress?',
   },
   {
     answer:
-      'I have proven entrepreneurial experience launching successful products including a $20K MRR Chrome extension and NFT projects generating $28M+. I understand product development from ideation to launch, rapid prototyping, MVP creation, and building solutions that solve real business problems.',
-    icon: '💡',
-    iconPosition: 'right' as const,
+      'Shopify shows ecommerce range. I can work with storefronts, themes, product data, conversion UX, and the business side of online stores. It supports the full stack story, but it is not the main focus.',
     id: 6,
-    question: 'Do you have startup or product experience?',
+    question: 'Where does Shopify fit in?',
   },
   {
     answer:
-      "I excel at problem-solving, self-directed learning, and adapting to new technologies quickly. I'm comfortable working independently or as part of a team, and I bring strong communication skills to technical discussions. I'm proactive about identifying issues and proposing solutions.",
-    icon: '⚡',
-    iconPosition: 'left' as const,
+      'They show up inside the product, not as decoration. The dashboard uses OpenAI for enrichment, generated site copy, retrieval based chatbot knowledge, audit writing, request triage, spam classification, OCR extraction, and usage logging.',
     id: 7,
-    question: 'What soft skills do you bring to a team?',
+    question: 'Where do the product AI features fit?',
   },
   {
     answer:
-      "I have extensive experience with Git version control, CI/CD pipelines, Docker, modern deployment platforms (Vercel, Netlify), database management, and API integration. I'm comfortable with Agile methodologies and familiar with project management tools like Jira and Linear.",
-    icon: '⚙️',
-    iconPosition: 'right' as const,
+      'The agency did not become the business I wanted. I ran out of runway and did not solve distribution. I am not framing that as a business win. I am framing the dashboard as a working Laravel product I built end to end.',
     id: 8,
-    question: "What's your experience with development workflows?",
+    question: 'How are you framing the agency attempt?',
   },
   {
     answer:
-      "I stay current through continuous learning, exploring new technologies, and applying them to real projects. I'm experienced with modern frameworks, AI integration (OpenAI, Anthropic APIs), and I'm always eager to learn new tools and technologies that improve development efficiency.",
-    icon: '📈',
-    iconPosition: 'left' as const,
+      'Yes. I am looking for full time Laravel roles and selective contract work that lines up with Laravel, PHP, React, TypeScript, databases, product dashboards, and backend workflows.',
     id: 9,
-    question: 'How do you stay current with technology?',
+    question: 'Are you available?',
   },
   {
     answer:
-      "I'm motivated by building solutions that solve real problems and create value for users. I enjoy the challenge of optimizing performance, architecting scalable systems, and seeing projects through from concept to completion. I take pride in writing quality code and delivering results.",
-    icon: '🎯',
-    iconPosition: 'right' as const,
+      'Start with Light Code Labs Dashboard. That is the best signal for how I think through Laravel architecture, product workflows, UI, integrations, queues, and infrastructure. After that, the Chrome extension and WordPress projects show the path that led there.',
     id: 10,
-    question: 'What motivates you as a developer?',
+    question: 'Where should someone start?',
   },
 ];
 
@@ -216,7 +196,7 @@ export default function FAQ() {
       <div id="faq" className="flex flex-col items-center justify-center gap-4">
         <SectionHeading
           heading="FAQs"
-          subheading="Common questions about my AI expertise, startup experience, and approach to building intelligent applications"
+          subheading="The short answers I would give in a first conversation"
           animationId="faq"
         />
         <div data-gsap="faq-container">
@@ -225,7 +205,8 @@ export default function FAQ() {
               ...item,
               animationKey: `faq-item-${index}`,
             }))}
-            className="max-w-[700px]"
+            className="max-w-[760px]"
+            timestamp=""
           />
         </div>
       </div>

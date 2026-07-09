@@ -12,16 +12,16 @@ export default function SectionHeading({
   animationId,
 }: SectionHeadingProps) {
   return (
-    <div className="mb-5 lg:mb-10 text-white">
+    <div className="mb-8 text-white lg:mb-12">
       <h2 
-        className="text-1xl mb-2 text-center font-bold text-white lg:text-3xl"
+        className="mb-3 text-center text-3xl font-bold leading-tight text-white md:text-4xl"
         {...(animationId && { 'data-gsap': `${animationId}-heading` })}
       >
         {heading}
       </h2>
       {subheading && (
         <p 
-          className="mx-auto mb-8 w-[90%] text-center text-sm text-gray-300/75 lg:text-lg"
+          className="mx-auto max-w-4xl text-center text-base leading-7 text-gray-300/80 lg:text-lg"
           {...(animationId && { 'data-gsap': `${animationId}-subheading` })}
         >
           {subheading}

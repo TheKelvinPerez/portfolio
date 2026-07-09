@@ -73,14 +73,14 @@ function Stats() {
             className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-md transition-all duration-300 hover:border-purple-400/80 hover:shadow-xl hover:shadow-purple-400/30"
           >
             <Zap className="mb-10 h-4 w-4 text-purple-300" />
-            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white drop-shadow-sm">
-              487
+            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl text-white drop-shadow-sm">
+              1
               <span className="text-sm tracking-normal text-purple-300">
-                pages
+                platform
               </span>
             </h2>
-            <p className="max-w-xl text-left text-base leading-relaxed tracking-tight text-gray-200">
-              Automated service pages
+            <p className="max-w-xl text-left text-base leading-relaxed text-gray-200">
+              Laravel dashboard built from scratch
             </p>
           </div>
 
@@ -89,49 +89,46 @@ function Stats() {
             className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-md transition-all duration-300 hover:border-purple-400/80 hover:shadow-xl hover:shadow-purple-400/30"
           >
             <Gauge className="mb-10 h-4 w-4 text-purple-300" />
-            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white drop-shadow-sm">
-              1s
+            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl text-white drop-shadow-sm">
+              3
               <span className="text-sm tracking-normal text-purple-300">
-                response
+                variants
               </span>
             </h2>
-            <p className="max-w-xl text-left text-base leading-relaxed tracking-tight text-gray-200">
-              Server response time
+            <p className="max-w-xl text-left text-base leading-relaxed text-gray-200">
+              Site directions generated from one captured lead
             </p>
           </div>
 
-          <a
-            href="https://pagespeed.web.dev/analysis/https-sunnyside247ac-com/bimc9jrugi?form_factor=desktop"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             data-gsap="stat-card-2"
             className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-md transition-all duration-300 hover:border-purple-400/80 hover:shadow-xl hover:shadow-purple-400/30"
           >
             <MoveUpRight className="mb-10 h-4 w-4 text-purple-300" />
-            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white drop-shadow-sm">
-              100
+            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl text-white drop-shadow-sm">
+              7
               <span className="text-sm tracking-normal text-purple-300">
-                /100
+                flows
               </span>
             </h2>
-            <p className="max-w-xl text-left text-base leading-relaxed tracking-tight text-gray-200">
-              PageSpeed score
+            <p className="max-w-xl text-left text-base leading-relaxed text-gray-200">
+              Enrichment, site, chatbot, voice, audit, usage, and capture
             </p>
-          </a>
+          </div>
 
           <div
             data-gsap="stat-card-3"
             className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-md transition-all duration-300 hover:border-purple-400/80 hover:shadow-xl hover:shadow-purple-400/30"
           >
             <Clock className="mb-10 h-4 w-4 text-purple-300" />
-            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white drop-shadow-sm">
-              90%
+            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl text-white drop-shadow-sm">
+              Docker
               <span className="text-sm tracking-normal text-purple-300">
-                saved
+                hosted
               </span>
             </h2>
-            <p className="max-w-xl text-left text-base leading-relaxed tracking-tight text-gray-200">
-              Content creation time
+            <p className="max-w-xl text-left text-base leading-relaxed text-gray-200">
+              Laravel app deployed on Hetzner with staging
             </p>
           </div>
 
@@ -140,14 +137,14 @@ function Stats() {
             className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-md transition-all duration-300 hover:border-purple-400/80 hover:shadow-xl hover:shadow-purple-400/30"
           >
             <DollarSign className="mb-10 h-4 w-4 text-purple-300" />
-            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white drop-shadow-sm">
-              $73K-230K
+            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl text-white drop-shadow-sm">
+              487
               <span className="text-sm tracking-normal text-purple-300">
-                value
+                pages
               </span>
             </h2>
-            <p className="max-w-xl text-left text-base leading-relaxed tracking-tight text-gray-200">
-              Development equivalent
+            <p className="max-w-xl text-left text-base leading-relaxed text-gray-200">
+              WordPress service pages generated from structured data
             </p>
           </div>
 
@@ -156,14 +153,14 @@ function Stats() {
             className="flex flex-col justify-between gap-0 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-md transition-all duration-300 hover:border-purple-400/80 hover:shadow-xl hover:shadow-purple-400/30"
           >
             <TrendingUp className="mb-10 h-4 w-4 text-purple-300" />
-            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl tracking-tighter text-white drop-shadow-sm">
-              $50K-100K
+            <h2 className="font-regular flex max-w-xl flex-row items-end gap-4 text-left text-4xl text-white drop-shadow-sm">
+              100
               <span className="text-sm tracking-normal text-purple-300">
-                /year
+                /100
               </span>
             </h2>
-            <p className="max-w-xl text-left text-base leading-relaxed tracking-tight text-gray-200">
-              Annual SEO value
+            <p className="max-w-xl text-left text-base leading-relaxed text-gray-200">
+              PageSpeed result on the WordPress foundation project
             </p>
           </div>
         </div>

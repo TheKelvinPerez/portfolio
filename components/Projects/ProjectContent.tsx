@@ -1,9 +1,8 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Globe2, KeyRound, MonitorPlay } from 'lucide-react';
 import Markdown from 'react-markdown';
 import RelatedProjects from './RelatedProjects';
 import { Project, projectsData } from './projectsData';
@@ -23,7 +22,6 @@ export default function ProjectContent({
 }: ProjectContentProps) {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Determine the primary link - prioritize live site, then github
   const getPrimaryLink = () => {
     const liveLink = links.find(
       (link) =>
@@ -38,14 +36,14 @@ export default function ProjectContent({
       link.title.toLowerCase().includes('github'),
     );
 
-    return githubLink || links[0]; // fallback to first link if no live or github
+    return githubLink || links[0];
   };
 
   const primaryLink = getPrimaryLink();
+  const isPrimaryLinkInternal = primaryLink?.url?.startsWith('/');
 
   return (
     <div className="flex flex-col gap-8">
-      {/* Back Button */}
       <div className="relative z-[99] flex items-center">
         <StyledButton
           onClick={() => window.history.back()}
@@ -57,14 +55,12 @@ export default function ProjectContent({
         </StyledButton>
       </div>
 
-      {/* Hero Image */}
       <a
         href={primaryLink?.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-[20px] bg-gray-900 transition-transform duration-300 hover:scale-[1.02] lg:rounded-[60px]"
+        target={isPrimaryLinkInternal ? undefined : '_blank'}
+        rel={isPrimaryLinkInternal ? undefined : 'noopener noreferrer'}
+        className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-lg bg-gray-900 transition-transform duration-300 hover:scale-[1.01]"
       >
-        {/* Loading Placeholder */}
         <div
           className={`absolute inset-0 flex items-center justify-center bg-gray-800 transition-opacity duration-300 ${
             isLoading ? 'opacity-100' : 'opacity-0'
@@ -73,7 +69,6 @@ export default function ProjectContent({
           <div className="h-32 w-32 animate-pulse rounded-full bg-gray-700" />
         </div>
 
-        {/* Project Image */}
         <Image
           src={imageUrl}
           alt={title}
@@ -85,7 +80,6 @@ export default function ProjectContent({
           onLoad={() => setIsLoading(false)}
         />
 
-        {/* Overlay with link indicator */}
         <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/20">
           <div className="absolute right-4 top-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
             <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-sm font-medium text-gray-400 backdrop-blur-sm">
@@ -96,9 +90,7 @@ export default function ProjectContent({
         </div>
       </a>
 
-      {/* Two Column Layout */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        {/* Left Column - Project Description */}
         <div className="lg:col-span-2">
           <div className="flex flex-col items-start gap-4">
             <h1 className="text-4xl font-bold text-gray-100">{title}</h1>
@@ -109,10 +101,8 @@ export default function ProjectContent({
           </article>
         </div>
 
-        {/* Right Column - Metadata */}
         <div className="h-fit lg:sticky lg:top-8">
-          <div className="space-y-8 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-md transition-all duration-300 hover:border-purple-400/80 hover:shadow-xl hover:shadow-purple-400/30">
-            {/* Project Links */}
+          <div className="space-y-8 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-950/70 p-6 shadow-xl shadow-purple-500/10 backdrop-blur-md transition-all duration-300 hover:border-purple-300/80 hover:shadow-2xl hover:shadow-purple-500/20">
             <div>
               <h2 className="mb-4 text-xl font-semibold text-gray-100">
                 Project Links
@@ -122,9 +112,9 @@ export default function ProjectContent({
                   <a
                     key={link.url}
                     href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-purple-300 transition-colors hover:text-purple-400"
+                    target={link.url.startsWith('/') ? undefined : '_blank'}
+                    rel={link.url.startsWith('/') ? undefined : 'noopener noreferrer'}
+                    className="flex items-center gap-2 text-purple-100 transition-colors hover:text-white"
                   >
                     <ExternalLink className="h-4 w-4" />
                     {link.title}
@@ -133,7 +123,6 @@ export default function ProjectContent({
               </div>
             </div>
 
-            {/* Technologies */}
             <div>
               <h2 className="mb-4 text-xl font-semibold text-gray-100">
                 Technologies
@@ -143,7 +132,7 @@ export default function ProjectContent({
                   <Badge
                     key={tag}
                     variant="secondary"
-                    className="border border-purple-700/50 bg-purple-700 text-purple-200"
+                    className="border border-purple-300/25 bg-purple-500/15 text-purple-100"
                   >
                     {tag}
                   </Badge>
@@ -154,34 +143,90 @@ export default function ProjectContent({
         </div>
       </div>
 
-      {/* YouTube Embed for AquaKit */}
-      {slug === 'aquakit-ai-nextjs-starter' && (
-        <div className="mt-8">
-          <h2 className="mb-6 text-2xl font-bold text-gray-100">
-            🎥 Development Live Streams
-          </h2>
-          <p className="mb-6 text-gray-400">
-            Watch the complete development process of AquaKit in this YouTube
-            playlist. See how the AI starter kit was built from scratch with
-            real-time problem solving and explanations.
-          </p>
-          <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-900">
-            <iframe
-              src="https://www.youtube.com/embed/videoseries?list=PLwbt1uBf9iqDQyGKEJVj2iA3FFsNxMiXj"
-              title="AquaKit Development Live Streams"
-              className="absolute inset-0 h-full w-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+      {slug === 'light-code-labs-dashboard' && (
+        <section className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div
+            id="walkthrough"
+            className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-950/70 p-6 shadow-xl shadow-purple-500/10 backdrop-blur-md"
+          >
+            <MonitorPlay className="mb-5 h-6 w-6 text-purple-200" />
+            <h2 className="text-xl font-semibold text-white">
+              Workflow overview
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-300">
+              The workflow starts with browser based lead capture, moves into
+              Laravel intake, then continues through enrichment, generated site
+              options, chatbot setup, and a sample public site.
+            </p>
           </div>
-        </div>
+          <div
+            id="demo-access"
+            className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-950/70 p-6 shadow-xl shadow-purple-500/10 backdrop-blur-md"
+          >
+            <KeyRound className="mb-5 h-6 w-6 text-purple-200" />
+            <h2 className="text-xl font-semibold text-white">
+              Demo access
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-300">
+              Demo access is scoped around a prepared sample lead so the product
+              can be reviewed without exposing private client data.
+            </p>
+          </div>
+          <div
+            id="generated-site"
+            className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-950/70 p-6 shadow-xl shadow-purple-500/10 backdrop-blur-md"
+          >
+            <Globe2 className="mb-5 h-6 w-6 text-amber-200" />
+            <h2 className="text-xl font-semibold text-white">
+              Generated sample site
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-300">
+              The public sample site is the visible result from the workflow:
+              one captured business lead turned into a sales site direction.
+            </p>
+          </div>
+        </section>
       )}
 
-      {/* PageSpeed Screenshot for SunnySide */}
+      {(slug === 'shopify-ecommerce-systems' ||
+        slug === 'wordpress-agency-builds') && (
+        <section
+          id="case-study-context"
+          className="mt-12 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-950/70 p-6 shadow-xl shadow-purple-500/10 backdrop-blur-md"
+        >
+          <h2 className="text-xl font-semibold text-white">
+            Case Study Context
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">
+            This supporting project exists to show range around the main
+            Laravel story. The dashboard is the headline, while this work shows
+            the PHP, ecommerce, CMS, UI, and business website experience that
+            built the foundation.
+          </p>
+        </section>
+      )}
+
+      {slug === 'chrome-extension-lead-capture' && (
+        <section
+          id="install-flow"
+          className="mt-12 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-950/70 p-6 shadow-xl shadow-purple-500/10 backdrop-blur-md"
+        >
+          <h2 className="text-xl font-semibold text-white">
+            Install Flow
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">
+            The extension is distributed from the dashboard, configured with an
+            API key, and used inside the browser while researching public
+            business leads. Once captured, the lead appears in Laravel and moves
+            into the product workflow.
+          </p>
+        </section>
+      )}
+
       {slug === 'sunnyside-247-ac-website' && (
         <div className="mt-8">
           <h2 className="mb-6 text-2xl font-bold text-gray-100">
-            🚀 Performance Results
+            Performance Results
           </h2>
           <p className="mb-6 text-gray-400">
             Achieving perfect 100/100 Google PageSpeed scores through advanced
@@ -196,7 +241,7 @@ export default function ProjectContent({
           >
             <Image
               src="/projects/sunnyside-pagespeed.png"
-              alt="SunnySide 24/7 AC PageSpeed Score - 100/100"
+              alt="SunnySide 24/7 AC PageSpeed Score, 100/100"
               width={1920}
               height={1080}
               className="h-auto w-full rounded-xl"
@@ -205,7 +250,6 @@ export default function ProjectContent({
         </div>
       )}
 
-      {/* Related Projects */}
       <RelatedProjects
         currentProject={{
           title,

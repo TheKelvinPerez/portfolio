@@ -10,7 +10,6 @@ import Menu from '@/components/Hero/Menu/Menu';
 import { Footer } from '@/components/footer';
 import { ThemeProvider } from 'next-themes';
 import { LoadingProvider } from '@/lib/context/LoadingContext';
-import ScrollRestoration from '@/components/ScrollRestoration';
 import { PostHogProvider } from './providers';
 
 export const metadata: Metadata = {
@@ -18,29 +17,23 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000',
   ),
   title: {
-    default: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
+    default: 'Kelvin Perez | Full Stack Laravel Developer',
     template: '%s | Kelvin Perez',
   },
   description:
-    'Kelvin Perez is a Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. With extensive experience building enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications, Kelvin delivers scalable, high-performance web applications that power e-commerce stores and business-critical websites.',
+    'Kelvin Perez is a full stack Laravel developer focused on Laravel, PHP, Inertia, React, TypeScript, PostgreSQL, Docker, WordPress, Shopify, and applied AI product integrations.',
   keywords: [
     'Kelvin Perez',
-    'Full-Stack WordPress Developer',
-    'Senior WordPress Developer',
+    'Full Stack Laravel Developer',
+    'Laravel Developer',
     'PHP Developer',
-    'Custom WordPress Development',
-    'WooCommerce Development',
-    'WordPress Expert',
-    'React WordPress Integration',
-    'Headless WordPress',
-    'WordPress Plugin Development',
-    'WordPress Theme Development',
-    'Enterprise WordPress Solutions',
-    'E-commerce Development',
-    'WordPress Performance Optimization',
-    'Custom WordPress Themes',
-    'WordPress REST API',
-    'Modern WordPress Development',
+    'Inertia Developer',
+    'React Developer',
+    'TypeScript Developer',
+    'PostgreSQL Developer',
+    'Docker Laravel',
+    'WordPress Developer',
+    'Shopify Developer',
   ],
   authors: [{ name: 'Kelvin Perez', url: 'https://kelvinperez.com' }],
   creator: 'Kelvin Perez',
@@ -78,40 +71,34 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
-  // verification: {
-  //   google: 'your-google-verification-code',
-  //   yandex: 'your-yandex-verification-code',
-  //   bing: 'your-bing-verification-code',
-  // },
   other: {
     'msapplication-TileColor': '#da532c',
     'theme-color': '#000000',
     'apple-mobile-web-app-title': 'Kelvin Perez',
   },
-  // Performance and SEO optimization
   referrer: 'origin-when-cross-origin',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: '/',
     siteName: 'Kelvin Perez',
-    title: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
+    title: 'Kelvin Perez | Full Stack Laravel Developer',
     description:
-      'Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. Expert in enterprise-level WordPress solutions, custom themes, plugins, and headless WordPress applications.',
+      'Full stack Laravel developer focused on Laravel, Inertia, React, TypeScript, PostgreSQL, Docker, WordPress, Shopify, and applied AI product integrations.',
     images: [
       {
         url: '/images/png/kelvin-perez-website-preview.png',
         width: 1200,
         height: 630,
-        alt: 'Kelvin Perez - Full-Stack WordPress Developer',
+        alt: 'Kelvin Perez Full Stack Laravel Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kelvin Perez | Full-Stack WordPress Developer & PHP Expert',
+    title: 'Kelvin Perez | Full Stack Laravel Developer',
     description:
-      'Senior Full-Stack WordPress & PHP Developer specializing in custom WordPress development, WooCommerce, and modern React integration. Expert in enterprise-level WordPress solutions.',
+      'Laravel, Inertia, React, TypeScript, PostgreSQL, Docker, WordPress, Shopify, and applied AI product integrations.',
     images: ['/images/png/kelvin-perez-website-preview.png'],
     creator: '@thekelvinperez',
   },
@@ -165,8 +152,6 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              {/* <NoiseTexture /> */}
-              {/* <ScrollRestoration /> - Temporarily disabled to test contact form scroll fix */}
               <Menu />
               <div className="mx-auto max-w-[1440px] bg-transparent px-4 sm:px-6 lg:px-8">
                 {children}

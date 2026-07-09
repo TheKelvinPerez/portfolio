@@ -35,7 +35,7 @@ export function FaqAccordion({
   return (
     <div className={cn("p-4", className)}>
       {timestamp && (
-        <div className="mb-4 text-sm text-muted-foreground">{timestamp}</div>
+        <div className="mb-4 text-sm text-purple-200/70">{timestamp}</div>
       )}
 
       <Accordion.Root
@@ -55,10 +55,10 @@ export function FaqAccordion({
               <Accordion.Trigger className="flex w-full items-center justify-start gap-x-4">
                 <div
                   className={cn(
-                    "relative flex items-center space-x-2 rounded-2xl px-4 py-3 transition-colors border-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10",
+                    "relative flex items-center space-x-2 rounded-2xl px-4 py-3 transition-colors border bg-gradient-to-r from-purple-800/40 to-purple-950/60 shadow-lg shadow-purple-500/10 backdrop-blur-md",
                     openItem === item.id.toString()
-                      ? "border-blue-400 text-slate-300"
-                      : "border-purple-400/50 text-slate-300 hover:border-blue-400/70",
+                      ? "border-purple-300/80 text-gray-100"
+                      : "border-purple-500/60 text-gray-200 hover:border-purple-300/80",
                     questionClassName
                   )}
                   {...(item.animationKey && { 'data-gsap': `${item.animationKey}-trigger` })}
@@ -83,8 +83,8 @@ export function FaqAccordion({
 
                 <span
                   className={cn(
-                    "text-muted-foreground",
-                    openItem === item.id.toString() && "text-primary"
+                    "text-purple-200",
+                    openItem === item.id.toString() && "text-white"
                   )}
                 >
                   {openItem === item.id.toString() ? (
@@ -109,9 +109,9 @@ export function FaqAccordion({
                 <div className="ml-7 mt-1 md:ml-16">
                   <div
                     className={cn(
-                      "relative max-w-xs md:max-w-sm lg:max-w-md rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-2 border-blue-400/50 px-4 py-2 text-slate-200 text-sm md:text-base lg:text-base",
-                      answerClassName
-                    )}
+                    "relative max-w-xs md:max-w-sm lg:max-w-md rounded-2xl border border-purple-300/40 bg-gradient-to-r from-purple-700/30 to-purple-950/60 px-4 py-3 text-sm text-gray-100 shadow-lg shadow-purple-500/10 backdrop-blur-md md:text-base lg:text-base",
+                    answerClassName
+                  )}
                   >
                     {item.answer}
                   </div>

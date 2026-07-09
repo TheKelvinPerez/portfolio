@@ -13,7 +13,7 @@ import {
   Rocket,
   ShoppingCart,
   Sparkles,
-  Bot,
+  Workflow,
 } from 'lucide-react';
 
 interface SkillCategory {
@@ -24,58 +24,61 @@ interface SkillCategory {
 
 const skillsData: SkillCategory[] = [
   {
-    category: 'WordPress Development',
+    category: 'Laravel Application Development',
     icon: <Zap className="h-4 w-4" />,
     skills: [
-      'Custom Themes & Plugins',
-      'ACF Pro',
-      'CPTs & Taxonomies',
-      'Gutenberg',
-      'WP-CLI',
-      'Composer',
-      'REST API',
-      'WPGraphQL',
+      'Laravel',
+      'PHP 8.3+',
+      'Inertia',
+      'Queues & Jobs',
+      'Policies',
+      'Form Requests',
+      'Service Classes',
+      'REST APIs',
     ],
   },
   {
-    category: 'Front-End Development',
+    category: 'React Product UI',
     icon: <Palette className="h-4 w-4" />,
     skills: [
       'React',
-      'Next.js',
       'TypeScript',
+      'Inertia Pages',
       'Tailwind CSS',
       'Vite',
-      'Sass',
-      'HTML5',
-      'ES6+',
+      'Component Systems',
+      'Responsive UI',
+      'Form UX',
+      'Dashboard UX',
     ],
   },
   {
-    category: 'Backend & Languages',
+    category: 'Databases & Integrations',
     icon: <Cpu className="h-4 w-4" />,
     skills: [
-      'PHP 8.3+',
-      'Node.js',
-      'MySQL',
       'PostgreSQL',
-      'Laravel',
-      'REST APIs',
-      'GraphQL',
+      'MySQL',
+      'Stripe',
       'Webhooks',
+      'Scheduled Jobs',
+      'Usage Tracking',
+      'Data Enrichment',
+      'External APIs',
+      'Chrome Extension APIs',
     ],
   },
   {
-    category: 'SEO & Analytics',
+    category: 'Product Data & SEO',
     icon: <BarChart3 className="h-4 w-4" />,
     skills: [
       'Technical SEO',
       'Schema Markup',
       'Local SEO',
-      'Google Search Console',
-      'Google Analytics',
-      'Tag Manager',
+      'Analytics',
+      'Lead Data',
+      'Audit Reports',
       'Core Web Vitals',
+      'Content Models',
       'Conversion Optimization',
     ],
   },
@@ -83,56 +86,59 @@ const skillsData: SkillCategory[] = [
     category: 'Performance & Infrastructure',
     icon: <Rocket className="h-4 w-4" />,
     skills: [
-      'Docker (DDEV)',
-      'Redis Caching',
-      'CDN (Cloudflare, BunnyCDN)',
+      'Docker',
+      'Hetzner VPS',
       'Caddy',
       'Nginx',
-      'Core Web Vitals Optimization',
-      'PageSpeed Optimization',
-      'SSL/TLS Configuration',
+      'Staging Environments',
+      'Deploy Scripts',
+      'Queue Workers',
+      'Health Checks',
+      'SSL and DNS',
+      'Linux Servers',
     ],
   },
   {
-    category: 'E-commerce & Integrations',
+    category: 'Ecommerce Experience',
     icon: <ShoppingCart className="h-4 w-4" />,
     skills: [
-      'WooCommerce',
-      'Payment Gateways',
-      'CRM Integration (Salesforce, HubSpot)',
-      'Email Marketing',
       'Shopify',
+      'Liquid',
+      'WooCommerce',
+      'Checkout UX',
       'Product Data Management',
-      'Order Fulfillment',
+      'CRM Integrations',
+      'Payment Workflows',
       'Subscription Systems',
+      'Storefront QA',
     ],
   },
   {
-    category: 'Design & UX',
+    category: 'WordPress & PHP Foundation',
     icon: <Sparkles className="h-4 w-4" />,
     skills: [
-      'Figma',
-      'Adobe XD',
-      'Responsive Design',
-      'WCAG Accessibility',
-      'Color Theory',
-      'Typography',
-      'UI/UX Principles',
-      'Design Systems',
+      'Custom Themes',
+      'ACF Pro',
+      'CPTs',
+      'WP-CLI',
+      'Composer',
+      'Gutenberg',
+      'Performance',
+      'Client CMS UX',
     ],
   },
   {
-    category: 'AI & Modern Tech',
-    icon: <Bot className="h-4 w-4" />,
+    category: 'Applied AI Product Work',
+    icon: <Workflow className="h-4 w-4" />,
     skills: [
-      'RAG Systems',
-      'LLMs (OpenAI, Claude)',
-      'AI Agents',
-      'Prompt Engineering',
-      'Vector Databases',
-      'Headless CMS',
-      'API Integration',
-      'Automation',
+      'OpenAI API',
+      'Structured Outputs',
+      'RAG Style Retrieval',
+      'Chatbot Knowledge Bases',
+      'Site Copy Generation',
+      'Audit Generation',
+      'Spam Classification',
+      'Usage Logging',
     ],
   },
 ];
@@ -233,50 +239,53 @@ export default function Skills() {
       <div className="container mx-auto px-4">
         <SectionHeading
           heading="Skills & Technologies"
-          subheading="Comprehensive full-stack expertise across WordPress, modern web technologies, and AI integration"
+          subheading="The parts of the stack I can contribute to on a Laravel product team"
           animationId="skills"
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {skillsData.map((category, index) => (
             <div
               key={index}
               data-gsap={`skill-category-${index}`}
-              className="group relative overflow-hidden rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-900/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/20"
+              className="group relative overflow-hidden rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-950/70 p-6 shadow-xl shadow-purple-500/10 backdrop-blur-md transition-all duration-300 hover:border-purple-300/80 hover:shadow-2xl hover:shadow-purple-500/20"
             >
-              <div className="mb-10 flex items-center gap-3">
-                <div className="text-purple-300" data-gsap={`skill-icon-${index}`}>
+              <div className="mb-6 flex items-center gap-3">
+                <div
+                  className="grid h-9 w-9 place-items-center rounded-full border border-purple-300/30 bg-purple-500/20 text-purple-200"
+                  data-gsap={`skill-icon-${index}`}
+                >
                   {category.icon}
                 </div>
-                <h3 className="text-lg font-bold text-white" data-gsap={`skill-title-${index}`}>
+                <h3
+                  className="text-base font-bold leading-snug text-white md:text-lg"
+                  data-gsap={`skill-title-${index}`}
+                >
                   {category.category}
                 </h3>
               </div>
 
-              <ul className="space-y-2">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => (
-                  <li
+                  <span
                     key={skillIndex}
-                    className="flex items-start gap-2 text-sm text-gray-200"
+                    className="rounded-full border border-purple-300/20 bg-white/5 px-3 py-1 text-xs font-medium text-gray-200"
                     data-gsap={`skill-item-${index}-${skillIndex}`}
                   >
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-purple-300" />
                     <span>{skill}</span>
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
 
-              {/* Gradient overlay on hover */}
               <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-500/0 to-purple-600/0 opacity-0 transition-opacity duration-300 group-hover:opacity-5" />
             </div>
           ))}
         </div>
 
-        {/* Additional context */}
         <div className="mt-10 text-center">
           <p className="text-sm text-gray-400 md:text-base">
-            8+ years of hands-on experience building production-ready solutions
-            for agencies and enterprise clients
+            8+ years of hands on work across product dashboards, business
+            websites, ecommerce systems, and the infrastructure around them
           </p>
         </div>
       </div>

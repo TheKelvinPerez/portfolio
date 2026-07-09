@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function AboutMe({ letterClassName }: { letterClassName?: string }) {
+export default function AboutMe() {
   useGSAP(() => {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
@@ -67,10 +67,10 @@ export default function AboutMe({ letterClassName }: { letterClassName?: string 
     <div id="about" className="mx-auto mt-40 lg:max-w-[1000px] lg:px-4">
       <SectionHeading
         heading="Who is Kelvin Perez?"
-        subheading="Senior WordPress Developer with 8+ years delivering high-performance solutions for agencies and multi-location businesses"
+        subheading="Full stack Laravel developer with a WordPress foundation, product experience, React and TypeScript UI skills, and real infrastructure exposure"
         animationId="about"
       />
-      <Letter className={letterClassName} />
+      <Letter />
     </div>
   );
 }

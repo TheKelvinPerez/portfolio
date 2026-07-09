@@ -1,725 +1,647 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowLeft, Check, Send } from "lucide-react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, useInView } from "framer-motion";
 import useWeb3Forms from "@web3forms/react";
+import {
+  AlertCircle,
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Mail,
+  Send,
+} from "lucide-react";
+import KelvinPerezPFP from "@/public/images/jpeg/TKP-PFP.jpeg";
 
 interface FormData {
   name: string;
   email: string;
   inquiryType: string;
   company: string;
-  phone: string;
-  budget: string;
   message: string;
 }
 
-interface ValidationErrors {
-  name?: string;
-  email?: string;
-  inquiryType?: string;
-  company?: string;
-  phone?: string;
-  budget?: string;
-  message?: string;
+type FieldKey = keyof FormData;
+
+interface ChatStep {
+  key: FieldKey;
+  label: string;
+  prompt: string;
+  placeholder: string;
+  input: "text" | "email" | "textarea" | "select";
+  optional?: boolean;
 }
 
-const steps = [
-  { id: "name", question: "Hi! What's your name?" },
-  { id: "email", question: "Nice to meet you, {name}! What's your email?" },
-  { id: "inquiryType", question: "Thanks! What type of inquiry is this?" },
-  { id: "company", question: "Great! What's your company or organization? (optional)" },
-  { id: "phone", question: "And your phone number? (optional)" },
-  { id: "budget", question: "What's your project budget? (optional)" },
-  { id: "message", question: "Perfect! Tell me about your project or opportunity:" },
-  { id: "review", question: "Excellent! Here's what I have:" },
-];
+const initialFormData: FormData = {
+  name: "",
+  email: "",
+  inquiryType: "",
+  company: "",
+  message: "",
+};
 
 const inquiryOptions = [
-  { value: "full-time-remote", label: "Full-time Remote Position" },
-  { value: "contract-remote", label: "Contract Remote Work" },
-  { value: "wordpress-dev", label: "WordPress Development" },
-  { value: "laravel-dev", label: "Laravel Application" },
-  { value: "php-dev", label: "PHP Development" },
-  { value: "woocommerce", label: "WooCommerce Project" },
-  { value: "consulting", label: "Technical Consulting" },
-  { value: "other", label: "Other" },
+  { value: "full-time-laravel", label: "Full time Laravel role" },
+  { value: "contract-laravel", label: "Contract Laravel work" },
+  { value: "php-backend", label: "PHP backend work" },
+  { value: "react-typescript", label: "React and TypeScript UI" },
+  { value: "wordpress-shopify", label: "WordPress or Shopify support" },
+  { value: "other", label: "Something else" },
 ];
 
-const budgetOptions = [
-  { value: "under-5k", label: "Under $5,000" },
-  { value: "5k-10k", label: "$5,000 - $10,000" },
-  { value: "10k-25k", label: "$10,000 - $25,000" },
-  { value: "25k-50k", label: "$25,000 - $50,000" },
-  { value: "50k-100k", label: "$50,000 - $100,000" },
-  { value: "over-100k", label: "$100,000+" },
-  { value: "discuss", label: "Let's discuss" },
+const chatSteps: ChatStep[] = [
+  {
+    key: "name",
+    label: "Name",
+    prompt: "What name should I use in my reply?",
+    placeholder: "First name",
+    input: "text",
+  },
+  {
+    key: "email",
+    label: "Email",
+    prompt: "Where should I send the reply?",
+    placeholder: "you@company.com",
+    input: "email",
+  },
+  {
+    key: "inquiryType",
+    label: "Opportunity",
+    prompt: "What kind of opportunity are you reaching out about?",
+    placeholder: "Choose the closest option",
+    input: "select",
+  },
+  {
+    key: "company",
+    label: "Company",
+    prompt: "Which company or team is this for?",
+    placeholder: "Company or team name",
+    input: "text",
+    optional: true,
+  },
+  {
+    key: "message",
+    label: "Context",
+    prompt: "Add the role, team, stack, timeline, or project context that would help me reply well.",
+    placeholder: "Paste a role link or add notes about the team, stack, timeline, and next step.",
+    input: "textarea",
+  },
 ];
+
+const proofSteps = [
+  { number: "01", label: "Role details" },
+  { number: "02", label: "Stack fit" },
+  { number: "03", label: "Next step" },
+];
+
+const meta = [
+  {
+    label: "Best fit",
+    text: "Full stack Laravel teams",
+  },
+  {
+    label: "Response time",
+    text: "Same or next business day",
+  },
+];
+
+function getInquiryLabel(value: string) {
+  return (
+    inquiryOptions.find((option) => option.value === value)?.label || value
+  );
+}
+
+function getDisplayValue(step: ChatStep, formData: FormData) {
+  const value = formData[step.key];
+
+  if (!value && step.optional) {
+    return "Skip for now";
+  }
+
+  if (step.key === "inquiryType") {
+    return getInquiryLabel(value);
+  }
+
+  return value;
+}
+
+function getTypingDelay(prompt: string) {
+  return Math.min(1150, Math.max(650, prompt.length * 11));
+}
 
 export default function ConversationalContactForm() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    inquiryType: "",
-    company: "",
-    phone: "",
-    budget: "",
-    message: "",
+  const sectionRef = useRef<HTMLElement>(null);
+  const typingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isInView = useInView(sectionRef, {
+    once: true,
+    margin: "-18% 0px -18% 0px",
   });
-  const [errors, setErrors] = useState<ValidationErrors>({});
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const [fieldError, setFieldError] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [displayedQuestion, setDisplayedQuestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const [submitError, setSubmitError] = useState(false);
-  const inputRefs = useRef<(HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)[]>([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "";
+  const currentStep = chatSteps[currentStepIndex];
+  const progress = ((currentStepIndex + 1) / chatSteps.length) * 100;
+  const completedSteps = useMemo(
+    () => chatSteps.slice(0, currentStepIndex),
+    [currentStepIndex],
+  );
+
+  useEffect(() => {
+    return () => {
+      if (typingTimerRef.current) {
+        clearTimeout(typingTimerRef.current);
+      }
+    };
+  }, []);
+
+  const clearTypingTimer = () => {
+    if (typingTimerRef.current) {
+      clearTimeout(typingTimerRef.current);
+      typingTimerRef.current = null;
+    }
+  };
 
   const { submit: submitToWeb3Forms } = useWeb3Forms({
     access_key: accessKey,
     settings: {
-      from_name: "Portfolio Contact Form",
-      subject: "New Contact Message from Your Portfolio",
+      from_name: "Kelvin Perez Portfolio",
+      subject: "New portfolio contact",
     },
     onSuccess: (msg) => {
-      setSubmitMessage(msg);
+      setSubmitMessage(msg || "Message sent. I will get back to you soon.");
       setSubmitError(false);
-      setIsComplete(true);
+      setHasSubmitted(true);
+      setIsSubmitting(false);
+      setCurrentStepIndex(chatSteps.length - 1);
+      setFieldError("");
     },
     onError: (msg) => {
       setSubmitMessage(msg || "Something went wrong. Please try again.");
       setSubmitError(true);
+      setHasSubmitted(true);
       setIsSubmitting(false);
     },
   });
 
-  // GSAP animations for section entry only (not for step transitions)
-  useGSAP(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
+  const validateStep = (step: ChatStep) => {
+    const value = formData[step.key].trim();
 
-    // Set initial states for main section elements only
-    gsap.set('[data-gsap="contact-subheading"]', { opacity: 0, y: 20 });
-    gsap.set('[data-gsap="contact-heading"]', { opacity: 0, y: 25 });
-    gsap.set('[data-gsap="contact-description"]', { opacity: 0, y: 30 });
-    gsap.set('[data-gsap="contact-container"]', { opacity: 0, y: 40, scale: 0.95 });
+    if (step.optional && !value) {
+      setFieldError("");
+      return true;
+    }
 
-    // Create timeline for contact section animation
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '[data-gsap="contact-subheading"]',
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none none',
-      },
-    });
+    if (!value) {
+      setFieldError(`${step.label} is required`);
+      return false;
+    }
 
-    tl.to('[data-gsap="contact-subheading"]', {
+    if (step.key === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      setFieldError("Enter a valid email");
+      return false;
+    }
+
+    if (step.key === "message" && value.length < 20) {
+      setFieldError("Add a little more context");
+      return false;
+    }
+
+    setFieldError("");
+    return true;
+  };
+
+  const validateForm = () => chatSteps.every((step) => validateStep(step));
+
+  const updateField = (field: FieldKey, value: string) => {
+    setFormData((current) => ({ ...current, [field]: value }));
+    if (fieldError) {
+      setFieldError("");
+    }
+  };
+
+  const submitForm = async () => {
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setHasSubmitted(false);
+
+    try {
+      await submitToWeb3Forms({
+        name: formData.name,
+        email: formData.email,
+        inquiryType: getInquiryLabel(formData.inquiryType),
+        company: formData.company || undefined,
+        message: formData.message,
+        botcheck: false,
+      });
+    } catch {
+      setSubmitMessage("Failed to send message. Please try again.");
+      setSubmitError(true);
+      setHasSubmitted(true);
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleAdvance = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (isTyping) {
+      return;
+    }
+
+    if (!validateStep(currentStep)) {
+      return;
+    }
+
+    if (currentStepIndex < chatSteps.length - 1) {
+      const nextStep = chatSteps[currentStepIndex + 1];
+
+      setIsTyping(true);
+      clearTypingTimer();
+
+      typingTimerRef.current = setTimeout(() => {
+        setCurrentStepIndex((current) => current + 1);
+        setIsTyping(false);
+        typingTimerRef.current = null;
+      }, getTypingDelay(nextStep.prompt));
+
+      return;
+    }
+
+    await submitForm();
+  };
+
+  const handleBack = () => {
+    clearTypingTimer();
+    setIsTyping(false);
+    setFieldError("");
+    setCurrentStepIndex((current) => Math.max(0, current - 1));
+  };
+
+  const resetConversation = () => {
+    clearTypingTimer();
+    setFormData(initialFormData);
+    setCurrentStepIndex(0);
+    setFieldError("");
+    setIsTyping(false);
+    setHasSubmitted(false);
+    setSubmitMessage("");
+    setSubmitError(false);
+  };
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 34, scale: 0.98 },
+    visible: {
       opacity: 1,
       y: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-    })
-      .to(
-        '[data-gsap="contact-heading"]',
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-        },
-        '-=0.3',
-      )
-      .to(
-        '[data-gsap="contact-description"]',
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-        },
-        '-=0.3',
-      )
-      .to(
-        '[data-gsap="contact-container"]',
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: 'power3.out',
-        },
-        '-=0.2',
-      );
-  });
-
-  // Track component mount
-  useEffect(() => {
-    // Component mounted
-  }, []);
-
-  // Typing animation effect
-  useEffect(() => {
-    let question = steps[currentStep].question;
-
-    // Only use name in second step if it's available
-    if (currentStep === 1 && formData.name) {
-      question = question.replace("{name}", formData.name);
-    }
-
-    setIsTyping(true);
-    setDisplayedQuestion("");
-
-    let charIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (charIndex < question.length) {
-        setDisplayedQuestion(question.slice(0, charIndex + 1));
-        charIndex++;
-      } else {
-        setIsTyping(false);
-        clearInterval(typingInterval);
-        // Focus input after typing completes - ONLY if contact form is visible
-        if (currentStep < 7 && inputRefs.current[currentStep]) {
-          setTimeout(() => {
-            const element = inputRefs.current[currentStep];
-            if (element) {
-              // Check if contact form is visible in viewport before focusing
-              const contactElement = document.getElementById('contact-me');
-              if (contactElement) {
-                const rect = contactElement.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-                if (isVisible) {
-                  element.focus();
-                }
-              }
-            }
-          }, 100);
-        }
-      }
-    }, 30);
-
-    return () => clearInterval(typingInterval);
-  }, [currentStep]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Update displayed question when name changes (only for step 1)
-  useEffect(() => {
-    if (currentStep === 1 && !isTyping) {
-      const question = steps[currentStep].question.replace("{name}", formData.name);
-      setDisplayedQuestion(question);
-    }
-  }, [formData.name, currentStep, isTyping]);
-
-  const validateCurrentStep = (): boolean => {
-    const newErrors: ValidationErrors = {};
-
-    switch (currentStep) {
-      case 0: // name
-        if (!formData.name.trim()) {
-          newErrors.name = "Name is required";
-        } else if (formData.name.trim().length < 2) {
-          newErrors.name = "Please enter a valid name";
-        }
-        break;
-      case 1: // email
-        if (!formData.email.trim()) {
-          newErrors.email = "Email is required";
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-          newErrors.email = "Please enter a valid email";
-        }
-        break;
-      case 2: // inquiryType
-        if (!formData.inquiryType) {
-          newErrors.inquiryType = "Please select an inquiry type";
-        }
-        break;
-      case 3: // company (optional, no validation)
-        break;
-      case 4: // phone (optional, but validate format if provided)
-        if (formData.phone && !/^[+]?[\d\s\-\(\)]+$/.test(formData.phone)) {
-          newErrors.phone = "Please enter a valid phone number";
-        }
-        break;
-      case 5: // budget (optional, no validation)
-        break;
-      case 6: // message
-        if (!formData.message.trim()) {
-          newErrors.message = "Message is required";
-        } else if (formData.message.trim().length < 10) {
-          newErrors.message = "Please provide more details (at least 10 characters)";
-        }
-        break;
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
   };
 
-  const handleNext = () => {
-    if (validateCurrentStep()) {
-      if (currentStep < steps.length - 1) {
-        setCurrentStep(currentStep + 1);
-        setErrors({});
-      }
-    }
+  const itemVariants = {
+    hidden: { opacity: 0, y: 18 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.52, ease: [0.25, 0.46, 0.45, 0.94] },
+    },
   };
 
-  const handlePrevious = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-      setErrors({});
-    }
-  };
+  const renderCurrentInput = () => {
+    const baseClass =
+      "min-h-12 w-full rounded-xl border border-purple-300/25 bg-purple-950/45 px-4 text-sm text-white outline-none transition placeholder:text-purple-100/45 focus:border-purple-200 focus:bg-purple-950/65 disabled:cursor-not-allowed disabled:opacity-60";
 
-  const handleSubmit = async () => {
-    if (validateCurrentStep()) {
-      setIsSubmitting(true);
-
-      try {
-        await submitToWeb3Forms({
-          name: formData.name,
-          email: formData.email,
-          inquiryType: formData.inquiryType,
-          company: formData.company || undefined,
-          phone: formData.phone || undefined,
-          budget: formData.budget || undefined,
-          message: formData.message,
-          botcheck: false,
-        });
-      } catch (error) {
-        setSubmitMessage("Failed to send message. Please try again.");
-        setSubmitError(true);
-        setIsSubmitting(false);
-      }
-    }
-  };
-
-  const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData({ ...formData, [field]: value });
-    // Clear error for this field when user starts typing
-    if (errors[field as keyof ValidationErrors]) {
-      setErrors({ ...errors, [field]: undefined });
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && currentStep < 7 && e.target instanceof HTMLInputElement) {
-      e.preventDefault();
-      handleNext();
-    }
-  };
-
-  if (isComplete) {
-    return (
-      <section id="contact-me" className="py-14">
-        <div className="max-w-screen-xl mx-auto px-4 text-neutral-300 md:px-8">
-          <div className="mt-20">
-            <div className="max-w-lg mx-auto space-y-3 sm:text-center">
-              <p data-gsap="contact-heading" className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
-                Interested in hiring me?
-              </p>
-              <p data-gsap="contact-description">
-                I'm actively seeking remote opportunities in WordPress, PHP, Laravel, and full-stack development. Whether you need custom solutions, e-commerce development, or enterprise applications, let's discuss how I can help your team.
-              </p>
-            </div>
-            <div className="mt-12 flex justify-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                data-gsap="contact-container"
-                className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-700/40 via-purple-600/35 to-blue-500/40 rounded-2xl border-2 border-purple-400/30 text-center"
-              >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2 }}
-          className={`w-16 h-16 ${submitError ? "bg-red-500" : "bg-green-500"} rounded-full flex items-center justify-center mx-auto mb-4`}
-        >
-          <Check className="w-8 h-8 text-white" />
-        </motion.div>
-        <h3 className="text-2xl font-bold text-white mb-2">
-          {submitError ? "Oops!" : `Thank you, ${formData.name}!`}
-        </h3>
-        <p className="text-neutral-200 mb-6">
-          {submitError
-            ? submitMessage || "Something went wrong. Please try again later."
-            : submitMessage || `I've received your message and will get back to you soon at ${formData.email}.`
+    if (currentStep.input === "textarea") {
+      return (
+        <textarea
+          value={formData[currentStep.key]}
+          disabled={isTyping || isSubmitting}
+          onChange={(event) =>
+            updateField(currentStep.key, event.target.value)
           }
-        </p>
-        <Button
-          onClick={() => {
-            setCurrentStep(0);
-            setFormData({ name: "", email: "", inquiryType: "", company: "", phone: "", budget: "", message: "" });
-            setIsComplete(false);
-            setSubmitMessage("");
-            setSubmitError(false);
-          }}
-          variant="outline"
-          className="border-purple-400 text-purple-200 hover:bg-purple-400/20"
-        >
-          Send Another Message
-        </Button>
-              </motion.div>
-            </div>
-          </div>
+          placeholder={currentStep.placeholder}
+          rows={4}
+          className={`${baseClass} min-h-28 resize-none py-3 leading-6`}
+        />
+      );
+    }
+
+    if (currentStep.input === "select") {
+      return (
+        <div className="grid gap-2 sm:grid-cols-2">
+          {inquiryOptions.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              disabled={isTyping || isSubmitting}
+              onClick={() => updateField(currentStep.key, option.value)}
+              className={`min-h-12 rounded-xl border px-4 text-left text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-60 ${
+                formData[currentStep.key] === option.value
+                  ? "border-purple-100 bg-white text-purple-950"
+                  : "border-purple-300/25 bg-purple-950/45 text-purple-100 hover:border-purple-200/60 hover:bg-purple-950/65 disabled:hover:border-purple-300/25 disabled:hover:bg-purple-950/45"
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
         </div>
-      </section>
+      );
+    }
+
+    return (
+      <input
+        type={currentStep.input}
+        autoComplete={currentStep.key === "email" ? "email" : "name"}
+        disabled={isTyping || isSubmitting}
+        value={formData[currentStep.key]}
+        onChange={(event) => updateField(currentStep.key, event.target.value)}
+        placeholder={currentStep.placeholder}
+        className={baseClass}
+      />
     );
-  }
+  };
 
   return (
-    <section id="contact-me" className="py-14">
-      <div className="max-w-screen-xl mx-auto px-4 text-neutral-300 md:px-8">
-        <div className="mt-20">
-          <div className="max-w-lg mx-auto space-y-3 sm:text-center">
-                  <p data-gsap="contact-heading" className="text-neutral-100 text-3xl font-semibold sm:text-4xl">
-              Interested in hiring me?
-            </p>
-            <p data-gsap="contact-description">
-              I'm actively seeking remote opportunities in WordPress, PHP, Laravel, and full-stack development. Whether you need custom solutions, e-commerce development, or enterprise applications, let's discuss how I can help your team.
-            </p>
-          </div>
-          <div className="mt-12 flex justify-center">
-            <div data-gsap="contact-container" className="w-full max-w-2xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-purple-700/40 via-purple-600/35 to-blue-500/40 rounded-2xl border-2 border-purple-400/30">
-      {/* Progress Indicator */}
-      <div className="flex justify-center space-x-3 mb-10 md:mb-12">
-        {steps.map((_, index) => (
-          <div
+    <motion.section
+      id="contact-me"
+      ref={sectionRef}
+      className="mx-auto w-full max-w-7xl px-4 py-24 text-white"
+      variants={sectionVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <div className="relative overflow-hidden rounded-[2rem] border border-purple-300/20 bg-[linear-gradient(135deg,rgba(28,12,62,0.96),rgba(70,24,125,0.78),rgba(31,19,70,0.96))] p-5 shadow-[0_34px_120px_rgba(88,28,135,0.32)] backdrop-blur-2xl md:p-8 lg:p-10">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:72px_72px] opacity-45" />
+        <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-purple-300/20 blur-3xl" />
+
+        <div className="relative grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-stretch">
+          <motion.div
+            className="flex flex-col justify-between gap-10 p-1 md:p-4"
+            variants={itemVariants}
+          >
+            <div>
+              <p className="mb-6 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-purple-200">
+                <span className="h-px w-8 bg-purple-200/80" />
+                Contact
+              </p>
+              <h2 className="max-w-xl text-4xl font-semibold leading-none text-white md:text-6xl">
+                Send the role or project details.
+              </h2>
+              <p className="mt-6 max-w-xl text-base leading-8 text-purple-100/80 md:text-lg">
+                If you are reaching out about a Laravel role, contract project,
+                or technical conversation, send the details here. I will reply
+                with the context that matters most.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+              {proofSteps.map((item) => (
+                <div
+                  key={item.number}
+                  className="flex min-h-16 items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.07] px-4 text-sm text-white/80"
+                >
+                  <span className="grid h-9 w-9 place-items-center rounded-full bg-purple-300/20 text-xs font-semibold text-purple-100">
+                    {item.number}
+                  </span>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              {meta.map((item) => (
+                <div key={item.label}>
+                  <p className="mb-2 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-purple-200">
+                    <span className="h-px w-7 bg-purple-200/70" />
+                    {item.label}
+                  </p>
+                  <p className="text-xl font-semibold text-white">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="flex min-h-[620px] flex-col rounded-[1.5rem] border border-white/20 bg-white/[0.085] shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur-2xl"
+            variants={itemVariants}
+          >
+            <div className="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-5 md:px-7">
+              <div className="flex items-center gap-4">
+                <div className="relative">
+                  <Image
+                    src={KelvinPerezPFP}
+                    alt="Kelvin Perez"
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 rounded-full object-cover"
+                  />
+                  <span className="absolute -bottom-0.5 -right-0.5 h-4 w-4 rounded-full border-2 border-purple-900 bg-lime-300" />
+                </div>
+                <div>
+                  <p className="text-base font-semibold text-white">Kelvin</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-purple-100/60">
+                    Portfolio contact
+                  </p>
+                </div>
+              </div>
+
+              <div className="hidden min-w-44 items-center gap-1.5 sm:flex">
+                {chatSteps.map((step, index) => (
+                  <span
+                    key={step.key}
+                    className={`h-1.5 flex-1 rounded-full ${
+                      index <= currentStepIndex ? "bg-purple-200" : "bg-white/15"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="flex-1 overflow-hidden px-5 py-6 md:px-7">
+              <div className="mb-6 h-1.5 overflow-hidden rounded-full bg-white/10 sm:hidden">
+                <div
+                  className="h-full rounded-full bg-purple-200 transition-all duration-300"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+
+              <div className="flex h-full flex-col justify-end gap-4">
+                {completedSteps.map((step) => (
+                  <div key={step.key} className="grid gap-3">
+                    <ChatBubble>{step.prompt}</ChatBubble>
+                    <ChatBubble from="user">
+                      {getDisplayValue(step, formData)}
+                    </ChatBubble>
+                  </div>
+                ))}
+
+                {!hasSubmitted && !isTyping && (
+                  <ChatBubble>{currentStep.prompt}</ChatBubble>
+                )}
+
+                {!hasSubmitted && isTyping && (
+                  <div className="grid gap-3">
+                    <ChatBubble>{currentStep.prompt}</ChatBubble>
+                    <ChatBubble from="user">
+                      {getDisplayValue(currentStep, formData)}
+                    </ChatBubble>
+                    <TypingBubble />
+                  </div>
+                )}
+
+                {hasSubmitted && (
+                  <div
+                    className={`flex items-start gap-3 rounded-2xl border p-4 text-sm ${
+                      submitError
+                        ? "border-red-300/40 bg-red-500/10 text-red-100"
+                        : "border-emerald-300/40 bg-emerald-500/10 text-emerald-100"
+                    }`}
+                  >
+                    {submitError ? (
+                      <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                    ) : (
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+                    )}
+                    <p>{submitMessage}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="border-t border-white/10 px-5 py-5 md:px-7">
+              {hasSubmitted && !submitError ? (
+                <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+                  <button
+                    type="button"
+                    onClick={resetConversation}
+                    className="inline-flex min-h-12 items-center justify-center rounded-xl border border-purple-200/25 bg-white/[0.08] px-5 text-sm font-semibold text-purple-100 transition hover:bg-white/[0.12]"
+                  >
+                    Send another message
+                  </button>
+                  <Link
+                    href="/projects/light-code-labs-dashboard"
+                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white px-5 text-sm font-semibold text-purple-950 transition hover:bg-purple-100"
+                  >
+                    View dashboard
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              ) : (
+                <form onSubmit={handleAdvance} className="grid gap-3">
+                  {renderCurrentInput()}
+
+                  {fieldError && (
+                    <p className="text-sm font-medium text-red-200">{fieldError}</p>
+                  )}
+
+                  <div className="grid gap-3 sm:grid-cols-[auto_1fr]">
+                    <button
+                      type="button"
+                      onClick={handleBack}
+                      disabled={currentStepIndex === 0 || isSubmitting || isTyping}
+                      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-purple-200/25 bg-white/[0.08] px-4 text-sm font-semibold text-purple-100 transition hover:bg-white/[0.12] disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                      <ArrowLeft className="h-4 w-4" />
+                      Back
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting || isTyping}
+                      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white px-6 text-sm font-semibold text-purple-950 shadow-[0_20px_52px_rgba(168,85,247,0.25)] transition hover:bg-purple-100 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {isSubmitting
+                        ? "Sending"
+                        : isTyping
+                          ? "One moment"
+                        : currentStepIndex === chatSteps.length - 1
+                          ? "Send message"
+                          : currentStep.optional && !formData[currentStep.key]
+                            ? "Skip"
+                            : "Continue"}
+                      {isSubmitting || isTyping ? (
+                        <span className="h-4 w-4 animate-spin rounded-full border-2 border-purple-950/25 border-t-purple-950" />
+                      ) : currentStepIndex === chatSteps.length - 1 ? (
+                        <Send className="h-4 w-4" />
+                      ) : (
+                        <ArrowRight className="h-4 w-4" />
+                      )}
+                    </button>
+                  </div>
+                </form>
+              )}
+
+              <div className="mt-5 flex flex-col gap-2 text-xs text-purple-100/60 sm:flex-row sm:items-center sm:justify-between">
+                <span className="inline-flex items-center gap-2">
+                  <Mail className="h-3.5 w-3.5" />
+                  Private contact form
+                </span>
+                <span>Progress {Math.round(progress)}%</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
+function ChatBubble({
+  children,
+  from = "assistant",
+}: {
+  children: string;
+  from?: "assistant" | "user";
+}) {
+  const isUser = from === "user";
+
+  return (
+    <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
+      <div
+        className={`max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-6 md:max-w-[76%] ${
+          isUser
+            ? "rounded-br-md bg-white text-purple-950"
+            : "rounded-bl-md bg-white/[0.11] text-purple-50"
+        }`}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function TypingBubble() {
+  return (
+    <div
+      className="flex justify-start"
+      aria-live="polite"
+      aria-label="Kelvin is typing"
+    >
+      <div className="flex items-center gap-1 rounded-2xl rounded-bl-md bg-white/[0.11] px-4 py-4 text-purple-50">
+        {[0, 1, 2].map((index) => (
+          <span
             key={index}
-            className={`h-3 w-3 rounded-full transition-all duration-300 ${
-              index === currentStep
-                ? "bg-purple-300 w-10 md:w-12"
-                : index < currentStep
-                ? "bg-green-400"
-                : "bg-gray-400"
-            }`}
+            className="h-2 w-2 animate-bounce rounded-full bg-purple-100/80"
+            style={{ animationDelay: `${index * 140}ms` }}
           />
         ))}
       </div>
-
-      {/* Chat Container */}
-      <div className="space-y-8 md:space-y-10">
-        {/* Question Bubble */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`question-${currentStep}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="flex items-start space-x-3"
-          >
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex-shrink-0 flex items-center justify-center">
-              <span className="text-white text-sm md:text-base font-bold">K</span>
-            </div>
-            <div className="flex-1">
-              <div className="border-2 border-blue-400 rounded-2xl rounded-tl-none p-4 md:p-6">
-                <p className="text-neutral-200 text-base md:text-lg whitespace-pre-wrap">
-                  {displayedQuestion}
-                  {isTyping && <span className="inline-block w-2 h-4 md:h-5 bg-purple-300 animate-pulse ml-1" />}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* User Response */}
-        {currentStep < 7 && (
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`response-${currentStep}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-              className="flex items-start space-x-3 md:space-x-4 justify-end"
-            >
-              <div className="flex-1 max-w-[85%] md:max-w-[90%]">
-                {currentStep === 0 && (
-                  <input
-                    ref={(el) => {
-                    inputRefs.current[0] = el;
-                  }}
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => handleInputChange("name", e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="Your name..."
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
-                      errors.name
-                        ? "border-red-400"
-                        : "border-purple-400 focus:border-purple-300"
-                    }`}
-                    disabled={isTyping}
-                  />
-                )}
-                {currentStep === 1 && (
-                  <input
-                    ref={(el) => {
-                    inputRefs.current[1] = el;
-                  }}
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="your@email.com"
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
-                      errors.email
-                        ? "border-red-400"
-                        : "border-purple-400 focus:border-purple-300"
-                    }`}
-                    disabled={isTyping}
-                  />
-                )}
-                {currentStep === 2 && (
-                  <select
-                    ref={(el) => {
-                    inputRefs.current[2] = el;
-                  }}
-                    value={formData.inquiryType}
-                    onChange={(e) => handleInputChange("inquiryType", e.target.value)}
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg border-4 outline-none transition-all ${
-                      errors.inquiryType
-                        ? "border-red-400"
-                        : "border-purple-400 focus:border-purple-300"
-                    }`}
-                    disabled={isTyping}
-                  >
-                    <option value="" className="text-neutral-800">Select inquiry type...</option>
-                    {inquiryOptions.map((option) => (
-                      <option key={option.value} value={option.value} className="text-neutral-800">
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                )}
-                {currentStep === 3 && (
-                  <input
-                    ref={(el) => {
-                    inputRefs.current[3] = el;
-                  }}
-                    type="text"
-                    value={formData.company}
-                    onChange={(e) => handleInputChange("company", e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="Company/Organization (optional)"
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
-                      errors.company
-                        ? "border-red-400"
-                        : "border-purple-400 focus:border-purple-300"
-                    }`}
-                    disabled={isTyping}
-                  />
-                )}
-                {currentStep === 4 && (
-                  <input
-                    ref={(el) => {
-                    inputRefs.current[4] = el;
-                  }}
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange("phone", e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="Phone Number (optional)"
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-2 outline-none transition-all ${
-                      errors.phone
-                        ? "border-red-400"
-                        : "border-purple-400 focus:border-purple-300"
-                    }`}
-                    disabled={isTyping}
-                  />
-                )}
-                {currentStep === 5 && (
-                  <select
-                    ref={(el) => {
-                    inputRefs.current[5] = el;
-                  }}
-                    value={formData.budget}
-                    onChange={(e) => handleInputChange("budget", e.target.value)}
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg border-4 outline-none transition-all ${
-                      errors.budget
-                        ? "border-red-400"
-                        : "border-purple-400 focus:border-purple-300"
-                    }`}
-                    disabled={isTyping}
-                  >
-                    <option value="" className="text-neutral-800">Select budget (optional)</option>
-                    {budgetOptions.map((option) => (
-                      <option key={option.value} value={option.value} className="text-neutral-800">
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                )}
-                {currentStep === 6 && (
-                  <textarea
-                    ref={(el) => {
-                    inputRefs.current[6] = el;
-                  }}
-                    value={formData.message}
-                    onChange={(e) => handleInputChange("message", e.target.value)}
-                    placeholder="Tell me about your project or opportunity: What are you looking to build? Are you hiring for a full-time role or contract work? Include details about the tech stack, project scope, timeline, and whether it's a remote position. The more information you provide, the better I can understand how I can help."
-                    rows={6}
-                    className={`w-full px-4 py-3 md:px-6 md:py-4 bg-transparent rounded-2xl rounded-tr-none text-white text-base md:text-lg placeholder-neutral-300 border-4 outline-none transition-all resize-none ${
-                      errors.message
-                        ? "border-red-400"
-                        : "border-purple-400 focus:border-purple-300"
-                    }`}
-                    disabled={isTyping}
-                  />
-                )}
-                {errors[currentStep === 0 ? "name" :
-                   currentStep === 1 ? "email" :
-                   currentStep === 2 ? "inquiryType" :
-                   currentStep === 3 ? "company" :
-                   currentStep === 4 ? "phone" :
-                   currentStep === 5 ? "budget" : "message"] && (
-                  <p className="text-red-400 text-sm md:text-base mt-2 ml-2">
-                    {errors[currentStep === 0 ? "name" :
-                      currentStep === 1 ? "email" :
-                      currentStep === 2 ? "inquiryType" :
-                      currentStep === 3 ? "company" :
-                      currentStep === 4 ? "phone" :
-                      currentStep === 5 ? "budget" : "message"]}
-                  </p>
-                )}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        )}
-
-        {/* Review Step */}
-        {currentStep === 7 && (
-          <AnimatePresence>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-              className="space-y-3"
-            >
-              <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
-                <p className="text-xs md:text-sm text-blue-300 mb-1">Name</p>
-                <p className="text-white text-base md:text-lg break-words">{formData.name}</p>
-              </div>
-              <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
-                <p className="text-xs md:text-sm text-blue-300 mb-1">Email</p>
-                <p className="text-white text-base md:text-lg break-words">{formData.email}</p>
-              </div>
-              {formData.inquiryType && (
-                <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
-                  <p className="text-xs md:text-sm text-blue-300 mb-1">Inquiry Type</p>
-                  <p className="text-white text-base md:text-lg break-words">
-                    {inquiryOptions.find(opt => opt.value === formData.inquiryType)?.label || formData.inquiryType}
-                  </p>
-                </div>
-              )}
-              {formData.company && (
-                <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
-                  <p className="text-xs md:text-sm text-blue-300 mb-1">Company</p>
-                  <p className="text-white text-base md:text-lg break-words">{formData.company}</p>
-                </div>
-              )}
-              {formData.phone && (
-                <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
-                  <p className="text-xs md:text-sm text-blue-300 mb-1">Phone</p>
-                  <p className="text-white text-base md:text-lg break-words">{formData.phone}</p>
-                </div>
-              )}
-              {formData.budget && (
-                <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
-                  <p className="text-xs md:text-sm text-blue-300 mb-1">Budget</p>
-                  <p className="text-white text-base md:text-lg break-words">
-                    {budgetOptions.find(opt => opt.value === formData.budget)?.label || formData.budget}
-                  </p>
-                </div>
-              )}
-              <div className="rounded-xl p-4 md:p-5 overflow-hidden bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50">
-                <p className="text-xs md:text-sm text-blue-300 mb-1">Message</p>
-                <p className="text-white text-base md:text-lg whitespace-pre-wrap break-words">{formData.message}</p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        )}
-
-        {/* Navigation Buttons */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`navigation-${currentStep}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
-            className="flex justify-between items-center pt-6 md:pt-8"
-          >
-            <Button
-              onClick={handlePrevious}
-              disabled={currentStep === 0 || isTyping || isSubmitting}
-              variant="ghost"
-              size="default"
-              className="text-neutral-400 hover:text-white hover:bg-neutral-800/50 text-sm md:text-base px-8 md:px-12 py-4 md:py-6 rounded-2xl"
-            >
-              <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-              Back
-            </Button>
-
-            {currentStep < 7 && (
-              <Button
-                onClick={handleNext}
-                disabled={
-                  isTyping ||
-                  isSubmitting ||
-                  (currentStep === 0 && !formData.name.trim()) ||
-                  (currentStep === 1 && !formData.email.trim()) ||
-                  (currentStep === 2 && !formData.inquiryType) ||
-                  (currentStep === 6 && !formData.message.trim())
-                }
-                size="default"
-                className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white border-0 text-sm md:text-base px-4 md:px-6 py-2 md:py-3"
-              >
-                Next
-                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
-              </Button>
-            )}
-
-            {currentStep === 7 && (
-              <Button
-                onClick={handleSubmit}
-                disabled={isSubmitting}
-                size="default"
-                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-0 text-sm md:text-base px-8 md:px-12 py-4 md:py-6 rounded-2xl"
-              >
-                {isSubmitting ? (
-                  <>
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      className="w-4 h-4 md:w-5 md:h-5 border-2 border-white/30 border-t-white rounded-full mr-2"
-                    />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="w-4 h-4 md:w-5 md:h-5 ml-2" />
-                  </>
-                )}
-              </Button>
-            )}
-          </motion.div>
-        </AnimatePresence>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
+    </div>
   );
 }

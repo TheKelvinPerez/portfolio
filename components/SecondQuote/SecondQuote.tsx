@@ -114,7 +114,7 @@ export default function SecondQuote() {
             ref={authorRef}
             className="mt-2 text-lg font-extralight text-white/50 lg:text-2xl"
           >
-            - Leonardo Da Vinci
+            Leonardo Da Vinci
           </div>
         </div>
         <div ref={backgroundRef} className="absolute inset-0 z-[1] flex items-center justify-center">

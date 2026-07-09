@@ -13,7 +13,7 @@ interface TimelineEntry {
 }
 
 // Individual Timeline Item Component
-const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) => {
+const TimelineItem = ({ item }: { item: TimelineEntry }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(itemRef, {
     once: true,
@@ -140,7 +140,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
       <div ref={ref} className="relative mx-auto max-w-7xl pb-20">
         {data.map((item, index) => (
-          <TimelineItem key={index} item={item} index={index} />
+          <TimelineItem key={index} item={item} />
         ))}
         <div
           style={{

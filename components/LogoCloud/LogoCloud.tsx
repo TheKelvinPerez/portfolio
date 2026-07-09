@@ -12,6 +12,20 @@ import UbuntuLogo from '@/public/images/svg/ubuntu-logo.svg';
 import ArchLinuxLogo from '@/public/images/svg/Arch-Logo.svg';
 
 export const logos = [
+  {
+    src: LaravelLogo,
+    alt: 'Laravel Logo',
+    name: 'Laravel',
+    width: 30,
+    height: 30,
+  },
+  {
+    src: PHPLogo,
+    alt: 'PHP Logo',
+    name: 'PHP',
+    width: 40,
+    height: 30,
+  },
   { src: ReactLogo, alt: 'React Logo', name: 'React', width: 30, height: 30 },
   {
     src: TypescriptLogo,
@@ -28,20 +42,6 @@ export const logos = [
     height: 30,
   },
   {
-    src: PythonLogo,
-    alt: 'Python Logo',
-    name: 'Python',
-    width: 30,
-    height: 30,
-  },
-  {
-    src: NeovimLogo,
-    alt: 'Neovim Logo',
-    name: 'Neovim',
-    width: 28,
-    height: 32,
-  },
-  {
     src: UbuntuLogo,
     alt: 'Ubuntu Logo',
     name: 'Ubuntu',
@@ -56,13 +56,13 @@ export const logos = [
     height: 32,
   },
   { src: WordPressLogo, alt: 'WordPress Logo', name: 'WordPress', width: 30, height: 30 },
-  {
-    src: PHPLogo,
-    alt: 'PHP Logo',
-    name: 'PHP',
-    width: 40,
-    height: 30,
-  },
+  { src: PythonLogo, alt: 'Python Logo', name: 'Python', width: 30, height: 30 },
+  { src: NeovimLogo, alt: 'Neovim Logo', name: 'Neovim', width: 28, height: 32 },
+  { src: ArchLinuxLogo, alt: 'Arch Linux Logo', name: 'Arch Linux', width: 32, height: 32 },
+  { src: LaravelLogo, alt: 'Laravel Logo', name: 'Laravel', width: 30, height: 30 },
+  { src: PHPLogo, alt: 'PHP Logo', name: 'PHP', width: 40, height: 30 },
+  { src: ReactLogo, alt: 'React Logo', name: 'React', width: 30, height: 30 },
+  { src: TypescriptLogo, alt: 'TypeScript Logo', name: 'TypeScript', width: 30, height: 30 },
   {
     src: LaravelLogo,
     alt: 'Laravel Logo',
@@ -77,52 +77,16 @@ export const logos = [
     width: 30,
     height: 30,
   },
-  // Repeat important logos for better marquee continuity
-  { src: ReactLogo, alt: 'React Logo', name: 'React', width: 30, height: 30 },
   {
-    src: TypescriptLogo,
-    alt: 'TypeScript Logo',
-    name: 'TypeScript',
+    src: TailwindCSSLogo,
+    alt: 'Tailwind CSS Logo',
+    name: 'Tailwind CSS',
     width: 30,
     height: 30,
   },
-  {
-    src: PythonLogo,
-    alt: 'Python Logo',
-    name: 'Python',
-    width: 30,
-    height: 30,
-  },
-  {
-    src: NeovimLogo,
-    alt: 'Neovim Logo',
-    name: 'Neovim',
-    width: 28,
-    height: 32,
-  },
-  // Additional WordPress and PHP logos with spacing between them
   { src: WordPressLogo, alt: 'WordPress Logo', name: 'WordPress', width: 30, height: 30 },
-  { src: ReactLogo, alt: 'React Logo', name: 'React', width: 30, height: 30 },
-  { src: TypescriptLogo, alt: 'TypeScript Logo', name: 'TypeScript', width: 30, height: 30 },
-  {
-    src: PHPLogo,
-    alt: 'PHP Logo',
-    name: 'PHP',
-    width: 40,
-    height: 30,
-  },
   { src: PythonLogo, alt: 'Python Logo', name: 'Python', width: 30, height: 30 },
-  { src: TailwindCSSLogo, alt: 'Tailwind CSS Logo', name: 'Tailwind CSS', width: 30, height: 30 },
-  { src: WordPressLogo, alt: 'WordPress Logo', name: 'WordPress', width: 30, height: 30 },
   { src: UbuntuLogo, alt: 'Ubuntu Logo', name: 'Ubuntu', width: 35, height: 35 },
-  { src: ArchLinuxLogo, alt: 'Arch Linux Logo', name: 'Arch Linux', width: 32, height: 32 },
-  {
-    src: PHPLogo,
-    alt: 'PHP Logo',
-    name: 'PHP',
-    width: 40,
-    height: 30,
-  },
 ];
 
 interface LogoProps {
@@ -189,7 +153,7 @@ export default function LogoCloud() {
         className="mx-auto w-full text-center text-xs lg:text-sm opacity-0"
         data-gsap="tech-subtitle"
       >
-        Leveraging state-of-the-art technologies
+        Built with the stack I want to work in every day
       </h2>
 
       <div
@@ -221,7 +185,7 @@ export default function LogoCloud() {
         className="mx-auto w-full max-w-[280px] text-center text-xs opacity-0 sm:max-w-none lg:text-sm"
         data-gsap="curve-text"
       >
-        Staying ahead of the curve and surfing the waves of innovation
+        Laravel first, with WordPress and Shopify still part of the path
       </p>
     </div>
   );

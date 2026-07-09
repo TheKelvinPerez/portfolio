@@ -64,18 +64,12 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="About">
           <div className="flex min-w-[120px] flex-col space-y-3 text-sm">
             <HoveredLink href="/#about">About Me</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Videos">
-          <div className="flex min-w-[140px] flex-col space-y-3 text-sm">
-            <HoveredLink href="/#videos">YouTube Videos</HoveredLink>
-            <HoveredLink href="https://www.youtube.com/@TheKelvinPerez">
-              YouTube Channel
-            </HoveredLink>
+            <HoveredLink href="/#timeline">Timeline</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Projects">
           <div className="flex min-w-[120px] flex-col space-y-3 text-sm">
+            <HoveredLink href="/#dashboard-proof">Dashboard</HoveredLink>
             <HoveredLink href="/#projects">View Projects</HoveredLink>
             <StyledButton
               href="https://github.com/TheKelvinPerez"
@@ -88,13 +82,13 @@ function Navbar({ className }: { className?: string }) {
             </StyledButton>
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Blog">
+        <MenuItem setActive={setActive} active={active} item="Contact">
           <div className="flex min-w-[100px] flex-col space-y-3 text-sm">
-            <HoveredLink href="/posts">All Posts</HoveredLink>
+            <HoveredLink href="/#faq">FAQ</HoveredLink>
+            <HoveredLink href="/contact">Contact</HoveredLink>
           </div>
         </MenuItem>
       </Menu>
     </div>
   );
 }
-

@@ -14,208 +14,204 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    title: 'SunnySide 24/7 AC - Enterprise WordPress Platform',
+    title: 'Light Code Labs Dashboard',
     description:
-      'Sophisticated, locally-focused HVAC website built on WordPress with advanced SEO optimization, scalable architecture generating 487 pages dynamically. Features custom post types, Advanced Custom Fields, modern build tooling (Vite + Tailwind v4), and enterprise-grade DevOps deployment with Caddy, Docker monitoring, and automated SSL.',
-    date: 'August 2025',
+      'A Laravel, Inertia, and React platform that turns a captured Google Maps lead into a generated sales site demo with enrichment, chatbot capture, voice workflows, queues, usage tracking, and Docker based deployment.',
+    date: '2026',
+    imageUrl: '/projects/portfolio.png',
+    tags: [
+      'Laravel',
+      'PHP',
+      'Inertia',
+      'React',
+      'TypeScript',
+      'PostgreSQL',
+      'Docker',
+      'Queues',
+      'Stripe',
+      'OpenAI',
+      'Chrome Extension',
+      'Hetzner',
+    ],
+    slug: 'light-code-labs-dashboard',
+    links: [
+      {
+        title: 'Workflow Overview',
+        url: '/projects/light-code-labs-dashboard#walkthrough',
+      },
+      {
+        title: 'Demo Access',
+        url: '/projects/light-code-labs-dashboard#demo-access',
+      },
+      {
+        title: 'Generated Sample Site',
+        url: '/projects/light-code-labs-dashboard#generated-site',
+      },
+    ],
+    fullDescription:
+      '# Light Code Labs Dashboard\n\n' +
+      'I tried to build an automation agency. The business did not get the distribution it needed, but the product became the proof. I built the Laravel platform that could have powered the agency.\n\n' +
+      'This is the main portfolio piece because it shows the role I am aiming for now: full stack Laravel development with React, TypeScript, databases, product thinking, integrations, queues, and infrastructure.\n\n' +
+      '## What It Does\n\n' +
+      '1. Captures a public business lead from Google Maps through a Chrome extension.\n\n' +
+      '2. Stores profile data, photos, reviews, website crawl context, and enrichment results inside the dashboard.\n\n' +
+      '3. Generates sales site options from that lead so a prospect can see a real demo before becoming a client.\n\n' +
+      '4. Publishes preview and live URLs with chatbot capture, form routing, and follow up workflows.\n\n' +
+      '5. Tracks product usage, model usage, queued work, and operational status from the Laravel app.\n\n' +
+      '## Laravel Proof\n\n' +
+      'The dashboard is built with Laravel, Inertia, React, TypeScript, PostgreSQL, queues, jobs, policies, reusable services, and Docker. It runs with staging and production environments on a Hetzner VPS.\n\n' +
+      'The important part is not that the agency worked. The important part is that the software works, and the software has the same moving parts a Laravel team would expect in a production product.\n\n' +
+      '## Applied AI Inside The Product\n\n' +
+      'The product uses OpenAI enrichment, generated site copy, retrieval based chatbot knowledge, marketing audit writing, request triage, spam classification, OCR extraction, and usage logging. These are product integrations, not portfolio decoration.\n\n' +
+      '## Review Path\n\n' +
+      '1. Start with the workflow overview to see how lead capture moves into Laravel.\n\n' +
+      '2. Review the dashboard flow for enrichment, generated site options, chatbot setup, and usage tracking.\n\n' +
+      '3. Use the generated sample site as the public facing result from the workflow.\n\n' +
+      '4. Treat the demo access as a focused product walkthrough, not a client case study.\n\n' +
+      '## Honest Outcome\n\n' +
+      'I ran out of runway on the business side. I did not distribute the agency well enough. But I did build the product, and that is why this belongs at the top of the portfolio. I am applying for Laravel developer roles, and this is the clearest proof that I can build serious Laravel applications.',
+  },
+  {
+    title: 'SunnySide 24/7 AC WordPress Platform',
+    description:
+      'A custom WordPress and PHP platform for a South Florida HVAC business, using structured content, ACF Pro, dynamic service pages, local SEO, modern build tooling, and performance work.',
+    date: '2025',
     imageUrl: '/projects/sunnyside-hvac.jpg',
     tags: [
       'WordPress',
-      'PHP 8.3',
-      'Vite',
-      'Tailwind v4',
+      'PHP',
       'ACF Pro',
-      'DevOps',
-      'Caddy',
-      'Docker',
-      'SEO',
+      'Tailwind CSS',
+      'Vite',
+      'MySQL',
+      'Local SEO',
+      'Performance',
     ],
     slug: 'sunnyside-247-ac-website',
     links: [
       { title: 'Live Site', url: 'https://sunnyside247ac.com' },
       {
-        title: '100 Google PageSpeed Score',
+        title: 'PageSpeed Result',
         url: 'https://pagespeed.web.dev/analysis/https-sunnyside247ac-com/bimc9jrugi?form_factor=desktop',
       },
-      { title: 'GitHub', url: 'https://github.com/TheKelvinPerez/sunnysideac-wp' },
+      {
+        title: 'GitHub',
+        url: 'https://github.com/TheKelvinPerez/sunnysideac-wp',
+      },
     ],
     fullDescription:
-      '# Problem\n\n' +
-      'A family-owned HVAC business in South Florida was struggling to compete with larger companies in local search results. They needed comprehensive online coverage across 30+ cities and 15+ service types, but manually creating hundreds of location-specific pages would be:\n\n' +
-      '- **Time-Prohibitive**: 487 pages would take months to create manually\n' +
-      '- **Inconsistent**: Manual creation leads to content quality variations\n' +
-      '- **Unmaintainable**: Updating business info across hundreds of pages becomes impossible\n' +
-      '- **Limited SEO Impact**: Without proper structure and automation, achieving local search dominance is unfeasible\n\n' +
-      '**Core Challenge**: Create a scalable, enterprise-level platform that generates hundreds of SEO-optimized pages dynamically while maintaining consistency, delivering measurable ROI through organic search traffic, and remaining easy to manage.\n\n' +
-      '# Action\n\n' +
-      '### WordPress Architecture & Automation\n' +
-      'Engineered a sophisticated content management system using **custom post types** and **Advanced Custom Fields Pro**:\n\n' +
-      '- **3 Custom Post Types**: 31 Cities, 15 Services, 8 Brands with relationship management\n' +
-      '- **Dynamic URL Generation**: Custom rewrite rules creating SEO-friendly URLs like `/miami/ac-repair/`\n' +
-      '- **Automated Content**: 487 total pages (465 service-city combinations + 31 city pages + 15 service pages) generated from structured data\n' +
-      '- **Component-Based Design**: 25+ reusable template components using React-style patterns\n' +
-      '- **Smart Taxonomy**: Hierarchical service categories with meta-field relationships\n\n' +
-      '### Modern Development Stack\n' +
-      'Implemented cutting-edge tooling for optimal performance:\n\n' +
-      '- **PHP 8.3+**: Modern practices with PSR-4 autoloading, Composer, PHPDotenv\n' +
-      '- **Vite 6.3.6**: Hot Module Replacement (HMR) for real-time development, intelligent asset pipeline\n' +
-      '- **Tailwind CSS v4**: CSS-native configuration, utility-first approach\n' +
-      '- **DDEV Docker**: Containerized development environment ensuring consistency\n\n' +
-      '### Enterprise DevOps Infrastructure\n' +
-      'Deployed production-ready infrastructure with enterprise-grade security:\n\n' +
-      "- **Caddy v2 Web Server**: Automatic HTTPS with Let's Encrypt, HTTP/3 support, multi-site configuration\n" +
-      '- **PHP 8.3-FPM**: Dynamic process management, security hardening, resource optimization\n' +
-      '- **MySQL 8**: Multi-tenant setup with dedicated users and performance tuning\n' +
-      '- **Docker Monitoring**: Uptime Kuma for automated health checks and alerting\n' +
-      '- **Security Hardening**: Comprehensive headers (HSTS, CSP, XSS Protection), TLS 1.3, file protection\n\n' +
-      '### Advanced SEO Strategy\n' +
-      'Built comprehensive local SEO foundation:\n\n' +
-      '- **Custom Sitemap Provider**: PHP class generating dynamic service-city combination URLs\n' +
-      '- **Schema Markup**: LocalBusiness and Organization schema with geo-targeting for 30+ cities\n' +
-      '- **Performance Optimization**: 1-year cache for static assets, dynamic scaling, efficient queries\n' +
-      '- **Rich Snippets**: Enhanced meta tags (Open Graph, Twitter Cards) for better visibility\n\n' +
-      '# Results\n\n' +
-      '### Business Impact & ROI\n' +
-      '- **90%+ Time Savings**: Automated content generation reduced creation time from months to days\n' +
-      '- **487 SEO-Optimized Pages**: Massive organic search footprint covering entire South Florida market\n' +
-      '- **$50K-100K Annual SEO Value**: Equivalent in organic traffic to paid advertising spend\n' +
-      '- **Scalable Growth**: Easy addition of new cities/services without technical debt\n' +
-      '- **Centralized Management**: Single-point updates across all 487 pages instantly\n\n' +
-      '### Technical Excellence Delivered\n' +
-      '- **487 Dynamic Landing Pages**: Service-city combinations auto-generated with SEO optimization\n' +
-      '- **Enterprise Architecture**: Production-ready with monitoring, security, and performance optimization\n' +
-      '- **Modern Development Workflow**: HMR, environment detection, automated builds and deployments\n' +
-      '- **Local Search Dominance**: Comprehensive coverage with rich snippets and structured data\n' +
-      '- **Zero Technical Debt**: Maintainable, scalable codebase using modern best practices\n\n' +
-      '### Market Value Created\n' +
-      '**Development Investment Equivalent**: $73,000-230,000\n' +
-      '- Custom WordPress Theme: $8,000-25,000\n' +
-      '- Advanced SEO Implementation: $15,000-50,000\n' +
-      '- Content Strategy (487 pages): $30,000-100,000+\n' +
-      '- Local SEO Optimization: $5,000-15,000\n' +
-      '- Custom Development: $10,000-30,000\n' +
-      '- DevOps Infrastructure: $5,000-10,000\n\n' +
-      '**Annual Ongoing Value**: $42,000-156,000\n' +
-      '- SEO Management: $2,000-8,000/month\n' +
-      '- Content Updates: $1,000-3,000/month\n' +
-      '- Technical Maintenance: $500-2,000/month\n\n' +
-      '### Skills Demonstrated\n' +
-      '**Backend**: Custom WordPress themes, PHP 8.3+ (PSR-4, Composer), MySQL optimization, ACF Pro\n\n' +
-      '**Frontend**: Modern JavaScript (ES modules), Tailwind v4, Vite, responsive design\n\n' +
-      '**DevOps**: Caddy v2, Docker (DDEV, Uptime Kuma), PHP-FPM tuning, SSL automation, security hardening\n\n' +
-      '**SEO**: Technical implementation, schema markup, content automation, local optimization, custom sitemaps\n\n' +
-      '---\n\n' +
-      '**Key Takeaway**: This project demonstrates the ability to deliver enterprise-level WordPress solutions that create measurable business value. By combining modern development practices, automation, and strategic SEO, I delivered a platform worth $73K-230K in development value while generating $50K-100K in annual organic search traffic - transforming a local HVAC business into a regional market leader.',
+      '# SunnySide 24/7 AC WordPress Platform\n\n' +
+      'This project shows the WordPress and PHP foundation that led into my Laravel work. The goal was to give a local HVAC company a scalable content system instead of a small brochure site.\n\n' +
+      '## What I Built\n\n' +
+      '1. Custom WordPress theme with PHP, ACF Pro, and structured content models.\n\n' +
+      '2. Dynamic service and city page generation for local search coverage.\n\n' +
+      '3. Modern frontend workflow using Tailwind CSS and Vite.\n\n' +
+      '4. Schema, sitemap, metadata, and performance work for local SEO.\n\n' +
+      '5. Deployment and server configuration work to keep the site fast and stable.\n\n' +
+      '## Why It Matters\n\n' +
+      'This is the older chapter of the portfolio, and it still matters. WordPress is where I learned PHP, client work, content architecture, SEO, and the reality of building for non technical business owners.',
   },
   {
-    title: 'Personal Portfolio - Next.js 15 Modern Platform',
+    title: 'Chrome Extension Lead Capture',
     description:
-      'High-performance portfolio built with Next.js 15, React 19, and TypeScript. Features GSAP animations, shadcn/ui components, and modern development practices. Demonstrates full-stack expertise through real project case studies and technical implementation.',
-    date: 'September 2025',
-    imageUrl: '/images/png/kelvin-perez-website-preview.png',
+      'The companion capture tool for Light Code Labs. It connects the browser workflow to the Laravel dashboard so a Google Maps lead can move directly into the product pipeline.',
+    date: '2026',
+    imageUrl: '/projects/aquakit.png',
     tags: [
-      'Next.js 15',
-      'React 19',
-      'TypeScript',
-      'GSAP',
-      'Framer Motion',
-      'shadcn/ui',
-      'Tailwind CSS',
-      'Bun Runtime',
+      'Chrome Extension',
+      'JavaScript',
+      'Laravel API',
+      'Lead Capture',
+      'Browser Workflow',
+      'Product Integration',
     ],
-    slug: 'personal-portfolio-nextjs',
+    slug: 'chrome-extension-lead-capture',
     links: [
-      { title: 'Live Site', url: 'https://kelvinperez.com' },
-      { title: 'GitHub', url: 'https://github.com/TheKelvinPerez/portfolio' },
+      {
+        title: 'Install Flow',
+        url: '/projects/chrome-extension-lead-capture#install-flow',
+      },
+      {
+        title: 'Dashboard Case Study',
+        url: '/projects/light-code-labs-dashboard',
+      },
     ],
     fullDescription:
-      '# Problem\n\n' +
-      'As a WordPress & PHP full-stack developer with 8+ years of experience, I faced a challenge: **How do I effectively showcase backend expertise, DevOps capabilities, and business value in a portfolio?**\n\n' +
-      'Most portfolio templates are designed for frontend developers and fail to:\n\n' +
-      '- **Communicate Backend Depth**: Show advanced WordPress architecture, PHP expertise, and database optimization\n' +
-      '- **Demonstrate Business Impact**: Quantify ROI and market value of technical solutions\n' +
-      '- **Tell the Journey**: Connect technical evolution with personal growth story\n' +
-      '- **Prove Full-Stack Range**: Show DevOps, SEO, and infrastructure capabilities beyond just code\n\n' +
-      '**Core Challenge**: Build a portfolio that positions me as an enterprise-level WordPress & PHP specialist while showcasing the full circle journey back to WordPress with modern tools and perspective.\n\n' +
-      '# Action\n\n' +
-      '### Cutting-Edge Tech Stack\n' +
-      'Built with the latest modern web technologies to demonstrate current expertise:\n\n' +
-      '**Core Framework**:\n' +
-      '- **Next.js 15**: Latest App Router with Server Components and Turbopack\n' +
-      '- **React 19**: Newest React features with improved Server Components\n' +
-      '- **TypeScript 5**: End-to-end type safety for maintainable codebase\n' +
-      '- **Bun Runtime**: Ultra-fast JavaScript runtime and package manager\n\n' +
-      '**Animation & UX Excellence**:\n' +
-      '- **GSAP 3.13**: Professional animation library with React integration\n' +
-      '- **Framer Motion 11**: Modern React animation framework\n' +
-      '- **Canvas Confetti**: Celebration animations for interactive elements\n' +
-      '- **Paper Design Shaders**: Advanced visual effects\n\n' +
-      '**Component Architecture**:\n' +
-      '- **shadcn/ui**: Modern, accessible component library built on Radix UI\n' +
-      '- **Tailwind CSS 3.4**: Utility-first CSS framework with custom design system\n' +
-      '- **Lucide React**: Modern icon library\n' +
-      '- **Headless UI**: Unstyled, accessible component primitives\n\n' +
-      '**Performance & Analytics**:\n' +
-      '- **PostHog**: Product analytics for user behavior tracking\n' +
-      '- **Next.js Image**: Optimized image loading with WebP support\n' +
-      '- **Tailwind Animate**: Smooth transitions and animations\n\n' +
-      '### Modern Development Practices\n' +
-      'Implemented industry-standard development workflows:\n\n' +
-      '**Code Quality**:\n' +
-      '- **ESLint 8**: Next.js core web vitals configuration\n' +
-      '- **Prettier**: Consistent code formatting with Tailwind plugin\n' +
-      '- **TypeScript**: Strict mode for maximum type safety\n' +
-      '- **React Hook Form**: Optimized form handling with validation\n\n' +
-      '**Build Optimization**:\n' +
-      '- **Turbopack**: Blazing-fast bundler for development and production\n' +
-      '- **Dynamic Imports**: Code splitting for optimal performance\n' +
-      '- **Server Components**: Reduced client-side JavaScript bundle\n' +
-      '- **Static Generation**: Maximum performance with SSG where appropriate\n\n' +
-      '### Strategic Content Architecture\n' +
-      'Designed content to showcase WordPress & PHP expertise:\n\n' +
-      '**Interactive Developer Timeline**:\n' +
-      '- 8+ year journey from novice to WordPress specialist\n' +
-      '- Visual progression through technologies (PHP, WordPress, Laravel, AI)\n' +
-      '- GSAP animations highlighting key milestones\n' +
-      '- Full circle moment: returning to WordPress with modern perspective\n\n' +
-      '**Comprehensive Case Studies**:\n' +
-      '- **Enterprise WordPress Platform**: 480+ dynamically generated pages, $73K-230K value\n' +
-      '- **Technical Deep Dives**: Custom post types, ACF Pro, PHP 8.3+, Vite, Tailwind v4\n' +
-      '- **DevOps Showcase**: Caddy v2, Docker, PHP-FPM tuning, MySQL optimization\n' +
-      '- **SEO Strategy**: Schema markup, custom sitemaps, $50K-100K annual organic value\n\n' +
-      '**About Me Narrative**:\n' +
-      '- Personal story connecting technical growth with life journey\n' +
-      '- Learn to Code movement origin (2015) to enterprise WordPress solutions (2025)\n' +
-      '- Emphasis on WordPress, PHP, Laravel, and AI integration expertise\n' +
-      "- Full circle moment building Father's HVAC site, rediscovering WordPress potential\n\n" +
-      '# Results\n\n' +
-      '### Professional Positioning Achieved\n' +
-      '- **Clear WordPress Specialist Identity**: Portfolio immediately communicates WordPress & PHP expertise\n' +
-      '- **Business Value Communication**: Quantified project impacts ($73K-230K development value)\n' +
-      '- **Full-Stack Credibility**: Demonstrated backend, frontend, DevOps, and SEO capabilities\n' +
-      '- **Unique Narrative**: Full circle journey differentiates from typical developer portfolios\n\n' +
-      '### Modern Web Development Excellence\n' +
-      '- **Cutting-Edge Stack**: Demonstrates proficiency with latest Next.js 15, React 19, and TypeScript 5\n' +
-      '- **Performance Optimized**: Leverages Server Components, Turbopack, and modern bundling techniques\n' +
-      '- **Type Safety**: Full TypeScript implementation with strict mode for enterprise-grade code\n' +
-      '- **Animation Mastery**: Professional GSAP and Framer Motion implementations\n\n' +
-      '### Enterprise-Ready Architecture\n' +
-      '- **Scalable Structure**: Component-based architecture with reusable, type-safe components\n' +
-      '- **Modern Tooling**: Bun runtime, Turbopack bundler, and latest build optimizations\n' +
-      '- **Accessibility**: Full WCAG compliance with Radix UI and semantic HTML\n' +
-      '- **Analytics Integration**: PostHog for product analytics and user behavior insights\n\n' +
-      '### Developer Experience Excellence\n' +
-      '- **Modern DX**: Hot Module Replacement, strict TypeScript, and comprehensive linting\n' +
-      '- **Component Library**: Consistent design system with shadcn/ui and custom components\n' +
-      '- **Build Performance**: Optimized builds with Turbopack and code splitting\n' +
-      '- **Maintainable Code**: Professional code standards with automated formatting\n\n' +
-      '### Business Value Demonstrated\n' +
-      '- **Technical Leadership**: Shows ability to evaluate and implement cutting-edge technologies\n' +
-      '- **Performance Focus**: Optimized Web Vitals and modern performance techniques\n' +
-      '- **Scalable Solutions**: Architecture designed for growth and maintainability\n' +
-      '- **Full-Stack Perspective**: Backend expertise demonstrated through modern frontend implementation\n\n' +
-      '---\n\n' +
-      "**Key Takeaway**: This portfolio demonstrates mastery of modern web development through the latest Next.js 15, React 19, and TypeScript ecosystem. By combining cutting-edge technology with strategic content, it showcases not just technical skills but the ability to deliver enterprise-grade solutions. The implementation itself serves as proof of expertise - from Turbopack optimization to GSAP animations, every technical choice reflects current best practices and performance-first thinking.",
+      '# Chrome Extension Lead Capture\n\n' +
+      'This extension is part of the Light Code Labs system. It connects the browser research workflow to the Laravel dashboard so lead capture starts from the place where the business data is found.\n\n' +
+      '## What It Does\n\n' +
+      '1. Runs inside the browser while researching businesses on Google Maps.\n\n' +
+      '2. Captures public business data needed to start a lead record.\n\n' +
+      '3. Sends that data into the Laravel dashboard through an authenticated workflow.\n\n' +
+      '4. Lets the dashboard continue with enrichment, generated site demos, chatbot setup, and follow up workflows.\n\n' +
+      '## Install Flow\n\n' +
+      'The extension is distributed through the dashboard and configured with an API key. The important part for this portfolio is the workflow: capture the public business data, send it through an authenticated request, and create a lead record Laravel can continue processing.\n\n' +
+      '## Why It Matters\n\n' +
+      'This shows that the dashboard was not just a static admin panel. It connected a real browser workflow to a backend product flow.',
+  },
+  {
+    title: 'Shopify Ecommerce Systems',
+    description:
+      'Supporting ecommerce work that shows storefront judgment, product data experience, theme level thinking, and comfort working around online store operations.',
+    date: 'Supporting Work',
+    imageUrl: '/projects/aquastack.jpg',
+    tags: [
+      'Shopify',
+      'Liquid',
+      'Theme Development',
+      'Ecommerce',
+      'Product Data',
+      'Conversion UX',
+    ],
+    slug: 'shopify-ecommerce-systems',
+    links: [
+      {
+        title: 'Ecommerce Context',
+        url: '/projects/shopify-ecommerce-systems#case-study-context',
+      },
+    ],
+    fullDescription:
+      '# Shopify Ecommerce Systems\n\n' +
+      'Shopify is not the headline of this portfolio, but it matters because ecommerce has its own constraints: storefront UX, product data, merchandising, checkout paths, app integrations, and operational details that affect revenue.\n\n' +
+      '## What This Shows\n\n' +
+      '1. Comfort working inside ecommerce storefronts and theme systems.\n\n' +
+      '2. Product data and collection structure awareness.\n\n' +
+      '3. UI judgment around conversion paths, merchandising, and checkout support.\n\n' +
+      '4. A broader product mindset beyond internal dashboards.\n\n' +
+      '## Why It Matters\n\n' +
+      'This supports the Laravel story by showing that I understand customer facing workflows, not only admin panels.',
+  },
+  {
+    title: 'WordPress Agency Builds',
+    description:
+      'Selected WordPress and PHP work from the agency chapter, focused on custom themes, ACF Pro, client sites, UI, SEO, and the foundation that led into Laravel.',
+    date: 'Foundation Work',
+    imageUrl: '/projects/wordpress-modern-theme.jpg',
+    tags: [
+      'WordPress',
+      'PHP',
+      'Custom Themes',
+      'ACF Pro',
+      'Client Work',
+      'UI and UX',
+      'SEO',
+    ],
+    slug: 'wordpress-agency-builds',
+    links: [
+      {
+        title: 'WordPress Context',
+        url: '/projects/wordpress-agency-builds#case-study-context',
+      },
+    ],
+    fullDescription:
+      '# WordPress Agency Builds\n\n' +
+      'WordPress is the foundation of my PHP work. This chapter shows the client facing side of the journey: custom themes, ACF Pro, structured content, SEO, performance, and working with real business owners.\n\n' +
+      '## What This Shows\n\n' +
+      '1. PHP and CMS experience before the Laravel focus.\n\n' +
+      '2. Custom theme work, ACF Pro, content models, and client editable websites.\n\n' +
+      '3. UI, SEO, performance, launch work, and support experience.\n\n' +
+      '4. The ability to turn business requirements into maintainable web systems.\n\n' +
+      '## Why It Matters\n\n' +
+      'The portfolio is Laravel first now, but this chapter explains where the PHP foundation came from.',
   },
 ];
-

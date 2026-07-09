@@ -8,7 +8,6 @@ import { usePathname } from 'next/navigation';
 import GithubLogo from '../../../public/images/svg/Github-Logo.svg';
 import LinkedinLogo from '../../../public/images/svg/LinkedIn-Logo.svg';
 import TwitterLogo from '../../../public/images/svg/X-Twitter-Logo.svg';
-import YouTubeLogo from '../../../public/images/svg/Youtube-Logo.svg';
 import clsx from 'clsx';
 import Link from 'next/link';
 import StyledButton from '@/components/ui/styled-button';
@@ -28,7 +27,6 @@ export default function Menu() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Projects', href: '/projects' },
-    // { name: 'FAQ', href: '/#faq' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -198,7 +196,7 @@ export default function Menu() {
                     </Link>
                   ))}
                 </div>
-                {/* Seperator */}
+                {/* Separator */}
                 <div className="flex flex-1 items-center justify-center">
                   <div className="h-[2px] w-[70vw] bg-white/100"></div>
                 </div>

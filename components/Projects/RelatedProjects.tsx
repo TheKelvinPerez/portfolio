@@ -1,7 +1,5 @@
 import { Project } from './projectsData';
 import ProjectCard from './ProjectCard';
-import Link from 'next/link';
-import Image from 'next/image';
 
 interface RelatedProjectsProps {
   currentProject: Project;
@@ -12,21 +10,17 @@ export default function RelatedProjects({
   currentProject,
   allProjects,
 }: RelatedProjectsProps) {
-  // Get 3 related projects based on matching tags
   const relatedProjects = allProjects
     .filter((project) => {
-      // Don't include the current project
       if (project.title === currentProject.title) {
         return false;
       }
 
-      // Count matching tags
       const matchingTags = project.tags.filter((tag) =>
         currentProject.tags.includes(tag),
       );
       return matchingTags.length > 0;
     })
-    // Sort by number of matching tags
     .sort((a, b) => {
       const aMatches = a.tags.filter((tag) =>
         currentProject.tags.includes(tag),

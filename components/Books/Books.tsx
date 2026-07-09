@@ -18,87 +18,60 @@ interface Book {
   genre: string;
 }
 
-const placeholderBooks: Book[] = [
+const books: Book[] = [
   {
     id: '1',
     title: 'Clean Code',
     author: 'Robert C. Martin',
     image: '/images/books/clean-code.jpg',
-    description: 'A handbook of agile software craftsmanship. Uncle Bob teaches the principles of writing clean, readable, and maintainable code. Essential reading for any serious developer who wants to improve their craft and deliver production-ready WordPress solutions.',
+    description: 'A practical reminder that readable code matters when a product grows. I connect this to Laravel service classes, controllers, jobs, policies, and the everyday discipline of leaving code easier to work with.',
     rating: 4.7,
     genre: 'Programming'
   },
   {
     id: '2',
-    title: 'Atomic Habits',
-    author: 'James Clear',
-    image: '/images/books/atomic-habits.jpg',
-    description: 'An easy and proven way to build good habits and break bad ones. Clear reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results. A foundation for consistent high performance.',
-    rating: 4.8,
-    genre: 'Self-Development'
+    title: 'Refactoring',
+    author: 'Martin Fowler',
+    image: '/images/books/refactoring.jpg',
+    description: 'This fits the work I want to keep doing. Take working software, understand the behavior, then improve the structure without breaking the product. That is the mindset I want in Laravel codebases.',
+    rating: 4.6,
+    genre: 'Programming'
   },
   {
     id: '3',
-    title: 'Zero to One',
-    author: 'Peter Thiel',
-    image: '/images/books/zero-to-one.jpg',
-    description: 'Notes on startups, or how to build the future. Thiel shows how to build companies that create new things, from the co-founder of PayPal and first investor in Facebook. A contrarian guide to startup success that shaped my approach to building ViViFi and NFT ventures.',
-    rating: 4.4,
-    genre: 'Entrepreneurship'
-  },
-  {
-    id: '4',
     title: 'Designing Data-Intensive Applications',
     author: 'Martin Kleppmann',
     image: '/images/books/designing-data-intensive.jpg',
-    description: 'The big ideas behind reliable, scalable, and maintainable systems. Essential for understanding modern architectures, distributed systems, and data processing - invaluable for building RAG systems and working with LLMs at scale.',
+    description: 'A systems book that maps directly to product dashboards, data workflows, queues, records, consistency, and long running backend processes. This is the direction I want to grow in.',
     rating: 4.8,
     genre: 'Architecture'
   },
   {
-    id: '5',
+    id: '4',
     title: 'Modern PHP',
     author: 'Josh Lockhart',
     image: '/images/books/modern-php.jpg',
-    description: 'New features and good practices for PHP development. Lockhart covers namespaces, traits, closures, and modern best practices that transformed how I build custom WordPress themes and plugins with PHP 8.3+.',
+    description: 'A PHP foundation book. Laravel is the framework, but the language still matters. Namespaces, traits, closures, standards, and good PHP habits all show up in real application work.',
     rating: 4.5,
     genre: 'Programming'
   },
   {
-    id: '6',
-    title: '$100M Offers',
-    author: 'Alex Hormozi',
-    image: '/images/books/100m-offers.jpg',
-    description: 'How to make offers so good people feel stupid saying no. Hormozi breaks down value creation and positioning that helped me understand what made my Chrome extension hit $20K MRR and NFT projects generate $28M+ in sales.',
-    rating: 4.9,
-    genre: 'Business'
-  },
-  {
-    id: '7',
-    title: 'The Power of Now',
-    author: 'Eckhart Tolle',
-    image: '/images/books/power-of-now.jpg',
-    description: 'A guide to spiritual enlightenment and present-moment awareness. Tolle\'s teachings on mindfulness and consciousness helped me navigate burnout, travel the world mindfully, and maintain balance while building high-performance systems.',
-    rating: 4.6,
-    genre: 'Spirituality'
-  },
-  {
-    id: '8',
+    id: '5',
     title: 'The E-Myth Revisited',
     author: 'Michael Gerber',
     image: '/images/books/e-myth.jpg',
-    description: 'Why most small businesses don\'t work and what to do about it. Gerber\'s insights on systems thinking and working on your business rather than in it transformed how I founded and scaled ViViFi agency to 100% client satisfaction.',
+    description: 'This connects to the agency attempt honestly. Building the product is one part. Distribution, process, support, and operations are another. It helped me separate business systems from software systems.',
     rating: 4.5,
     genre: 'Business'
   },
   {
-    id: '9',
-    title: 'Refactoring',
-    author: 'Martin Fowler',
-    image: '/images/books/refactoring.jpg',
-    description: 'Improving the design of existing code. Fowler\'s systematic approach to code improvement is essential for maintaining WordPress codebases, optimizing performance, and achieving those 100/100 PageSpeed scores.',
-    rating: 4.6,
-    genre: 'Programming'
+    id: '6',
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    image: '/images/books/atomic-habits.jpg',
+    description: 'A simple book about consistency. I keep coming back to it because the best engineering work is not just intensity. It is steady shipping, clearer review, and better habits around the work.',
+    rating: 4.8,
+    genre: 'Process'
   }
 ];
 
@@ -170,13 +143,13 @@ export default function Books() {
     <section id="books" className="relative py-20">
       <div className="container mx-auto px-4">
         <SectionHeading
-          heading="Favorite Books"
-          subheading="Books that have fundamentally shaped my understanding and approach to development, business, and personal growth"
+          heading="Books Behind The Work"
+          subheading="A tighter reading list that connects to Laravel, code quality, systems, and the agency lesson"
           animationId="books"
         />
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" data-gsap="books-grid">
-          {placeholderBooks.map((book, index) => (
+          {books.map((book, index) => (
             <div
               key={book.id}
               data-gsap={`book-card-${index}`}

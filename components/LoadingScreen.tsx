@@ -105,15 +105,15 @@ export default function LoadingScreen({ progress, isComplete, onComplete }: Load
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-800">
         <div
           ref={progressBarRef}
-          className="h-full w-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 origin-bottom"
+          className="h-full w-full origin-bottom bg-gradient-to-r from-purple-500 via-blue-500 to-purple-200"
           style={{ transform: 'scaleY(0)' }}
         />
       </div>
 
       {/* Optional: Loading text */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <p className="text-white/60 text-sm tracking-wider uppercase">
-          Loading Experience...
+        <p className="text-sm text-white/60">
+          Loading portfolio
         </p>
       </div>
     </div>
