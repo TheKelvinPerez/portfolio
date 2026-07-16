@@ -41,7 +41,7 @@ export const projectsData: Project[] = [
       },
       {
         title: 'Demo Access',
-        url: '/projects/light-code-labs-dashboard#demo-access',
+        url: '/dashboard-demo',
       },
       {
         title: 'Generated Sample Site',

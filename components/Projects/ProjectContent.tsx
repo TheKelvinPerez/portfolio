@@ -49,7 +49,7 @@ export default function ProjectContent({
           onClick={() => window.history.back()}
           variant="back"
           size="md"
-          className="group flex items-center gap-2 cursor-pointer"
+          className="group flex cursor-pointer items-center gap-2"
         >
           Back to Projects
         </StyledButton>
@@ -113,7 +113,11 @@ export default function ProjectContent({
                     key={link.url}
                     href={link.url}
                     target={link.url.startsWith('/') ? undefined : '_blank'}
-                    rel={link.url.startsWith('/') ? undefined : 'noopener noreferrer'}
+                    rel={
+                      link.url.startsWith('/')
+                        ? undefined
+                        : 'noopener noreferrer'
+                    }
                     className="flex items-center gap-2 text-purple-100 transition-colors hover:text-white"
                   >
                     <ExternalLink className="h-4 w-4" />
@@ -164,13 +168,19 @@ export default function ProjectContent({
             className="rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-950/70 p-6 shadow-xl shadow-purple-500/10 backdrop-blur-md"
           >
             <KeyRound className="mb-5 h-6 w-6 text-purple-200" />
-            <h2 className="text-xl font-semibold text-white">
-              Demo access
-            </h2>
+            <h2 className="text-xl font-semibold text-white">Demo access</h2>
             <p className="mt-3 text-sm leading-6 text-slate-300">
               Demo access is scoped around a prepared sample lead so the product
               can be reviewed without exposing private client data.
             </p>
+            <StyledButton
+              href="/dashboard-demo"
+              variant="external"
+              size="md"
+              className="mt-5 w-full sm:w-fit"
+            >
+              Open live demo
+            </StyledButton>
           </div>
           <div
             id="generated-site"
@@ -198,10 +208,10 @@ export default function ProjectContent({
             Case Study Context
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">
-            This supporting project exists to show range around the main
-            Laravel story. The dashboard is the headline, while this work shows
-            the PHP, ecommerce, CMS, UI, and business website experience that
-            built the foundation.
+            This supporting project exists to show range around the main Laravel
+            story. The dashboard is the headline, while this work shows the PHP,
+            ecommerce, CMS, UI, and business website experience that built the
+            foundation.
           </p>
         </section>
       )}
@@ -211,9 +221,7 @@ export default function ProjectContent({
           id="install-flow"
           className="mt-12 rounded-2xl border border-purple-500/70 bg-gradient-to-br from-purple-800/40 to-purple-950/70 p-6 shadow-xl shadow-purple-500/10 backdrop-blur-md"
         >
-          <h2 className="text-xl font-semibold text-white">
-            Install Flow
-          </h2>
+          <h2 className="text-xl font-semibold text-white">Install Flow</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">
             The extension is distributed from the dashboard, configured with an
             API key, and used inside the browser while researching public

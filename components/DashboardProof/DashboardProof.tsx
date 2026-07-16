@@ -131,11 +131,11 @@ export default function DashboardProof() {
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <Link
-                href="/projects/light-code-labs-dashboard#walkthrough"
+                href="/dashboard-demo"
                 className="inline-flex h-14 items-center justify-center gap-3 rounded-2xl border border-violet-100/25 bg-white/[0.09] px-6 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition hover:bg-white/[0.14]"
               >
-                <Play className="h-4 w-4" />
-                Watch walkthrough
+                <UserRound className="h-4 w-4" />
+                Open live demo
               </Link>
             </div>
           </div>
