@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "test:dashboard-demo": "tsx --test tests/dashboard-demo.test.ts",
     "scn:add": "bunx --bun shadcn-ui@latest add",
     "ace:add": "bunx --bun aceternity-ui@latest add",
     "clean": "rm -rf node_modules .next && bun i"
