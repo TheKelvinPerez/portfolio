@@ -177,6 +177,7 @@ export default function ProjectContent({
               href="/dashboard-demo"
               variant="external"
               size="md"
+              nativeNavigation
               className="mt-5 w-full sm:w-fit"
             >
               Open live demo
