@@ -12,6 +12,8 @@ Add one permanent portfolio button that opens a fresh, read only Light Code Labs
 4. The portfolio validates the returned URL and redirects the reviewer immediately.
 5. The dashboard starts a read only demo session that lasts about two hours.
 
+The public issuer and signed entry URLs use `app.lightcodelabs.ai`. Caddy keeps the normal production app on the same hostname, then routes only the portfolio demo entry paths and marked demo sessions to the isolated demo runtime and database. No demo subdomain or additional DNS record is required.
+
 ## Dashboard Contract
 
 Request:
@@ -32,7 +34,7 @@ Successful response:
 
 ```json
 {
-  "url": "https://demo.lightcodelabs.ai/demo/enter?...",
+  "url": "https://app.lightcodelabs.ai/demo/enter?...",
   "expires_at": "2026-07-15T20:30:00Z"
 }
 ```
@@ -42,7 +44,7 @@ The dashboard endpoint must rate limit requests, accept only known scenarios and
 Configure the dedicated dashboard demo runtime with:
 
 ```text
-PORTFOLIO_DEMO_URL=https://demo.lightcodelabs.ai
+PORTFOLIO_DEMO_URL=https://app.lightcodelabs.ai
 PORTFOLIO_DEMO_ISSUER_TOKEN_HASH=<sha256 of DASHBOARD_DEMO_TOKEN>
 PORTFOLIO_DEMO_LINK_LIFETIME=60
 ```
@@ -56,7 +58,7 @@ Store these values in server environment variables for the Next.js deployment. D
 ```text
 DASHBOARD_DEMO_ISSUER_URL=
 DASHBOARD_DEMO_TOKEN=
-DASHBOARD_DEMO_ALLOWED_HOST=demo.lightcodelabs.ai
+DASHBOARD_DEMO_ALLOWED_HOST=app.lightcodelabs.ai
 ```
 
 ## Portfolio Server Route
@@ -91,9 +93,9 @@ DASHBOARD_DEMO_ALLOWED_HOST=localhost
 Production must use the HTTPS demo runtime and its production token:
 
 ```text
-DASHBOARD_DEMO_ISSUER_URL=https://demo.lightcodelabs.ai/api/portfolio-demo/link
+DASHBOARD_DEMO_ISSUER_URL=https://app.lightcodelabs.ai/api/portfolio-demo/link
 DASHBOARD_DEMO_TOKEN=<production secret>
-DASHBOARD_DEMO_ALLOWED_HOST=demo.lightcodelabs.ai
+DASHBOARD_DEMO_ALLOWED_HOST=app.lightcodelabs.ai
 ```
 
 ## Button Requirement

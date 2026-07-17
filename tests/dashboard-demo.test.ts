@@ -15,7 +15,7 @@ function buildPayload(
   const expiresInSeconds = nowInSeconds + 60;
 
   return {
-    url: `https://demo.lightcodelabs.ai/demo/enter?expires=${expiresInSeconds}&scenario=sales&persona=admin&signature=${signature}`,
+    url: `https://app.lightcodelabs.ai/demo/enter?expires=${expiresInSeconds}&scenario=sales&persona=admin&signature=${signature}`,
     expires_at: new Date(expiresInSeconds * 1000).toISOString(),
     ...overrides,
   };
@@ -23,15 +23,15 @@ function buildPayload(
 
 test('accepts the configured HTTPS issuer endpoint', () => {
   const issuerUrl = validateDashboardDemoIssuerUrl(
-    'https://demo.lightcodelabs.ai/api/portfolio-demo/link',
+    'https://app.lightcodelabs.ai/api/portfolio-demo/link',
     {
-      allowedHost: 'demo.lightcodelabs.ai',
+      allowedHost: 'app.lightcodelabs.ai',
     },
   );
 
   assert.equal(
     issuerUrl.toString(),
-    'https://demo.lightcodelabs.ai/api/portfolio-demo/link',
+    'https://app.lightcodelabs.ai/api/portfolio-demo/link',
   );
 });
 
@@ -40,7 +40,7 @@ test('rejects an issuer endpoint on an unexpected host', () => {
     validateDashboardDemoIssuerUrl(
       'https://attacker.example/api/portfolio-demo/link',
       {
-        allowedHost: 'demo.lightcodelabs.ai',
+        allowedHost: 'app.lightcodelabs.ai',
       },
     ),
   );
@@ -49,9 +49,9 @@ test('rejects an issuer endpoint on an unexpected host', () => {
 test('rejects an insecure production issuer endpoint', () => {
   assert.throws(() =>
     validateDashboardDemoIssuerUrl(
-      'http://demo.lightcodelabs.ai/api/portfolio-demo/link',
+      'http://app.lightcodelabs.ai/api/portfolio-demo/link',
       {
-        allowedHost: 'demo.lightcodelabs.ai',
+        allowedHost: 'app.lightcodelabs.ai',
       },
     ),
   );
@@ -59,7 +59,7 @@ test('rejects an insecure production issuer endpoint', () => {
 
 test('accepts a valid short lived dashboard entry URL', () => {
   const url = validateDashboardDemoResponse(buildPayload(), {
-    allowedHost: 'demo.lightcodelabs.ai',
+    allowedHost: 'app.lightcodelabs.ai',
     expectedPort: '443',
     nowInSeconds,
   });
@@ -70,14 +70,14 @@ test('accepts a valid short lived dashboard entry URL', () => {
 test('rejects an entry URL on an unexpected host', () => {
   const payload = buildPayload({
     url: buildPayload().url.replace(
-      'demo.lightcodelabs.ai',
+      'app.lightcodelabs.ai',
       'attacker.example',
     ),
   });
 
   assert.throws(() =>
     validateDashboardDemoResponse(payload, {
-      allowedHost: 'demo.lightcodelabs.ai',
+      allowedHost: 'app.lightcodelabs.ai',
       expectedPort: '443',
       nowInSeconds,
     }),
@@ -91,7 +91,7 @@ test('rejects an entry URL with an unexpected path', () => {
 
   assert.throws(() =>
     validateDashboardDemoResponse(payload, {
-      allowedHost: 'demo.lightcodelabs.ai',
+      allowedHost: 'app.lightcodelabs.ai',
       expectedPort: '443',
       nowInSeconds,
     }),
@@ -104,21 +104,21 @@ test('rejects an insecure entry URL and an unexpected HTTPS port', () => {
   });
   const unexpectedPortPayload = buildPayload({
     url: buildPayload().url.replace(
-      'demo.lightcodelabs.ai',
-      'demo.lightcodelabs.ai:8443',
+      'app.lightcodelabs.ai',
+      'app.lightcodelabs.ai:8443',
     ),
   });
 
   assert.throws(() =>
     validateDashboardDemoResponse(insecurePayload, {
-      allowedHost: 'demo.lightcodelabs.ai',
+      allowedHost: 'app.lightcodelabs.ai',
       expectedPort: '443',
       nowInSeconds,
     }),
   );
   assert.throws(() =>
     validateDashboardDemoResponse(unexpectedPortPayload, {
-      allowedHost: 'demo.lightcodelabs.ai',
+      allowedHost: 'app.lightcodelabs.ai',
       expectedPort: '443',
       nowInSeconds,
     }),
@@ -135,14 +135,14 @@ test('rejects duplicate signatures and mismatched expiry values', () => {
 
   assert.throws(() =>
     validateDashboardDemoResponse(duplicateSignaturePayload, {
-      allowedHost: 'demo.lightcodelabs.ai',
+      allowedHost: 'app.lightcodelabs.ai',
       expectedPort: '443',
       nowInSeconds,
     }),
   );
   assert.throws(() =>
     validateDashboardDemoResponse(mismatchedExpiryPayload, {
-      allowedHost: 'demo.lightcodelabs.ai',
+      allowedHost: 'app.lightcodelabs.ai',
       expectedPort: '443',
       nowInSeconds,
     }),
@@ -163,7 +163,7 @@ test('rejects expired and excessive entry lifetimes', () => {
         expires_at: new Date(expired * 1000).toISOString(),
       }),
       {
-        allowedHost: 'demo.lightcodelabs.ai',
+        allowedHost: 'app.lightcodelabs.ai',
         expectedPort: '443',
         nowInSeconds,
       },
@@ -180,7 +180,7 @@ test('rejects expired and excessive entry lifetimes', () => {
         expires_at: new Date(excessive * 1000).toISOString(),
       }),
       {
-        allowedHost: 'demo.lightcodelabs.ai',
+        allowedHost: 'app.lightcodelabs.ai',
         expectedPort: '443',
         nowInSeconds,
       },
@@ -208,9 +208,9 @@ test('keeps the bearer token in the server request and returns the validated URL
   }) as typeof fetch;
 
   const result = await requestDashboardDemoUrl({
-    issuerUrl: 'https://demo.lightcodelabs.ai/api/portfolio-demo/link',
+    issuerUrl: 'https://app.lightcodelabs.ai/api/portfolio-demo/link',
     token: 'server-secret',
-    allowedHost: 'demo.lightcodelabs.ai',
+    allowedHost: 'app.lightcodelabs.ai',
     requestId: 'request-123',
     nowInSeconds,
     fetcher,
@@ -220,7 +220,7 @@ test('keeps the bearer token in the server request and returns the validated URL
   assert.equal(result.url, buildPayload().url);
   assert.equal(
     capturedInput.toString(),
-    'https://demo.lightcodelabs.ai/api/portfolio-demo/link',
+    'https://app.lightcodelabs.ai/api/portfolio-demo/link',
   );
   assert.equal(
     new Headers(capturedInit?.headers).get('Authorization'),
@@ -244,7 +244,7 @@ test('does not call the issuer when configuration is unsafe', async () => {
   const result = await requestDashboardDemoUrl({
     issuerUrl: 'https://attacker.example/api/portfolio-demo/link',
     token: 'server-secret',
-    allowedHost: 'demo.lightcodelabs.ai',
+    allowedHost: 'app.lightcodelabs.ai',
     requestId: 'request-123',
     nowInSeconds,
     fetcher,
@@ -257,9 +257,9 @@ test('does not call the issuer when configuration is unsafe', async () => {
 
 test('returns the upstream status without exposing the response body', async () => {
   const result = await requestDashboardDemoUrl({
-    issuerUrl: 'https://demo.lightcodelabs.ai/api/portfolio-demo/link',
+    issuerUrl: 'https://app.lightcodelabs.ai/api/portfolio-demo/link',
     token: 'server-secret',
-    allowedHost: 'demo.lightcodelabs.ai',
+    allowedHost: 'app.lightcodelabs.ai',
     requestId: 'request-123',
     nowInSeconds,
     fetcher: (async () =>
